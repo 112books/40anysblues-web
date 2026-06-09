@@ -76,7 +76,7 @@ img { max-width: 100%; display: block; }
 /* Fila 1: logo + títol + cerca */
 .header-top {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding: .6rem 0;
+  padding: .4rem 0;
 }
 .site-brand { display: flex; align-items: center; gap: .85rem; color: var(--text); }
 .site-brand:hover { color: var(--accent-light); }
@@ -90,7 +90,7 @@ img { max-width: 100%; display: block; }
 .header-nav {
   display: flex; gap: 2rem; flex-wrap: wrap;
   justify-content: flex-end;
-  padding: .45rem 0;
+  padding: .2rem 0 .35rem;
 }
 .header-nav a {
   color: var(--text2); font-size: 1.3rem;
@@ -170,7 +170,7 @@ img { max-width: 100%; display: block; }
 
 /* === Footer === */
 .site-footer {
-  border-top: 1px solid var(--border);
+  background: rgb(11,22,38);
   padding: 2rem 0;
   margin-top: 4rem;
   color: var(--text2);
@@ -184,9 +184,23 @@ img { max-width: 100%; display: block; }
 }
 .footer-left { align-self: center; }
 .footer-mid { align-self: center; }
+
+/* Nav secundari footer — mateix efecte que header-nav */
 .footer-nav-sec { display: flex; flex-direction: column; gap: .4rem; }
-.footer-nav-sec a { color: var(--text2); font-size: 1.3rem; }
+.footer-nav-sec a {
+  color: var(--text2); font-size: 1.3rem;
+  position: relative; padding-bottom: 3px;
+  transition: color .2s; display: inline-flex; align-items: center; gap: .5rem;
+}
+.footer-nav-sec a::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent-light);
+  transition: width .25s ease;
+}
 .footer-nav-sec a:hover { color: var(--accent-light); }
+.footer-nav-sec a:hover::after { width: 100%; }
+
 .footer-editorial-logo { display: block; margin-bottom: .75rem; }
 .footer-editorial-logo img { width: 72px; height: 72px; object-fit: contain; display: block; }
 .footer-powered { color: var(--text2); font-size: .85rem; }
@@ -197,7 +211,7 @@ img { max-width: 100%; display: block; }
 .footer-copy { color: var(--text2); margin-bottom: .4rem; font-size: .85rem; }
 .footer-copy a { color: var(--text2); }
 .footer-copy a:hover { color: var(--accent-light); }
-.footer-legal { display: flex; gap: 1rem; justify-content: flex-end; }
+.footer-legal { display: flex; gap: 1rem; justify-content: flex-start; }
 .footer-legal a { color: var(--text2); font-size: .8rem; }
 .footer-legal a:hover { color: var(--accent-light); }
 
@@ -623,6 +637,43 @@ h1, h2, h3 { font-weight: 700; }
   border-left: 2px solid var(--accent); padding-left: 1.25rem;
 }
 .section-intro p + p { margin-top: .75rem; }
+
+/* Acordions músics */
+.musics-acordions { margin: 1.5rem 0 2rem; max-width: 720px; }
+.acordio { border-bottom: 1px solid var(--border); }
+.acordio:first-child { border-top: 1px solid var(--border); }
+.acordio-cap {
+  list-style: none; cursor: pointer;
+  padding: .85rem 0;
+  font-family: var(--font-head); font-size: 1.1rem; font-weight: 700;
+  color: var(--accent-light);
+  display: flex; align-items: center; justify-content: space-between;
+  user-select: none;
+  transition: color .2s;
+}
+.acordio-cap::-webkit-details-marker { display: none; }
+.acordio-cap::after {
+  content: '+'; font-size: 1.4rem; font-weight: 300;
+  color: var(--text2); transition: transform .2s, color .2s;
+  flex-shrink: 0;
+}
+.acordio[open] > .acordio-cap { color: var(--text); }
+.acordio[open] > .acordio-cap::after { content: '−'; color: var(--accent-light); }
+.acordio-cos {
+  padding: 0 0 1.25rem;
+  color: var(--text2); font-size: 1rem; line-height: 1.8;
+  animation: acordio-open .2s ease;
+}
+@keyframes acordio-open {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.section-intro p:last-child em:only-child {
+  display: block; margin-top: 1rem;
+  font-size: .8rem; font-style: normal; letter-spacing: .04em;
+  color: var(--accent-light); opacity: .7;
+  border-top: 1px solid var(--border); padding-top: .6rem;
+}
 .section-items {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -824,20 +875,41 @@ h1, h2, h3 { font-weight: 700; }
 .editorial-logo p { color: var(--text2); font-size: .9rem; }
 .editorial-gracies { color: var(--text2); font-size: .9rem; line-height: 1.6; }
 .editorial-gracies-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text2); margin-bottom: .75rem; }
-.gracies-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-.gracies-logos { display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1rem; }
-.gracies-logos a { display: block; }
-.gracies-logos img { height: 52px; width: auto; max-width: 180px; object-fit: contain; filter: brightness(0) invert(1); opacity: .7; transition: opacity .2s; }
+.gracies-section { margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,.04); border-radius: 10px; }
+.gracies-logos { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.gracies-logos a { display: block; transition: opacity .2s; }
+.gracies-logos img { height: 48px; width: auto; max-width: 160px; object-fit: contain; opacity: .75; transition: opacity .2s; }
 .gracies-logos a:hover img { opacity: 1; }
 
 .editorial-cita-wrap { display: flex; align-items: center; }
 .projecte-cita {
-  border-left: 3px solid var(--accent);
-  padding: .75rem 1.25rem;
-  margin: 0; color: var(--text2);
-  font-family: var(--font-head); font-style: italic; font-size: 1.05rem; line-height: 1.7;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
-.cita-autor { font-size: .85rem; font-style: normal; color: var(--text2); margin-top: .5rem; }
+.cita-en {
+  font-family: 'Caveat', cursive;
+  font-size: 1.9rem;
+  font-weight: 600;
+  font-style: normal;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: .4rem;
+}
+.cita-ca {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  font-style: normal;
+  color: var(--accent-light);
+  line-height: 1.35;
+  margin-bottom: .75rem;
+}
+.cita-autor {
+  font-size: .85rem;
+  font-style: italic;
+  color: var(--text2);
+  display: block;
+}
 
 /* === Taxonomy (instrument / banda) === */
 .taxonomy-section { padding: 3rem 0; }
@@ -970,7 +1042,7 @@ h1, h2, h3 { font-weight: 700; }
 }
 .sala-card:hover { border-color: var(--accent); }
 .sala-imatge {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: var(--bg3);
   display: flex;
@@ -1159,4 +1231,35 @@ h1, h2, h3 { font-weight: 700; }
 }
 @media (max-width: 400px) {
   .musics-grid { grid-template-columns: 1fr; }
+}
+
+/* === Scroll progress bar === */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; z-index: 9500;
+  height: 3px; width: 0%;
+  background: var(--accent-light);
+  transition: width .1s linear;
+  pointer-events: none;
+}
+
+/* === Back to top button === */
+#back-to-top {
+  position: fixed; bottom: 5rem; right: 1.5rem; z-index: 7000;
+  width: 40px; height: 40px;
+  background: rgba(11,22,38,.85);
+  border: 1px solid rgba(74,159,212,.35);
+  border-radius: 50%;
+  color: var(--accent-light);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  opacity: 0; visibility: hidden;
+  transition: opacity .25s, visibility .25s, transform .2s, background .2s;
+  transform: translateY(8px);
+}
+#back-to-top.visible {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+#back-to-top:hover {
+  background: rgba(26,111,181,.75);
+  transform: translateY(-2px);
 }

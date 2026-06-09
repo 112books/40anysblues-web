@@ -1,5 +1,5 @@
 ---
-title: "Els Temples del Blues"
+title: "Els Temples del blues"
 
 ---
 

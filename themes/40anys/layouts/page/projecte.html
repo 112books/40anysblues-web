@@ -140,7 +140,7 @@
         </section>
         {{ end }}
 
-        <!-- Logotip editorial + cita -->
+        <!-- Logotip editorial + cita Willie Dixon -->
         <div class="editorial-peu">
           <div class="editorial-logo">
             <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
@@ -148,7 +148,8 @@
           </div>
           <div class="editorial-cita-wrap">
             <blockquote class="projecte-cita">
-              <p>«El blues són les arrels; tota la resta són els fruits.»</p>
+              <p class="cita-en">"The blues are the roots; everything else is the fruits."</p>
+              <p class="cita-ca">«El blues són les arrels; tota la resta són els fruits.»</p>
               <footer class="cita-autor">— Willie Dixon</footer>
             </blockquote>
           </div>
@@ -158,27 +159,24 @@
         <div class="gracies-section">
           <p class="editorial-gracies-label">Projecte materialitzat gràcies a:</p>
           <div class="gracies-logos">
-            {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
-            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
-            {{ if $img }}
-            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+            <a href="http://112books.eu" target="_blank" rel="noopener" title="Editorial 112 Books">
+              <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
             </a>
-            {{ end }}
+            {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img src="/logotips/capibola-logo.jpg" alt="{{ .Title }}">
+            </a>
             {{ end }}
             {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
-            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
-            {{ if $img }}
             <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+              <img src="/logotips/sbb-logo.jpg" alt="{{ .Title }}">
             </a>
             {{ end }}
-            {{ end }}
-            <a href="https://llumatics.com" target="_blank" rel="noopener" title="Llumàtics">
-              <img src="https://llumatics.com/images/llumatics-logo.svg" alt="Llumàtics">
-            </a>
             <a href="https://pocallum.cat" target="_blank" rel="noopener" title="Pocallum">
               <img src="/logotips/pocallum-logo.png" alt="Pocallum">
+            </a>
+            <a href="https://llumatics.com" target="_blank" rel="noopener" title="Llumàtics">
+              <img src="https://llumatics.com/images/llumatics-logo.svg" alt="Llumàtics">
             </a>
           </div>
         </div>

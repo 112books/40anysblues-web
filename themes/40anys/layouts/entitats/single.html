@@ -8,7 +8,13 @@
     <div class="entitat-layout{{ if not $teImatge }} entitat-layout--sense-logo{{ end }}">
       {{ if $teImatge }}
       <div class="entitat-logo-col">
-        {{ if $foto }}<img src="{{ $foto.RelPermalink }}" alt="{{ .Title }}" class="entitat-foto">{{ end }}
+        {{ if $foto }}
+        <button class="musico-foto-btn" aria-label="Ampliar fotografia" data-src="{{ $foto.RelPermalink }}" data-alt="{{ .Title }}">
+          <img src="{{ $foto.RelPermalink }}" alt="{{ .Title }}" class="entitat-foto"
+               oncontextmenu="return false" ondragstart="return false">
+          <span class="musico-foto-zoom">&#x26F6;</span>
+        </button>
+        {{ end }}
         {{ if $logo }}<img src="{{ $logo.RelPermalink }}" alt="{{ .Title }} — logo" class="entitat-logo">{{ end }}
       </div>
       {{ end }}
@@ -26,4 +32,39 @@
     </div>
   </div>
 </article>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Fotografia ampliada">
+  <button class="lightbox-tanca" aria-label="Tancar">&#x2715;</button>
+  <div class="lightbox-contingut">
+    <img id="lightbox-img" src="" alt="" oncontextmenu="return false" ondragstart="return false">
+  </div>
+</div>
+
+<script>
+(function(){
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var btn = document.querySelector('.musico-foto-btn');
+  if (!lb || !btn) return;
+
+  btn.addEventListener('click', function() {
+    lbImg.src = btn.dataset.src;
+    lbImg.alt = btn.dataset.alt;
+    lb.classList.add('actiu');
+    document.body.style.overflow = 'hidden';
+  });
+
+  function tanca() {
+    lb.classList.remove('actiu');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelector('.lightbox-tanca').addEventListener('click', tanca);
+  lb.addEventListener('click', function(e) { if (e.target === lb) tanca(); });
+  document.addEventListener('keydown', function(e) {
+    if (lb.classList.contains('actiu') && e.key === 'Escape') tanca();
+  });
+})();
+</script>
 {{ end }}

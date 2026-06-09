@@ -7,7 +7,7 @@
     </div>
 
     <div class="sales-grid">
-      {{ range sort .Pages "Params.ordre" }}
+      {{ range sort .Pages "Title" }}
       {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") (.Resources.GetMatch "*.svg") }}
       <a href="{{ .RelPermalink }}" class="sala-card">
         <div class="sala-imatge">
