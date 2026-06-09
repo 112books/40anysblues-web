@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="autor-page">
+  <div class="container">
+    {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+    <div class="autor-layout{{ if not $img }} autor-layout--sense-foto{{ end }}">
+      <div class="autor-foto-col">
+        {{ if $img }}
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto-gran">
+        {{ end }}
+      </div>
+      <div class="autor-info-col">
+        <p class="autor-rol-page">{{ .Params.rol }}</p>
+        <h1 class="autor-nom">{{ .Title }}</h1>
+        {{ with .Params.web }}
+        <p class="autor-web"><a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>
+        {{ end }}
+        {{ with .Content }}
+        <div class="autor-bio-text">{{ . }}</div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}

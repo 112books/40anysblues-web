@@ -6,7 +6,7 @@
     <div class="autors-grid">
       {{ range sort .Pages "Params.ordre" }}
       {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
-      <div class="autor-card">
+      <a href="{{ .RelPermalink }}" class="autor-card">
         {{ if $img }}
         <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
         {{ else }}
@@ -15,7 +15,7 @@
         <h3>{{ .Title }}</h3>
         {{ with .Params.rol }}<p class="autor-rol">{{ . }}</p>{{ end }}
         {{ with .Content }}<div class="autor-bio">{{ . }}</div>{{ end }}
-      </div>
+      </a>
       {{ end }}
     </div>
   </div>

@@ -29,20 +29,33 @@
 <section class="home-random">
   <div class="container">
     <div class="random-grid">
-      {{ with $randomMusic }}
-      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
-      <div class="random-card random-card--music">
-        {{ if $img }}
-        <div class="random-foto">
-          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+      <div class="random-card random-card--music" id="random-music-card">
+        <div class="random-foto" id="random-foto" style="display:none">
+          <img id="random-img" src="" alt="">
         </div>
-        {{ end }}
         <span class="random-label">Músic destacat</span>
-        <h3 class="random-name"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        {{ with .Params.instruments }}<p class="random-meta">{{ delimit . " · " }}</p>{{ end }}
-        {{ with .Params.born_city }}<p class="random-city">{{ . }}{{ with $.Params.born_year }}, {{ . }}{{ end }}</p>{{ end }}
+        <h3 class="random-name"><a id="random-link" href="#">—</a></h3>
+        <p class="random-meta" id="random-meta"></p>
+        <p class="random-city" id="random-city"></p>
       </div>
-      {{ end }}
+      {{/* Embed músics data for JS random pick */}}
+      <script>
+      window.__musics__ = [{{ range $musics }}{{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}{"url":"{{ .RelPermalink }}","title":{{ .Title | jsonify }},"img":{{ if $img }}{{ $img.RelPermalink | jsonify }}{{ else }}""{{ end }},"instruments":{{ .Params.instruments | jsonify }},"city":{{ .Params.born_city | jsonify }}},{{ end }}];
+      (function(){
+        var list = (window.__musics__ || []).filter(function(m){ return m.img; });
+        if (!list.length) return;
+        var m = list[Math.floor(Math.random() * list.length)];
+        document.getElementById('random-link').href = m.url;
+        document.getElementById('random-link').textContent = m.title;
+        if (m.img) {
+          document.getElementById('random-img').src = m.img;
+          document.getElementById('random-img').alt = m.title;
+          document.getElementById('random-foto').style.display = '';
+        }
+        document.getElementById('random-meta').textContent = m.instruments ? m.instruments.join(' · ') : '';
+        document.getElementById('random-city').textContent = m.city || '';
+      })();
+      </script>
       <div class="random-card random-card--llibres">
         <span class="random-label">Els Llibres</span>
         <div class="random-llibres-stack">
@@ -109,16 +122,52 @@
 <section class="home-numeros">
   <div class="container">
     <h2 class="section-title">El Projecte en Números</h2>
-    <div class="stats-grid">
-      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_musics }}</span><span class="stat-label">músics retratats</span></div>
-      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_fotos }}</span><span class="stat-label">fotografies</span></div>
-      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.anys_escena }}</span><span class="stat-label">anys d'escena</span></div>
-      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_instruments }}</span><span class="stat-label">instruments</span></div>
-      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_formacions }}</span><span class="stat-label">formacions documentades</span></div>
-      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_ciutats }}</span><span class="stat-label">ciutats d'origen</span></div>
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_musics }}">0</span><span class="stat-label">músics retratats</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_fotos }}">0</span><span class="stat-label">fotografies</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.anys_escena }}">0</span><span class="stat-label">anys d'escena</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_instruments }}">0</span><span class="stat-label">instruments</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_formacions }}">0</span><span class="stat-label">formacions documentades</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_ciutats }}">0</span><span class="stat-label">ciutats d'origen</span></div>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var grid = document.getElementById('stats-grid');
+  if (!grid) return;
+  var nums = Array.from(grid.querySelectorAll('.stat-num[data-target]'));
+  var animat = false;
+
+  function anima() {
+    if (animat) return;
+    animat = true;
+    nums.forEach(function(el) {
+      var target = parseInt(el.dataset.target, 10) || 0;
+      var duration = 1400;
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(ease * target);
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries, obs) {
+      if (entries[0].isIntersecting) { anima(); obs.disconnect(); }
+    }, { threshold: 0.3 }).observe(grid);
+  } else {
+    anima();
+  }
+})();
+</script>
 
 <section class="home-gracies">
   <div class="container">

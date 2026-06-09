@@ -1,40 +1,88 @@
 {{ define "main" }}
 <article class="musico-page">
   <div class="container">
-    <div class="musico-header">
-      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
-      {{ if $img }}
-      <div class="musico-foto-wrap">
-        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="musico-foto">
+    {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+    <div class="musico-layout{{ if not $img }} musico-layout--sense-foto{{ end }}">
+      <div class="musico-foto-col">
+        {{ if $img }}
+        <button class="musico-foto-btn" aria-label="Ampliar fotografia" data-src="{{ $img.RelPermalink }}" data-alt="{{ .Title }}">
+          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="musico-foto"
+               oncontextmenu="return false" ondragstart="return false">
+          <span class="musico-foto-zoom">&#x26F6;</span>
+        </button>
+        {{ end }}
       </div>
-      {{ end }}
-      <div class="musico-header-text">
-      <h1 class="musico-nom">{{ .Title }}</h1>
-      {{ if and .Params.nom_complet (ne .Params.nom_complet .Title) }}
-      <p class="musico-nom-complet">{{ .Params.nom_complet }}</p>
-      {{ end }}
-      <p class="musico-dades">
-        {{ with .Params.born_city }}<a href="{{ relLangURL "/musics/" }}?cerca={{ . | urlize }}">{{ . }}</a>{{ end }}{{ with .Params.born_year }}, <a href="{{ relLangURL "/musics/" }}?any={{ . }}">{{ . }}</a>{{ end }}{{ with .Params.death_year }} – {{ . }} <span class="musico-rip">†</span>{{ end }}
-      </p>
-      {{ with .Params.instruments }}
-      <p class="musico-instruments">
-        {{ range $i, $inst := . }}{{ if $i }} · {{ end }}<a href="{{ relLangURL "/instruments/" }}{{ $inst | urlize }}/">{{ $inst }}</a>{{ end }}
-      </p>
-      {{ end }}
-      {{ with .Params.bands }}
-      <p class="musico-bandes">
-        {{ range $i, $band := . }}{{ if $i }} · {{ end }}<a href="{{ relLangURL "/bands/" }}{{ $band | urlize }}/">{{ $band }}</a>{{ end }}
-      </p>
-      {{ end }}
+      <div class="musico-info-col">
+        <h1 class="musico-nom">{{ .Title }}</h1>
+        {{ if and .Params.nom_complet (ne .Params.nom_complet .Title) }}
+        <p class="musico-nom-complet">{{ .Params.nom_complet }}</p>
+        {{ end }}
+        <p class="musico-dades">
+          {{ with .Params.born_city }}<a href="{{ relLangURL "/musics/" }}?cerca={{ . | urlize }}">{{ . }}</a>{{ end }}{{ with .Params.born_year }}, <a href="{{ relLangURL "/musics/" }}?any={{ . }}">{{ . }}</a>{{ end }}{{ with .Params.death_year }} – {{ . }} <span class="musico-rip">†</span>{{ end }}
+        </p>
+        {{ with .GetTerms "instruments" }}
+        <p class="musico-instruments">
+          {{ range $i, $term := . }}{{ if $i }} · {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}
+        </p>
+        {{ end }}
+        {{ with .GetTerms "bands" }}
+        <p class="musico-bandes">
+          {{ range $i, $term := . }}{{ if $i }} · {{ end }}<a href="{{ $term.RelPermalink }}">{{ $term.LinkTitle }}</a>{{ end }}
+        </p>
+        {{ end }}
+        {{ with .Content }}
+        <div class="musico-bio">{{ . }}</div>
+        {{ end }}
       </div>
     </div>
-    {{ with .Content }}
-    <div class="musico-bio">{{ . }}</div>
-    {{ end }}
     <div class="musico-nav">
-      {{ with .PrevInSection }}<a href="{{ .RelPermalink }}" class="nav-prev">← {{ .Title }}</a>{{ end }}
-      {{ with .NextInSection }}<a href="{{ .RelPermalink }}" class="nav-next">{{ .Title }} →</a>{{ end }}
+      {{ with .PrevInSection }}<a href="{{ .RelPermalink }}" class="nav-prev" data-href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+      {{ with .NextInSection }}<a href="{{ .RelPermalink }}" class="nav-next" data-href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
     </div>
   </div>
 </article>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Fotografia ampliada">
+  <button class="lightbox-tanca" aria-label="Tancar">&#x2715;</button>
+  <div class="lightbox-contingut">
+    <img id="lightbox-img" src="" alt="" oncontextmenu="return false" ondragstart="return false">
+  </div>
+</div>
+
+<script>
+(function(){
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.musico-foto-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      lbImg.src = btn.dataset.src;
+      lbImg.alt = btn.dataset.alt;
+      lb.classList.add('actiu');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function tanca() {
+    lb.classList.remove('actiu');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  document.querySelector('.lightbox-tanca').addEventListener('click', tanca);
+  lb.addEventListener('click', function(e) { if (e.target === lb) tanca(); });
+
+  // Navegació per fletxes
+  var prevLink = document.querySelector('.nav-prev');
+  var nextLink = document.querySelector('.nav-next');
+  document.addEventListener('keydown', function(e) {
+    if (lb.classList.contains('actiu')) {
+      if (e.key === 'Escape') tanca();
+      return;
+    }
+    if (e.key === 'ArrowLeft' && prevLink) window.location.href = prevLink.href;
+    if (e.key === 'ArrowRight' && nextLink) window.location.href = nextLink.href;
+  });
+})();
+</script>
 {{ end }}
