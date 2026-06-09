@@ -10,7 +10,7 @@ bands:
 - Dani Nel·lo y la banda del Zoco
 - Vertigo
 - Los Mambo Jambo
-- Koko Jean & the Tonics
+- Koko Jean & The Tonics
 - Dani Baraldés & The XXX Band
 ordre: 60
 draft: false

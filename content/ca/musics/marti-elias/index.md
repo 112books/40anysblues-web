@@ -10,7 +10,7 @@ bands:
 - Ivanow Jazz Roup
 - Krokodilos
 - Down Home
-- Chino and The Big Bet
+- Chino & The Big Bet
 - Bernat Font Trio
 - Barcelona Big Blues Band
 - Barcelona Jazz Orquestra

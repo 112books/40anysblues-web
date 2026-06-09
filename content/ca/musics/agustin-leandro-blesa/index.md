@@ -12,7 +12,7 @@ bands:
 - Empty Pockets
 - Ramon and the Go Go Dancer
 - Barrio Viejo
-- Las Balas  Perdidas
+- Las Balas Perdidas
 ordre: 134
 draft: false
 session_date: 11/07/2023

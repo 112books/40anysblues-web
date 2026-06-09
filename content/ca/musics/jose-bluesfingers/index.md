@@ -7,7 +7,7 @@ born_city: Barcelona
 instruments:
 - Guitarra
 bands:
-- Harmónica Zumel Blues Band
+- Harmònica Zúmel Blues Band
 - Fas Tard
 - La Incombustible
 - Txus Blues & Jose Bluefingers

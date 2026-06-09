@@ -9,7 +9,7 @@ instruments:
 - Guitarra
 bands:
 - La Locomotora Negra
-- SwingSet
+- Swingset
 - Marc Ferrer Trio
 - Black Pearl
 - Marian Barahona Blues Reunion

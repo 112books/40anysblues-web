@@ -9,7 +9,7 @@ instruments:
 bands:
 - The Sparkles
 - Ster and The Waxer
-- Wax and Boogie
+- Wax & Boogie
 ordre: 71
 draft: false
 session_date: 28/12/2020

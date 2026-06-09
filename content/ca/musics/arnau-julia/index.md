@@ -9,8 +9,8 @@ instruments:
 bands:
 - The Sick Boys
 - Barcelona Big Blues Band
-- Lluis Coloma Trio
-- Balta Bordoy and The Bad Boys
+- Lluís Coloma Trio
+- Balta Bordoy & The Bad Boys
 - Scaramanga
 - Martin Burguez Rhythm Combo
 ordre: 107

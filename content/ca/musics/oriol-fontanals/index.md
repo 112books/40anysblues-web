@@ -11,7 +11,7 @@ bands:
 - Wax & Boogie
 - La Testapazza
 - Los Boozan Dukes
-- Víctor Puertas & The Mellow Tones
+- Victor Puertas & The Mellow Tones
 - David Giorcelli Trio
 - Jinx Jazz Band
 - Poyo Moya Trio

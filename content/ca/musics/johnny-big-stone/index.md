@@ -11,7 +11,7 @@ bands:
 - Johnny Pérez Trio
 - Cotton Roots
 - Johnny BigStone & the Blues Workers
-- Sweet Marta & the Blues Shakers
+- Sweet Marta & The Blues Shakers
 - Víctor Puertas & the Mellowtones
 ordre: 46
 draft: false

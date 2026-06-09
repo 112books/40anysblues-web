@@ -14,7 +14,7 @@ bands:
 - The Big Easy’s Crew
 - Nación Funk - Soul Party
 - Big Yuyu & Hot Nite Band
-- Chino and The Big Bet
+- Chino & The Big Bet
 - Emma Fernández
 - Atomic Swing Five
 - Martin Burguez Sextet

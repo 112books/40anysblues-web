@@ -10,7 +10,7 @@ bands:
 - Original Jazz Orquestra
 - Barcelona Big Blues Band
 - A4 Arkestra
-- Chino & the Big Bet
+- Chino & The Big Bet
 ordre: 105
 draft: false
 session_date: 23/09/2021
