@@ -1,0 +1,125 @@
+{{ define "main" }}
+<article class="content-page butlleti-page">
+  <div class="container">
+    <div class="form-page-header">
+      <h1>Butlletí</h1>
+      <p class="form-page-sub">Rep notícies del projecte, nous músics i novetats del blues a Barcelona.</p>
+    </div>
+
+    <div class="butlleti-grid">
+      <!-- Formulari subscripció general -->
+      <div class="butlleti-card">
+        <h2>Subscriu-te al butlletí</h2>
+        <p>Novetats del projecte, concerts, publicacions i activitats relacionades amb el blues barceloní.</p>
+
+        <form id="butlleti-form"
+              action="https://formspree.io/f/FORM_ID_AQUI"
+              method="POST"
+              class="blues-form blues-form--compact">
+
+          <div class="form-group">
+            <label for="bf-nom">Nom</label>
+            <input type="text" id="bf-nom" name="nom" required autocomplete="name" placeholder="El teu nom">
+          </div>
+          <div class="form-group">
+            <label for="bf-email">Correu electrònic</label>
+            <input type="email" id="bf-email" name="email" required autocomplete="email" placeholder="tu@exemple.com">
+          </div>
+
+          <input type="text" name="_gotcha" style="display:none">
+          <input type="hidden" name="_subject" value="Nova subscripció butlletí 40 Anys de Blues">
+          <input type="hidden" name="tipus" value="butlleti-general">
+
+          <button type="submit" class="btn-blues">Subscriure'm</button>
+        </form>
+
+        <div id="butlleti-ok" class="form-success" hidden>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <h2>Subscripció confirmada!</h2>
+          <p>Gràcies! Et notificarem les novetats.</p>
+        </div>
+      </div>
+
+      <!-- Músic al llibre -->
+      <div class="butlleti-card butlleti-card--musics">
+        <h2>Sóc músic al llibre</h2>
+        <p>Si aparèixes al projecte <em>Preses Falses</em>, pots registrar-te per verificar les teves dades i rebre anuncis exclusius abans que ningú.</p>
+
+        <form id="musics-form"
+              action="https://formspree.io/f/FORM_ID_AQUI"
+              method="POST"
+              class="blues-form blues-form--compact">
+
+          <div class="form-group">
+            <label for="mf-nom">Nom artístic</label>
+            <input type="text" id="mf-nom" name="nom_artistic" required placeholder="Com apareixes al llibre">
+          </div>
+          <div class="form-group">
+            <label for="mf-nom-real">Nom real</label>
+            <input type="text" id="mf-nom-real" name="nom_real" placeholder="Opcional">
+          </div>
+          <div class="form-group">
+            <label for="mf-email">Correu electrònic</label>
+            <input type="email" id="mf-email" name="email" required placeholder="tu@exemple.com">
+          </div>
+          <div class="form-group">
+            <label for="mf-nota">Nota (opcional)</label>
+            <textarea id="mf-nota" name="nota" rows="3" placeholder="Si vols corregir alguna dada o afegir informació..."></textarea>
+          </div>
+
+          <input type="text" name="_gotcha" style="display:none">
+          <input type="hidden" name="_subject" value="Músic al llibre — verificació dades">
+          <input type="hidden" name="tipus" value="musics-verificacio">
+
+          <button type="submit" class="btn-blues">Enviar</button>
+        </form>
+
+        <div id="musics-ok" class="form-success" hidden>
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+          <h2>Rebut!</h2>
+          <p>Et contactarem per confirmar les teves dades.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="form-privacitat">Les dades recollides s'utilitzen únicament per gestionar les comunicacions d'aquest projecte i no es comparteixen amb tercers. Pots cancel·lar la subscripció en qualsevol moment. <a href="{{ relLangURL "/legal/privacitat/" }}">Política de privacitat</a>.</p>
+  </div>
+</article>
+
+<script>
+(function() {
+  function wireForm(formId, okId) {
+    var form = document.getElementById(formId);
+    var ok = document.getElementById(okId);
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Enviant...';
+      fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      }).then(function(r) {
+        if (r.ok) {
+          form.hidden = true;
+          ok.hidden = false;
+        } else {
+          btn.disabled = false;
+          btn.textContent = btn.getAttribute('data-label') || 'Enviar';
+          alert('Error en enviar. Prova de nou o escriu a hola@112books.eu');
+        }
+      }).catch(function() {
+        btn.disabled = false;
+        btn.textContent = btn.getAttribute('data-label') || 'Enviar';
+        alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
+      });
+    });
+  }
+  wireForm('butlleti-form', 'butlleti-ok');
+  wireForm('musics-form', 'musics-ok');
+})();
+</script>
+{{ end }}

@@ -1,0 +1,4 @@
+---
+title: "Gràcies!"
+layout: gracies
+---

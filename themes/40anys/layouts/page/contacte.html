@@ -1,0 +1,96 @@
+{{ define "main" }}
+<article class="content-page contacte-page">
+  <div class="container">
+    <div class="form-page-header">
+      <h1>Contacte</h1>
+      <p class="form-page-sub">Envia'ns un missatge. Et respondrem per correu electrònic.</p>
+    </div>
+
+    <div class="form-wrap">
+      <form id="contacte-form"
+            action="https://formspree.io/f/FORM_ID_AQUI"
+            method="POST"
+            class="blues-form">
+
+        <div class="form-group">
+          <label for="cf-nom">Nom</label>
+          <input type="text" id="cf-nom" name="nom" required autocomplete="name" placeholder="El teu nom">
+        </div>
+
+        <div class="form-group">
+          <label for="cf-email">Correu electrònic</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="tu@exemple.com">
+        </div>
+
+        <div class="form-group">
+          <label for="cf-assumpte">Assumpte</label>
+          <select id="cf-assumpte" name="assumpte">
+            <option value="">Selecciona...</option>
+            <option value="informació">Informació general</option>
+            <option value="músic">Sóc músic al llibre</option>
+            <option value="premsa">Premsa / mitjans</option>
+            <option value="col·laboració">Col·laboració</option>
+            <option value="altre">Altre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="cf-missatge">Missatge</label>
+          <textarea id="cf-missatge" name="missatge" required rows="6" placeholder="Escriu el teu missatge..."></textarea>
+        </div>
+
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="Contacte 40 Anys de Blues">
+        <input type="hidden" name="_next" value="{{ absLangURL "/contacte/gracies/" }}">
+
+        <button type="submit" class="btn-blues">Enviar missatge</button>
+      </form>
+
+      <div id="contacte-ok" class="form-success" hidden>
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+        <h2>Missatge enviat!</h2>
+        <p>Gràcies per contactar. Et respondrem aviat a <span id="cf-email-confirm"></span>.</p>
+      </div>
+    </div>
+
+    <div class="contacte-alt">
+      <p>O escriu-nos directament a <a href="mailto:hola@112books.eu">hola@112books.eu</a></p>
+    </div>
+  </div>
+</article>
+
+<script>
+(function() {
+  var form = document.getElementById('contacte-form');
+  var ok = document.getElementById('contacte-ok');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    btn.textContent = 'Enviant...';
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function(r) {
+      if (r.ok) {
+        var emailEl = document.getElementById('cf-email-confirm');
+        if (emailEl) emailEl.textContent = data.get('email');
+        form.hidden = true;
+        ok.hidden = false;
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Enviar missatge';
+        alert('Error en enviar. Prova de nou o escriu a hola@112books.eu');
+      }
+    }).catch(function() {
+      btn.disabled = false;
+      btn.textContent = 'Enviar missatge';
+      alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
+    });
+  });
+})();
+</script>
+{{ end }}
