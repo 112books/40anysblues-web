@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Txell Sust · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Txell Sust</h1>
+      
+      <p class="musico-dades">
+        Mataró
+        , 1971
+      </p>
+      
+      <p class="musico-instruments">Veu</p>
+      
+      
+      <p class="musico-bandes">Txell Sust &amp; August Tharrats Blues Trio · La Vella Dixieland</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Quan naixien els anys noranta, entre el soroll mediàtic de l’adveniment de l’Olimpíada de Barcelona, una jove de veu sensual i elegant intentava fer-se un forat en el panorama del jazz i el blues de la ciutat. Ho va aconseguir plenament el 1993, en conèixer el pianista August Tharrats, amb el qual segueix treballant des d’aleshores. La música d’arrel afroamericana s’havia apoderat del seu cor a través del cinema i als vint-i-dos anys ja s’havia convertit en cantant professional. Referent absoluta del jazz comtal, ha format part íntima i fonamental d’escena bluesera, col·laborant amb noms fundacionals com Amadeu Casas o els Blues Messengers. Compositora i productora amb dos discos al seu nom, el seu registre vocal i el coneixement profund de la música li han permès recórrer una àmplia gama de gèneres, del pop del seu primer grup, Dressed in Blue i les col·laboracions amb La Unión, Amaya Montero o Los Sencillos, als musicals i les col·laboracions en publicitat, ràdio i televisió. El bues, segons les seves paraules és: «Una escola. Estructures clares on dibuixar melodies i històries que arriben al cor. Un estil de vida».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/txus-blues/" class="nav-prev">← Txus Blues</a>
+      <a href="/ca/musics/tota-blues/" class="nav-next">Tota Blues →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,43 @@
+baseURL = 'https://40anysblues.112books.eu/'
+title = '40 Anys de Blues a Barcelona'
+theme = '40anys'
+defaultContentLanguage = 'ca'
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.ca]
+    languageName = 'Català'
+    languageCode = 'ca'
+    weight = 1
+    title = '40 Anys de Blues a Barcelona'
+    contentDir = 'content/ca'
+    [languages.ca.params]
+      description = "Arxiu fotogràfic i biogràfic de l'escena del blues barcelonina"
+  [languages.es]
+    languageName = 'Castellano'
+    languageCode = 'es'
+    weight = 2
+    disabled = true
+  [languages.en]
+    languageName = 'English'
+    languageCode = 'en'
+    weight = 3
+    disabled = true
+
+[taxonomies]
+  instrument = 'instruments'
+  banda = 'bands'
+
+[params]
+  author = 'Joan Linux'
+  goatcounter = ''
+  password_protected = true
+  site_password = 'LinuxBCN2026'
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

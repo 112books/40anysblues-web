@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pepino Pascual · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Pepino Pascual</h1>
+      
+      <p class="musico-dades">
+        La Palma de Cervelló
+        , 1960
+      </p>
+      
+      <p class="musico-instruments">Clarinet · Guitarra · Percussió</p>
+      
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>El primer instrument que va tocar va ser una guitarra amb la qual va fer sonar els primers temes de rock, folk «i totes les músiques de la “revolució”» que estaven impregnades de blues, segons la seva pròpia definició. Però va ser el clarinet, un instrument que va comprar amb disset anys, el que el va portar per primer cop als escenaris i a la música com a professional. Amb divuit anys ja vivia de la música, tocant una mica de tot, de rock a salsa, passant per música tradicional, blues, clàssica o jazz. Va passar quinze anys amb La Vella Dixieland, i la seva ha estat una presència habitual a les seccions de vents d’artistes com Lluís Coloma i «una pila de grups de vides més o menys curtes però sempre intenses». A més de la connexió directa amb el públic i la interacció amb músics amics, és mostra seduït pels ingredients essencials del blues: «L’energia, el lament, la llibertat, el record d’haver descobert part de la vida amb aquest rerefons sonor, les moltes branques diferents i l’essència que fa que sigui sempre blues».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/pere-miro/" class="nav-prev">← Pere Miró</a>
+      <a href="/ca/musics/pepe-j-gomez/" class="nav-next">Pepe J. Gómez →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

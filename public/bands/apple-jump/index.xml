@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apple Jump on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/apple-jump/</link>
+    <description>Recent content in Apple Jump on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/apple-jump/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Little Jordi</title>
+      <link>http://localhost:1313/musics/jordi-abad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/jordi-abad/</guid>
+      <description>&lt;p&gt;Va començar a tocar l’harmònica amb dotze anys, mentre a casa seva sonaven discos de blues i jazz, entre ells algun de Muddy Waters que el va enganxar especialment. A mitjans dels anys noranta va començar a tocar amb grups d’amics en tots els locals on els deixessin. A partir del blues de Chicago, es va deixar seduir per la cruesa i la visceralitat dels músics de Chess Records, per arribar a registres molt més amplis: «Del blues més primitiu, atret per una barreja de folk i country que rítmicament trobava més complexa, fins al blues més modern de Johnny Winter o Stevie Ray Vaughan, que tenien un rotllo més rocker que em seduïa per la força, el so». Convertit en un virtuós de l’harmònica cromàtica, a finals de la primera dècada del segle XXI va iniciar una nova etapa com a contrabaixista que l’ha fet esdevenir integrant indispensable de nombroses bandes. Artista de caràcter jovial i amb un sentit humor intel·ligent, agraeix a la seva professió de músic una relació diferent amb la vida: «Molts riures amb els companys, conèixer gent de tota classe, moltes hores de cotxe, moltes&amp;hellip; ha, ha. I potser el que més agraeixo és haver pogut ser a diferents pobles, ciutats i països que segur que amb un altre tipus de feina no hauria pogut visitar».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

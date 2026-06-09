@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Willy Capibola · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Willy Capibola</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1971
+      </p>
+      
+      <p class="musico-instruments">Saxo</p>
+      
+      
+      <p class="musico-bandes">Mancuso · Simiuws Shochs · La Escuela de Blues Social Club · Pez Rojo · Wild Blues</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Entusiasta, impetuós, vehement, enginyós i visionari, el blues de Barcelona té un deute amb una pila d’iniciatives seves que han marcat la seva història des de fa més de vint anys. Militant de les causes perdudes que mereixen ser guanyades, apassionat de la música i de tot allò que l’envolta, va ser abduït per la música del diable una nit en què tornava d’un concert de B.B. King amb el seu inseparable amic Ricard, amb el qual va crear el projecte Capibola. Va arribar a la música a través de la pura passió i va començar a tocar arrossegat per l’entusiasme i les ganes d’encomanar l’amor pel blues a tot allò que l’envolta. El seu respecte pels que exerceixen l’ofici, que són la major part dels seus amics, li impedeix considerar-se un professional, però toca el saxo amb la mateixa energia, convicció i anhel de llibertat que dedica a la resta de coses. Sempre amb un ull romàntic posat en la justícia social, s’ha ficat en tots els bassals que ha trobat i ha assumit tots els reptes que li han caigut a sobre, per amor a la cultura i a allò que va començar sent una afició i que, segons les seves paraules, li ha donat pràcticament tot: el blues.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/javier-alonso-artieda/" class="nav-prev">← Woolfi</a>
+      <a href="/ca/musics/victor-verges-marti/" class="nav-next">Víctor Vergés Martí →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

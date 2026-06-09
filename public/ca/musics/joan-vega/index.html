@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joan Vega · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Joan Vega</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1968
+      </p>
+      
+      <p class="musico-instruments">Contrabaix</p>
+      
+      
+      <p class="musico-bandes">Crazy Shoes · Chevy &amp; The Hot Wheels · Big Frank’s Jamboree · The Big Jamboree · 126th Jazz Avenue</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va trobar-se amb el blues quan tenia vint anys i formava part d’un trio de versions de rock’n’roll clàssic que va anar derivant cap al rhythm&amp;blues a mesura que s’incorporaven nous membres a la banda. Segons confessió pròpia, va ser un procés d’aprenentatge per arribar a entendre el gènere, el missatge, el context on neix i el per què de les seves lletres. En definitiva, l’acostament a «una música real, que beu de les vivències de la gent de la classe oprimida de l’època». El 2020 va emprendre un projecte personal amb 126th Jazz Avenue, un homenatge a les dones del jazz. Tot i que la seva debilitat personal és el jazz, és un artista obert a tots els gèneres musicals, perquè considera que aglutinar estils enriqueix com a músic i com a persona. Potser per això, entre les seves influències directes hi ha artistes tan diferents com Bessie Smith, Sonny Boy Williamson, Tower of Power, Chet Baker, els Dap Kings o Lucille Bogan, entre d’altres. Músic honest i sincer, se sent un privilegiat per poder tocar amb els professionals que l’envolten i assegura sense manies que «El blues és la vida. La resta importa poc».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/joan-ventosa/" class="nav-prev">← Joan Ventosa</a>
+      <a href="/ca/musics/joan-pau-cumellas/" class="nav-next">Joan Pau Cumellas →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

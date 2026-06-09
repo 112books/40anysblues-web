@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lab Sons on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/lab-sons/</link>
+    <description>Recent content in Lab Sons on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/lab-sons/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Toni Pedrol</title>
+      <link>http://localhost:1313/musics/toni-pedrol/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/toni-pedrol/</guid>
+      <description>&lt;p&gt;«Una mena d’encreuament de camins on conflueixen molts discursos musicals que resulten apassionants». Així és com defineix aquest guitarrista competent la manera de veure la música que li ha proporcionat el blues, un gènere al qual va arribar seguint l’habitual camí invers de bussejar en les arrels del rock, i que el va enganxar per sempre: «Quan creus que has trobat la llavor amb la qual s’ha construït gran part de la música popular, notes una mena d’addicció per interpretar-la». Això no li impedeix, però, transitar per altres gèneres com el rock o el folk, sempre reinterpretant la música d’arrels nord-americanes. Va començar a actuar professionalment a finals del segle passat, normalment en formacions de duet o trio, en diferents estils, però sense oblidar mai la música que per a ell constitueix l’essència, el sediment: «Una mena de fang musical primigeni que arrenca de la tradició popular i que serveix de fonament per a moltes altres músiques. Quan toques jazz, soul, rock&amp;hellip; en algun moment apareix el blues».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

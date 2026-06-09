@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arnau Julià · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Arnau Julià</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1991
+      </p>
+      
+      <p class="musico-instruments">Bateria</p>
+      
+      
+      <p class="musico-bandes">The Sick Boys · Barcelona Big Blues Band · Lluis Coloma Trio · Balta Bordoy and The Bad Boys · Scaramanga · Martin Burguez Rhythm Combo</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va fer les primeres passes musicals amb el jazz, cosa que per a un bateria suposa tenir uns ciments molt sòlids, i va descobrir el blues quan va muntar una banda amb un grup d’amics l’any 2013, The Sick Boys. El seu potent rock’n’roll amb base de rhythm&amp;blues els va dur als escenaris i festivals de blues i a enregistrar tres discos. El seu productor, Dani Nel·lo, el va reclutar perquè l’acompanyés en un concert amb la Barcelona Big Blues Band, i aquí va començar la veritable immersió en l’ambient professional del blues, un gènere del que, com a bateria, l’atrauen la capacitat per connectar amb tota mena de públic i el repte instrumental que implica: «M’encanta la varietat rítmica que he anat trobant al llarg dels anys. Has d’investigar una mica per sortir d’allò més típic. Però si ho fas, trobes coses molt interessants». Amb menys d’una dècada d’experiència, se sent integrat i a gust en el blues barceloní: «Una comunitat de músics amb ganes de compartir el que estimen amb el públic i amb els companys».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/artem-suliev/" class="nav-prev">← Artem Suliev</a>
+      <a href="/ca/musics/arnau-demons/" class="nav-next">Arnau Demons →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

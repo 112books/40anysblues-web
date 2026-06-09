@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alberto Burguez Trio on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/alberto-burguez-trio/</link>
+    <description>Recent content in Alberto Burguez Trio on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/alberto-burguez-trio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Alberto Burguez</title>
+      <link>http://localhost:1313/musics/alberto-burguez/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/alberto-burguez/</guid>
+      <description>&lt;p&gt;Es va trobar definitivament amb el blues als disset anys, escoltant el disc &lt;em&gt;Texas Sensation&lt;/em&gt;, de Freddie King, que havien regalat al seu germà, Martín, guitarrista i cantant: «Va ser la primera vegada que vaig escoltar un piano de blues. Mai havia sentit res igual, amb tanta força». Dos anys més tard ja tocava el piano pels bars de Buenos Aires, iniciant una carrera professional que l’any 2022 el va portar a Barcelona. Fa cinc anys va començar a cantar i a desenvolupar la seva carrera com a solista i al capdavant de la seva pròpia formació, sempre seduït per la força i la subtilesa de la música d’arrel afroamericana i la seva capacitat de comunicació: «M’ha donat la possibilitat d’expressar-me i d’aprendre creixent». Pianista amb un ampli registre, això li permet col·laborar amb nombrosos artistes de l’escena barcelonina, en la qual s’ha obert camí en poc temps i sempre amb entrega: «Una cosa meravellosa del blues és que pots fer molt amb poc&amp;hellip; i això també ho trasllado a la vida quotidiana».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

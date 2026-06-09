@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscar Rabadán · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Oscar Rabadán</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1969
+      </p>
+      
+      <p class="musico-instruments">Guitarra</p>
+      
+      
+      <p class="musico-bandes">The Midnight Rockets · Blas Picón &amp; The Junk Express · Victor Puertas &amp; Mellowtones · Three Time Losers</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>És un dels guitarristes més eficaços i brillants, i al mateix temps més discrets, de l’escena bluesera barcelonina. A l’adolescència va abraçar el rock’n’roll dels cinquanta, sense saber que s’estava lliurant a la música del diable. Bussejant en els orígens va trobar un so, una manera de tocar i de cantar que el van noquejar: «Va ser una passada. Mai havia escoltat una cosa semblant. No sé si el vaig elegir o ell em va elegir a mi, però vaig saber de seguida que volia intentar fer allò. I encara ho continuo intentant». De tracte afable, reservat a l’escenari i brillant en l’execució musical, va començar a tocar professionalment responent a un anunci on buscaven un guitarrista, i allà va coincidir amb Blas Picón, al qual ha escortat musicalment des d’aleshores, tot i que també ha col·laborat amb la majoria dels referents de l’escena barcelonina. Els seus pilars musicals van des de Blind Lemon Jefferson als Rolling Stones, i inclouen un ampli ventall de guitarristes de tots els gèneres hereus del blues, una música que el va atrapar, segons les seves paraules, pel so, el vessant salvatge i la llibertat d’improvisar: «M’agrada el so antic; les coses massa produïdes i boniques no fan per a mi».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/oscar-wolf/" class="nav-prev">← Oscar Wolf</a>
+      <a href="/ca/musics/oriol-fontanals/" class="nav-next">Oriol Fontanals →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

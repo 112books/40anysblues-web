@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queralt Albinyana · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Queralt Albinyana</h1>
+      
+      <p class="musico-dades">
+        Terrassa
+        , 1980
+      </p>
+      
+      <p class="musico-instruments">Veu</p>
+      
+      
+      <p class="musico-bandes">Queralt Albinyana Blues Trio</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Cantant i actriu amb moltes taules, a més d’excel·lent narradora, fa servir la poesia botànica per explicar el seu camí en el blues: «Va germinar en mi com una mala herba al marge d’un camí molt transitat. Aquí va néixer la necessitat de cantar amb força com si no hi hagués cap altra opció, sense temps per a la reflexió i sense motiu». Durant uns anys va ser una «observadora privilegiada i temorosa», segons la seva definició, fins que el 2011 va decidir fer un cop sobre la taula i va gravar el seu primer disc, <em>When I met the Blues</em>, que va ser el tret de sortida d’una cursa en la qual sempre ha estat acompanyada per Flavio Rigatozzo, Tota. Professional de llarg recorregut en les disciplines més diverses, incloses les de cantant de repertori i musicals, confessa que el blues l’atrapa, la interpel·la i la provoca. Mostra obertament el compromís amb el punt de vista femení del blues i la predilecció per les artistes que s’expressen lliurement, inclassificables, autèntiques, amb un compromís profund amb l’emoció, i creu profundament en el poder de la música: «Crec que millora les persones, les allunya de retrets i preocupacions, les connecta amb el present, desperta l’empatia i crea comunitat».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/quico-pi-de-la-serra/" class="nav-prev">← Quico Pi de la Serra</a>
+      <a href="/ca/musics/paco-ramirez/" class="nav-next">Predicador Ramírez →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

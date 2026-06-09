@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Boîte · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="icon" type="image/png" href="/logotips/40-anys-de-Blues-a-Barcelona-logo-Rounded-150x150.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600&display=swap">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">
+      <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo-Rounded-150x150.png" alt="40 Anys de Blues a Barcelona" class="site-logo">
+      <span class="site-brand-text">40 Anys de Blues a Barcelona</span>
+    </a>
+    <nav>
+      <a href="/musics/">Músics</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+    <form class="header-cerca" action="/cerca/" method="get" role="search">
+      <input type="search" name="q" placeholder="Cerca..." class="header-cerca-input" aria-label="Cerca">
+      <button type="submit" class="header-cerca-btn" aria-label="Cercar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+    </form>
+  </div>
+</header>
+
+  <main>
+    
+<article class="content-page">
+  <div class="container">
+    <h1>La Boîte</h1>
+    
+    <div class="page-content"><p>El testimoni de la Cova el va recollir el 1991 aquesta sala que Joan Mas, del grup Mas i Mas, va obrir a prop de la plaça Francesc Macià, i que va acollir una nova generació de músics com Lluís Coloma, Joan Pau Cumellas o Alex Zayas, que amb el temps es convertirien en un referent de l’escena local. Des del principi va programar música en viu de tots els estils, amb una especial dedicació al blues de l’onada de bandes que va sorgir a finals dels vuitanta i principis dels noranta, com Big Mama &amp; The Blues Messengers, Big Chief, Blues Reunion o Tandoori Lenoir, grups pioners forans, com Víctor Uris i la seva Harmònica Coixa, i un bon nombre d’artistes internacionals d’estils diversos, com Eddie Shaw, Clarence Gatemouth Brown o Dr. Feelgood, i que en alguns casos, com Hook Herrera, Café R&amp;B o Eric Sardinas, es van convertir en habituals de la seva programació. Va tancar les portes l’any 2004.</p>
+</div>
+    
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-cols">
+      <div class="footer-left">
+        <p class="footer-copy">© 2026 <a href="https://112books.eu" target="_blank" rel="noopener">112Books</a> · Joan Linux</p>
+        <nav class="footer-legal">
+          <a href="/legal/avis-legal/">Avís legal</a>
+          <a href="/legal/privacitat/">Privacitat</a>
+          <a href="/legal/cookies/">Cookies</a>
+        </nav>
+      </div>
+      <div class="footer-right">
+        <a href="https://linuxbcn.com" target="_blank" rel="noopener" class="footer-powered">Powered by <strong>LinuxBCN</strong></a>
+        <p class="footer-powered-sub">Consultancy · Development · Hosting</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+</body>
+</html>

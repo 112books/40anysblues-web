@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xavier Soranells · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Xavier Soranells</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1973
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Veu</p>
+      
+      
+      <p class="musico-bandes">Blue Heart · Xavier Soranells &amp; The Andy James Band · Xavier Soranells Band</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va començar a tocar la guitarra quan era un nen, i als tretze anys va emprendre el camí per convertir-se en professional, investigant sobre la música que havia influït els seus ídols musicals. Després de crear les primeres bandes amb amics, va marxar a Boston per estudiar a la Berklee College of Music i va tocar amb grups locals. Quan torna a Barcelona, nou anys més tard, comença a col·laborar amb els músics més destacats del país i es converteix en músic d’estudi, mentre crea la seva pròpia banda, Blue Heart. Amb aquest projecte es va convertir amb una figura amb projecció europea, sempre amb un peu als Estats Units. El blues és la música que li permet una veritable introspecció artística: «Quan ets capaç de submergir-te absolutament en la música que interpretes, t’embolcalla un sentiment de pau, de no pensar, on per uns instants et pots evadir de qualsevol cosa. Passa amb el blues i amb la música en general». Confessa que es troba còmode amb la connotació de tristesa del blues, una música que li ha ofert una cosa fonamental: «Poder ser cada dia més lliure».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      
+      <a href="/ca/musics/xavi-malacara/" class="nav-next">Xavi Malacara →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donna Lee · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Donna Lee</h1>
+      
+      <p class="musico-dades">
+        Caracas
+        , 1976
+      </p>
+      
+      <p class="musico-instruments">Veu</p>
+      
+      
+      <p class="musico-bandes">Blueroomess</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Filla d’argentins que van fugir de la dictadura militar, Paola Graziano va passar la infància i joventut entre Veneçuela, Argentina i Itàlia, per acabar recalant a Barcelona l’any 2004, amb una etapa prèvia a Galícia, on va fer els primers passos professionals. En aquest tragí es va formar musicalment, començant a estudiar saxo abans dels vuit anys. I aquella nena que va quedar captivada per un cassette de Lightnin’ Hopkins quan tenia tretze anys, i a qui les seves companyes anomenaven «veu de camioner» per la seva veu de contralt, es va capbussar en les arrels del blues i va acabar atrapada per les grans dames del gènere, com Bessie Smith, Koko Taylor o Ada Brown, tot descobrint el que era capaç de transmetre, precisament gràcies a aquesta tessitura de veu. Al front de Blueroomess, un grup de música d’arrel afroamericana, ha esdevingut una de les cantants de referència de la ciutat, amb un repertori que fon el folk, el country, l’skiffle i el blues, una música que la sedueix bàsicament per «la capacitat per expressar emocions profundes d’una manera crua i directa».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/dusan-jevtovic/" class="nav-prev">← Dusan Jevtovic</a>
+      <a href="/ca/musics/david-sanchez/" class="nav-next">David Sánchez →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

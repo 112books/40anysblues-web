@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Larry Smith · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Larry Smith</h1>
+      
+      <p class="musico-dades">
+        Felixstowe, Anglaterra
+        , 1954
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Veu</p>
+      
+      
+      <p class="musico-bandes">Larry Smith Band · The Ascensial Blues Band · Unfinished Business</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Fill de militars estatunidencs destacats a Gran Bretanya, Laurie Finlay-Smith va descobrir el blues a través dels discos que hi havia a casa seva, i després d’un viatge musical pel pop, el rock i el heavy metal, va tornar al blues britànic de la mà d’artistes com Peter Green i Rory Gallagher, tancant el cercle i redescobrint les arrels pròpies. Va pujar per primer cop a un escenari amb tretze anys per interpretar un clàssic absolut, «House of the Rising Sun». Després de tres dècades tocant per tot el món i participant en diverses bandes i projectes de diferents estils, del blues rock més guitarrer a la part més tradicional del gènere, com el Piedmont o el country blues del Mississippí, l’any 2005 es va instal·lar a Barcelona, integrant-se a l’escena local, participant en diverses bandes, creant projectes propis i convertint-se en una figura habitual de les jam sessions que se celebren a la ciutat, on és estimat i respectat pel seu caràcter afable i col·laborador. Amb referents tan diversos com Johnny Winter, ZZ Top, Willie Dixon o els Mississippi Sheiks, es confessa seduït per la varietat de possibilitats d’un gènere que ha omplert la seva vida de música i amics d’arreu del món.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/leo-carreras/" class="nav-prev">← Leo Carreras</a>
+      <a href="/ca/musics/koko-jean-davis/" class="nav-next">Koko-Jean Davis →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

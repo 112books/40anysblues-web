@@ -1,0 +1,22 @@
+{{ define "main" }}
+<section class="section-page">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+    <div class="section-intro">{{ . }}</div>
+    {{ end }}
+    {{ if .Pages }}
+    <div class="section-items">
+      {{ range .Pages.ByParam "ordre" }}
+      <article class="section-item">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Params.location }}<p class="item-meta">{{ . }}</p>{{ end }}
+        {{ with .Params.year }}<p class="item-meta">{{ . }}</p>{{ end }}
+        {{ with .Summary }}<p class="item-summary">{{ . }}</p>{{ end }}
+      </article>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

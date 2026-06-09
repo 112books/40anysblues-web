@@ -1,0 +1,40 @@
+{{ define "main" }}
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      {{ if $img }}
+      <div class="musico-foto-wrap">
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="musico-foto">
+      </div>
+      {{ end }}
+      <div class="musico-header-text">
+      <h1 class="musico-nom">{{ .Title }}</h1>
+      {{ if and .Params.nom_complet (ne .Params.nom_complet .Title) }}
+      <p class="musico-nom-complet">{{ .Params.nom_complet }}</p>
+      {{ end }}
+      <p class="musico-dades">
+        {{ with .Params.born_city }}<a href="{{ relLangURL "/musics/" }}?cerca={{ . | urlize }}">{{ . }}</a>{{ end }}{{ with .Params.born_year }}, <a href="{{ relLangURL "/musics/" }}?any={{ . }}">{{ . }}</a>{{ end }}{{ with .Params.death_year }} – {{ . }} <span class="musico-rip">†</span>{{ end }}
+      </p>
+      {{ with .Params.instruments }}
+      <p class="musico-instruments">
+        {{ range $i, $inst := . }}{{ if $i }} · {{ end }}<a href="{{ relLangURL "/instruments/" }}{{ $inst | urlize }}/">{{ $inst }}</a>{{ end }}
+      </p>
+      {{ end }}
+      {{ with .Params.bands }}
+      <p class="musico-bandes">
+        {{ range $i, $band := . }}{{ if $i }} · {{ end }}<a href="{{ relLangURL "/bands/" }}{{ $band | urlize }}/">{{ $band }}</a>{{ end }}
+      </p>
+      {{ end }}
+      </div>
+    </div>
+    {{ with .Content }}
+    <div class="musico-bio">{{ . }}</div>
+    {{ end }}
+    <div class="musico-nav">
+      {{ with .PrevInSection }}<a href="{{ .RelPermalink }}" class="nav-prev">← {{ .Title }}</a>{{ end }}
+      {{ with .NextInSection }}<a href="{{ .RelPermalink }}" class="nav-next">{{ .Title }} →</a>{{ end }}
+    </div>
+  </div>
+</article>
+{{ end }}

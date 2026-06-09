@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balta Bordoy · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Balta Bordoy</h1>
+      
+      <p class="musico-dades">
+        Palma de Mallorca
+        , 1973
+      </p>
+      
+      <p class="musico-instruments">Guitarra</p>
+      
+      
+      <p class="musico-bandes">Balta Bordoy &amp; The Bad Boys · Big Dani Pérez Organ Quartet · Julian Vaughan Blues Trio · Los Peligrosos Gentlemen · Myriam Swanson &amp; The Rhythm Treasures · Salvador Sobral &amp; Balta Bordoy · The Blues Devils · Víctor Uris Boogie Thing · Wonderbrass</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Fast Domino, B.B. King i John Lee Hooker, descoberts als 16 anys, van ser el seu primer contacte amb la música del diable, en la qual es va anar endinsant a través del mític programa de Ràdio 3 <em>Tren 3</em>, de Jorge Muñoz, alhora que aprenia a tocar la guitarra i explorava de manera autodidàctica un gènere al qual acabaria dedicant la seva vida. La seva trajectòria el connecta amb pioners dels vuitanta a la seva Mallorca natal, com Pep Banyo, a qui va acompanyar quan tenia dinou anys, i amb qui va aprendre les arts i els trucs de l’ofici de músic. Des d’aleshores ha recorregut un llarg camí per acabar instal·lant-se l’any 2015 a Barcelona, on la seva guitarra brilla amb personalitat pròpia. Excel·lent instrumentista, dotat d’una elegància i subtilesa naturals, també és un profund coneixedor del gènere, del qual l’atrau especialment la llibertat per expressar-se, improvisar i reinventar-se. Convertit en una figura fonamental de l’escena barcelonina, aquest artista de personalitat discreta cultiva una ironia subtil i intel·ligent que posa de manifest quan assegura que el millor que li ha donat el blues ha estat «molts diners».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/biel-ballester/" class="nav-prev">← Biel Ballester</a>
+      <a href="/ca/musics/august-tharrats/" class="nav-next">August Tharrats →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

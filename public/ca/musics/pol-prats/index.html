@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pol Prats · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Pol Prats</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1983
+      </p>
+      
+      <p class="musico-instruments">Saxo Tenor</p>
+      
+      
+      <p class="musico-bandes">Down Home · Ivanow Jazz Group · Barcelona Big Blues Band · Mambo Jambo Arkestra · The Big Easy’s Crew · Nación Funk - Soul Party · Big Yuyu &amp; Hot Nite Band · Chino and The Big Bet · Emma Fernández · Atomic Swing Five · Martin Burguez Sextet · Pol Prats Quintet · Sax Attack · Rambalaya</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Amb vuit anys va començar a bufar i a estudiar el saxo, i als setze es va professionalitzar amb la seva primera banda, Ivanow Jazz Group, que va ser, en paraules seves: «El camp de proves i el laboratori per dedicar-me a això». I s’hi dedica des de fa més de dues dècades, en les quals ha passejat la seva mestria i elegància musical per tota classe d’escenaris, des del carrer a festivals nacionals i internacionals, i s’ha convertit en una figura essencial de l’escena barcelonina. Professional incansable, la música és la seva forma de vida i de relacionar-se, i el seu domini d’un ampli ventall d’estils com el swing i el jazz tradicional, el neo-swing, el jump blues i el rhythm&amp;blues li ha permès col·laborar amb les principals figures de la música afroamericana del nostre país. Aquest artista de tracte afable i enginy despert es declara seduït per l’essència del blues: «Ritme, melodia, harmonia al servei de l’ànima. O potser és a la inversa?».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/cristian-moya/" class="nav-prev">← Poyo Moya</a>
+      <a href="/ca/musics/pol-padros/" class="nav-next">Pol Padrós →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

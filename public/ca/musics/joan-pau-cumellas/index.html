@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joan Pau Cumellas · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Joan Pau Cumellas</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1970
+      </p>
+      
+      <p class="musico-instruments">Harmònica</p>
+      
+      
+      <p class="musico-bandes">Louisiana Vamper · Mr.Hurricand Band · Joan Pau Cumellas &amp; Miguel Talavera · Valentí Moya Trio &amp; Joan Pau Cumellas · QuicoLabora, Barcelona Bluegrass Band · J.P. Cumellas Band</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Aquest harmonicista virtuós, versàtil i amb un coneixement profund del gènere, forma part de la generació que va arribar al blues a començaments dels noranta i amb el pioners com a primer referent, en el seu cas encarnats pel l’Harmònica Coixa Blues Band, el grup del mallorquí Víctor Uris, que el va inspirar a aprendre a tocar l’harmònica. Després de col·laborar amb altres companys de generació com Lluís Coloma i Miguel Talavera, als vint-i-vuit anys fa el salt definitiu a la professionalitat de la mà de Big Mama Montse, convertint-se en un dels principals intèrprets d’harmònica de blues del país. Ha col·laborat amb històrics com Quico Pi de la Serra, Lotti Lewis, Amadeu Casas o Mingo Balaguer i la seva harmònica ha transcendit el gènere acompanyant artistes com Kiko Veneno o Maria del Mar Bonet, entre d’altres. El seu amor pel gènere, del qual el sedueix l’expressivitat i honestedat, es trasllada també al vessant divulgatiu amb l’espectacle infantil El Blues a les Escoles, amb la Big Mama, on descobreix el millor que li ha donat el blues: «Una via extraordinària per fer vibrar i connectar amb tot tipus de públic».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/joan-vega/" class="nav-prev">← Joan Vega</a>
+      <a href="/ca/musics/javier-cortes/" class="nav-next">Javier Cortés →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

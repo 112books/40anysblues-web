@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blas Picón · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Blas Picón</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1969
+      </p>
+      
+      <p class="musico-instruments">Veu · Harmònica · Bateria</p>
+      
+      
+      <p class="musico-bandes">The Bop Pills · Brioles · The Nu-Niles · Mario Cobo · The Mellow Tones · Sweet Marta &amp; The Blues Shakers · The Lazy Jumpers · Blas Picón &amp; The Junk Express · Three Time Losers</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va arribar al blues a través del rock’n’roll, buscant els orígens. Va començar tocant la bateria i, quan ja era un dels millors del panorama nacional, es va llançar al repte de tocar l’harmònica, cantar i escriure temes propis. Inconformista, agosarat i càustic, amb un coneixement profund del gènere, el seu blues reflecteix clarament la seva personalitat, buscant sempre el vessant més genuí, l’expressió més rovellosa i menys edulcorada. Enemic declarat de martingales i tripijocs, la seva música és tan crua com sincera i la façana de tipus distant no aconsegueix emmascarar una sensibilitat artística i personal que el duen a fer cançons que no es perden en floritures gratuïtes i furguen directament a la ferida. Conseqüent amb els seus ideals i aspiracions, va fugir de la cadena de muntatge de SEAT per transformar-se en músic professional, i també va ser un dels fundadors del Honky Tonk Blues Bar, una referència del blues local durant dècades. La música del diable el va atrapar per la seva honestedat i la necessitat d’entrega. «Si no t’ho creus quan ho interpretes, ningú més hi creurà. Ah, i és una banda sonora perfecta per follar».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/bryan-o-mahoney/" class="nav-prev">← Bryan O Mahoney</a>
+      <a href="/ca/musics/big-mama-montse/" class="nav-next">Big Mama Montse →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

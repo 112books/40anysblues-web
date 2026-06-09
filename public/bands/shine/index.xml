@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shine on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/shine/</link>
+    <description>Recent content in Shine on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/shine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chino Swingslide</title>
+      <link>http://localhost:1313/musics/hernan-serna/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/hernan-serna/</guid>
+      <description>&lt;p&gt;Guitarrista destre i virtuós, compositor creatiu i cantant captivador, «Chino» es va entestar a ser músic des que va aprendre a tocar la guitarra quan tenia tretze anys. Obstinat de mena, ho va aconseguir per elevació i va acabar convertit en artista. Interpreta el blues amb un coneixement profund del gènere i un respecte venerable pels mestres, però sempre portant-los al seu territori. En el seu primer periple europeu, als divuit anys, es va enamorar de la &lt;em&gt;resophonic guitar&lt;/em&gt;, la seva arma més letal. Va tornar a Barcelona el 2001, es va guanyar el públic de clubs i festivals i es va convertir en un referent que es permet el luxe de transitar magistralment pels camins del swing, el manouche, el tango o el bolero, demostrant que per les seves artèries musicals flueixen amb la mateixa força Robert Johnson, Django Reinhardt o Oscar Alemán. S’adapta perfectament a escenaris grans i petits, però en les distàncies curtes dels clubs és on desplega tota la seva genialitat, amb un directe tan imprevisible musicalment com arriscat en la comunicació. El seu tarannà agosarat fa que de vegades es fiqui en fangars dialèctics, dels quals surt sempre indemne per posar-se el públic a la butxaca, la seva veritable especialitat.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ivan Kovacevic</title>
+      <link>http://localhost:1313/musics/ivan-kovacevic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/ivan-kovacevic/</guid>
+      <description>&lt;p&gt;A la seva Sèrbia natal, l’Ivan no se sentia atret pel blues de Chicago que dominava l’escena local, però sí pel rock’n’roll i el jazz, que va ser el que el 2001 el va impulsar a fer les maletes i traslladar-se a Barcelona amb la seva companya, la saxofonista Duska Miscevic. Una de les primeres visites que va fer va ser a La Boîte, on va descobrir Tandoori Lenoir i va quedar atrapat per l’estil i l’energia del seu rhythm&amp;amp;blues. «A partir d’allà la meva vida va canviar per sempre. Per bé o per mal, el temps ho dirà». De moment, el temps ha dit que ha recorregut un llarg camí des dels primers bolos de carrer, i que Kovacevic és un dels referents principals de la música afroamericana a Barcelona i a la resta del país. Ha consolidat formacions de diferents estils, del jazz a la música balcànica, passant pel swing, el blues o el rock’n’roll, exhibint sempre una energia demolidora i un immens talent musical. El 2010 va crear la Barcelona Big Blues Band, el seu millor llegat a la ciutat i a un gènere que el sedueix per la relació directa amb l’ànima i que també li ha donat llibertat i un camí a seguir: «Un estil que ha sobreviscut tantes transformacions, és una lliçó per sempre».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

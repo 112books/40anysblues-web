@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Sedgwick · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">James Sedgwick</h1>
+      
+      <p class="musico-dades">
+        St Catharines
+        , 1975
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Harmònica · Veu</p>
+      
+      
+      <p class="musico-bandes">Sedgwick &amp; Shingles · Los Victrolas · James Sedgwick and the Revelators</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Als tretze anys, una cirurgia als dos ulls el va obligar a quedar-se a casa durant una llarga temporada, sense poder llegir, veure la televisió ni practicar cap joc o esport, quedant la música com a únic entreteniment: «Vaig començar a escoltar tots els discos que hi havia a casa meva, incloent-ne un que tenia el meu pare de Sonny Terry i Brownie McGhee, que em va fascinar». L’harmònica que li va regalar el seu pare per matar el temps el va portar al blues per sempre. A principis dels anys 2000, la seva família es va traslladar a Nicaragua, d’on van acabar fugint, i en James es va establir a Barcelona el 2018 per integrar-se en l’escena local, on s’ha convertit en una figura familiar i molt apreciada. Profund coneixedor del gènere, es mostra seduït per la seva poderosa i directa capacitat de comunicació i reconeix que, personalment, és molt més que un estil que li permet desenvolupar el seu art: «M’ha donat un amor ampli per la música i un camí per navegar per la vida. És una cosa que mai m’ha deixat i una font constant d’exploració, aprenentatge i alegria».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/javier-cortes/" class="nav-prev">← Javier Cortés</a>
+      <a href="/ca/musics/jake-klamburg/" class="nav-next">Jake Klamburg →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

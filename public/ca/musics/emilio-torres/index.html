@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emilio Torres · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Emilio Torres</h1>
+      
+      <p class="musico-dades">
+        Terrassa
+        , 1965
+      </p>
+      
+      <p class="musico-instruments">Bateria</p>
+      
+      
+      <p class="musico-bandes">The Big Jamboree · Velvet Candles · The Sparkles · The Speedways · The Starways</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Abans de convertir-se en el bateria d’una de les bandes més carismàtiques de la ciutat, The Big Jamboree, va agafar experiència des de principis dels vuitanta tocant en grups de rock’n’roll, i a mesura que anava descobrint el rhythm&amp;blues va profunditzar cada cop més en les arrels del gènere, especialment el jump blues, un dels seus estils favorits. Al seu santoral musical particular se situen en lloc destacat artistes com Louis Jordan, Roy Brown, Wynonie Harris o Big Joe Turner, cosa que parla clarament de les seves preferències musicals, sempre al voltant dels estils que van preconitzar el primer rock’n’roll i el rockabilly. Amb la seva mestria musical, aquest bateria rotund i eficaç s’ha convertit en una figura important dins del panorama barceloní de la música d’origen afroamericà de les tres darreres dècades. Malgrat que les seves preferències s’inclinen sobretot cap al rhythm&amp;blues, es confessa seduït per la puresa genuïna del blues: «Una música autèntica, sincera i senzilla, sense artificis», que a més li ha proporcionat «tones de diversió».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/emma-fernandez/" class="nav-prev">← Emma Fernández</a>
+      <a href="/ca/musics/elias-babad/" class="nav-next">Elias Babad →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

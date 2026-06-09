@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Sánchez · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">David Sánchez</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1971
+      </p>
+      
+      <p class="musico-instruments">Harmònica · Veu</p>
+      
+      
+      <p class="musico-bandes">Chef Dave and The Cooks · Hoodoo Men · The Black Cat Bones · Lowdown Grovers · Chef Dave &amp; Balta Bordoy</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Aquest militant apassionat del blues va arribar al gènere per una pirueta capriciosa del capitalisme financer, quan li va caure a les mans un àlbum de l’American Blues Folk Festival que una entitat bancària va regalar a la seva família per obrir un compte d’estalvi. Quan dels solcs del disc va sorgir el so de l’harmònica de Junior Wells interpretant dos temes de Sonny Boy Williamson II, el seu destí va quedar marcat per sempre. Poc després va comprar la primera harmònica i continua aquí: bufant com si l’hi anés la vida. Conegut també com a Chef Dave, en una picada d’ullet a la seva reconeguda habilitat culinària, és un harmonicista expert i entregat, que posseeix un gran coneixement del gènere, i això el col·loca en el bàndol dels puristes exquisits. Individu culte, aparca el fi sarcasme i defineix el blues com «una música humil, com els seus orígens, però capaç d’expressar tota la profunditat humana». Involucrat al màxim en l’escena del blues barceloní i en la creació de la Societat de Blues de Barcelona, de la qual és membre fundador, afirma de manera rotunda que el blues li ha salvat la vida.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/donna-lee/" class="nav-prev">← Donna Lee</a>
+      <a href="/ca/musics/david-pastor/" class="nav-next">David Pastor →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

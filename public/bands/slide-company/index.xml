@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slide Company on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/slide-company/</link>
+    <description>Recent content in Slide Company on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/slide-company/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Amadeu Casas</title>
+      <link>http://localhost:1313/musics/amadeu-casas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/amadeu-casas/</guid>
+      <description>&lt;p&gt;Elegància és la paraula per excel·lència que defineix un dels millors músics de blues que ha donat l’escena catalana i espanyola. Elegància en l’actitud, en la manera de parlar, d’escoltar, de somriure&amp;hellip; i d’interpretar el blues. Va començar molt jove amb el seu amic Josep Maria Merchan i va ser un dels pioners que a començaments dels 80 es reunien a La Cova del Drac per cimentar les bases del blues a Barcelona, fins a esdevenir-ne una peça fonamental. En la seva guitarra, que va acompanyar-lo en la formació de les bandes més mítiques de la ciutat, se citaven el sentiment i la tècnica depurada. Va ser un enamorat absolut de la música d’arrels nord-americanes, i compartia la passió i un coneixement profund del gènere en conferències i espectacles per a infants. Culte, inquiet, afable i compromès, en l’etapa final va mantenir una fructífera col·laboració reivindicativa amb un altre geni abduït pel blues, l’irreverent Quico Pi de la Serra. La seva mort va tenyir de dolor i d’un sentiment d’orfandat el blues barceloní, el Nadal de 2020. Es definia a si mateix com «un guitarrista que s’ha fet de mica en mica, intentant mantenir una línia honesta amb els seus principis».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

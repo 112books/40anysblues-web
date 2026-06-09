@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Giorcelli  · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">David Giorcelli </h1>
+      
+      <p class="musico-dades">
+        barcelona
+        , 1976
+      </p>
+      
+      <p class="musico-instruments">Piano</p>
+      
+      
+      <p class="musico-bandes">The Hipsters · Tota Blues · Predicador Ramírez · Los Gatos Negros · The Walking Stick Man · David Giorcelli Trio · Wax &amp; Boogie</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Pocs pianistes poden lluir al seu currículum l&rsquo;eximi ofici de crupier, i potser per això ha desenvolupat una habilitat especial per repartir joc des de l&rsquo;escenari. Sense perdre el seu somriure de murri, ha recorregut el camí invers que va del rock&rsquo;n&rsquo;roll al blues, amb residència estable al boogie woogie. El noi que va començar actuant a les jams de la històrica sala La Boîte s&rsquo;ha convertit en un artista amb milers de quilòmetres a l&rsquo;esquena, que ha consolidat un projecte musical, Wax &amp; Boogie, amb la seva companya Ster Wax, de projecció internacional. Devot dels clàssics, Al Copley, Memphis Slim i Meade Lux Lewis són part del santoral particular d&rsquo;aquest infatigable pianista, que posa l&rsquo;ànima en tot allò que fa i té en el frenesí del directe la seva millor arma per engalipar el públic. Encara que el boogie li hagi arrabassat l’ànima, el seu cor pertany al blues: «D&rsquo;alguna manera la meva vida gira al voltant d&rsquo;aquest estil. A través del blues vaig trobar la persona amb qui comparteixo la meva vida, i a més m&rsquo;ha permès conèixer gent honesta, viatjar i compartir moments increïbles en llocs insòlits&hellip; conscient que són moments que potser una vida convencional no et donarà».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/david-pastor/" class="nav-prev">← David Pastor</a>
+      <a href="/ca/musics/daniel-soler/" class="nav-next">Daniel Higiénico →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

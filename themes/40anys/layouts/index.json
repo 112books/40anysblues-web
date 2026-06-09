@@ -1,0 +1,2 @@
+[{{ $first := true }}{{ range site.RegularPages }}{{ if not (eq .Section "") }}{{ if not $first }},{{ end }}{{ $first = false }}
+{"title":{{ .Title | jsonify }},"url":{{ .RelPermalink | jsonify }},"section":{{ .Section | jsonify }},"instruments":{{ with .Params.instruments }}{{ . | jsonify }}{{ else }}[]{{ end }},"bands":{{ with .Params.bands }}{{ . | jsonify }}{{ else }}[]{{ end }},"born_city":{{ with .Params.born_city }}{{ . | jsonify }}{{ else }}""{{ end }},"summary":{{ .Summary | plainify | truncate 200 | jsonify }}}{{ end }}{{ end }}]

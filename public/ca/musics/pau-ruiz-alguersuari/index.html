@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pau Ruiz Alguersuari · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Pau Ruiz Alguersuari</h1>
+      
+      <p class="musico-dades">
+        Sabadell
+        , 1970
+      </p>
+      
+      <p class="musico-instruments">Guitarra</p>
+      
+      
+      <p class="musico-bandes">Pau Ruiz Solo Guitar · Full House Quartet · Paquito Groove Band · Cisket Creus · Marc Ferrer &amp; Pau Ruiz · Big Dani Pérez · Groove House · Vermouth Time.</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>En el seu cas, la culpa la va tenir «The Jack», el tema del grup de rock AC/DC que va escoltar als dotze anys a casa d’un amic seu i que el va acabar conduint al blues a través de la guitarra d’Angus Young: «Allò se’m va ficar a les entranyes. Des d’aquell moment vaig sentir la necessitat de tocar la guitarra». I va començar a fer-ho de forma plenament professional a començaments dels 2000, quan va entrar a Zoologic Band, de l’històric pianista i compositor Lluís Vidal. La seva perícia instrumental l’ha dut a participar en formacions de diferents estils, del blues al soul, passant pel funk i el jazz. També té una llarga experiència com a docent i es reconeix captivat per la sensualitat, l’elegància i el sentiment de la música d’arrel afroamericana. «El blues és present en tot el que faig. En qualsevol gènere que vulgui tocar, sempre acaba apareixent, sempre hi és». En el blues ha trobat un llenguatge, una forma d’expressió, una atmosfera&hellip; i sempre amb una visió molt personal del quart art: «Entenc la música en general i la guitarra en particular com un refugi imprescindible en un món massa competitiu».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/pep-rius/" class="nav-prev">← Pep Rius</a>
+      <a href="/ca/musics/oscar-wolf/" class="nav-next">Oscar Wolf →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

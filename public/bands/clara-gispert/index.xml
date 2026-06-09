@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clara Gispert on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/clara-gispert/</link>
+    <description>Recent content in Clara Gispert on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/clara-gispert/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Joan Vigo</title>
+      <link>http://localhost:1313/musics/joan-vigo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/joan-vigo/</guid>
+      <description>&lt;p&gt;El seu cas és com si hagués caigut a la marmita del blues. Va viure des de petit el Festival de Blues de Cerdanyola, i es va impregnar de tots els artistes nacionals i internacionals que hi van passar, cosa que, unida a una escolta primerenca de discos de Led Zeppelin, Jimi Hendrix o Frank Zappa, el va portar inevitablement a caure de ple en la música del diable. Amb tretze anys ja feia concerts amb projecció nacional i europea, però el salt definitiu a la professionalitat va arribar amb la incorporació a A Contra Blues, la banda que el 2014 va guanyar l’European Blues Challenge i que el va projectar dins i fora del país. Contundent i espectacular, es permet circular amb desimboltura pels límits del gènere, del folk al grunge, passant pel hip hop, el soul, el jazz i el rock en els estils més variats. Atrapat per l’essència i el sentiment que es transmet amb el blues, es confessa afortunat de ser una peça activa i entusiasta de la música afroamericana a la ciutat: «Gràcies a molts grans artistes de Barcelona d’aquest gènere he pogut aprendre, i ho segueixo fent sempre que puc».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

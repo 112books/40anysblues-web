@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Mama Montse · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Big Mama Montse</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1963
+      </p>
+      
+      <p class="musico-instruments">Veu · Guitarra</p>
+      
+      
+      <p class="musico-bandes">Blueswing · The New Blues Explosion · Special Company · Blues Reunion · Big Mama &amp; The Blues Messengers · Big Mama &amp; The Mouserockers · Bigmamamontse Blueslab3 · Big Mama &amp; The Crazy Blues Band · Womblues</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Alfredo Papo, pioner de la divulgació del jazz i el blues a Barcelona, la va definir com «aquella noia de la plana de Vic que canta com si fos negra». Montse Patdesaba és la indubtable pionera femenina del blues barceloní i una de les primeres intèrprets del gènere a tot Espanya. Amb divuit anys va abandonar el seu poble i va marxar a Barcelona per convertir-se en tècnic de so, professió que va deixar per la seva veritable vocació: ser cantant de blues. Des que a començaments dels noranta va liderar la seva primera banda, Blues Reunion, ferment de Big Mama &amp; The Blues Messengers, fins a la seva presidència de la Societat de Blues de Barcelona, ha tocat tots els pals, de la interpretació a la docència, passant per la divulgació periodística del blues. La calidesa de la seva veu va acompanyada de la qualitat d’una personalitat apassionada, lliurada en cos i ànima a la música afroamericana i bolcada en qualsevol causa reivindicativa que tingui a l’abast. Batalladora entusiasta i treballadora incansable, ha trepitjat centenars d’escenaris nacionals i internacionals, deixant sempre un empremta inesborrable en músics de totes les generacions, perquè el blues és la seva raó de viure.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/blas-picon/" class="nav-prev">← Blas Picón</a>
+      <a href="/ca/musics/big-dani-perez/" class="nav-next">Big Dani Pérez →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

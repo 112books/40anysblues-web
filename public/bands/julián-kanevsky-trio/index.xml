@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Julián Kanevsky Trio on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/juli%C3%A1n-kanevsky-trio/</link>
+    <description>Recent content in Julián Kanevsky Trio on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/juli%C3%A1n-kanevsky-trio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cobre</title>
+      <link>http://localhost:1313/musics/jorge-jornet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/jorge-jornet/</guid>
+      <description>&lt;p&gt;Es va enamorar a primera vista del blues amb catorze anys, quan va veure tocar en un bar un duo de guitarra i harmònica, que l’endemà es va convertir en el Carajillo Blues Trio, una formació que des del començament va decidir per l’autenticitat i l’underground: «Amb uns carrets, anàvem tocant de bar en bar sense cita prèvia». Allà es va avesar com a músic i va iniciar un viatge artístic que l’ha dut a convertir-se en una figura ineludible del panorama del blues barceloní i a tocar amb figures locals i internacionals com Joan Pau Cumellas, José Luis Pardo, Antonio Serrano, Alex Zayas, Carl Weathersby, Larry McCray o Slam Allen. La seva mestria i professionalitat l’han dut a tocar amb formacions i projectes més enllà del gènere, com La Cabra Mecánica, Chivo Chivato o Hot Swing Machine, però va ser el blues el que li va permetre expressar-se sentimentalment a través de la música: «Les escales pentatòniques són genials per expressar-te de manera senzilla, sense complexos. També em va aportar actitud».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

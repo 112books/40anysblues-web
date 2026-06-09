@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nil Mujal · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Nil Mujal</h1>
+      
+      <p class="musico-dades">
+        Cardona
+        , 1989
+      </p>
+      
+      <p class="musico-instruments">Saxo</p>
+      
+      
+      <p class="musico-bandes">Swing Shot · Janine Johnson · Balta Bordoy &amp; The Bad Boys · Original Jazz Orchestra del Taller de Músics · Barcelona Big Blues Band · Mambo Jambo Arkestra</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va pujar per primera vegada a un escenari amb setze anys amb un grup de temes propis i una orquestra del seu poble. Als divuit va ampliar la formació musical per convertir-se en un professional. Va arribar al blues a través del jazz i de tocar amb músics que estaven a cavall dels dos estils. Virtuós i versàtil, ha tocat amb més de cinquanta formacions de diferents estils: jazz, blues, soul o reggae, sempre seduït per la connexió innegable entre el blues i el jazz: «La manera com s’entrellacen i et permeten jugar amb la música, ja sigui d’una manera més visceral o reflexiva». I això es demostra en els referents artístics, que inclouen Lester Young, Sonny Rollins, Duke Ellington, Billie Holliday o John Coltrane. Aquest domini de la música afroamericana li ha permès acompanyar artistes de l’escena barcelonina com Eduard Gener, Chino Swingslide o Enma Fernández. Segons les seves paraules, el blues li ha proporcionat expressivitat, sinceritat, connexió directa amb el públic i un món personal i artístic: «M’ha brindat l’ocasió de descobrir grans músics i companys, que segurament no hauríem coincidit si no hagués estat per aquesta escena».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/nuria-vito/" class="nav-prev">← Núria Vitó</a>
+      <a href="/ca/musics/nerea-guerrero/" class="nav-next">Nerea Guerrero →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

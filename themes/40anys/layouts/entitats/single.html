@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") (.Resources.GetMatch "*.svg") }}
+<article class="content-page entitat-page">
+  <div class="container">
+    <div class="entitat-layout">
+      <div class="entitat-logo">
+        {{ if $img }}
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+        {{ end }}
+      </div>
+      <div class="entitat-info">
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.url_web }}
+        <p class="entitat-web"><a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>
+        {{ end }}
+        {{ with .Content }}
+        <div class="page-content">{{ . }}</div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</article>
+{{ end }}

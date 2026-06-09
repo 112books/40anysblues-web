@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miguel Talavera · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Miguel Talavera</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1975
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Veu</p>
+      
+      
+      <p class="musico-bandes">Men in Blue · Cumellas &amp; Talavera Band · Tableau de Blues · Miguel Talavera Power Trio · Barcelona Bluegrass Band · Joan Pau Cumellas &amp; Miguel Talavera · White Line Fever Band · Miguel Talavera Group · Miguel Talavera Organ Trio</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va tenir la primera guitarra als sis anys i tot i que la seva primera aproximació va ser amb el flamenc, va descobrir la música d’arrel afroamericana, escoltant discos de rock’n’roll però sobretot a través de la pel·lícula <em>Crossroads</em>, de Walter Hill, que va veure amb només deu anys. Des d’aleshores va quedar captivat per la música del diable i va fer el primer concert amb setze anys: «Va ser en una revetlla de Sant Joan, no va ser un gran concert, però va ser un bon principi”. La seva mestria tant amb la guitarra acústica com amb l’elèctrica, un instrument que va aprendre de manera autodidacta, l’han convertit en un figura destacada del panorama del blues barceloní, en el qual aquest especialista de la tècnica del fingerpicking, amb un toc aflamencat, es mou com un peix a l’aigua amb el respecte dels seus companys de professió. Instrumentista versàtil, circula per la via més guitarrera del blues, un estil que li dona la possibilitat d’expressar els sentiments i del qual confessa que l’atrapa el vessant més passional: «El sentiment, la sinceritat, l’emoció, la melancolia i sobretot la passió que transmet aquesta música».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/mike-shannon/" class="nav-prev">← Mike Shannon</a>
+      <a href="/ca/musics/maurici-morera/" class="nav-next">Maurici Morera →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

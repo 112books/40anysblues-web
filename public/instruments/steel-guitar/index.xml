@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Steel Guitar on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/instruments/steel-guitar/</link>
+    <description>Recent content in Steel Guitar on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/instruments/steel-guitar/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mario Cobo</title>
+      <link>http://localhost:1313/musics/mario-cobo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/mario-cobo/</guid>
+      <description>&lt;p&gt;Reconegut com un dels millors guitarristes i un dels músics més creatius del rock’n’roll i el rockabilly, va arribar al blues retrocedint en la seva ruta sonora, esperonat per la curiositat engendrada per un disc de Mississippi John Hurt que rondava per casa dels seus pares. Enamorat de la guitarra des de ben petit, sempre va tenir clar que volia dedicar-se a la música, i el 1996 va començar el seu recorregut professional amb The Nu Niles, una banda mítica del panorama del blues i el rock’n’roll del nostre país. El seu domini d’una varietat de gèneres com el rhythm&amp;amp;blues, el swing, el jazz o el country li han permès tocar amb artistes internacionals com Dale Hawkins, Janis Martin, Kim Lenz i Mike Sanchez. Coneixedor profund de la música nord-americana d’arrel, i fent gala d’un humor amable i irònic, es mostra més seduït per la profunditat del missatge i el llenguatge universal que no pas pels focs d’artifici: «Només m’interessa el blues quan es fa servir per comunicar, divertir i connectar amb el públic. Quan se centra en virtuosismes o exercicis d’estil purs i durs, tanco la paradeta i torno als meus vinils antics».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

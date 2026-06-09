@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sergi Escriu · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Sergi Escriu</h1>
+      
+      <p class="musico-dades">
+        Sabadell
+        , 1976
+      </p>
+      
+      <p class="musico-instruments">Guitarra</p>
+      
+      
+      <p class="musico-bandes">The Road Clan Blues Band · The Odyssey Blues Band · The Midnight Rockets · The Lowdown Groovers</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Hi ha poques vocacions tan primerenques com la d&rsquo;aquest guitarrista auster, dretà i eficaç, amb el so genuí del bon coneixedor del gènere. Als dotze anys es va gastar els seus magres estalvis en un disc de Sonny Terry i Paul Butterfield. El seu oncle Marià, que tocava la guitarra a Tabaco, un grup de rock progressiu dels anys seixanta, li va ensenyar els primers acords de blues en una guitarra espanyola amb la qual no sabia ben bé què fer. Als vint anys va començar a tocar amb The Midnight Rockets, banda liderada per Maurici Morera, i es va convertir en una figura habitual de l&rsquo;escena barcelonina i catalana. Poc amant del protagonisme i posseïdor d&rsquo;una considerable tècnica instrumental, es confessa seduït per l&rsquo;actitud emocional i per la força del blues: «La seva capacitat per fer-te vibrar, el fet que mai soni igual i, especialment, que va directe al cor. Només a qui li agrada el blues sap de què estic parlant». Amant declarat de la bicicleta de muntanya, desplega la mateixa energia concentrada quan toca en directe: «La sensació de pujar a un escenari és impagable&hellip; i sobretot de poder compartir aquest <em>feeling</em> tan intens».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/sergi-estella/" class="nav-prev">← Sergi Estella</a>
+      <a href="/ca/musics/santos-puertas/" class="nav-next">Santos Puertas →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

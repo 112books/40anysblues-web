@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrie Lewis · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Carrie Lewis</h1>
+      
+      <p class="musico-dades">
+        Portland
+        , 1972
+      </p>
+      
+      <p class="musico-instruments">Veu</p>
+      
+      
+      <p class="musico-bandes">Jinx Jazz Band · Parlour Games · Lemon Twist</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>La Carrie va passar l’adolescència rodejada per l’explosió del grunge a la ciutat natal de Courtney Love, però ella preferia cantar swing, jazz o musicals de Cole Porter, tot i que el blues li semblava una mica antiquat i decadent. Va arribar a Barcelona el 2001, «Sola, a la recerca d’art i música». I els va trobar, primer cantant al carrer amb grups de jazz, i després en clubs i locals amb els projectes successius que va anar muntant, sempre rodejant-se dels millors músics «per posar un marc de talent al voltant de que jo podia conjurar», com afirma ella mateixa. I va ser a la ciutat comtal on va trobar el blues, en una classe de ball de Ferran Puig on els seus peus la van portar pel camí de la música del diable: «El blues va entrar en el meu cos, a les meves venes, i em va ensenyar una manera d’excavar i alliberar emocions, acostar-me a mi mateixa i compartir el que havia descobert. I de sobte la meva veu també volia expressar el que sentia». Artista amb un fort vessant espiritual i professional polivalent, sap que la seva millor arma és el sentiment: «No crec que sigui una gran cantant, però m’encanta l’exorcisme de poder comunicar el sentiment, empatitzar i jugar amb el públic».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/cesc-miro/" class="nav-prev">← Cesc Miró</a>
+      <a href="/ca/musics/carlos-perez/" class="nav-next">Carlos Pérez →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

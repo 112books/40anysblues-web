@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>José María Merchan · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">José María Merchan</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1953
+      </p>
+      
+      <p class="musico-instruments">Baix</p>
+      
+      
+      <p class="musico-bandes">Harmònica Zúmel Blues Band · Merchan Lester &amp; Delirium Blues · Blues Explosion · Merchan Mas Preus Blues Band · Merchan &amp; Co.</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>El seu camí musical es va iniciar escoltant discos de blues i muntant el grup METAFORA! amb el seu amic Amadeu Casas, amb qui també va compartir els primers anys pioners de La Cova del Drac. Va començar a actuar professionalment a finals dels anys seixanta a La Pèrgola de Montjuic, un local històric de Barcelona, amb músics negres de diferent procedència: Estats Units, Anglaterra, Àfrica o Cuba. A començaments dels setanta va participar en formacions de diversa índole, com Los Amaya o Esqueixada Sniff. Una prova de la seva longeva carrera és el seu primer tema, «La Porta Blues», escrit als anys seixanta i que encara continua tocant amb el seu grup actual, Merchan &amp; Co. El blues, com explica ell mateix, li ha donat moments màgics com la nit de 1976 en què va conèixer Muddy Waters després d’un concert al Palau de la Musica, tot participant en una jam a la sala Magic amb Bob Margolin, però sobretot li ha proporcionat un arrelament sentimental: «M’ha donat sentiment, una forma de vida, amics i molta música. Quan faig un solo, toco blues. No sé fer cap altra cosa».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/julio-lobos/" class="nav-prev">← Julio Lobos</a>
+      <a href="/ca/musics/jose-bluesfingers/" class="nav-next">Jose Bluesfingers →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

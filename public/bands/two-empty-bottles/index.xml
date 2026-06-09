@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Two Empty Bottles on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/two-empty-bottles/</link>
+    <description>Recent content in Two Empty Bottles on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/two-empty-bottles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eric Ibañes</title>
+      <link>http://localhost:1313/musics/eric-ibanes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/eric-ibanes/</guid>
+      <description>&lt;p&gt;Va començar a tocar la guitarra amb dotze anys, i va créixer escoltant rock’n’roll, fins que va decidir estirar del fil i va arribar al moll de l’os: «El blues és l’arrel de tot plegat, i vaig descobrir que el blues tenia més força i profunditat, com a forma d’expressió, que altres gèneres de música». Després dels habituals inicis amb grups d’amics tocant per bars i locals de la ciutat comtal, va decidir enfocar-se més al domini de la guitarra i va elaborar el seu projecte artístic, cosa que el va dur a passar per Detroit i a participar en un parell de formacions. Es va submergir en el blues, un gènere la interpretació del qual, per a aquest versàtil multiinstrumentista, va més enllà del que és simplement musical: «Tocar blues és explorar un món complex de cultura i història, i també explorar-se un mateix». A més, confessa que la pràctica d’aquest estil li ha permès una major llibertat i capacitat interpretativa: «La llibertat d’improvisació i de trencar normes. Una apreciació per al control i la cura de les meves sensibilitats musicals, tempos i ritmes».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

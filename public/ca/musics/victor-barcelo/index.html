@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Víctor Barceló · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Víctor Barceló</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1995
+      </p>
+      
+      <p class="musico-instruments">Harmònica · Veu</p>
+      
+      
+      <p class="musico-bandes">Gang Wolf &amp; Víctor Strong Boy · Oscar Linares &amp; Víctor Barceló · Midnight Stomp · Bad Possum</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Conegut també com Strong Boy, pertany a la remesa de músics sorgida a la segona dècada del segle XXI a l’escena barcelonina del blues, en la qual va treure el cap per primer cop als divuit anys, de la mà d’Amadeu Casas i en el mític Honky Tonk Blues Bar. Des d’aquell dia va centrar els esforços en una direcció: ser músic professional. Després de fer-se un forat en les jams de la ciutat i de formar un duet amb Gang Wolf Lightnin’, es va unir durant tres anys a Oscar Linares, amb concerts arreu del país. Amant del blues tradicional de Charlie Patton, Son House, Scrapper Blackwell o DeFord Bailey, va recalar durant un temps a Madrid, on va créixer musicalment en diverses bandes locals, i va tornar a la seva ciutat per seguir aprofundint en una música que estima per la seva capacitat per expressar idees i sentiments: «En el blues no hi ha temes tabú, pots parlar sobre qualsevol cosa, de sexe o de política; pots expressar tristesa  o simplement que tens ganes de passar-ho bé. Aquesta llibertat és el que més m’atrau». Aquest harmonicista agosarat, irreverent i impetuós, confessa que la seva millor arma és el desvergonyiment escènic i la capacitat per interactuar amb el públic.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/victor-puertas/" class="nav-prev">← Victor Puertas</a>
+      <a href="/ca/musics/vicente-zumel/" class="nav-next">Vicente Zúmel →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

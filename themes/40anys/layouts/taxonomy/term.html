@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="taxonomy-section">
+  <div class="container">
+    <h1 class="taxonomy-title">{{ .Title }}</h1>
+    <p class="taxonomy-count">{{ len .Pages }} músic{{ if gt (len .Pages) 1 }}s{{ end }}</p>
+
+    <div class="taxonomy-grid">
+      {{ range sort .Pages "Title" }}
+      <a href="{{ .RelPermalink }}" class="taxo-card">
+        <div class="taxo-foto">
+          {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+          {{ if $img }}
+          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+          {{ else }}
+          <div class="taxo-foto-placeholder"></div>
+          {{ end }}
+        </div>
+        <div class="taxo-nom">{{ .Title }}</div>
+        {{ with .Params.instruments }}<div class="taxo-instruments">{{ delimit . " · " }}</div>{{ end }}
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

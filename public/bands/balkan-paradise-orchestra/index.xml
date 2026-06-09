@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Balkan Paradise Orchestra on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/balkan-paradise-orchestra/</link>
+    <description>Recent content in Balkan Paradise Orchestra on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/balkan-paradise-orchestra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eva Garin</title>
+      <link>http://localhost:1313/musics/eva-garin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/eva-garin/</guid>
+      <description>&lt;p&gt;Va començar a estudiar a l’Escola Municipal de Música de Sant Andreu als vuit anys, i un bon dia es va adonar que allò, dedicar-se a la música, era el que li agradava més del món. Va ser allà que va començar a interessar-se per la música moderna i el jazz i va ensopegar d’entrada amb el blues. «Només començar ja em van parlar del blues, l’estil amb el qual pots expressar qualsevol sentiment, em van dir». De mica en mica es va anar introduint en l’estil, escoltant i estudiant els grans mestres, i transitant sempre pels camins de les músiques d’arrel afroamericana, el jazz, el dixie, el swing i el blues, un gènere que confessa que gaudeix com a intèrpret i també com a oient, i del qual li sedueix la capacitat per transmetre emocions: «Quan l’escolto noto que em transporto a un altre indret i a una altra època, revivint històries increïbles amb tota la seva passió». Una passió que ella transmet donant classe a diferents escoles de música de Barcelona.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

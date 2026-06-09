@@ -1,0 +1,158 @@
+{{ define "main" }}
+
+{{/* Random musician */}}
+{{ $musics := where site.RegularPages "Section" "musics" }}
+{{ $randomMusic := index (shuffle $musics) 0 }}
+
+
+<section class="home-hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-logo">
+        <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
+      </div>
+      <div class="hero-text">
+        <h1>La història del Blues a Barcelona</h1>
+        <p>Benvinguts a <em>40 anys de Blues a Barcelona</em>. Aquest web neix del resultat de l'edició del llibre del mateix nom.</p>
+        <p>Des del 2020 que es va iniciar, hem fotografiat tots els protagonistes del Blues a la ciutat comptal.</p>
+        <p>Avui dia tenim editat el primer treball del projecte: <em>«Preses Falses, 40 anys de Blues a Barcelona»</em>, un petit llibre de retrats de quasi 140 músics de Blues amb presència a Barcelona.</p>
+        <p>La fotografia tradicional com a eina d'unió. El projecte es va iniciar per en Joan Linux en intentar immortalitzar als músics que ha conegut en els seus anys de fotògraf del Festival de Blues de Barcelona. I com el mateix estil de música, la fotografia vella, química, en blanc i negre i realitzada amb andròmines que tenen els mateixos, si no més, anys que els primers instruments del blues rural dels Estats Units.</p>
+        <div class="hero-actions">
+          <a href="{{ relLangURL "/musics/" }}" class="btn">Els Músics</a>
+          <a href="{{ relLangURL "/projecte/" }}" class="btn btn-outline">El Projecte</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-random">
+  <div class="container">
+    <div class="random-grid">
+      {{ with $randomMusic }}
+      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      <div class="random-card random-card--music">
+        {{ if $img }}
+        <div class="random-foto">
+          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+        </div>
+        {{ end }}
+        <span class="random-label">Músic destacat</span>
+        <h3 class="random-name"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ with .Params.instruments }}<p class="random-meta">{{ delimit . " · " }}</p>{{ end }}
+        {{ with .Params.born_city }}<p class="random-city">{{ . }}{{ with $.Params.born_year }}, {{ . }}{{ end }}</p>{{ end }}
+      </div>
+      {{ end }}
+      <div class="random-card random-card--llibres">
+        <span class="random-label">Els Llibres</span>
+        <div class="random-llibres-stack">
+          <div class="llibre-home-card">
+            <img src="/llibres/Captura-de-pantalla-2025-03-11-a-les-11.19.12-743x1024.png" alt="40 Anys de Blues a Barcelona">
+            <div class="llibre-home-info">
+              <h3>40 Anys de Blues a Barcelona</h3>
+              <p class="llibre-sub">En preparació · Tardor 2026</p>
+              <p>L'edició definitiva. {{ hugo.Data.stats.total_musics }} músics, biografies completes, fotografies definitives. Quatre dècades d'una escena que segueix viva.</p>
+              <span class="btn btn-outline btn-disabled">Properament</span>
+            </div>
+          </div>
+          <div class="llibre-home-card">
+            <a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener">
+              <img src="/llibres/Preses-Falses.png" alt="Preses Falses">
+            </a>
+            <div class="llibre-home-info">
+              <h3><a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener">Preses Falses</a></h3>
+              <p class="llibre-sub">40 Anys de Blues a Barcelona · 2022</p>
+              <p>La primera edició del projecte. Quasi 140 músics retratats en blanc i negre amb càmeres analògiques. Les preses descartades de les sessions, un valor fotogràfic propi.</p>
+              <a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener" class="btn">Comprar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="home-autors">
+  <div class="container">
+    <h2 class="section-title">Els Culpables</h2>
+    <div class="autors-grid">
+      {{ range sort (where site.RegularPages "Section" "autors") "Params.ordre" }}
+      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      <div class="autor-card">
+        {{ if $img }}
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
+        {{ else }}
+        <div class="autor-foto autor-foto--placeholder"></div>
+        {{ end }}
+        <h3>{{ .Title }}</h3>
+        {{ with .Params.rol }}<p class="autor-rol">{{ . }}</p>{{ end }}
+      </div>
+      {{ end }}
+
+      {{ with site.GetPage "/musics/ricky-gil" }}
+      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      <div class="autor-card autor-card--petit">
+        {{ if $img }}
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto autor-foto--petit">
+        {{ else }}
+        <div class="autor-foto autor-foto--petit autor-foto--placeholder"></div>
+        {{ end }}
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p class="autor-rol">Traducció i correcció</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section class="home-numeros">
+  <div class="container">
+    <h2 class="section-title">El Projecte en Números</h2>
+    <div class="stats-grid">
+      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_musics }}</span><span class="stat-label">músics retratats</span></div>
+      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_fotos }}</span><span class="stat-label">fotografies</span></div>
+      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.anys_escena }}</span><span class="stat-label">anys d'escena</span></div>
+      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_instruments }}</span><span class="stat-label">instruments</span></div>
+      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_formacions }}</span><span class="stat-label">formacions documentades</span></div>
+      <div class="stat"><span class="stat-num">{{ hugo.Data.stats.total_ciutats }}</span><span class="stat-label">ciutats d'origen</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="home-gracies">
+  <div class="container">
+    <div class="editorial-peu">
+      <div class="editorial-logo">
+        <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
+        <p>Una producció de l'<a href="http://112books.eu" target="_blank" rel="noopener"><strong>Editorial 112 Books</strong></a></p>
+      </div>
+      <div class="editorial-gracies">
+        <p class="editorial-gracies-label">Projecte materialitzat gràcies a:</p>
+        <div class="gracies-logos">
+          <a href="http://112books.eu" target="_blank" rel="noopener" title="Editorial 112 Books">
+            <img src="/logotips/editoria-112books-logotip.png" alt="Editorial 112 Books">
+          </a>
+          {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
+          {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+          {{ if $img }}
+          <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+            <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+          </a>
+          {{ end }}
+          {{ end }}
+          {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
+          {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+          {{ if $img }}
+          <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+            <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+          </a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xavi Malacara · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Xavi Malacara</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1966
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Harmònica · Veu</p>
+      
+      
+      <p class="musico-bandes">Malacara &amp; Wilson Band · Malatun · Malacara Blues Band</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va arribar al gènere a principis del segle XXI, després d’un viatge iniciàtic a Memphis, on va decidir estirar del fil que uneix la música d’Elvis amb el blues tradicional, que el va atrapar per la seva senzillesa de possibilitats infinites, la seva capacitat per mostrar sentiments i un ritme que suggereix un moviment seductor i atractiu. Però el seu recorregut musical és tan ampli com eclèctic, per bé que sempre dins de l’univers de la música nord-americana d’arrels. Ha participat en projectes de folk indie rock i ha homenatjat Hank Williams i Bob Dylan. Músic elegant i home discret i poc aficionat a les demostracions que no siguin musicals, en els darrers anys ha esdevingut un referent del folk blues de la ciutat comtal, en la qual s’hi troba còmode envoltat de bons amics i còmplices. Les seves cançons tenen una sonoritat evocadora i les seves lletres una visió penetrant i desencantada, fidels a una concepció particular del blues: «És una música carregada d’emocions que juga una partida entre allò que és sagrat i allò que és profà i inconfessable».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/xavier-soranells/" class="nav-prev">← Xavier Soranells</a>
+      <a href="/ca/musics/xavi-curto/" class="nav-next">Xavi Curto →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

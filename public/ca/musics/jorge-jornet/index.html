@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cobre · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Cobre</h1>
+      
+      <p class="musico-nom-complet">Jorge Cobre Jornet</p>
+      
+      <p class="musico-dades">
+        Viladecans
+        , 1975
+      </p>
+      
+      <p class="musico-instruments">Baix</p>
+      
+      
+      <p class="musico-bandes">Carajillo Blues Trio · Dr. Blues · 4 Copas · Julián Kanevsky Trio</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Es va enamorar a primera vista del blues amb catorze anys, quan va veure tocar en un bar un duo de guitarra i harmònica, que l’endemà es va convertir en el Carajillo Blues Trio, una formació que des del començament va decidir per l’autenticitat i l’underground: «Amb uns carrets, anàvem tocant de bar en bar sense cita prèvia». Allà es va avesar com a músic i va iniciar un viatge artístic que l’ha dut a convertir-se en una figura ineludible del panorama del blues barceloní i a tocar amb figures locals i internacionals com Joan Pau Cumellas, José Luis Pardo, Antonio Serrano, Alex Zayas, Carl Weathersby, Larry McCray o Slam Allen. La seva mestria i professionalitat l’han dut a tocar amb formacions i projectes més enllà del gènere, com La Cabra Mecánica, Chivo Chivato o Hot Swing Machine, però va ser el blues el que li va permetre expressar-se sentimentalment a través de la música: «Les escales pentatòniques són genials per expressar-te de manera senzilla, sense complexos. També em va aportar actitud».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/quico-hernandez/" class="nav-prev">← Cuco Cutre</a>
+      <a href="/ca/musics/hernan-serna/" class="nav-next">Chino Swingslide →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

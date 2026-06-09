@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Xavi Curto · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Xavi Curto</h1>
+      
+      <p class="musico-dades">
+        Tortosa
+        , 1965
+      </p>
+      
+      <p class="musico-instruments">Baix</p>
+      
+      
+      <p class="musico-bandes">Hot Blues · The Midnight Rockets · Els Impossibles · Firewood Band</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Aquest músic eficaç i professional prestigiós va topar amb el blues quan va aterrar a Cerdanyola: «Era una ciutat dominada per la música i en aquells moments tot respirava blues, va ser inevitable». Després de finalitzar els estudis al Taller de Músics va començar a actuar habitualment, formant part indissoluble d’una segona generació del blues a l’àrea barcelonina, que va recollir el testimoni dels pioners de la generació anterior, i ha compartit escenari amb la majoria dels grans noms del panorama nacional. Per a aquest baixista veterà i contundent, la música d’arrel afroamericana proporciona llibertat creativa i comunicativa: «És la música que, juntament amb el jazz, et dona més llibertat d’interpretació, facilitat de connectar amb els sentiments i els estats d’ànim de la gent». Bon coneixedor del gènere i figura habitual de l’escena barcelonina, ha tocat amb la majoria de les bandes locals i amb un bon nombre d’estrelles internacionals al seu pas per la ciutat. Com a bon baixista de blues, el seu referent és Willie Dixon, un dels més grans d’una música que li ha permès expressar la seva personalitat i que, a més, en paraules del mateix Curto, «És un pou que no te l’acabes mai».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/xavi-malacara/" class="nav-prev">← Xavi Malacara</a>
+      <a href="/ca/musics/javier-alonso-artieda/" class="nav-next">Woolfi →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Café Soul on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/caf%C3%A9-soul/</link>
+    <description>Recent content in Café Soul on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/caf%C3%A9-soul/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Víctor Vergés Martí</title>
+      <link>http://localhost:1313/musics/victor-verges-marti/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/victor-verges-marti/</guid>
+      <description>&lt;p&gt;Que entre els seus principals artistes favorits figurin Louis Armstrong, Etta James, Big Joe Turner i Blue Mitchell dona una idea clara de la profunditat i amplitud del coneixement que aquest talentós instrumentista té del gènere, que va començar a conèixer just quan va començar a interessar-se de debò per la música. Després de dècades de formar part essencial de l’escena barcelonina, descriu la seva evolució professional amb una senzillesa i naturalitat aclaparadores:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

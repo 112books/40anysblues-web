@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marc Ferrer · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Marc Ferrer</h1>
+      
+      <p class="musico-dades">
+        Masquefa
+        , 1975
+      </p>
+      
+      <p class="musico-instruments">Piano</p>
+      
+      
+      <p class="musico-bandes">The Big Jamboree · The Big 3 · The Velvet Candles · Marc Ferrer Trio</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Dos discos recopilatoris de Ray Charles i B.B. King que rondaven per casa seva van ser els culpables d’un gust precoç per la música d’arrel afroamericana. Va començar tocant el piano als cinc anys i amb setze ja estudiava jazz i tocava en combos en els quals de tant en tant s’hi colava algun blues. Va seguir l’estela de pioners com Harmònica Zúmel, Amadeu Casas, August Tharrats o Big Mama, i el 1996 es va incorporar a The Big Jamboree, on continua a dia d’avui. El seu piano ha acompanyat artistes com Big Dani Pérez, Agustí Burriel, Laia Porta, Ricard Gili o Víctor Puertas, entre d’altres, i figures internacionals com Dale Hawkins o Barrence Whitfield. Habitual dels festivals espanyols i europeus, ha deixat una empremta pedagògica a través de les seves classes a l’Escola de Blues de Barcelona, transmetent als alumnes, a més de la mestria musical, l’amor per un estil que considera molt més que un gènere musical: «És història, tradició i sentiment en estat pur. Em fascina tot el que es pot arribar a expressar tocant blues».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/marc-ruiz/" class="nav-prev">← Marc Ruiz</a>
+      <a href="/ca/musics/manuel-casado/" class="nav-next">Manuel Casado →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

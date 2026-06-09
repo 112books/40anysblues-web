@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matías Miguez · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Matías Miguez</h1>
+      
+      <p class="musico-dades">
+        Buenos Aires
+        , 1973
+      </p>
+      
+      <p class="musico-instruments">Baix</p>
+      
+      
+      <p class="musico-bandes">Amadeu Casas Quartet · Cece Giannotti · Los Saxofonistas Salvajes · Big Mama Montse &amp; 30&#39;S Band</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>La seva inquietud per explorar nous i diversos territoris culturals i musicals el va acabar conduint fins a les arrels de la música afroamericana: «Així vaig trobar el blues, que, venint del jazz, m’esperava en una cantonada per fer-nos amics», explica ell mateix. Toca la guitarra des dels vint anys i va ser l’històric guitarrista Amadeu Casas qui li va proporcionar les primeres oportunitats com a músic professional, gairebé un parell de dècades enrere. Molt coneixedor del gènere i amant d’un blues d’ampli espectre, de Robert Johnson i Freddie King a Keb Mo’ o John Mayer, aquest excel·lent guitarrista ha acompanyat en les últimes dècades el bo i millor del gènere a Barcelona, la ciutat en què s’ha fet un lloc i s’ha envoltat del millor que, segons confessa, li ha donat la música: els amics. Sobre l’estil que un dia va decidir tocar, confessa que li agrada absolutament tot, especialment la capacitat de transmissió d’energia, sentiments i conceptes: «El ritme i l’harmonia previsibles, i al mateix hipnòtics, que t’atrapen en un mantra, i d’altra banda, el llenguatge melòdic i poètic que s’estén, pràcticament, per tota la música popular actual».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/maurici-morera/" class="nav-prev">← Maurici Morera</a>
+      <a href="/ca/musics/martin-j-merino/" class="nav-next">Martin J. Merino →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

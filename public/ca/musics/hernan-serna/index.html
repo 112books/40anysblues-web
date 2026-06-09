@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chino Swingslide · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Chino Swingslide</h1>
+      
+      <p class="musico-nom-complet">Hernán Serna</p>
+      
+      <p class="musico-dades">
+        Buenos Aires
+        , 1980
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Dobro</p>
+      
+      
+      <p class="musico-bandes">Down Home · Shine · The Acoustic Blues Company · Chino &amp; The Big Bet</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Guitarrista destre i virtuós, compositor creatiu i cantant captivador, «Chino» es va entestar a ser músic des que va aprendre a tocar la guitarra quan tenia tretze anys. Obstinat de mena, ho va aconseguir per elevació i va acabar convertit en artista. Interpreta el blues amb un coneixement profund del gènere i un respecte venerable pels mestres, però sempre portant-los al seu territori. En el seu primer periple europeu, als divuit anys, es va enamorar de la <em>resophonic guitar</em>, la seva arma més letal. Va tornar a Barcelona el 2001, es va guanyar el públic de clubs i festivals i es va convertir en un referent que es permet el luxe de transitar magistralment pels camins del swing, el manouche, el tango o el bolero, demostrant que per les seves artèries musicals flueixen amb la mateixa força Robert Johnson, Django Reinhardt o Oscar Alemán. S’adapta perfectament a escenaris grans i petits, però en les distàncies curtes dels clubs és on desplega tota la seva genialitat, amb un directe tan imprevisible musicalment com arriscat en la comunicació. El seu tarannà agosarat fa que de vegades es fiqui en fangars dialèctics, dels quals surt sempre indemne per posar-se el públic a la butxaca, la seva veritable especialitat.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/jorge-jornet/" class="nav-prev">← Cobre</a>
+      <a href="/ca/musics/chento-briganti/" class="nav-next">Chento Briganti →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mike Shannon · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Mike Shannon</h1>
+      
+      <p class="musico-dades">
+        Davenport
+        , 1950
+      </p>
+      
+      <p class="musico-instruments">Harmònica · Veu</p>
+      
+      
+      <p class="musico-bandes">Dan Electro &amp; The Silvertones · The Cat Tones · The Night Dogs · Mr. Sixty · Jack&#39;s Sons</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>El juny de 2001, mentre  «La raja de tu falda» encenia les nits barcelonines, l’atzar va fer que aterrés a la cuitat un bluesman nord-americà d’estampa elegant. Es deia Mike Shannon, era conegut com Dan Electro i va anar a parar a casa de la seva germana a Barcelona amb motiu de la cancel·lació d’una gira que feia per Europa. Els efluvis del blues el van conduir a una jam session a La Boït, on li van oferir un contracte d’un mes. L’última nit va conèixer la persona que es convertiria en la seva esposa, i la resta, com diu ell mateix, és història. I aquesta història explica que, un cop integrat en l’ambient del blues barceloní, va començar a expandir la idea de crear alguna cosa que aglutinés músics i aficionats per impulsar l’escena local. Després de nombroses i feixugues reunions en locals nocturns, el resultat va ser la Societat de Blues de Barcelona. Queda lluny aquella jam a Sarasota, Florida, on es va enganxar al blues, una música que toca des de finals dels vuitanta i que el va dur a col·laborar amb els més grans del gènere a finals dels noranta, a recórrer el món amb la seva harmònica, i finalment  a  la riba del Mediterrani, seguint allò que tant li agrada dir: «Confia en el blues».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/monique-makon/" class="nav-prev">← Monique Makon</a>
+      <a href="/ca/musics/miguel-talavera/" class="nav-next">Miguel Talavera →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manolo Germán · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Manolo Germán</h1>
+      
+      <p class="musico-dades">
+        Cardona
+        , 1970
+      </p>
+      
+      <p class="musico-instruments">Contrabaix</p>
+      
+      
+      <p class="musico-bandes">Gatos Locos · Doctor Swinguez · Jazz Cuarteto de Mano Rena · Lluís Coloma Trio</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Començant amb la militància rockabilly, és lògic que arribés al blues pel cordó umbilical natural: «El que em sedueix del blues és que és la mare de la música moderna, tot ve d’aquí, d’aquesta arrel». Contrabaixista contundent i vertiginós, té un ampli registre que li permet transitar amb mestria pel boogie woogie, el rhythm&amp;blues, el jazz o el country. Sense rival a la categoria de músic més simpàtic del blues del nostre país, parla amb sentit de l’humor fins i tot dels seus inicis musicals: «Vaig començar a tocar l’any 1995, després de canviar unes camperes per un baix elèctric». Dos anys més tard es convertia en contrabaixista i el 2006 en luthier de contrabaixos, tot i que en realitat treballava la fusta ja des dels catorze anys, cosa que li ha proporcionat una relació íntima amb un instrument que li ha permès viatjar per tot el món, actuant en tota mena d’escenaris, gairebé sempre com a acompanyament rítmic del pianista Lluís Coloma, i afirma pletòric que el millor que li ha donat el blues ha estat tocar amb grans amics i «compartir música i vivències amb gent bonica».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/manuel-casado/" class="nav-prev">← Manuel Casado</a>
+      <a href="/ca/musics/miguel-angel-lonesome/" class="nav-next">MA Lonesome →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

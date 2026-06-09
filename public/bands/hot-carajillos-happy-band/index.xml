@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hot Carajillo’s Happy Band on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/hot-carajillos-happy-band/</link>
+    <description>Recent content in Hot Carajillo’s Happy Band on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/hot-carajillos-happy-band/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Núria Vitó</title>
+      <link>http://localhost:1313/musics/nuria-vito/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/nuria-vito/</guid>
+      <description>&lt;p&gt;Va començar amb vint anys amb orquestres de ball, i després d’un variat recorregut musical, del folk a la música de cambra, s’ha convertit en una de les saxofonistes més apreciades de l’escena barcelonina, amb una presència pràcticament ineludible a les big bands de la ciutat. Les primeres topades amb el blues van ser tot el contrari d’un amor a primera vista. Quan estudiava música, ella l’esquivava, però el blues no parava de picar a la seva porta una vegada i una altra. La relació amb altres músics i compositors li van demostrar que valia la pena intentar-ho. Va donar-li una oportunitat i ara forma part de la seva vida, tot i que el que li acarona l’oïda és tot allò que soni a disco i funk, com més antic millor, i si es tracta de Stevie Wonder, Weather Report o Maceo Parker, encara millor. Confessa que el blues li ha permès incorporar-se a un món d’artistes que admira des de sempre, com els de la Barcelona Big Blues Band, Dani Nel·lo o Myriam Swanson, i demostra pel gènere un respecte absolut: «Pots tocar-lo sense sentiment, però els que ho escolten no sentiran res, no els arribarà».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cesc Miró · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Cesc Miró</h1>
+      
+      <p class="musico-dades">
+        Martorell
+        , 1974
+      </p>
+      
+      <p class="musico-instruments">Trompeta</p>
+      
+      
+      <p class="musico-bandes">The Big Jamboree · Vintage Gramola · The Excitements · Último Clan · Phil Collins Tribute Band · Groove Nazar</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>El rhythm&amp;blues, el jump blues i el rock’n roll van començar a circular per les venes musicals d’aquest trompetista virtuós des dels seus primers grups a principis dels anys noranta, quan va iniciar una carrera que va consolidar en formar part de la banda The Big Jamboree, en la qual milita des de fa dues dècades. Des de llavors, forma part ineludible del panorama barceloní de la música d’arrel afroamericana, que, segons les seves paraules: «Té un conjunt d’acords en els quals em sento molt còmode i puc deixar-me anar amb l’instrument». Tot i que els seus referents fonamentals són trompetistes de jazz com Clifford Brown, Miles Davis o Chet Baker, la seva admiració per bluesmen com Big Joe Turner, pioners com Louis Jordan o precursors del rock ‘n’ roll com Wynonie Harris li permet un recorregut per diversos estils que es reflecteix en les seves col·laboracions amb diferents tipus de formacions, en les quals, a més de la seva inqüestionable qualitat artística, desplega el millor que li ha donat el blues: «Alegria i ganes de tocar sempre».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/chento-briganti/" class="nav-prev">← Chento Briganti</a>
+      <a href="/ca/musics/carrie-lewis/" class="nav-next">Carrie Lewis →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

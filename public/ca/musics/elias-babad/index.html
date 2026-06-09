@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elias Babad · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Elias Babad</h1>
+      
+      <p class="musico-dades">
+        Pàdua
+        , 1995
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Veu</p>
+      
+      
+      <p class="musico-bandes">Lust N’Found · Los Boozan Dukes</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Segons les seves pròpies paraules, el seu pare el va criar a base de pa i rock: «Em feia escoltar Hendrix, Led Zeppelin, Cream i molts altres. Ell em va transmetre la passió per la guitarra». I sense sortir del barri va ensopegar amb el blues i amb el seu primer mestre, Sergio de Checchi, propietari d’una botiga d’instruments que li va fer classes de l’única tècnica que coneixia: el fingerpicking. Amb ell va transitar els camins del gòspel i el blues primitiu, i el 2018 va arribar a Barcelona per fes classes amb Chino Swingslide, a qui reconeix com a primer mestre i mentor, la persona que li va facilitar l’entrada al blues barceloní a través de les jams del Honky, el Harlem i el Pipa Club. En una d’elles va conèixer Quico Hernàndez, amb qui va crear Lust N’Found i va començar la seva trajectòria com a músic professional, amb un concert de Nit de Reis prepandèmica al Honky Tonk. Les circumstàncies adverses del confinament van donar un impuls insospitat a la seva carrera: amb els locals sense poder programar, l’Elias i el Quico es van bolcar al carrer, on van polir un repertori que en anys posteriors els portaria a escenaris i festivals de tot el país.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/emilio-torres/" class="nav-prev">← Emilio Torres</a>
+      <a href="/ca/musics/alberto-noel-calvillo/" class="nav-next">El Tolo →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

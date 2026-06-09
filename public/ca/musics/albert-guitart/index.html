@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Albert Guitart · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Albert Guitart</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1964
+      </p>
+      
+      <p class="musico-instruments">Baix</p>
+      
+      
+      <p class="musico-bandes">Fas Tard · Sweet Little &amp; Midnight Laters · Harmònica Zumel Blues Band</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va començar a pujar als escenaris el 1976 en grups de rock progressiu, en els anys del Rock Laietà, i va arribar a actuar en set grups paral·lelament. Va arribar a la música d’arrel afroamericana a finals dels vuitanta, de la mà de Big Mama Montse, que li va ensenyar el llenguatge del blues, i de Leo Carreras, amb qui va crear Fas Tard, una de les bandes pioneres de l’escena barcelonina. Va formar part de les jams pioneres de la ciutat, on es va sentir atret per la comunió entre músics: «Em va agradar el component d’improvisació que facilitava l’intercanvi amb altres músics». Anys més tard ha seguit treballant amb les músiques improvisades, fent improvisació lliure no idiomàtica i organitzant cicles com les Impronits o els Encontres en l’Espai-Temps , dins del paraigües de “Gràcia Territori Sonor”. Una vida dedicada a la música, en la darrera etapa més centrat en l’apartat de tècnica i producció, en què el blues l’ha omplert de vida: «He conegut moltíssims grans artistes i he participat en concerts memorables. Aquests moments, i els vincles que acabes establint, t’omplen tan a nivell professional com personal».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/alberto-burguez/" class="nav-prev">← Alberto Burguez</a>
+      <a href="/ca/musics/alan-bike/" class="nav-next">Alan Bike →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

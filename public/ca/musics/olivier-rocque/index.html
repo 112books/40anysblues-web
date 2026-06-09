@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olivier Rocque · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Olivier Rocque</h1>
+      
+      <p class="musico-dades">
+        París
+        , 1972
+      </p>
+      
+      <p class="musico-instruments">Bateria</p>
+      
+      
+      <p class="musico-bandes">Crazy Blues Band · Barcelona Swing Orquestra · Swingset · Marc Ferrer Trio</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va ser un disc en el qual participava Clarence Gatemouth Brown. Això va encaminar aquest elegant i resolutiu bateria per la senda del blues. Va començar els estudis musicals al conservatori d’Epinay Sous Sénarty i els va continuar a l’IMPF de Marsella. Instal·lat a Barcelona des del 1997, va iniciar el recorregut acompanyant els grans del jazz comtal, com Lucky Guri, J.Mº Farràs o Ignasi Terraza, però també s’ha convertit en una figura habitual i apreciada en el circuit del blues, on la seva professionalitat li ha guanyat el respecte absolut del públic i els companys de professió. A més de Gatemouth Brown, integren la seva santíssima trinitat de referents musicals el pianista Memphis Slim i Fred Below, a qui considera «el bateria del blues». Artista de talent i amb una gran cultura musical, segons les seves paraules, es confessa seduït per la música d’arrel afroamericana, «perquè és un gènere musical ple de sentiments i emocions que l’intèrpret transmet al públic de manera instantània, i això converteix el blues en un estil que, com el jazz, es caracteritza per la improvisació de les interpretacions. De fet, cada versió d’una cançó de blues es converteix en una peça única».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/oriol-fontanals/" class="nav-prev">← Oriol Fontanals</a>
+      <a href="/ca/musics/nuria-vito/" class="nav-next">Núria Vitó →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

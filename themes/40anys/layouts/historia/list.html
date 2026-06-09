@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="content-page historia-page">
+  <div class="container">
+    <div class="text-offset">
+      <h1>{{ .Title }}</h1>
+      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      <div class="historia-content">
+        {{ if $img }}
+        <div class="historia-foto">
+          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+        </div>
+        {{ end }}
+        {{ with .Content }}
+        <div class="page-content">{{ . }}</div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

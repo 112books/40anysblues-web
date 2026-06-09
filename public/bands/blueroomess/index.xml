@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blueroomess on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/blueroomess/</link>
+    <description>Recent content in Blueroomess on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/blueroomess/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Donna Lee</title>
+      <link>http://localhost:1313/musics/donna-lee/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/donna-lee/</guid>
+      <description>&lt;p&gt;Filla d’argentins que van fugir de la dictadura militar, Paola Graziano va passar la infància i joventut entre Veneçuela, Argentina i Itàlia, per acabar recalant a Barcelona l’any 2004, amb una etapa prèvia a Galícia, on va fer els primers passos professionals. En aquest tragí es va formar musicalment, començant a estudiar saxo abans dels vuit anys. I aquella nena que va quedar captivada per un cassette de Lightnin’ Hopkins quan tenia tretze anys, i a qui les seves companyes anomenaven «veu de camioner» per la seva veu de contralt, es va capbussar en les arrels del blues i va acabar atrapada per les grans dames del gènere, com Bessie Smith, Koko Taylor o Ada Brown, tot descobrint el que era capaç de transmetre, precisament gràcies a aquesta tessitura de veu. Al front de Blueroomess, un grup de música d’arrel afroamericana, ha esdevingut una de les cantants de referència de la ciutat, amb un repertori que fon el folk, el country, l’skiffle i el blues, una música que la sedueix bàsicament per «la capacitat per expressar emocions profundes d’una manera crua i directa».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

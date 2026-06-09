@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anton Jarl · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Anton Jarl</h1>
+      
+      <p class="musico-dades">
+        Malmö
+        , 1975
+      </p>
+      
+      <p class="musico-instruments">Bateria</p>
+      
+      
+      <p class="musico-bandes">Los Mambo Jambo · Rambalaya · Koko Jean &amp; The Tonics · Magnolia · Anton Jarl Quintet · Los Drummonds · Kind of metal</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Aquest bateria elegant i rotund va començar tocant rock&amp;roll quan era jovenet a la seva Suècia natal i aviat va caure captivat pel jazz, de manera que el més lògic és que acabés descobrint el cordó umbilical que els uneix tots dos: el blues, un gènere que considera el llenguatge musical base de la música moderna. S’hi va capbussar després d’arribar a Barcelona, cap a l’any 2004, quan es va convertir en músic professional, primer amb l’August Tharrats Trio i després amb les formacions més importants de la ciutat dedicades a la música afroamericana. Després de quaranta anys tocant la bateria, assegura que «un bon músic de blues fa cantar el seu instrument, el fa servir per explicar històries». Tan apassionat com tenaç, la seva relació amb la bateria és un aprenentatge continu que l’ha dut a transitar amb facilitat per diversos gèneres, tot i que reconeix que el blues li ha donat moments inoblidables i l’ha connectat amb tota una herència artística: «M’ha fet sentir connectat amb generacions de música anteriors a mi. És un llegat, una tradició de la qual m’encanta formar part, i que dona sentit a la meva vida musical».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/arnau-demons/" class="nav-prev">← Arnau Demons</a>
+      <a href="/ca/musics/anna-lee/" class="nav-next">Anna Lee →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Harmónica Zumel Blues Band on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/harm%C3%B3nica-zumel-blues-band/</link>
+    <description>Recent content in Harmónica Zumel Blues Band on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/harm%C3%B3nica-zumel-blues-band/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jose Bluesfingers</title>
+      <link>http://localhost:1313/musics/jose-bluesfingers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/jose-bluesfingers/</guid>
+      <description>&lt;p&gt;Si existís aquesta etiqueta (potser sí que existeix), se’l podria qualificar com un virtuós minimalista de la guitarra. Durant vint anys ha acompanyat l’harmònica i la veu de Txus Blues, aconseguint amb només uns acords el que els altres no aconsegueixen amb fanfàrria i floritures: que la cosa tingui &lt;em&gt;feeling&lt;/em&gt; i la cançó soni com ha de sonar: amb ànima i capacitat de comunicació. És aquesta capacitat per trobar allò que és substancial, la que més el sedueix del blues: «El seu llenguatge, que permet expressar-te fins i tot en temes amb harmonies aparentment senzilles». Desfent el camí que condueix des de Hendrix, Led Zeppelin o Cream fins als pioners del gènere, es va foguejar amb les bandes històriques del blues barceloní, fins que amb l’arribada del nou segle es va embarcar amb Txus Blues en una de les aventures més imaginatives, divertides i fins i tot delirants del blues espanyol. La cosa va durar vint anys i va deixar una petjada inesborrable en la pràctica totalitat de sales i festivals del país, pels quals van passejar un repertori en castellà enginyós i ben treballat. Ara ha tret la pols a la guitarra elèctrica i apunta a nous horitzons amb la seva manera impecable i sentida d’interpretar la música afroamericana.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

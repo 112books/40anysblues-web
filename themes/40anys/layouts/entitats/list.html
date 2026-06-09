@@ -1,0 +1,30 @@
+{{ define "main" }}
+<section class="sales-section">
+  <div class="container">
+    <div class="text-offset">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}<div class="section-intro">{{ . }}</div>{{ end }}
+    </div>
+
+    <div class="sales-grid">
+      {{ range sort .Pages "Params.ordre" }}
+      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") (.Resources.GetMatch "*.svg") }}
+      <a href="{{ .RelPermalink }}" class="sala-card">
+        <div class="sala-imatge">
+          {{ if $img }}
+          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+          {{ else }}
+          <div class="sala-imatge-placeholder">
+            <span>{{ .Title }}</span>
+          </div>
+          {{ end }}
+        </div>
+        <div class="sala-info">
+          <h2 class="sala-nom">{{ .Title }}</h2>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

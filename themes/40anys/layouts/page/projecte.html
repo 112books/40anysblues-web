@@ -1,0 +1,176 @@
+{{ define "main" }}
+{{ $stats := hugo.Data.stats }}
+<div class="content-page projecte-page">
+  <div class="container">
+    <div class="projecte-layout">
+
+      <!-- Índex lateral esquerre -->
+      <aside class="projecte-sidebar">
+        <nav class="projecte-index">
+          <a href="#numeros">El Projecte en Números</a>
+          <a href="#llibres">Els Llibres</a>
+          <a href="#autors">Els Culpables</a>
+          <a href="#bibliografia">Bibliografia</a>
+        </nav>
+      </aside>
+
+      <!-- Contingut dret -->
+      <div class="projecte-contingut">
+
+        <h1>{{ .Title }}</h1>
+        <div class="page-content">{{ .Content }}</div>
+
+        <!-- El Projecte en Números -->
+        <section class="stats-section" id="numeros">
+          <h2>El Projecte en Números</h2>
+          <div class="stats-grid">
+            <div class="stat">
+              <span class="stat-num">{{ $stats.total_musics }}</span>
+              <span class="stat-label">músics retratats</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">{{ $stats.total_fotos }}</span>
+              <span class="stat-label">fotografies</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">{{ $stats.anys_escena }}</span>
+              <span class="stat-label">anys d'escena</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">{{ $stats.total_instruments }}</span>
+              <span class="stat-label">instruments</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">{{ $stats.total_formacions }}</span>
+              <span class="stat-label">formacions documentades</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">{{ $stats.total_ciutats }}</span>
+              <span class="stat-label">ciutats d'origen</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Els Llibres -->
+        <section class="llibres-section" id="llibres">
+          <h2>Els Llibres</h2>
+          <div class="llibres-grid">
+            <div class="llibre-card">
+              <img src="/llibres/Preses-Falses.png" alt="Preses Falses">
+              <div class="llibre-info">
+                <h3>Preses Falses</h3>
+                <p>40 Anys de Blues a Barcelona · 2022</p>
+                <p class="llibre-desc">La primera edició del projecte. Quasi 140 músics retratats. Les preses descartades de les sessions, un valor fotogràfic propi.</p>
+                <p class="llibre-isbn">ISBN 978-84-122960-7-5</p>
+              </div>
+            </div>
+            <div class="llibre-card">
+              <img src="/llibres/Captura-de-pantalla-2025-03-11-a-les-11.19.12-743x1024.png" alt="40 Anys de Blues a Barcelona">
+              <div class="llibre-info">
+                <h3>40 Anys de Blues a Barcelona</h3>
+                <p>En preparació · Tardor 2026</p>
+                <p class="llibre-desc">L'edició definitiva. {{ $stats.total_musics }} músics, biografies completes, fotografies definitives. Quatre dècades d'una escena que segueix viva.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Els Culpables -->
+        <section class="autors-section" id="autors">
+          <h2>Els Culpables</h2>
+          <div class="autors-grid">
+            {{ range sort (where site.RegularPages "Section" "autors") "Params.ordre" }}
+            {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+            <div class="autor-card">
+              {{ if $img }}
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
+              {{ else }}
+              <div class="autor-foto autor-foto--placeholder"></div>
+              {{ end }}
+              <h3>{{ .Title }}</h3>
+              {{ with .Params.rol }}<p class="autor-rol">{{ . }}</p>{{ end }}
+              {{ with .Content }}<div class="autor-bio">{{ . }}</div>{{ end }}
+            </div>
+            {{ end }}
+
+            {{/* Ricky Gil - traductor, des de la secció de músics */}}
+            {{ with site.GetPage "/musics/ricky-gil" }}
+            {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+            <div class="autor-card autor-card--petit">
+              {{ if $img }}
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto autor-foto--petit">
+              {{ else }}
+              <div class="autor-foto autor-foto--petit autor-foto--placeholder"></div>
+              {{ end }}
+              <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              <p class="autor-rol">Traducció i correcció</p>
+            </div>
+            {{ end }}
+          </div>
+        </section>
+
+        <!-- Bibliografia -->
+        {{ $biblio := where site.RegularPages "Section" "bibliografia" }}
+        {{ if $biblio }}
+        <section class="biblio-section" id="bibliografia">
+          <h2>Bibliografia</h2>
+          <div class="biblio-grid">
+            {{ range sort $biblio "Params.ordre" }}
+            {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+            <div class="biblio-card">
+              <div class="biblio-portada">
+                {{ if $img }}
+                <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+                {{ else }}
+                <div class="biblio-portada-placeholder">
+                  <span>{{ .Title }}</span>
+                </div>
+                {{ end }}
+              </div>
+              <div class="biblio-info">
+                <h3 class="biblio-titol">{{ .Title }}</h3>
+                {{ with .Params.autor }}<p class="biblio-autor">{{ . }}</p>{{ end }}
+                {{ with .Params.url_compra }}
+                <a href="{{ . }}" target="_blank" rel="noopener" class="btn btn-outline biblio-btn">Veure</a>
+                {{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </section>
+        {{ end }}
+
+        <!-- Logotip editorial + col·laboradors -->
+        <div class="editorial-peu">
+          <div class="editorial-logo">
+            <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
+            <p>Una producció de l'<a href="http://112books.eu" target="_blank" rel="noopener"><strong>Editorial 112 Books</strong></a></p>
+          </div>
+          <div class="editorial-gracies">
+            <p class="editorial-gracies-label">Projecte materialitzat gràcies a:</p>
+            <div class="gracies-logos">
+              {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
+              {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+              {{ if $img }}
+              <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+                <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+              </a>
+              {{ end }}
+              {{ end }}
+              {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
+              {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+              {{ if $img }}
+              <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+                <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+              </a>
+              {{ end }}
+              {{ end }}
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /projecte-contingut -->
+    </div><!-- /projecte-layout -->
+  </div>
+</div>
+{{ end }}

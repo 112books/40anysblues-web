@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julio Vallejo · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Julio Vallejo</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1964
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Veu</p>
+      
+      
+      <p class="musico-bandes">Julio Vallejo &amp; Eddy Cameron · Dreamfields · Doctor Swinguez · Blue, Room 69</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va néixer el mateix any en què els Stones i els Beatles van arribar per primera vegada als Estats Units per, entre altres coses, retre homenatge als vells bluesmen que aleshores vivien pràcticament en l’oblit. En el seu cas, va ser un cosí apassionat per la música afroamericana qui el va dur a interpretar blues, rock’n’roll o country folk, i va aprendre a tocar la guitarra a l’adolescència, quan va quedar impressionat pel que ell anomena «el crit del blues». El nen a qui feien cantar i tocar la guitarra en festes i reunions familiars va cobrar amb divuit anys el primer concert, i va seguir actuant amb la mateixa il·lusió i ampliant horitzons. Va viure, es va casar i va tenir una filla a Anglaterra, on va viure múltiples experiències musicals, així com a Chicago, on va compartir escenari amb el seu amic el pianista Barrelhouse Chuck. Tota aquesta experiència l’aplica al vessant didàctic, amb xerrades-concert sobre la història del blues, un gènere del qual li atrau l’autenticitat, el sentiment que et du a ballar, riure o plorar. Pel camí ha gaudit d’aprendre amb altres músics, conèixer estils i persones fantàstiques que comparteixen amb ell una passió musical i un objectiu: «Per sobre de tot, passar-m’ho molt bé!».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/kodjo-senyo/" class="nav-prev">← Kodjo Senyo</a>
+      <a href="/ca/musics/julio-lobos/" class="nav-next">Julio Lobos →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Pastor · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">David Pastor</h1>
+      
+      <p class="musico-dades">
+        Bad Honnef, Alemanya
+        , 1974
+      </p>
+      
+      <p class="musico-instruments">Trompeta</p>
+      
+      
+      <p class="musico-bandes">Big John &amp; Soulfingers · Dr. Party &amp; Midnight Movers · Reunión Blues · Antonio Serrano &amp; G Blues Band · Intocablues Band · Mr Hurricane Band · Big Mama · Rambalaya</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Fill circumstancial de l’emigració, va néixer a Alemanya, però com ell mateix explica, la seva biografia va començar a Sedaví, València, on es va criar i on va començar a estudiar música, amb nou anys. La trompeta va arribar una mica de rebot, com explica al seu web amb un fi sentit de l’humor: «Vaig triar la trompeta perquè vaig arribar tard i s’havien acabat els fagots». I entre classe i classe es va escolar l’alè de la música afroamericana: «Aviat vaig contactar amb músics que improvisaven. Amb ells vaig descobrir el blues i el jazz». Als setze anys va començar a tocar professionalment amb algunes orquestres de ball, i el 1995, amb vint-i-un anys, es va instal·lar a Barcelona per emprendre una carrera que l’ha dut a actuar amb figures de màxim nivell internacional. Renega de l’encasellament i aposta per qualsevol gènere gràcies a la versatilitat de la seva trompeta, però reconeix que el blues dona sentit a tot el que toca i que el sedueix per la seva honestedat: «Per poder tocar blues has de mostrar-te tal com ets».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/david-sanchez/" class="nav-prev">← David Sánchez</a>
+      <a href="/ca/musics/david-giorcelli-/" class="nav-next">David Giorcelli  →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

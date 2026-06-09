@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carlos Pérez · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Carlos Pérez</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1970
+      </p>
+      
+      <p class="musico-instruments">Baix</p>
+      
+      
+      <p class="musico-bandes">Paquito Groove Band · Big Jamboree · Barcelona Big Blues Band · The Belmontes</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Després de comprar-se el seu primer instrument a l’adolescència i fer les primeres passes amb bandes locals, a principis dels noranta es trasllada a Londres i s’introdueix en l’escena musical. Al tornar toca amb bandes de diversos estils, fins que uneix el seu camí al del seu germà, Big Dani Pérez, i a partir d’aquí entra a formar part dels grups més destacats del panorama barceloní de blues, rhythm&amp;blues, soul i funk. Ha compartit escenari amb les figures més rellevants de l’escena del blues, un gènere del qual admira la seva capacitat d’expressió: «És un llenguatge, una manera d’expressar-se, fins i tot una manera de ser. L’has de conèixer, defensar-lo i sentir-lo. El dolor, la tristesa i l’alegria a través de la música, de la improvisació, fan que cada cançó o moment siguin únics i especials». Aquest excel·lent baixista reivindica la influència dels clàssics de la música d’arrel afroamericana i la profunditat de la interacció a l’escenari: «Quan hi ha un moment de connexió amb la banda, per petit que sigui, és brutal, únic, com una droga, no ho sé, no es pot explicar. El que és evident és que el públic ho nota i això encara ho fa més màgic».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/carrie-lewis/" class="nav-prev">← Carrie Lewis</a>
+      <a href="/ca/musics/carlos-navarrete/" class="nav-next">Carlos Navarrete →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

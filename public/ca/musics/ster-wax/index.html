@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ster Wax · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Ster Wax</h1>
+      
+      <p class="musico-dades">
+        Sabadell
+        , 1983
+      </p>
+      
+      <p class="musico-instruments">Veu</p>
+      
+      
+      <p class="musico-bandes">The Sparkles · Ster and The Waxer · Wax and Boogie</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va passar una nit de 2011 en un dels clubs més emblemàtics de la ciutat, el Rocksound. Una jove cantant es presentava al concurs de la SBB amb una banda formada per a l’ocasió amb el millor de cada casa. L’Ster no va guanyar però sí que va fer el salt definitiu a la professionalitat. Amb una veu impactant, una imatge que transporta als anys de glòria del rhythm &amp; blues i una desimboltura escènica que enlluerna, en una dècada va passar d’un cor d’espectacles de burlesque a primera figura de cartell, esdevenint una de les millor veus femenines del país. Amb una fam precoç d’escenari, va començar a cantar amb un grup femení de doo-wop, seguidament va formar Ster and The Waxers, va participar en el Burlesque Taboo i finalment va consolidar Wax and Boogie, al costat del pianista David Giorcelli. La seva arma secreta, segons la pròpia confessió, és «la capacitat de convertir l’escenari en casa meva, o com a mínim, transmetre-ho». Sincera, exigent i treballadora, aconsegueix enganxar el públic posant tota l’ànima en la música que interpreta i cercant les arrels en un ventall de clàssics que van de Ruth Brown a Mose Allison, passant per Etta James, Alicia Keys, Stevie Wonder o Ray Charles, entre els centenars de músics que donen forma a l’univers artístic d’aquesta cantant.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/marta-sune/" class="nav-prev">← Sweet Marta</a>
+      <a href="/ca/musics/miriam-aparicio/" class="nav-next">Sister Marion →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

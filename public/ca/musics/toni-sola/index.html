@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toni Solà · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Toni Solà</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1966
+      </p>
+      
+      <p class="musico-instruments">Saxo tenor</p>
+      
+      
+      <p class="musico-bandes">Harmònica Zúmel Blues Band · Javier Vargas Blues Band · Raimundo Amador · Gene «Mighty Flea» Conners · Pee Wee Ellis · Lila Ammons</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Aquest saxofonista de jazz és mou amb desimboltura pel blues de la ciutat comtal des de fa gairebé quatre dècades, quan tocava rock’n’roll amb Los Rebeldes o afegia el seu instrument i arranjaments al primer disc de blues gravat a Barcelona, l’<em>Stratto Blues</em> de l’Harmònica Zúmel Blues Band. Temps de pioners en els quals es va capbussar als divuit anys i en què va conèixer llegendes com el pianista Lucky Guri, que el va introduir en el món del jazz, on ha desenvolupat una carrera sòlida i premiada a nivell internacional. Aquest excel·lent instrumentista es confessa seduït per les essències vocals del blues: «Les <em>blue notes</em>, que són allà enmig de l’entonació, estan vives. El blues sempre es canta, sigui amb l’instrument que sigui. Si no canta, no hi ha blues». Aquest funambulisme entre dos gèneres li van transmetre els seus músics de capçalera, gent com Jay McShann, Eddie «Cleanhead» Vinson o Ray Charles: «Artistes versàtils que tenien un peu en el blues i un altre en el jazz, unint el vessant genuí del primer amb la sofisticació del segon». És el viatge a les essències d’un artista que ha convertit la música negra en part fonamental de la seva vida.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/tori-sparks/" class="nav-prev">← Tori Sparks</a>
+      <a href="/ca/musics/toni-pedrol/" class="nav-next">Toni Pedrol →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

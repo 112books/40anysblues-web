@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lost’n’Found. on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/lostnfound./</link>
+    <description>Recent content in Lost’n’Found. on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/lostnfound./index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cuco Cutre</title>
+      <link>http://localhost:1313/musics/quico-hernandez/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/quico-hernandez/</guid>
+      <description>&lt;p&gt;Tot i que forma part de l’última fornada de joves arribats al blues comtal, retrocedint en el temps des del heavy metal que encara l’apassiona, s’ha submergit en el esperit més &lt;em&gt;roots&lt;/em&gt; del blues, en el seu vessant més profund i rural, gràcies a companys sorgits de l’entorn de l’Escola de Blues de Barcelona, com Hèctor Martos i Oriol Fontanals, que a més li van descobrir un instrument tradicional, el washboard, amb el qual s’ha revelat com un intèrpret consumat. La seva immersió en les arrels del gènere l’han portat a trobar-se especialment còmode en l’escenari dels seus ancestres musicals, el carrer, des del qual s’ha projectat als clubs de la ciutat. L’admiració per mestres com Washboard Sam i bluesmen com Blind Willie McTell, Bo Carter, Big Bill Broonzy o Blind Blake, no l’impedeix ser un producte intel·ligent del seu temps i rastrejar el blues en el funk, el rock o el hip-hop, un estil en el qual també va fer les primeres passes com a bateria. Seduït per la seva raó de ser i per allò que el va propiciar, del blues li atrau la seva força com a vehicle d’expressió per a persones oprimides «que sovint duien vides que posen els pèls de punta».&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

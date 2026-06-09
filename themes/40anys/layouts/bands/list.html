@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="taxonomy-section">
+  <div class="container">
+    <h1 class="taxonomy-title">Formacions</h1>
+    <p class="taxonomy-count">{{ len site.Taxonomies.bands }} formacions</p>
+
+    <div class="bandes-grid">
+      {{ range $slug, $pages := site.Taxonomies.bands }}
+      {{ $termPage := site.GetPage (printf "/bands/%s" $slug) }}
+      {{ $nom := cond (ne $termPage nil) $termPage.Title (replace (title $slug) "-" " ") }}
+      {{ $membres := sort $pages "Title" }}
+      <div class="banda-card">
+        <h2 class="banda-nom">
+          <a href="{{ relLangURL "/bands/" }}{{ $slug }}/">{{ $nom }}</a>
+        </h2>
+        <ul class="banda-membres">
+          {{ range $membres }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

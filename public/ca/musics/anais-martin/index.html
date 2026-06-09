@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anaïs Martín · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Anaïs Martín</h1>
+      
+      <p class="musico-dades">
+        Màlaga
+        , 1984
+      </p>
+      
+      <p class="musico-instruments">Veu · Kazoo</p>
+      
+      
+      <p class="musico-bandes">The Black Snakes</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Establerta a Barcelona des del 1992, el blues ha estat present a la seva vida des d’una edat primerenca per la influència d’alguns membres de l’entorn familiar, com l’històric guitarrista malagueny Javier Martín Aguilar. El seu domini de les variants més diverses de la música afroamericana d’arrels, des del work song al gòspel fins al blues més profund, ancestral i terrenal, segons la seva pròpia definició, unit a una presència escènica magnètica, l’han convertit en una figura destacada de l’escena barcelonina de blues, un gènere que qualifica com «la música de les ànimes trencades, inquietes i rebels que necessiten treure’s de dins un pes incòmode, un crit, fins i tot un acudit, una sàtira irònica o un alleujament». Després d’una dècada de dedicació a la música d’origen afroamericà, segueix gaudint-ne tant com el dia en què va escoltar el seu primer blues, interpretat per B.B. King, i continua alliberant els neguits mentre canta i comparteix una passió que es va apoderar d’ella escoltant un ampli ventall d’artistes com Skip James, Leadbelly, Memphis Minnie, Mills Brothers, Aretha Franklin, Amy Whinehouse, Lauryn Hill o De La Soul, la música dels quals es posa sobre la seva ànima com l’aleteig de les papallones que decoren la seva pell.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/anita-rouge/" class="nav-prev">← Anita Rouge</a>
+      <a href="/ca/musics/ana-ramallo/" class="nav-next">Ana Ramallo →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

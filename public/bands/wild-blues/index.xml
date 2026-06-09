@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wild Blues on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bands/wild-blues/</link>
+    <description>Recent content in Wild Blues on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bands/wild-blues/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Willy Capibola</title>
+      <link>http://localhost:1313/musics/g%C3%BCilli-capibola/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/musics/g%C3%BCilli-capibola/</guid>
+      <description>&lt;p&gt;Entusiasta, impetuós, vehement, enginyós i visionari, el blues de Barcelona té un deute amb una pila d’iniciatives seves que han marcat la seva història des de fa més de vint anys. Militant de les causes perdudes que mereixen ser guanyades, apassionat de la música i de tot allò que l’envolta, va ser abduït per la música del diable una nit en què tornava d’un concert de B.B. King amb el seu inseparable amic Ricard, amb el qual va crear el projecte Capibola. Va arribar a la música a través de la pura passió i va començar a tocar arrossegat per l’entusiasme i les ganes d’encomanar l’amor pel blues a tot allò que l’envolta. El seu respecte pels que exerceixen l’ofici, que són la major part dels seus amics, li impedeix considerar-se un professional, però toca el saxo amb la mateixa energia, convicció i anhel de llibertat que dedica a la resta de coses. Sempre amb un ull romàntic posat en la justícia social, s’ha ficat en tots els bassals que ha trobat i ha assumit tots els reptes que li han caigut a sobre, per amor a la cultura i a allò que va començar sent una afició i que, segons les seves paraules, li ha donat pràcticament tot: el blues.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

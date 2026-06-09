@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hèctor Martin · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Hèctor Martin</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1983
+      </p>
+      
+      <p class="musico-instruments">Guitarra</p>
+      
+      
+      <p class="musico-bandes">A Contra Blues · Barcelona Big Blues Band · Dani Nel·lo y los Saxofonistas Salvajes · Rambalaya · Scaramanga · Mambo Jambo Arkestra · Lone Rhino Club · Yakety Yak</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>La relació d’aquest brillant guitarrista amb el blues és un afer d’herència paternal: des de petit escoltava al cotxe del seu pare la música de llegendes del gènere com Elmore James, B.B. King, Johnny Winter o Skip James. Totes aquestes cançons van fer sedimentar en els seus dits una energia i un <em>feeling</em> que va començar a fluir tocant rock i la resta de músiques d’arrel afroamericana. El 2004 va conèixer Jonathan Herrero, amb el qual va fundar A Contra Blues, un grup que, després dels habituals i inevitables inicis de carrer, va guanyar el 2009 el concurs de la SBB i cinc anys més tard el European Blues Challenge. Amb la banda consolidada, ha diversificat els projectes, col·laborant amb bona part de les millors bandes de la ciutat i de la resta del país, a les quals aporta el seu estil personal, tant musical com escènic i estètic, sempre superant les etiquetes reductores, però sense renunciar mai a allò que escoltava de jovenet, una música a la qual no vol cercar ni trobar explicacions: «Només puc dir que sempre que l’escolto m’emociona».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/hoochie-coochie-sonia/" class="nav-prev">← Hoochie Coochie Sonia</a>
+      <a href="/ca/musics/fredy-garcia/" class="nav-next">Fredy García →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

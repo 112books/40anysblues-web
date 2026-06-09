@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bibliografia on 40 Anys de Blues a Barcelona</title>
+    <link>http://localhost:1313/bibliografia/</link>
+    <description>Recent content in Bibliografia on 40 Anys de Blues a Barcelona</description>
+    <generator>Hugo</generator>
+    <language>ca</language>
+    <atom:link href="http://localhost:1313/bibliografia/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>El Jazz a Catalunya</title>
+      <link>http://localhost:1313/bibliografia/el-jazz-a-catalunya/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/bibliografia/el-jazz-a-catalunya/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

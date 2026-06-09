@@ -1,0 +1,108 @@
+{{ define "main" }}
+<section class="cerca-section">
+  <div class="container">
+    <h1 class="cerca-title">Cerca</h1>
+
+    <form class="cerca-form" id="cerca-form" action="" role="search">
+      <input
+        type="search"
+        id="cerca-input"
+        class="cerca-input"
+        placeholder="Músic, instrument, formació, sala..."
+        autocomplete="off"
+        autofocus
+      >
+    </form>
+
+    <p class="cerca-info" id="cerca-info"></p>
+
+    <div class="cerca-resultats" id="cerca-resultats"></div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7/dist/fuse.min.js"></script>
+<script>
+(function () {
+  var input = document.getElementById('cerca-input');
+  var resultsEl = document.getElementById('cerca-resultats');
+  var infoEl = document.getElementById('cerca-info');
+  var fuse = null;
+
+  var sectionLabels = {
+    musics: 'Músic',
+    sales: 'Sala',
+    historia: 'Història',
+    entitats: 'Entitat'
+  };
+
+  fetch('/index.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      fuse = new Fuse(data, {
+        keys: [
+          { name: 'title', weight: 3 },
+          { name: 'instruments', weight: 2 },
+          { name: 'bands', weight: 2 },
+          { name: 'born_city', weight: 1 },
+          { name: 'summary', weight: 1 }
+        ],
+        threshold: 0.35,
+        includeScore: true,
+        minMatchCharLength: 2
+      });
+
+      var params = new URLSearchParams(window.location.search);
+      var q = params.get('q') || '';
+      if (q) {
+        input.value = q;
+        cerca(q);
+      }
+    });
+
+  function cerca(q) {
+    q = q.trim();
+    if (q.length < 2) {
+      resultsEl.innerHTML = '';
+      infoEl.textContent = '';
+      return;
+    }
+    var results = fuse.search(q);
+    infoEl.textContent = results.length
+      ? results.length + ' resultat' + (results.length !== 1 ? 's' : '') + ' per "' + q + '"'
+      : 'Cap resultat per "' + q + '"';
+
+    if (!results.length) {
+      resultsEl.innerHTML = '<p class="cerca-buit">Prova amb un altre terme.</p>';
+      return;
+    }
+
+    resultsEl.innerHTML = results.map(function (r) {
+      var p = r.item;
+      var label = sectionLabels[p.section] || p.section;
+      var meta = [];
+      if (p.instruments && p.instruments.length) meta.push(p.instruments.join(' · '));
+      if (p.born_city) meta.push(p.born_city);
+      return '<a href="' + p.url + '" class="cerca-card">'
+        + '<span class="cerca-label">' + label + '</span>'
+        + '<span class="cerca-nom">' + p.title + '</span>'
+        + (meta.length ? '<span class="cerca-meta">' + meta.join(' — ') + '</span>' : '')
+        + (p.summary ? '<span class="cerca-resum">' + p.summary + '</span>' : '')
+        + '</a>';
+    }).join('');
+  }
+
+  input.addEventListener('input', function () {
+    var q = input.value;
+    var url = new URL(window.location);
+    if (q.trim().length >= 2) url.searchParams.set('q', q.trim());
+    else url.searchParams.delete('q');
+    window.history.replaceState({}, '', url);
+    cerca(q);
+  });
+
+  document.getElementById('cerca-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+  });
+})();
+</script>
+{{ end }}

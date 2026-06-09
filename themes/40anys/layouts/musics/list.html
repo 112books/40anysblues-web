@@ -1,0 +1,169 @@
+{{ define "main" }}
+<section class="musics-section">
+  <div class="container">
+    <div class="text-offset">
+      <h1>{{ .Title }}</h1>
+      {{ with .Content }}<div class="musics-intro">{{ . }}</div>{{ end }}
+    </div>
+
+    <div class="filtres">
+      <label>Instrument:
+        <select id="filtre-instrument">
+          <option value="">Tots</option>
+          {{ $instruments := slice }}
+          {{ range .Pages }}
+            {{ range .Params.instruments }}
+              {{ $instruments = $instruments | append . }}
+            {{ end }}
+          {{ end }}
+          {{ range ($instruments | uniq | sort) }}
+          <option value="{{ . }}">{{ . }}</option>
+          {{ end }}
+        </select>
+      </label>
+      <label>Any de naixement:
+        <select id="filtre-any">
+          <option value="">Tots</option>
+          {{ $anys := slice }}
+          {{ range .Pages }}
+            {{ with .Params.born_year }}{{ $anys = $anys | append (string .) }}{{ end }}
+          {{ end }}
+          {{ range ($anys | uniq | sort) }}
+          <option value="{{ . }}">{{ . }}</option>
+          {{ end }}
+        </select>
+      </label>
+      <input type="search" id="filtre-cerca" placeholder="Cerca per nom...">
+    </div>
+
+    <p class="musics-count"><span id="count">{{ len .Pages }}</span> músics</p>
+
+    <div class="musics-grid" id="musics-grid">
+      {{ range sort .Pages "Params.ordre" }}
+      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      <a href="{{ .RelPermalink }}" class="musico-card"
+         data-instruments="{{ delimit .Params.instruments "|" | lower }}"
+         data-any="{{ .Params.born_year }}"
+         data-nom="{{ .Title | lower }}">
+        <div class="card-foto">
+          {{ if $img }}<img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+          {{ else }}<div class="card-foto-placeholder"></div>{{ end }}
+        </div>
+        <div class="card-nom">{{ .Title }}</div>
+        {{ if and .Params.nom_complet (ne .Params.nom_complet .Title) }}
+        <div class="card-nom-complet">{{ .Params.nom_complet }}</div>
+        {{ end }}
+        <div class="card-meta">
+          {{ with .Params.born_year }}{{ . }}{{ end }}{{ with .Params.death_year }} – {{ . }} †{{ end }}{{ with .Params.born_city }} · {{ . }}{{ end }}
+        </div>
+        <div class="card-instruments">{{ delimit .Params.instruments " · " }}</div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // Accordion per a la intro de músics
+  document.addEventListener('DOMContentLoaded', function() {
+    var intro = document.querySelector('.musics-intro');
+    if (!intro) return;
+    var h2s = Array.from(intro.querySelectorAll('h2'));
+    if (!h2s.length) return;
+
+    // Recollim el contingut abans del primer h2
+    var beforeFirst = [];
+    var node = intro.firstChild;
+    while (node && node !== h2s[0]) {
+      beforeFirst.push(node.cloneNode(true));
+      node = node.nextSibling;
+    }
+
+    // Construïm els grups: cada h2 + els nodes que el segueixen fins al pròxim h2
+    var grups = h2s.map(function(h2, idx) {
+      var contingut = [];
+      var next = h2.nextSibling;
+      var limit = h2s[idx + 1] || null;
+      while (next && next !== limit) {
+        contingut.push(next.cloneNode(true));
+        next = next.nextSibling;
+      }
+      return { titol: h2.textContent, contingut: contingut };
+    });
+
+    // Buidem la intro i reconstruïm
+    intro.innerHTML = '';
+    beforeFirst.forEach(function(n) { intro.appendChild(n); });
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'musico-acordio';
+
+    grups.forEach(function(g) {
+      var item = document.createElement('div');
+      item.className = 'acordio-item';
+
+      var cap = document.createElement('button');
+      cap.className = 'acordio-cap';
+      cap.type = 'button';
+      cap.innerHTML = '<span>' + g.titol + '</span><span class="acordio-icon" aria-hidden="true">+</span>';
+
+      var cos = document.createElement('div');
+      cos.className = 'acordio-cos';
+      var inner = document.createElement('div');
+      inner.className = 'acordio-cos-inner';
+      g.contingut.forEach(function(n) { inner.appendChild(n); });
+      cos.appendChild(inner);
+
+      cap.setAttribute('aria-expanded', 'false');
+      cap.addEventListener('click', function() {
+        var obert = cos.classList.toggle('obert');
+        cap.setAttribute('aria-expanded', obert ? 'true' : 'false');
+      });
+
+      item.appendChild(cap);
+      item.appendChild(cos);
+      wrapper.appendChild(item);
+    });
+
+    intro.appendChild(wrapper);
+  });
+})();
+
+(function(){
+  var grid = document.getElementById('musics-grid');
+  var cards = Array.from(grid.querySelectorAll('.musico-card'));
+  var countEl = document.getElementById('count');
+
+  function filtra() {
+    var inst = document.getElementById('filtre-instrument').value.toLowerCase();
+    var any = document.getElementById('filtre-any').value;
+    var cerca = document.getElementById('filtre-cerca').value.toLowerCase().trim();
+    var visible = 0;
+    cards.forEach(function(c) {
+      var ok = true;
+      if (inst && c.dataset.instruments.split('|').indexOf(inst) === -1) ok = false;
+      if (any && c.dataset.any !== any) ok = false;
+      if (cerca && c.dataset.nom.indexOf(cerca) === -1) ok = false;
+      c.style.display = ok ? '' : 'none';
+      if (ok) visible++;
+    });
+    countEl.textContent = visible;
+  }
+
+  document.getElementById('filtre-instrument').addEventListener('change', filtra);
+  document.getElementById('filtre-any').addEventListener('change', filtra);
+  document.getElementById('filtre-cerca').addEventListener('input', filtra);
+
+  // Llegeix paràmetres d'URL (?any=1965 o ?cerca=barcelona)
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('any')) {
+    document.getElementById('filtre-any').value = params.get('any');
+  }
+  if (params.get('cerca')) {
+    document.getElementById('filtre-cerca').value = decodeURIComponent(params.get('cerca')).replace(/-/g, ' ');
+  }
+  filtra();
+})();
+</script>
+{{ end }}

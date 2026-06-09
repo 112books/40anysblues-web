@@ -1,0 +1,23 @@
+{{ define "main" }}
+<section class="content-page autors-page">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+
+    <div class="autors-grid">
+      {{ range sort .Pages "Params.ordre" }}
+      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      <div class="autor-card">
+        {{ if $img }}
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
+        {{ else }}
+        <div class="autor-foto autor-foto--placeholder"></div>
+        {{ end }}
+        <h3>{{ .Title }}</h3>
+        {{ with .Params.rol }}<p class="autor-rol">{{ . }}</p>{{ end }}
+        {{ with .Content }}<div class="autor-bio">{{ . }}</div>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

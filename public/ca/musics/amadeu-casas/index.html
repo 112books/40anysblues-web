@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amadeu Casas · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Amadeu Casas</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1954
+      </p>
+      
+      <p class="musico-instruments">Guitarra · Veu</p>
+      
+      
+      <p class="musico-bandes">Harmònica Zúmel Blues Band · Blues Explosion · Blues Reunion · The Blues Messengers · Slide Company · Tandoori Lenoir</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Elegància és la paraula per excel·lència que defineix un dels millors músics de blues que ha donat l’escena catalana i espanyola. Elegància en l’actitud, en la manera de parlar, d’escoltar, de somriure&hellip; i d’interpretar el blues. Va començar molt jove amb el seu amic Josep Maria Merchan i va ser un dels pioners que a començaments dels 80 es reunien a La Cova del Drac per cimentar les bases del blues a Barcelona, fins a esdevenir-ne una peça fonamental. En la seva guitarra, que va acompanyar-lo en la formació de les bandes més mítiques de la ciutat, se citaven el sentiment i la tècnica depurada. Va ser un enamorat absolut de la música d’arrels nord-americanes, i compartia la passió i un coneixement profund del gènere en conferències i espectacles per a infants. Culte, inquiet, afable i compromès, en l’etapa final va mantenir una fructífera col·laboració reivindicativa amb un altre geni abduït pel blues, l’irreverent Quico Pi de la Serra. La seva mort va tenyir de dolor i d’un sentiment d’orfandat el blues barceloní, el Nadal de 2020. Es definia a si mateix com «un guitarrista que s’ha fet de mica en mica, intentant mantenir una línia honesta amb els seus principis».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/ana-lee-winter/" class="nav-prev">← Ana Lee Winter</a>
+      <a href="/ca/musics/alberto-burguez/" class="nav-next">Alberto Burguez →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

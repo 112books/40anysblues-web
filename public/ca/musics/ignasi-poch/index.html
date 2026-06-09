@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignasi Poch · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Ignasi Poch</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1978
+      </p>
+      
+      <p class="musico-instruments">Saxo</p>
+      
+      
+      <p class="musico-bandes">The Big Jamboree · Barcelona Big Blues Band · Velvet Candles · The Sparkles · Big Dani Perez Saxplosion · Alice and the Wonders</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Aquest elegant i destre saxofonista es va submergir en el blues i el rock’n’roll amb només vint anys, de la mà del grup The Big Jamboree, la banda on va començar a avesar-se com a músic cap al 1997 i de la qual continua sent un element indispensable: «Ells em van introduir en el jive i el rhythm&amp;blues dels anys quaranta i cinquanta del segle passat». Malgrat que no es considera formalment un músic professional, fa molts anys que puja als escenaris, tant en festivals de blues i rock’n’roll com en sales tan històriques i emblemàtiques de l’àrea de Barcelona com El Cafè de Belgrado o La Boîte. La seva perícia instrumental li permet manejar-se amb absoluta desimboltura en un ampli ventall d’estils de la música afroamericana: el rhythm&amp;blues, el jump’n’jive, el swing o el rock’n’roll, sempre amb l’arrel del blues, un gènere del qual li sedueix la força anímica: «L’emoció en la transmissió musical». Amb més d’un quart de segle de carrera, té molt clar què és el millor que li ha proporcionat la música: «Sense cap dubte, les persones que he conegut».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/ignasi-terraza/" class="nav-prev">← Ignasi Terraza</a>
+      <a href="/ca/musics/hoochie-coochie-sonia/" class="nav-next">Hoochie Coochie Sonia →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

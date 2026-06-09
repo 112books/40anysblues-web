@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eric Ibañes · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Eric Ibañes</h1>
+      
+      <p class="musico-dades">
+        Bella Vista, Argentina
+        , 1992
+      </p>
+      
+      <p class="musico-instruments">Bateria · Guitarra</p>
+      
+      
+      <p class="musico-bandes">The Shepards · Two Empty Bottles · Las Balas Perdidas · Barko Waltz</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Va començar a tocar la guitarra amb dotze anys, i va créixer escoltant rock’n’roll, fins que va decidir estirar del fil i va arribar al moll de l’os: «El blues és l’arrel de tot plegat, i vaig descobrir que el blues tenia més força i profunditat, com a forma d’expressió, que altres gèneres de música». Després dels habituals inicis amb grups d’amics tocant per bars i locals de la ciutat comtal, va decidir enfocar-se més al domini de la guitarra i va elaborar el seu projecte artístic, cosa que el va dur a passar per Detroit i a participar en un parell de formacions. Es va submergir en el blues, un gènere la interpretació del qual, per a aquest versàtil multiinstrumentista, va més enllà del que és simplement musical: «Tocar blues és explorar un món complex de cultura i història, i també explorar-se un mateix». A més, confessa que la pràctica d’aquest estil li ha permès una major llibertat i capacitat interpretativa: «La llibertat d’improvisació i de trencar normes. Una apreciació per al control i la cura de les meves sensibilitats musicals, tempos i ritmes».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/eva-garin/" class="nav-prev">← Eva Garin</a>
+      <a href="/ca/musics/emma-fernandez/" class="nav-next">Emma Fernández →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

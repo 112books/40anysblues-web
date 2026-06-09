@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toni Pedrol · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Toni Pedrol</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1965
+      </p>
+      
+      <p class="musico-instruments">Guitarra</p>
+      
+      
+      <p class="musico-bandes">Teoría del Taburete · Lab Sons · Senyora Huston · Parlour Games</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>«Una mena d’encreuament de camins on conflueixen molts discursos musicals que resulten apassionants». Així és com defineix aquest guitarrista competent la manera de veure la música que li ha proporcionat el blues, un gènere al qual va arribar seguint l’habitual camí invers de bussejar en les arrels del rock, i que el va enganxar per sempre: «Quan creus que has trobat la llavor amb la qual s’ha construït gran part de la música popular, notes una mena d’addicció per interpretar-la». Això no li impedeix, però, transitar per altres gèneres com el rock o el folk, sempre reinterpretant la música d’arrels nord-americanes. Va començar a actuar professionalment a finals del segle passat, normalment en formacions de duet o trio, en diferents estils, però sense oblidar mai la música que per a ell constitueix l’essència, el sediment: «Una mena de fang musical primigeni que arrenca de la tradició popular i que serveix de fonament per a moltes altres músiques. Quan toques jazz, soul, rock&hellip; en algun moment apareix el blues».</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/toni-sola/" class="nav-prev">← Toni Solà</a>
+      <a href="/ca/musics/tofol-martinez/" class="nav-next">Tòfol Martínez →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

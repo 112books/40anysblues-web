@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignasi Terraza · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Ignasi Terraza</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1962
+      </p>
+      
+      <p class="musico-instruments">Piano</p>
+      
+      
+      <p class="musico-bandes">Ignasi Terraza Trio · Duo o Quartet · Andrea Motis &amp; Joan Chamorro Quintet · Ramon Fosati-Toni Solà- Ignasi Terraza Quintet · La Vella Dixieland · Barcelona Jazz Orquestra · Josep Maria Farràs Quartet · Four Kats amb Oriol Bordas · Mitchell Terraza Quartet · Barcelona Hot Seven</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>És un dels grans del jazz mundial, que ha recorregut amb assiduïtat la senda del blues, en tots dos casos des de l’arrel més tradicional. A començaments dels vuitanta va començar a tocar pels locals en què es bellugaven els músics de bandes pioneres del jazz barceloní com La Vella Dixieland i la Locomotora Negra, fins a treballar amb estrelles com Frank Wess, Teddy Edwards o Benny Golson. Resumir aquí el seu currículum seria tan difícil com redundant. La seva trajectòria l’avala com una figura fonamental de la música afroamericana de Barcelona, on ha acompanyat les principals figures del blues, un gènere del qual li atrau «el poder expressiu, essencial, d’arrel», i que li proporciona «una forma d’expressió molt potent, que abraça la ràbia, la desesperació, la soledat, el gaudi i la celebració de la vida en una festa, per, d’entre uns sentiments foscos o brillants, extraure una música totalment lluminosa», en paraules d’aquest enorme músic que va descobrir el piano després de quedar-se cec amb nou anys, enamorant-se per sempre de la música.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/igor-kossenkov/" class="nav-prev">← Igor Kossenkov</a>
+      <a href="/ca/musics/ignasi-poch/" class="nav-next">Ignasi Poch →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>

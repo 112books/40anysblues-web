@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Santi Ursul · 40 Anys de Blues a Barcelona</title>
+  <meta name="description" content="Arxiu fotogràfic i biogràfic de l&#39;escena del blues barcelonina">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="pwd-gate">
+  <div class="pwd-box">
+    <p class="pwd-title">40 Anys de Blues a Barcelona</p>
+    <p class="pwd-sub">Accés restringit · En construcció</p>
+    <form id="pwd-form">
+      <input type="password" id="pwd-input" placeholder="Contrasenya" autocomplete="off">
+      <button type="submit">Entrar</button>
+      <p id="pwd-error" hidden>Contrasenya incorrecta</p>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  var K = 'blues40_auth';
+  var P = 'LinuxBCN2026';
+  var gate = document.getElementById('pwd-gate');
+  if (localStorage.getItem(K) === P) {
+    gate.style.display = 'none';
+  } else {
+    document.getElementById('pwd-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      var val = document.getElementById('pwd-input').value;
+      if (val === P) {
+        localStorage.setItem(K, val);
+        gate.style.display = 'none';
+      } else {
+        document.getElementById('pwd-error').hidden = false;
+        document.getElementById('pwd-input').value = '';
+      }
+    });
+  }
+})();
+</script>
+
+  <header class="site-header">
+  <div class="container">
+    <a href="/" class="site-brand">40 Anys de Blues a Barcelona</a>
+    <nav>
+      <a href="/musics/">Músics i Músiques</a>
+      <a href="/historia/">La Història</a>
+      <a href="/sales/">Els Temples</a>
+      <a href="/entitats/">Qui Dona Suport</a>
+      <a href="/projecte/">El Projecte</a>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    
+<article class="musico-page">
+  <div class="container">
+    <div class="musico-header">
+      <h1 class="musico-nom">Santi Ursul</h1>
+      
+      <p class="musico-dades">
+        Barcelona
+        , 1959
+      </p>
+      
+      <p class="musico-instruments">Baix</p>
+      
+      
+      <p class="musico-bandes">Blues Reunion · Big Mama &amp; The Blues Messengers · Traditional Tourist · The Stamp · Smoking Stones · Dani Nel·lo Saxorama · Dani Baraldes &amp; XXX Band · Made in Black · Hola Raffaella · Undercovers</p>
+      
+    </div>
+
+    
+    <div class="musico-bio"><p>Santi Ursul va formar part del grup de pioners inquiets que van pujar al petit escenari de La Cova del Drac en les primeres passes del blues barceloní, a començaments dels vuitanta, i va inaugurar La Boîte, la sala que va alletar els primers grups durant els noranta. Aquesta és l’època en què Ursul es va convertir en professional i va començar a «viure (o malviure) únicament i exclusivament de la música». Com molts altres de la seva època, va conèixer el blues quan era un marrec, als anys setanta, a través de grups britànics com Cream o Rolling Stones, i va acabar capbussant-se en una seducció amb deixos d’abducció, o, dit en les seves paraules: «No és que em sedueixi, és que sense el blues no té sentit res del que he tocat, toco i tocaré. És la mare de tots els gèneres que han vingut després. Em sedueix totalment». Amb més de tres dècades passejant el batec del seu baix pels escenaris, amb bandes mítiques i actuals del panorama barceloní, aquest músic, habitualment protegit per unes ulleres de sol, s’ha convertit en una figura indispensable en la història local del rock i el blues, una música que, segons la seva confessió, li ha donat la vida.</p>
+</div>
+    
+
+    <div class="musico-nav">
+      <a href="/ca/musics/santos-puertas/" class="nav-prev">← Santos Puertas</a>
+      <a href="/ca/musics/samuel-marthe/" class="nav-next">Samuel Marthe →</a>
+    </div>
+  </div>
+</article>
+
+  </main>
+  <footer class="site-footer">
+  <div class="container">
+    <p>© 2026 Joan Linux · 112Books · <a href="mailto:joan@linuxbcn.com">Contacte</a></p>
+  </div>
+</footer>
+
+  
+</body>
+</html>
