@@ -1,12 +1,15 @@
 {{ define "main" }}
-{{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.svg") }}
+{{ $foto := or (.Resources.GetMatch "*foto*") (.Resources.GetMatch "*photo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.webp") }}
+{{ $logo := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.svg") }}
+{{ $teImatge := or $foto $logo }}
 <article class="entitat-page">
   <div class="container">
     {{ partial "breadcrumb.html" . }}
-    <div class="entitat-layout{{ if not $img }} entitat-layout--sense-logo{{ end }}">
-      {{ if $img }}
+    <div class="entitat-layout{{ if not $teImatge }} entitat-layout--sense-logo{{ end }}">
+      {{ if $teImatge }}
       <div class="entitat-logo-col">
-        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="entitat-logo">
+        {{ if $foto }}<img src="{{ $foto.RelPermalink }}" alt="{{ .Title }}" class="entitat-foto">{{ end }}
+        {{ if $logo }}<img src="{{ $logo.RelPermalink }}" alt="{{ .Title }} — logo" class="entitat-logo">{{ end }}
       </div>
       {{ end }}
       <div class="entitat-info-col">
