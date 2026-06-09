@@ -9,7 +9,7 @@ instruments:
 - Guitarra
 bands:
 - Blueswing
-- New Blues Explosion
+- The New Blues Explosion
 - Special Company
 - Blues Reunion
 - Big Mama & The Blues Messengers

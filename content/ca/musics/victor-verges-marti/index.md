@@ -13,9 +13,10 @@ bands:
 - Café Soul
 - Papa Joe’s Rambling Band
 - Barcelona Hot Seven
-- Mambo Jambo Arkestra
+- Los Mambo Jambo Arkestra
 ordre: 81
 draft: false
+session_date: 10/12/2020
 ---
 
 Que entre els seus principals artistes favorits figurin Louis Armstrong, Etta James, Big Joe Turner i Blue Mitchell dona una idea clara de la profunditat i amplitud del coneixement que aquest talentós instrumentista té del gènere, que va començar a conèixer just quan va començar a interessar-se de debò per la música. Després de dècades de formar part essencial de l’escena barcelonina, descriu la seva evolució professional amb una senzillesa i naturalitat aclaparadores:

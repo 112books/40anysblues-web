@@ -7,7 +7,7 @@ born_city: Barcelona
 instruments:
 - Veu
 bands:
-- The Red & The Rotten
+- The Red and the Rotten
 ordre: 137
 draft: false
 ---

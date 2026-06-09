@@ -11,6 +11,9 @@
                oncontextmenu="return false" ondragstart="return false">
           <span class="musico-foto-zoom">&#x26F6;</span>
         </button>
+        {{ with .Params.session_date }}
+        <p class="musico-foto-caption">Sessió realitzada a Barcelona el {{ . }}</p>
+        {{ end }}
         {{ end }}
       </div>
       <div class="musico-info-col">

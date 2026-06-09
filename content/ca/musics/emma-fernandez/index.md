@@ -11,6 +11,7 @@ bands:
 - Emma Fernández
 ordre: 68
 draft: false
+session_date: 11/03/2021
 ---
 
 Emma Fernández

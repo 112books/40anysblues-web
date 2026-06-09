@@ -12,7 +12,7 @@ bands:
 - Alma Negra
 - Blues Exprés
 - La Negra
-- Harmònica Zúmel Blues Band
+- Harmonica Zumel Blues Band
 - Chicago Blues Tributo
 - Predicador Ramírez y los Apóstoles del Ritmo
 - Predicador Ramírez Blues Band
