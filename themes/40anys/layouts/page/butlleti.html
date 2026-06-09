@@ -93,15 +93,15 @@
       var btn = bForm.querySelector('button[type=submit]');
       btn.disabled = true;
       btn.textContent = 'Enviant...';
-      fetch(bForm.action, { method: 'POST', body: data })
-        .then(function(r) {
-          // Brevo retorna redirect 302 — fetch segueix la redirecció i r.ok = true
+      fetch(bForm.action, { method: 'POST', body: data, mode: 'no-cors' })
+        .then(function() {
           bForm.hidden = true;
           bOk.hidden = false;
         })
         .catch(function() {
-          // Fallback: submit normal (redirigeix a pàgina de confirmació de Brevo)
-          bForm.submit();
+          btn.disabled = false;
+          btn.textContent = 'Subscriure\'m';
+          alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
         });
     });
   }
