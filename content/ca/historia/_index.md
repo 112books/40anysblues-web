@@ -2,7 +2,7 @@
 title: "La Història del Blues a Barcelona"
 ---
 
-**BIG BILL DE FONS**
+## Big Bill de Fons
 
 Big Bill Broonzy sona en un tocadiscos a l'habitació del costat, mentre el sol il·lumina la sala d'estar on Joan Ventosa i jo entrevistem Alfredo Papo. És una tarda freda i assolellada del mes de gener del 2007 a l'Eixample barceloní, i el vell patriarca de la música afroamericana a Barcelona ens explica, amb una veu tremolosa però carregada d'energia, l'arribada a la ciutat del mític Big Bill Broonzy per fer un concert al teatre Capsa de la ciutat.
 
