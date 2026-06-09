@@ -9,6 +9,11 @@ instruments:
 - Guitarra
 - Percussió
 bands:
+- La Vella Dixieland
+- Los Rebeldes
+- Gatos Locos
+- Brighton 64
+- Escalones
 - Tandoori Le Noir
 ordre: 18
 draft: false
