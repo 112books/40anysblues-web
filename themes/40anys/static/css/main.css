@@ -70,44 +70,30 @@ img { max-width: 100%; display: block; }
   backdrop-filter: blur(8px);
   z-index: 100;
 }
-.site-header .container { display: flex; align-items: stretch; gap: 0; padding: 0 1.5rem; }
-
-/* Logo esquerra — ocupa l'alçada de les dues files */
-.site-logo-wrap {
-  display: flex; align-items: center;
-  padding: .6rem 1.25rem .6rem 0;
-  border-right: 1px solid var(--border);
-  flex-shrink: 0;
-}
-.site-logo { width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0; }
-.site-logo-wrap:hover .site-logo { opacity: .85; }
-
-/* Columna dreta */
+.site-header .container { display: flex; padding: 0 1.5rem; }
 .header-right { display: flex; flex-direction: column; flex: 1; min-width: 0; }
 
-/* Fila 1: títol + cerca */
+/* Fila 1: logo + títol + cerca */
 .header-top {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
-  padding: .5rem 0 .5rem 1.25rem;
+  padding: .6rem 0;
 }
+.site-brand { display: flex; align-items: center; gap: .85rem; color: var(--text); }
+.site-brand:hover { color: var(--accent-light); }
+.site-logo { width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0; }
+.site-brand-text { font-family: var(--font-head); font-size: 1rem; line-height: 1.3; }
 .header-top-right { display: flex; align-items: center; gap: 1rem; }
-.site-brand-text { font-family: var(--font-head); font-size: 1rem; line-height: 1.2; color: var(--text); }
-
-/* Social + partners */
-.header-social {
-  color: var(--text2); display: flex; align-items: center;
-  transition: color .15s;
-}
+.header-social { color: var(--text2); display: flex; align-items: center; transition: color .15s; }
 .header-social:hover { color: var(--accent-light); }
-.header-partner { display: flex; align-items: center; }
-.header-partner-logo { height: 22px; width: auto; opacity: .6; filter: brightness(0) invert(1); transition: opacity .15s; }
-.header-partner:hover .header-partner-logo { opacity: 1; }
 
 /* Fila 2: nav */
 .header-nav {
   display: flex; gap: 2rem; flex-wrap: wrap;
   justify-content: flex-end;
-  padding: .45rem 0 .45rem 1.25rem;
+  padding: .45rem 0;
+  background: rgba(26, 111, 181, 0.08);
+  margin: 0 -1.5rem;
+  padding-left: 1.5rem; padding-right: 1.5rem;
 }
 .header-nav a { color: var(--text2); font-size: 1.3rem; transition: color .15s; }
 .header-nav a:hover { color: var(--accent-light); }
@@ -832,7 +818,9 @@ h1, h2, h3 { font-weight: 700; }
 .editorial-gracies-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text2); margin-bottom: .75rem; }
 .gracies-logos { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
 .gracies-logos a { display: block; }
-.gracies-logos img { height: 48px; width: auto; max-width: 160px; object-fit: contain; }
+.gracies-logos img { height: 48px; width: auto; max-width: 160px; object-fit: contain; filter: brightness(0) invert(1); opacity: .75; transition: opacity .2s; }
+.gracies-logos a:hover img { opacity: 1; }
+.gracies-logo-pendent span { color: var(--text2); font-size: .85rem; font-style: italic; }
 
 /* === Taxonomy (instrument / banda) === */
 .taxonomy-section { padding: 3rem 0; }
@@ -1141,12 +1129,10 @@ h1, h2, h3 { font-weight: 700; }
 }
 @media (max-width: 640px) {
   .site-header .container { padding: 0 1rem; }
-  .site-logo-wrap { padding: .5rem .75rem .5rem 0; }
   .site-logo { width: 56px; height: 56px; }
   .site-brand-text { font-size: .85rem; }
-  .header-top { padding-left: .75rem; flex-wrap: wrap; gap: .5rem; }
-  .header-partner-logo { height: 18px; }
-  .header-nav { gap: 1rem; justify-content: flex-start; padding-left: .75rem; }
+  .header-top { flex-wrap: wrap; gap: .5rem; }
+  .header-nav { gap: 1rem; justify-content: flex-start; margin: 0 -1rem; padding: .4rem 1rem; }
   .header-nav a { font-size: 1rem; }
   .header-cerca-input { width: 100px; }
   .filtres { flex-direction: column; }
