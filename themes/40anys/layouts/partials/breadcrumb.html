@@ -1,0 +1,11 @@
+<nav class="breadcrumb" aria-label="Fil d'Ariadna">
+  <a href="{{ relLangURL "/" }}">Inici</a>
+  {{ range .Ancestors.Reverse }}
+  <span aria-hidden="true"> / </span>
+  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  {{ end }}
+  {{ if not .IsHome }}
+  <span aria-hidden="true"> / </span>
+  <span class="breadcrumb-actual" aria-current="page">{{ .Title }}</span>
+  {{ end }}
+</nav>

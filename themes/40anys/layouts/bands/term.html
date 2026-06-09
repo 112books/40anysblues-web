@@ -1,6 +1,7 @@
 {{ define "main" }}
 <section class="taxonomy-section">
   <div class="container">
+    {{ partial "breadcrumb.html" . }}
     <h1 class="taxonomy-title">{{ .Title }}</h1>
     <p class="taxonomy-count">{{ len .Pages }} membre{{ if gt (len .Pages) 1 }}s{{ end }}</p>
 

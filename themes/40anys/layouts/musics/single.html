@@ -1,6 +1,7 @@
 {{ define "main" }}
 <article class="musico-page">
   <div class="container">
+    {{ partial "breadcrumb.html" . }}
     {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
     <div class="musico-layout{{ if not $img }} musico-layout--sense-foto{{ end }}">
       <div class="musico-foto-col">

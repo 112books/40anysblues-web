@@ -1,6 +1,7 @@
 {{ define "main" }}
 <article class="autor-page">
   <div class="container">
+    {{ partial "breadcrumb.html" . }}
     {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
     <div class="autor-layout{{ if not $img }} autor-layout--sense-foto{{ end }}">
       <div class="autor-foto-col">

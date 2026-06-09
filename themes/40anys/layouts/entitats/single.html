@@ -2,6 +2,7 @@
 {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") (.Resources.GetMatch "*.svg") }}
 <article class="content-page entitat-page">
   <div class="container">
+    {{ partial "breadcrumb.html" . }}
     <div class="entitat-layout">
       <div class="entitat-logo">
         {{ if $img }}
