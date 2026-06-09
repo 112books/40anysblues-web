@@ -378,6 +378,13 @@ h1, h2, h3 { font-weight: 700; }
 }
 .musico-layout--sense-foto { grid-template-columns: 1fr; }
 .musico-foto-col { flex-shrink: 0; }
+.musico-polaroid {
+  display: inline-block;
+  background: #fff;
+  padding: 8px 8px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.18), 0 0 0 1px rgba(0,0,0,.06);
+}
+.musico-polaroid--sense-data { padding-bottom: 8px; }
 .musico-foto-btn {
   background: none; border: none; padding: 0; cursor: zoom-in;
   position: relative; display: block;
@@ -393,17 +400,20 @@ h1, h2, h3 { font-weight: 700; }
   width: 280px; height: 280px;
   object-fit: cover; object-position: top;
   filter: grayscale(100%);
-  border: 4px solid #fff;
-  box-shadow: 0 0 0 1px var(--border);
+  display: block;
   transition: filter .3s;
 }
 .musico-foto:hover { filter: grayscale(0%); }
 .musico-foto-caption {
-  font-size: .6rem; color: var(--text2);
-  font-style: italic; letter-spacing: .02em;
-  line-height: 1.3; margin-top: .4rem;
-  padding: 0 .2rem;
+  display: flex; flex-direction: column; align-items: center;
+  font-family: 'Caveat', cursive;
+  color: #555;
+  text-align: center;
+  padding-top: 10px;
+  line-height: 1.4;
 }
+.caption-text { font-size: .85rem; }
+.caption-date { font-size: 1.05rem; font-weight: 600; }
 .musico-info-col { min-width: 0; }
 .musico-nom { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: .5rem; }
 .musico-nom-complet { color: var(--text2); font-size: 1rem; margin-bottom: .75rem; }

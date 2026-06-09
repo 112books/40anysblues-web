@@ -6,14 +6,19 @@
     <div class="musico-layout{{ if not $img }} musico-layout--sense-foto{{ end }}">
       <div class="musico-foto-col">
         {{ if $img }}
-        <button class="musico-foto-btn" aria-label="Ampliar fotografia" data-src="{{ $img.RelPermalink }}" data-alt="{{ .Title }}">
-          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="musico-foto"
-               oncontextmenu="return false" ondragstart="return false">
-          <span class="musico-foto-zoom">&#x26F6;</span>
-        </button>
-        {{ with .Params.session_date }}
-        <p class="musico-foto-caption">Sessió realitzada a Barcelona el {{ . }}</p>
-        {{ end }}
+        <div class="musico-polaroid{{ if not .Params.session_date }} musico-polaroid--sense-data{{ end }}">
+          <button class="musico-foto-btn" aria-label="Ampliar fotografia" data-src="{{ $img.RelPermalink }}" data-alt="{{ .Title }}">
+            <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="musico-foto"
+                 oncontextmenu="return false" ondragstart="return false">
+            <span class="musico-foto-zoom">&#x26F6;</span>
+          </button>
+          {{ with .Params.session_date }}
+          <p class="musico-foto-caption">
+            <span class="caption-text">Sessió realitzada a Barcelona el:</span>
+            <span class="caption-date">{{ . }}</span>
+          </p>
+          {{ end }}
+        </div>
         {{ end }}
       </div>
       <div class="musico-info-col">
