@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ $img := or (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.svg") (.Resources.GetMatch "*.webp") }}
+<article class="sala-page">
+  <div class="container">
+    {{ partial "breadcrumb.html" . }}
+    <div class="sala-layout{{ if not $img }} sala-layout--sense-logo{{ end }}">
+      {{ if $img }}
+      <div class="sala-logo-col">
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="sala-logo">
+      </div>
+      {{ end }}
+      <div class="sala-info-col">
+        <h1 class="sala-nom">{{ .Title }}</h1>
+        {{ with .Params.location }}<p class="sala-dades">{{ . }}</p>{{ end }}
+        {{ with .Content }}
+        <div class="sala-bio">{{ . }}</div>
+        {{ end }}
+      </div>
+    </div>
+    <div class="musico-nav">
+      {{ with .PrevInSection }}<a href="{{ .RelPermalink }}" class="nav-prev" data-href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+      {{ with .NextInSection }}<a href="{{ .RelPermalink }}" class="nav-next" data-href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+    </div>
+  </div>
+</article>
+{{ end }}

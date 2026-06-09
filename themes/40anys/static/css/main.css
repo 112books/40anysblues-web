@@ -486,6 +486,44 @@ h1, h2, h3 { font-weight: 700; }
 .musico-nav a { color: var(--text2); }
 .musico-nav a:hover { color: var(--text); }
 
+/* === Sales / Temples del Blues === */
+.sala-page { padding: 3rem 0; }
+.sala-layout {
+  display: flex; gap: 2.5rem; align-items: flex-start;
+}
+.sala-layout--sense-logo { display: block; }
+.sala-logo-col { flex-shrink: 0; }
+.sala-logo {
+  width: 180px;
+  object-fit: contain;
+  display: block;
+}
+.sala-info-col { min-width: 0; }
+.sala-nom { font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: .5rem; }
+.sala-dades { color: var(--text2); font-size: .95rem; margin-bottom: 1rem; }
+.sala-bio { line-height: 1.75; }
+.sala-bio p { margin-bottom: 1rem; }
+@media (max-width: 600px) {
+  .sala-layout { flex-direction: column; }
+  .sala-logo { width: 120px; }
+}
+
+/* === Entitats / Qui Dona Suport === */
+.entitat-page { padding: 3rem 0; }
+.entitat-layout { display: flex; gap: 2.5rem; align-items: flex-start; }
+.entitat-layout--sense-logo { display: block; }
+.entitat-logo-col { flex-shrink: 0; }
+.entitat-logo { width: 180px; object-fit: contain; display: block; }
+.entitat-info-col { min-width: 0; }
+.entitat-nom { font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin-bottom: .5rem; }
+.entitat-dades { color: var(--text2); font-size: .95rem; margin-bottom: 1rem; }
+.entitat-bio { line-height: 1.75; }
+.entitat-bio p { margin-bottom: 1rem; }
+@media (max-width: 600px) {
+  .entitat-layout { flex-direction: column; }
+  .entitat-logo { width: 120px; }
+}
+
 /* === Generic Content Page === */
 .content-page { padding: 3rem 0; }
 .content-page h1 {

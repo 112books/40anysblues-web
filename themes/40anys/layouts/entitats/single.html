@@ -1,23 +1,25 @@
 {{ define "main" }}
-{{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") (.Resources.GetMatch "*.svg") }}
-<article class="content-page entitat-page">
+{{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.svg") }}
+<article class="entitat-page">
   <div class="container">
     {{ partial "breadcrumb.html" . }}
-    <div class="entitat-layout">
-      <div class="entitat-logo">
-        {{ if $img }}
-        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
-        {{ end }}
+    <div class="entitat-layout{{ if not $img }} entitat-layout--sense-logo{{ end }}">
+      {{ if $img }}
+      <div class="entitat-logo-col">
+        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="entitat-logo">
       </div>
-      <div class="entitat-info">
-        <h1>{{ .Title }}</h1>
-        {{ with .Params.url_web }}
-        <p class="entitat-web"><a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a></p>
-        {{ end }}
+      {{ end }}
+      <div class="entitat-info-col">
+        <h1 class="entitat-nom">{{ .Title }}</h1>
+        {{ with .Params.location }}<p class="entitat-dades">{{ . }}</p>{{ end }}
         {{ with .Content }}
-        <div class="page-content">{{ . }}</div>
+        <div class="entitat-bio">{{ . }}</div>
         {{ end }}
       </div>
+    </div>
+    <div class="musico-nav">
+      {{ with .PrevInSection }}<a href="{{ .RelPermalink }}" class="nav-prev" data-href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
+      {{ with .NextInSection }}<a href="{{ .RelPermalink }}" class="nav-next" data-href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
     </div>
   </div>
 </article>
