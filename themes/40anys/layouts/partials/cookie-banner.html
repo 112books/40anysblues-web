@@ -1,0 +1,24 @@
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Avís de cookies" hidden>
+  <p class="cookie-text">
+    Aquest lloc utilitza Google Fonts (tipografies externes) i, si t'hi subscrius, Brevo i Formspree per gestionar formularis. No fem servir cookies de publicitat ni seguiment. <a href="{{ relLangURL "/legal/cookies/" }}">Més informació</a>
+  </p>
+  <div class="cookie-btns">
+    <button id="cookie-accept" class="btn-blues btn-blues--sm">D'acord</button>
+    <a href="{{ relLangURL "/legal/cookies/" }}" class="cookie-link">Política de cookies</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var banner = document.getElementById('cookie-banner');
+  var btn = document.getElementById('cookie-accept');
+  if (!banner) return;
+  if (!localStorage.getItem('cookies_ok')) {
+    banner.hidden = false;
+  }
+  btn.addEventListener('click', function() {
+    localStorage.setItem('cookies_ok', '1');
+    banner.hidden = true;
+  });
+})();
+</script>

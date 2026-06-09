@@ -1054,6 +1054,30 @@ h1, h2, h3 { font-weight: 700; }
 
 .form-privacitat { font-size: .8rem; color: var(--text2); max-width: 720px; }
 
+/* === Cookie banner === */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 8000;
+  background: var(--bg2); border-top: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+}
+.cookie-text { font-size: .85rem; color: var(--text2); flex: 1; min-width: 200px; }
+.cookie-text a { color: var(--accent-light); }
+.cookie-btns { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+.btn-blues--sm { padding: .4rem 1.1rem; font-size: .85rem; }
+.cookie-link { font-size: .8rem; color: var(--text2); }
+
+.form-group--check { margin-top: .25rem; }
+.check-label {
+  display: flex; gap: .6rem; align-items: flex-start;
+  cursor: pointer; font-size: .85rem; color: var(--text2); line-height: 1.5;
+}
+.check-label input[type=checkbox] {
+  width: 16px; height: 16px; min-width: 16px;
+  margin-top: .15rem; accent-color: var(--accent-light); cursor: pointer;
+}
+.check-label a { color: var(--accent-light); }
+
 .gracies-wrap {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 5rem 0; gap: 1.25rem;
