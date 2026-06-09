@@ -7,40 +7,36 @@
     </div>
 
     <div class="butlleti-grid">
-      <!-- Formulari subscripció general -->
+      <!-- Subscripció general via Brevo -->
       <div class="butlleti-card">
         <h2>Subscriu-te al butlletí</h2>
         <p>Novetats del projecte, concerts, publicacions i activitats relacionades amb el blues barceloní.</p>
 
         <form id="butlleti-form"
-              action="https://formspree.io/f/xvznrlng"
+              action="https://8a40afa7.sibforms.com/serve/MUIFAB9YHIYuqP5hMMsd-zZSxaquqLRcfFdGRvZXadAWd3zTEfiTKSOf6AGGamMW9MMQFbyBH5x7kXc_POpABrs4R3frIPwzA34nbv1SDddfjzZPJPx0Fn2DLsYKdqmm2M-A-pY_t4zH0XUtBgW7vdF5Pu-2_PbGdSIGwBut2w9uhaSlGQ6T9Dz3AGxeWZsgZEGS2H4uYSCsSvE6Fg=="
               method="POST"
               class="blues-form blues-form--compact">
 
           <div class="form-group">
-            <label for="bf-nom">Nom</label>
-            <input type="text" id="bf-nom" name="nom" required autocomplete="name" placeholder="El teu nom">
-          </div>
-          <div class="form-group">
             <label for="bf-email">Correu electrònic</label>
-            <input type="email" id="bf-email" name="email" required autocomplete="email" placeholder="tu@exemple.com">
+            <input type="email" id="bf-email" name="EMAIL" required autocomplete="email" placeholder="tu@exemple.com">
           </div>
 
-          <input type="text" name="_gotcha" style="display:none">
-          <input type="hidden" name="_subject" value="Nova subscripció butlletí 40 Anys de Blues">
-          <input type="hidden" name="tipus" value="butlleti-general">
+          <input type="text" name="email_address_check" value="" style="display:none">
+          <input type="hidden" name="locale" value="ca">
+          <input type="hidden" name="html_type" value="simple">
 
           <button type="submit" class="btn-blues">Subscriure'm</button>
         </form>
 
         <div id="butlleti-ok" class="form-success" hidden>
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          <h2>Subscripció confirmada!</h2>
-          <p>Gràcies! Et notificarem les novetats.</p>
+          <h2>Gràcies!</h2>
+          <p>Comprova el teu correu — t'hem enviat un email de confirmació.</p>
         </div>
       </div>
 
-      <!-- Músic al llibre -->
+      <!-- Músic al llibre via Formspree -->
       <div class="butlleti-card butlleti-card--musics">
         <h2>Sóc músic al llibre</h2>
         <p>Si aparèixes al projecte <em>Preses Falses</em>, pots registrar-te per verificar les teves dades i rebre anuncis exclusius abans que ningú.</p>
@@ -69,7 +65,6 @@
 
           <input type="text" name="_gotcha" style="display:none">
           <input type="hidden" name="_subject" value="Músic al llibre — verificació dades">
-          <input type="hidden" name="tipus" value="musics-verificacio">
 
           <button type="submit" class="btn-blues">Enviar</button>
         </form>
@@ -88,38 +83,52 @@
 
 <script>
 (function() {
-  function wireForm(formId, okId) {
-    var form = document.getElementById(formId);
-    var ok = document.getElementById(okId);
-    if (!form) return;
-    form.addEventListener('submit', function(e) {
+  // Brevo newsletter form — POST directe, redirigeix a pàgina de Brevo si JS falla
+  var bForm = document.getElementById('butlleti-form');
+  var bOk = document.getElementById('butlleti-ok');
+  if (bForm) {
+    bForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      var data = new FormData(form);
-      var btn = form.querySelector('button[type=submit]');
+      var data = new FormData(bForm);
+      var btn = bForm.querySelector('button[type=submit]');
       btn.disabled = true;
       btn.textContent = 'Enviant...';
-      fetch(form.action, {
+      fetch(bForm.action, { method: 'POST', body: data })
+        .then(function(r) {
+          // Brevo retorna redirect 302 — fetch segueix la redirecció i r.ok = true
+          bForm.hidden = true;
+          bOk.hidden = false;
+        })
+        .catch(function() {
+          // Fallback: submit normal (redirigeix a pàgina de confirmació de Brevo)
+          bForm.submit();
+        });
+    });
+  }
+
+  // Formspree músics form
+  var mForm = document.getElementById('musics-form');
+  var mOk = document.getElementById('musics-ok');
+  if (mForm) {
+    mForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var data = new FormData(mForm);
+      var btn = mForm.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Enviant...';
+      fetch(mForm.action, {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
       }).then(function(r) {
-        if (r.ok) {
-          form.hidden = true;
-          ok.hidden = false;
-        } else {
-          btn.disabled = false;
-          btn.textContent = btn.getAttribute('data-label') || 'Enviar';
-          alert('Error en enviar. Prova de nou o escriu a hola@112books.eu');
-        }
+        if (r.ok) { mForm.hidden = true; mOk.hidden = false; }
+        else { btn.disabled = false; btn.textContent = 'Enviar'; alert('Error. Prova de nou o escriu a hola@112books.eu'); }
       }).catch(function() {
-        btn.disabled = false;
-        btn.textContent = btn.getAttribute('data-label') || 'Enviar';
+        btn.disabled = false; btn.textContent = 'Enviar';
         alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
       });
     });
   }
-  wireForm('butlleti-form', 'butlleti-ok');
-  wireForm('musics-form', 'musics-ok');
 })();
 </script>
 {{ end }}
