@@ -36,43 +36,36 @@
         </div>
       </div>
 
-      <!-- Músic al llibre via Formspree -->
+      <!-- Músic al llibre via Brevo (llista Músics del llibre) -->
       <div class="butlleti-card butlleti-card--musics">
         <h2>Sóc músic al llibre</h2>
-        <p>Si aparèixes al projecte <em>Preses Falses</em>, pots registrar-te per verificar les teves dades i rebre anuncis exclusius abans que ningú.</p>
+        <p>Si aparèixes al projecte <em>Preses Falses</em>, registra't per verificar les teves dades i rebre anuncis exclusius abans que ningú.</p>
 
         <form id="musics-form"
-              action="https://formspree.io/f/xvznrlng"
+              action="https://8a40afa7.sibforms.com/serve/MUIFACz_hpd2NQ9YH16FBm59q5lYc7K1D0b2rYArltKMrq4Il6aikiHSoF7spQZ-u6bWO248pi8notaW3uYe6m0ey_RJCBop6UWeqpjmO8Tx4XP5LI6aEJJDyvUWE9Yb3AjtIjcN760MvgIHHm5VdSMYeckTQ4PE_7dVw3POuvj-KNk02YVSnJJmWo7X2z9lG2xp2QnFrbjHHvfbOg=="
               method="POST"
               class="blues-form blues-form--compact">
 
           <div class="form-group">
             <label for="mf-nom">Nom artístic</label>
-            <input type="text" id="mf-nom" name="nom_artistic" required placeholder="Com apareixes al llibre">
-          </div>
-          <div class="form-group">
-            <label for="mf-nom-real">Nom real</label>
-            <input type="text" id="mf-nom-real" name="nom_real" placeholder="Opcional">
+            <input type="text" id="mf-nom" name="FIRSTNAME" required placeholder="Com apareixes al llibre">
           </div>
           <div class="form-group">
             <label for="mf-email">Correu electrònic</label>
-            <input type="email" id="mf-email" name="email" required placeholder="tu@exemple.com">
-          </div>
-          <div class="form-group">
-            <label for="mf-nota">Nota (opcional)</label>
-            <textarea id="mf-nota" name="nota" rows="3" placeholder="Si vols corregir alguna dada o afegir informació..."></textarea>
+            <input type="email" id="mf-email" name="EMAIL" required placeholder="tu@exemple.com">
           </div>
 
-          <input type="text" name="_gotcha" style="display:none">
-          <input type="hidden" name="_subject" value="Músic al llibre — verificació dades">
+          <input type="text" name="email_address_check" value="" style="display:none">
+          <input type="hidden" name="locale" value="ca">
+          <input type="hidden" name="html_type" value="simple">
 
-          <button type="submit" class="btn-blues">Enviar</button>
+          <button type="submit" class="btn-blues">Registrar-me</button>
         </form>
 
         <div id="musics-ok" class="form-success" hidden>
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          <h2>Rebut!</h2>
-          <p>Et contactarem per confirmar les teves dades.</p>
+          <h2>Gràcies!</h2>
+          <p>Comprova el teu correu — t'hem enviat un email de confirmació.</p>
         </div>
       </div>
     </div>
@@ -106,7 +99,7 @@
     });
   }
 
-  // Formspree músics form
+  // Brevo músics form
   var mForm = document.getElementById('musics-form');
   var mOk = document.getElementById('musics-ok');
   if (mForm) {
@@ -116,17 +109,16 @@
       var btn = mForm.querySelector('button[type=submit]');
       btn.disabled = true;
       btn.textContent = 'Enviant...';
-      fetch(mForm.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      }).then(function(r) {
-        if (r.ok) { mForm.hidden = true; mOk.hidden = false; }
-        else { btn.disabled = false; btn.textContent = 'Enviar'; alert('Error. Prova de nou o escriu a hola@112books.eu'); }
-      }).catch(function() {
-        btn.disabled = false; btn.textContent = 'Enviar';
-        alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
-      });
+      fetch(mForm.action, { method: 'POST', body: data, mode: 'no-cors' })
+        .then(function() {
+          mForm.hidden = true;
+          mOk.hidden = false;
+        })
+        .catch(function() {
+          btn.disabled = false;
+          btn.textContent = 'Registrar-me';
+          alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
+        });
     });
   }
 })();
