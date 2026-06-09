@@ -1,5 +1,5 @@
 baseURL = 'https://40anysblues.112books.eu/'
-title = '40 Anys de Blues a Barcelona'
+title = '40 Anys de blues a Barcelona'
 theme = '40anys'
 defaultContentLanguage = 'ca'
 defaultContentLanguageInSubdir = false
@@ -9,7 +9,7 @@ defaultContentLanguageInSubdir = false
     languageName = 'Català'
     languageCode = 'ca'
     weight = 1
-    title = '40 Anys de Blues a Barcelona'
+    title = '40 Anys de blues a Barcelona'
     contentDir = 'content/ca'
     [languages.ca.params]
       description = "Arxiu fotogràfic i biogràfic de l'escena del blues barcelonina"
