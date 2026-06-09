@@ -40,19 +40,17 @@
       </div>
       {{/* Embed músics data for JS random pick */}}
       <script>
-      window.__musics__ = [{{ range $musics }}{{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}{"url":"{{ .RelPermalink }}","title":{{ .Title | jsonify }},"img":{{ if $img }}{{ $img.RelPermalink | jsonify }}{{ else }}""{{ end }},"instruments":{{ .Params.instruments | jsonify }},"city":{{ .Params.born_city | jsonify }}},{{ end }}];
+      window.__musics__ = [{{ range $musics }}{{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}{{ if $img }}{"url":"{{ .RelPermalink }}","title":{{ .Title | jsonify }},"img":"{{ $img.RelPermalink }}","instruments":{{ if .Params.instruments }}{{ .Params.instruments | jsonify }}{{ else }}[]{{ end }},"city":{{ .Params.born_city | jsonify }}},{{ end }}{{ end }}];
       (function(){
-        var list = (window.__musics__ || []).filter(function(m){ return m.img; });
+        var list = window.__musics__ || [];
         if (!list.length) return;
         var m = list[Math.floor(Math.random() * list.length)];
         document.getElementById('random-link').href = m.url;
         document.getElementById('random-link').textContent = m.title;
-        if (m.img) {
-          document.getElementById('random-img').src = m.img;
-          document.getElementById('random-img').alt = m.title;
-          document.getElementById('random-foto').style.display = '';
-        }
-        document.getElementById('random-meta').textContent = m.instruments ? m.instruments.join(' · ') : '';
+        document.getElementById('random-img').src = m.img;
+        document.getElementById('random-img').alt = m.title;
+        document.getElementById('random-foto').style.display = '';
+        document.getElementById('random-meta').textContent = Array.isArray(m.instruments) ? m.instruments.join(' · ') : '';
         document.getElementById('random-city').textContent = m.city || '';
       })();
       </script>
