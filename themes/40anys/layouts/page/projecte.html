@@ -140,38 +140,46 @@
         </section>
         {{ end }}
 
-        <!-- Logotip editorial + col·laboradors -->
+        <!-- Logotip editorial + cita -->
         <div class="editorial-peu">
           <div class="editorial-logo">
             <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
             <p>Una producció de l'<a href="http://112books.eu" target="_blank" rel="noopener"><strong>Editorial 112 Books</strong></a></p>
           </div>
-          <div class="editorial-gracies">
-            <p class="editorial-gracies-label">Projecte materialitzat gràcies a:</p>
-            <div class="gracies-logos">
-              {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
-              {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
-              {{ if $img }}
-              <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-                <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
-              </a>
-              {{ end }}
-              {{ end }}
-              {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
-              {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
-              {{ if $img }}
-              <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-                <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
-              </a>
-              {{ end }}
-              {{ end }}
-              <a href="https://llumatics.com" target="_blank" rel="noopener" title="Llumàtics">
-                <img src="https://llumatics.com/images/llumatics-logo.svg" alt="Llumàtics">
-              </a>
-              <a href="https://pocallum.cat" target="_blank" rel="noopener" title="Pocallum">
-                <img src="/logotips/pocallum-logo.png" alt="Pocallum">
-              </a>
-            </div>
+          <div class="editorial-cita-wrap">
+            <blockquote class="projecte-cita">
+              <p>«El blues són les arrels; tota la resta són els fruits.»</p>
+              <footer class="cita-autor">— Willie Dixon</footer>
+            </blockquote>
+          </div>
+        </div>
+
+        <!-- Col·laboradors -->
+        <div class="gracies-section">
+          <p class="editorial-gracies-label">Projecte materialitzat gràcies a:</p>
+          <div class="gracies-logos">
+            {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
+            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+            {{ if $img }}
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+            </a>
+            {{ end }}
+            {{ end }}
+            {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
+            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+            {{ if $img }}
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+            </a>
+            {{ end }}
+            {{ end }}
+            <a href="https://llumatics.com" target="_blank" rel="noopener" title="Llumàtics">
+              <img src="https://llumatics.com/images/llumatics-logo.svg" alt="Llumàtics">
+            </a>
+            <a href="https://pocallum.cat" target="_blank" rel="noopener" title="Pocallum">
+              <img src="/logotips/pocallum-logo.png" alt="Pocallum">
+            </a>
           </div>
         </div>
 

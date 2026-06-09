@@ -91,12 +91,20 @@ img { max-width: 100%; display: block; }
   display: flex; gap: 2rem; flex-wrap: wrap;
   justify-content: flex-end;
   padding: .45rem 0;
-  background: rgba(26, 111, 181, 0.08);
-  margin: 0 -1.5rem;
-  padding-left: 1.5rem; padding-right: 1.5rem;
 }
-.header-nav a { color: var(--text2); font-size: 1.3rem; transition: color .15s; }
+.header-nav a {
+  color: var(--text2); font-size: 1.3rem;
+  position: relative; padding-bottom: 3px;
+  transition: color .2s;
+}
+.header-nav a::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--accent-light);
+  transition: width .25s ease;
+}
 .header-nav a:hover { color: var(--accent-light); }
+.header-nav a:hover::after { width: 100%; }
 
 /* === Header search === */
 .header-cerca {
@@ -816,11 +824,20 @@ h1, h2, h3 { font-weight: 700; }
 .editorial-logo p { color: var(--text2); font-size: .9rem; }
 .editorial-gracies { color: var(--text2); font-size: .9rem; line-height: 1.6; }
 .editorial-gracies-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text2); margin-bottom: .75rem; }
-.gracies-logos { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.gracies-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+.gracies-logos { display: flex; align-items: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 1rem; }
 .gracies-logos a { display: block; }
-.gracies-logos img { height: 48px; width: auto; max-width: 160px; object-fit: contain; filter: brightness(0) invert(1); opacity: .75; transition: opacity .2s; }
+.gracies-logos img { height: 52px; width: auto; max-width: 180px; object-fit: contain; filter: brightness(0) invert(1); opacity: .7; transition: opacity .2s; }
 .gracies-logos a:hover img { opacity: 1; }
-.gracies-logo-pendent span { color: var(--text2); font-size: .85rem; font-style: italic; }
+
+.editorial-cita-wrap { display: flex; align-items: center; }
+.projecte-cita {
+  border-left: 3px solid var(--accent);
+  padding: .75rem 1.25rem;
+  margin: 0; color: var(--text2);
+  font-family: var(--font-head); font-style: italic; font-size: 1.05rem; line-height: 1.7;
+}
+.cita-autor { font-size: .85rem; font-style: normal; color: var(--text2); margin-top: .5rem; }
 
 /* === Taxonomy (instrument / banda) === */
 .taxonomy-section { padding: 3rem 0; }
