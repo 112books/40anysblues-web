@@ -14,7 +14,7 @@ bands:
 - Blues Reunion
 - The Blues Messengers
 - Slide Company
-- Tandoori Lenoir
+- Tandoori Le Noir
 ordre: 3
 draft: false
 ---

@@ -11,7 +11,7 @@ bands:
 - Blues Explosion
 - Blues Reunion
 - Big Mama & The Blues Messengers
-- Tandoori Lenoir
+- Tandoori Le Noir
 - August Tharrats Trio
 - Txell Sust & August Tharrats Trio
 - Sofian Dhondt & August Tharrats

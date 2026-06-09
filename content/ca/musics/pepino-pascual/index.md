@@ -8,7 +8,8 @@ instruments:
 - Clarinet
 - Guitarra
 - Percussió
-bands: []
+bands:
+- Tandoori Le Noir
 ordre: 18
 draft: false
 ---
