@@ -66,7 +66,7 @@ img { max-width: 100%; display: block; }
 .site-header {
   border-bottom: 1px solid var(--border);
   position: sticky; top: 0;
-  background: rgba(15,15,15,.97);
+  background: rgba(11,22,38,.97);
   backdrop-filter: blur(8px);
   z-index: 100;
 }
@@ -79,7 +79,7 @@ img { max-width: 100%; display: block; }
   border-right: 1px solid var(--border);
   flex-shrink: 0;
 }
-.site-logo { width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0; }
+.site-logo { width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0; }
 .site-logo-wrap:hover .site-logo { opacity: .85; }
 
 /* Columna dreta */
@@ -93,12 +93,21 @@ img { max-width: 100%; display: block; }
 .header-top-right { display: flex; align-items: center; gap: 1rem; }
 .site-brand-text { font-family: var(--font-head); font-size: 1rem; line-height: 1.2; color: var(--text); }
 
-/* Fila 2: nav amb fons accent suau */
+/* Social + partners */
+.header-social {
+  color: var(--text2); display: flex; align-items: center;
+  transition: color .15s;
+}
+.header-social:hover { color: var(--accent-light); }
+.header-partner { display: flex; align-items: center; }
+.header-partner-logo { height: 22px; width: auto; opacity: .6; filter: brightness(0) invert(1); transition: opacity .15s; }
+.header-partner:hover .header-partner-logo { opacity: 1; }
+
+/* Fila 2: nav */
 .header-nav {
   display: flex; gap: 2rem; flex-wrap: wrap;
   justify-content: flex-end;
   padding: .45rem 0 .45rem 1.25rem;
-  background: rgba(26, 111, 181, 0.07);
 }
 .header-nav a { color: var(--text2); font-size: 1.3rem; transition: color .15s; }
 .header-nav a:hover { color: var(--accent-light); }
@@ -1133,12 +1142,13 @@ h1, h2, h3 { font-weight: 700; }
 @media (max-width: 640px) {
   .site-header .container { padding: 0 1rem; }
   .site-logo-wrap { padding: .5rem .75rem .5rem 0; }
-  .site-logo { width: 48px; height: 48px; }
+  .site-logo { width: 56px; height: 56px; }
   .site-brand-text { font-size: .85rem; }
-  .header-top { padding-left: .75rem; }
+  .header-top { padding-left: .75rem; flex-wrap: wrap; gap: .5rem; }
+  .header-partner-logo { height: 18px; }
   .header-nav { gap: 1rem; justify-content: flex-start; padding-left: .75rem; }
   .header-nav a { font-size: 1rem; }
-  .header-cerca-input { width: 120px; }
+  .header-cerca-input { width: 100px; }
   .filtres { flex-direction: column; }
   .musics-grid { grid-template-columns: 1fr 1fr; }
   .footer-cols { flex-direction: column; gap: 1rem; }
