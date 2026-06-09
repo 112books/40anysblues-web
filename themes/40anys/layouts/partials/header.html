@@ -1,21 +1,25 @@
 <header class="site-header">
   <div class="container">
-    <a href="{{ relLangURL "/" }}" class="site-brand">
-      <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo-Rounded-150x150.png" alt="40 Anys de Blues a Barcelona" class="site-logo">
-      <span class="site-brand-text">40 Anys de blues a Barcelona</span>
-    </a>
-    <nav>
+    <div class="header-top">
+      <a href="{{ relLangURL "/" }}" class="site-brand">
+        <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo-Rounded-150x150.png" alt="40 Anys de blues a Barcelona" class="site-logo">
+        <span class="site-brand-text">40 Anys de blues a Barcelona</span>
+      </a>
+      <div class="header-top-right">
+        <form class="header-cerca" action="{{ relLangURL "/cerca/" }}" method="get" role="search">
+          <input type="search" name="q" placeholder="Cerca..." class="header-cerca-input" aria-label="Cerca">
+          <button type="submit" class="header-cerca-btn" aria-label="Cercar">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    <nav class="header-nav">
       <a href="{{ relLangURL "/musics/" }}">Músics</a>
       <a href="{{ relLangURL "/historia/" }}">La Història</a>
       <a href="{{ relLangURL "/sales/" }}">Els Temples</a>
       <a href="{{ relLangURL "/entitats/" }}">Qui Dona Suport</a>
       <a href="{{ relLangURL "/projecte/" }}">El Projecte</a>
     </nav>
-    <form class="header-cerca" action="{{ relLangURL "/cerca/" }}" method="get" role="search">
-      <input type="search" name="q" placeholder="Cerca..." class="header-cerca-input" aria-label="Cerca">
-      <button type="submit" class="header-cerca-btn" aria-label="Cercar">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      </button>
-    </form>
   </div>
 </header>
