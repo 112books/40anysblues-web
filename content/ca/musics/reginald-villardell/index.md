@@ -15,7 +15,7 @@ bands:
 - Cosmic Grass
 - Berti Laski, Canary Sect
 - The Junk Express
-- Wax&Boogie
+- Wax & Boogie
 - Johnny “Big Stone” & The Blues Workers
 - Poyo Moya Trio
 ordre: 45

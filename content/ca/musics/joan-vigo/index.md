@@ -12,7 +12,7 @@ bands:
 - Los Finos
 - Los Impagaos
 - Carlos Navarrete Trio
-- Crazy blues
+- Crazy Blues
 - Electric Gozarela
 - Clara Gispert
 - Marina BBFace & The Beatroots

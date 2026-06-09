@@ -12,8 +12,8 @@ bands:
 - Swallow It
 - Holden Torana
 - Fas Tard
-- Harmònica Zumel Blues Band
-- Sweet Little and the Midnight Laters
+- Harmònica Zúmel Blues Band
+- Sweet Little & Midnight Laters
 - Chilindron Chicken
 - Port O’ San Blues Band
 - Blues Desfass

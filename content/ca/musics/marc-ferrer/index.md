@@ -9,7 +9,7 @@ instruments:
 bands:
 - The Big Jamboree
 - The Big 3
-- The Velvet Candles
+- Velvet Candles
 - Marc Ferrer Trio
 ordre: 89
 draft: false

@@ -9,7 +9,7 @@ instruments:
 - Veu
 bands:
 - Johnny Big Stone & Sweet Marta
-- Sweet Marta & The Blues Shakers,
+- Sweet Marta & The Blues Shakers
 - Womblues
 - Indigo Blues
 ordre: 79

@@ -9,7 +9,7 @@ instruments:
 bands:
 - Down Home
 - Barcelona Big Blues Band
-- Los Mambo Jambo Arkestra
+- Mambo Jambo Arkestra
 - Micaela Chalmeta Big Band
 - Ladies First
 - Kaleidoskop

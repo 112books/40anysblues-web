@@ -9,7 +9,7 @@ instruments:
 bands:
 - La Vella Dixieland
 - Big Mama & The Blues Messengers
-- Amadeu Casas Blues a Go Go
+- Amadeu Casas & Blues a Go Go
 - The Minimum Trio
 - Francesc Capella Trio i Quintet
 ordre: 58

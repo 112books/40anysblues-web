@@ -13,7 +13,7 @@ bands:
 - Café Soul
 - Papa Joe’s Rambling Band
 - Barcelona Hot Seven
-- Los Mambo Jambo Arkestra
+- Mambo Jambo Arkestra
 ordre: 81
 draft: false
 ---

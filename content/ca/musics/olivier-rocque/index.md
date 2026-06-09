@@ -9,7 +9,7 @@ instruments:
 bands:
 - Crazy Blues Band
 - Barcelona Swing Orquestra
-- Swingset
+- SwingSet
 - Marc Ferrer Trio
 ordre: 72
 draft: false

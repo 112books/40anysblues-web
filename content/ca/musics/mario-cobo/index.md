@@ -9,7 +9,7 @@ instruments:
 - Steel Guitar
 - Veu
 bands:
-- The Nu Niles
+- The Nu-Niles
 - Los Mambo Jambo
 - The Lazy Jumpers
 - Mojo Mantra

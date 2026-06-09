@@ -7,8 +7,8 @@ born_city: Belgrad
 instruments:
 - Contrabaix
 bands:
-- Lazy Jumpers
-- Nu Niles
+- The Lazy Jumpers
+- The Nu-Niles
 - Down Home
 - Bernat Font Trio
 - Shine
@@ -17,7 +17,7 @@ bands:
 - IK 5 Spots
 - Barcelona Gipsy Balkan Orchestra
 - Bratia
-- Los Mambo jambo
+- Los Mambo Jambo
 - Barcelona Big Blues Band
 ordre: 27
 draft: false

@@ -13,7 +13,7 @@ bands:
 - The Bob Standards
 - The Night Dogs
 - Virginia and the Woolfs
-- Sedgwick and Shingles
+- Sedgwick & Shingles
 - Stereo Star Band
 ordre: 115
 draft: false

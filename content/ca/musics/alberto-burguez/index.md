@@ -10,7 +10,7 @@ instruments:
 bands:
 - El Club del Jump
 - Alberto Burguez Trio
-- Martin Burguez & His Rhythm Combo
+- Martín Burguez & His Rhythm Combo
 - Alberto Burguez & The Flying Roots
 ordre: 118
 draft: false

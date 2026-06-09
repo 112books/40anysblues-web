@@ -11,7 +11,7 @@ bands:
 - The Suitcase Brothers
 - Cool Grinders
 - Beat Shakers
-- Victor Puertas & The Mellow Tones
+- Víctor Puertas & The Mellow Tones
 ordre: 29
 draft: false
 ---

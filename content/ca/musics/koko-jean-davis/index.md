@@ -10,7 +10,7 @@ bands:
 - The Supremes
 - Les Carlettes
 - The Excitements
-- Koko-Jean & the Tonics
+- Koko Jean & The Tonics
 ordre: 57
 draft: false
 ---
