@@ -7,7 +7,7 @@
       <div class="historia-content">
         {{ if $img }}
         <div class="historia-foto">
-          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
         </div>
         {{ end }}
         {{ with .Content }}

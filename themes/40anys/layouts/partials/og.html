@@ -1,0 +1,18 @@
+{{- $ogImage := absURL "/logotips/40-anys-de-Blues-a-Barcelona-logo.png" -}}
+{{- if .IsPage -}}
+  {{- $res := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") -}}
+  {{- if $res -}}{{- $ogImage = $res.Permalink -}}{{- end -}}
+{{- end -}}
+{{- $ogTitle := cond .IsHome .Site.Title (printf "%s · %s" .Title .Site.Title) -}}
+{{- $ogDesc := or .Description .Site.Params.description -}}
+
+<meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ $ogTitle }}">
+<meta property="og:description" content="{{ $ogDesc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $ogImage }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $ogTitle }}">
+<meta name="twitter:description" content="{{ $ogDesc }}">
+<meta name="twitter:image" content="{{ $ogImage }}">

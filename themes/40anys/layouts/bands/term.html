@@ -14,7 +14,7 @@
               <div class="taxo-foto">
                 {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
                 {{ if $img }}
-                <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+                <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                 {{ else }}
                 <div class="taxo-foto-placeholder"></div>
                 {{ end }}

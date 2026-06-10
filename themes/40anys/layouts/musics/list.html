@@ -48,7 +48,7 @@
          data-any="{{ .Params.born_year }}"
          data-nom="{{ .Title | lower }}">
         <div class="card-foto">
-          {{ if $img }}<img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+          {{ if $img }}<img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
           {{ else }}<div class="card-foto-placeholder"></div>{{ end }}
         </div>
         <div class="card-nom">{{ .Title }}</div>

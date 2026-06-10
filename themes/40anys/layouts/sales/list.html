@@ -12,7 +12,7 @@
       <a href="{{ .RelPermalink }}" class="sala-card">
         <div class="sala-imatge">
           {{ if $img }}
-          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
           {{ else }}
           <div class="sala-imatge-placeholder">
             <span>{{ .Title }}</span>
