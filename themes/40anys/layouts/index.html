@@ -39,7 +39,9 @@
       </div>
       {{/* Embed músics data for JS random pick */}}
       <script>
-      window.__musics__ = [{{ range $musics }}{{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}{{ if $img }}{"url":"{{ .RelPermalink }}","title":{{ .Title | jsonify }},"img":"{{ $img.RelPermalink }}","instruments":{{ if .Params.instruments }}{{ .Params.instruments | jsonify }}{{ else }}[]{{ end }},"city":{{ .Params.born_city | jsonify }}},{{ end }}{{ end }}];
+      {{ $data := slice }}
+      {{ range $musics }}{{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}{{ if $img }}{{ $data = $data | append (dict "url" .RelPermalink "title" .Title "img" $img.RelPermalink "instruments" (default slice .Params.instruments)) }}{{ end }}{{ end }}
+      window.__musics__ = {{ $data | jsonify | safeJS }};
       (function(){
         var list = window.__musics__ || [];
         if (!list.length) return;
