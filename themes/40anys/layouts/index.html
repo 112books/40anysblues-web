@@ -36,7 +36,6 @@
         <span class="random-label">Músic destacat</span>
         <h3 class="random-name"><a id="random-link" href="#">—</a></h3>
         <p class="random-meta" id="random-meta"></p>
-        <p class="random-city" id="random-city"></p>
       </div>
       {{/* Embed músics data for JS random pick */}}
       <script>
@@ -51,7 +50,6 @@
         document.getElementById('random-img').alt = m.title;
         document.getElementById('random-foto').style.display = '';
         document.getElementById('random-meta').textContent = Array.isArray(m.instruments) ? m.instruments.join(' · ') : '';
-        document.getElementById('random-city').textContent = m.city || '';
       })();
       </script>
       <div class="random-card random-card--llibres">
