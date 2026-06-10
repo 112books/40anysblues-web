@@ -1,5 +1,5 @@
 ---
-title: "Avís Legal"
+title: "Avís legal"
 type: page
 ---
 

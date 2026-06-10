@@ -1,5 +1,5 @@
 ---
-title: "La Història del Blues a Barcelona"
+title: "La història del blues a Barcelona"
 ---
 
 ## Big Bill de Fons

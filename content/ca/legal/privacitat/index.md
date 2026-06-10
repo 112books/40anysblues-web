@@ -1,5 +1,5 @@
 ---
-title: "Política de Privacitat"
+title: "Política de privacitat"
 type: page
 ---
 

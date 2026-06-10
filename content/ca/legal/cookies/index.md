@@ -1,5 +1,5 @@
 ---
-title: "Política de Cookies"
+title: "Política de cookies"
 type: page
 ---
 

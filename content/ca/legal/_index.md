@@ -1,3 +1,3 @@
 ---
-title: "Informació Legal"
+title: "Informació legal"
 ---

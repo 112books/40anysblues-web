@@ -1,3 +1,3 @@
 ---
-title: "Els Autors"
+title: "Els autors"
 ---
