@@ -4,6 +4,7 @@ nom_complet: Amadeu Casas
 malnom: ''
 born_year: 1954
 born_city: Barcelona
+death_year: 2020
 instruments:
 - Guitarra
 - Veu

@@ -4,6 +4,7 @@ nom_complet: Joan Vinyals
 malnom: ''
 born_year: 1958
 born_city: Barcelona
+death_year: 2022
 instruments:
 - Guitarra
 bands:
