@@ -18,6 +18,9 @@
         {{ with .Content }}
         <div class="autor-bio-text">{{ . }}</div>
         {{ end }}
+        {{ with .Params.musica_url }}
+        <p class="autor-musica-link"><a href="{{ . }}">Vegeu també la fitxa com a músic →</a></p>
+        {{ end }}
       </div>
     </div>
   </div>

@@ -90,7 +90,7 @@
     <div class="autors-grid">
       {{ range sort (where site.RegularPages "Section" "autors") "Params.ordre" }}
       {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
-      <div class="autor-card">
+      <a href="{{ .RelPermalink }}" class="autor-card">
         {{ if $img }}
         <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
         {{ else }}
@@ -98,21 +98,9 @@
         {{ end }}
         <h3>{{ .Title }}</h3>
         {{ with .Params.rol }}<p class="autor-rol">{{ . }}</p>{{ end }}
-      </div>
+      </a>
       {{ end }}
 
-      {{ with site.GetPage "/musics/ricky-gil" }}
-      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
-      <div class="autor-card autor-card--petit">
-        {{ if $img }}
-        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto autor-foto--petit">
-        {{ else }}
-        <div class="autor-foto autor-foto--petit autor-foto--placeholder"></div>
-        {{ end }}
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p class="autor-rol">Traducció i correcció</p>
-      </div>
-      {{ end }}
     </div>
   </div>
 </section>
@@ -169,33 +157,44 @@
 
 <section class="home-gracies">
   <div class="container">
-    <div class="editorial-peu">
-      <div class="editorial-logo">
+    <div class="home-gracies-top">
+      <div class="home-gracies-editorial">
         <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
         <p>Una producció de l'<a href="http://112books.eu" target="_blank" rel="noopener"><strong>Editorial 112 Books</strong></a></p>
       </div>
-      <div class="editorial-gracies">
-        <p class="editorial-gracies-label">Projecte materialitzat gràcies a:</p>
-        <div class="gracies-logos">
-          <a href="http://112books.eu" target="_blank" rel="noopener" title="Editorial 112 Books">
-            <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
-          </a>
-          {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
-          {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
-          {{ if $img }}
-          <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-            <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
-          </a>
-          {{ end }}
-          {{ end }}
-          {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
-          {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
-          {{ if $img }}
-          <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-            <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
-          </a>
-          {{ end }}
-          {{ end }}
+      <div class="home-gracies-dreta">
+        <blockquote class="projecte-cita">
+          <p class="cita-original">"The blues are the roots; everything else is the fruits."</p>
+          <p class="cita-traduccio">«El blues són les arrels; tota la resta són els fruits.»</p>
+          <cite>Willie Dixon</cite>
+        </blockquote>
+        <div class="home-gracies-bottom">
+          <p class="gracies-intro">Projecte materialitzat gràcies a:</p>
+          <div class="gracies-logos">
+            <a href="http://112books.eu" target="_blank" rel="noopener" title="Editorial 112 Books">
+              <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
+            </a>
+            {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
+            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+            {{ if $img }}
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+            </a>
+            {{ end }}
+            {{ end }}
+            {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
+            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+            {{ if $img }}
+            <a href="{{ .RelPermalink }}" title="{{ .Title }}">
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+            </a>
+            {{ end }}
+            {{ end }}
+            <a href="https://about.pocallum.cat" target="_blank" rel="noopener" title="Pocallum">
+              <img src="/logotips/pocallum-logo.png" alt="Pocallum">
+            </a>
+            <img src="/logotips/llumatic-logo.svg" alt="Llumàtics">
+          </div>
         </div>
       </div>
     </div>
