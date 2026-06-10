@@ -106,23 +106,17 @@
               <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
             </a>
             {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
-            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
-            {{ if $img }}
             <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+              <img src="/logotips/capibola-logo.jpg" alt="{{ .Title }}">
             </a>
-            {{ end }}
             {{ end }}
             {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
-            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
-            {{ if $img }}
             <a href="{{ .RelPermalink }}" title="{{ .Title }}">
-              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
+              <img src="/logotips/sbb-logo.jpg" alt="{{ .Title }}">
             </a>
             {{ end }}
-            {{ end }}
             <a href="https://about.pocallum.cat" target="_blank" rel="noopener" title="Pocallum">
-              <img src="/logotips/pocallum-logo.png" alt="Pocallum">
+              <img src="/logotips/pocallum-logo.svg" alt="Pocallum">
             </a>
             <a href="https://llumatics.com" target="_blank" rel="noopener" title="Llumàtics">
               <img src="/logotips/llumatic-logo.svg" alt="Llumàtics">
@@ -161,10 +155,19 @@
         </section>
         {{ end }}
 
-        <!-- Logotip editorial -->
+        <!-- Logotip editorial + cita Willie Dixon -->
         <div class="editorial-peu">
-          <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
-          <p>Una producció de l'<a href="http://112books.eu" target="_blank" rel="noopener"><strong>Editorial 112 Books</strong></a></p>
+          <div class="editorial-logo">
+            <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
+            <p>Una producció de l'<a href="http://112books.eu" target="_blank" rel="noopener"><strong>Editorial 112 Books</strong></a></p>
+          </div>
+          <div class="editorial-cita-wrap">
+            <blockquote class="projecte-cita">
+              <p class="cita-en">"The blues are the roots; everything else is the fruits."</p>
+              <p class="cita-ca">«El blues són les arrels; tota la resta són els fruits.»</p>
+              <footer class="cita-autor">— Willie Dixon</footer>
+            </blockquote>
+          </div>
         </div>
 
       </div><!-- /projecte-contingut -->
