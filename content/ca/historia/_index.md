@@ -18,4 +18,4 @@ El 2020, el tancament provocat per la pandèmia de la COVID-19 va afegir més cl
 
 De fons, Big Bill Broonzy continua sonant.
 
-*Manuel López Poy*
+*[Manuel López Poy](/autors/manuel-lopez-poy/)*

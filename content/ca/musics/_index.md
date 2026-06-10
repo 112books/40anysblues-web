@@ -43,4 +43,4 @@ Potser perquè, com afirma la dita popular castellana, «quan el dimoni no té r
 
 </div>
 
-*Text: Manuel López Poy*
+*[Manuel López Poy](/autors/manuel-lopez-poy/)*

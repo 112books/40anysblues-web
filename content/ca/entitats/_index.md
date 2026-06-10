@@ -1,5 +1,5 @@
 ---
-title: "Qui Dona Suport al Blues?"
+title: "Qui dona suport al blues?"
 
 ---
 
@@ -7,4 +7,4 @@ title: "Qui Dona Suport al Blues?"
 
 Però també és cert que des del primer moment han estat acompanyats per un grup d’aficionats, modest en nombre però entusiasta i fidel, que han apuntalat aquesta escena bluesera i n’han permès la consolidació. Aquest suport incondicional s’ha materialitzat en entitats i associacions que, amb més entusiasme que mitjans, han contribuït decisivament a difondre l’activitat dels artistes i els han donat suport concert rere concert. La constància i l’obsessió d’aquestes organitzacions, habitualment poc organitzades, si se’m permet la ironia, han estat l’argamassa que ha consolidat el blues a Barcelona, en una versió sui generis del lema dels mosqueters «Tots per a un i un per a tots»... O bé, com diuen que va dir Michael Jordan: «El talent guanya partits, però el treball en equip i la intel·ligència guanyen campionats».
 
-*Manuel López Poy*
+*[Manuel López Poy](/autors/manuel-lopez-poy/)*
