@@ -109,6 +109,12 @@
   TIP.addEventListener('mouseenter', () => clearTimeout(hideTimer));
   TIP.addEventListener('mouseleave', hide);
 
+  // Tots els links Wikipedia s'obren en pestanya nova
+  document.querySelectorAll('a[href*="wikipedia.org"]').forEach(a => {
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+  });
+
   document.addEventListener('mouseover', async function (e) {
     const a = e.target.closest('a[href*="wikipedia.org"]');
     if (!a) return;
