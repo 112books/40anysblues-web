@@ -1,0 +1,141 @@
+<div id="wiki-tooltip" role="tooltip" aria-hidden="true">
+  <div class="wt-img-wrap"><img id="wt-img" src="" alt="" loading="lazy"></div>
+  <div class="wt-body">
+    <p class="wt-title"></p>
+    <p class="wt-desc"></p>
+    <a class="wt-link" target="_blank" rel="noopener">Wikipedia →</a>
+  </div>
+</div>
+
+<style>
+#wiki-tooltip {
+  position: fixed;
+  z-index: 9999;
+  max-width: 320px;
+  background: var(--surface, #0f1c2e);
+  border: 1px solid var(--border, #1e3a5f);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.6);
+  display: none;
+  overflow: hidden;
+  pointer-events: none;
+  font-size: .85rem;
+  line-height: 1.4;
+}
+#wiki-tooltip.visible { display: flex; pointer-events: auto; }
+.wt-img-wrap { flex: 0 0 90px; }
+.wt-img-wrap img { width: 90px; height: 110px; object-fit: cover; object-position: top; display: block; }
+.wt-img-wrap:empty, .wt-img-wrap img[src=""] { display: none; }
+.wt-body { padding: .7rem .8rem; flex: 1; min-width: 0; }
+.wt-title { margin: 0 0 .25rem; font-weight: 700; color: var(--accent-light, #93c5fd); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wt-desc { margin: 0 0 .5rem; color: var(--text2, #94a3b8); font-size: .8rem; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.wt-link { color: var(--accent, #3b82f6); font-size: .75rem; text-decoration: none; }
+.wt-link:hover { text-decoration: underline; }
+</style>
+
+<script>
+(function () {
+  const TIP = document.getElementById('wiki-tooltip');
+  const tipImg = document.getElementById('wt-img');
+  const tipTitle = TIP.querySelector('.wt-title');
+  const tipDesc = TIP.querySelector('.wt-desc');
+  const tipLink = TIP.querySelector('.wt-link');
+  const cache = {};
+  let hideTimer;
+
+  function articleFromUrl(href) {
+    const m = href.match(/wikipedia\.org\/wiki\/(.+?)(\?|#|$)/);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
+  function langFromUrl(href) {
+    const m = href.match(/^https?:\/\/([a-z]{2})\.wikipedia/);
+    return m ? m[1] : 'ca';
+  }
+
+  async function fetchSummary(lang, article) {
+    const key = lang + ':' + article;
+    if (cache[key]) return cache[key];
+    try {
+      const url = `https://${lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(article)}`;
+      const r = await fetch(url, { headers: { 'Api-User-Agent': '40anysblues/1.0' } });
+      if (!r.ok) throw new Error(r.status);
+      const data = await r.json();
+      cache[key] = data;
+      return data;
+    } catch {
+      // Catalan not found → try English
+      if (lang !== 'en') return fetchSummary('en', article);
+      return null;
+    }
+  }
+
+  function position(e) {
+    const vw = window.innerWidth, vh = window.innerHeight;
+    const tw = TIP.offsetWidth || 320, th = TIP.offsetHeight || 150;
+    let x = e.clientX + 14, y = e.clientY + 14;
+    if (x + tw > vw - 8) x = e.clientX - tw - 14;
+    if (y + th > vh - 8) y = e.clientY - th - 14;
+    TIP.style.left = Math.max(8, x) + 'px';
+    TIP.style.top  = Math.max(8, y) + 'px';
+  }
+
+  function show(data, href, e) {
+    tipTitle.textContent = data.title || '';
+    tipDesc.textContent  = data.description
+      ? data.description + (data.extract ? ' — ' + data.extract.slice(0, 180) + '…' : '')
+      : (data.extract ? data.extract.slice(0, 220) + '…' : '');
+    tipLink.href = href;
+    if (data.thumbnail?.source) {
+      tipImg.src = data.thumbnail.source;
+      tipImg.alt = data.title;
+      tipImg.parentElement.style.display = '';
+    } else {
+      tipImg.src = '';
+      tipImg.parentElement.style.display = 'none';
+    }
+    TIP.classList.add('visible');
+    TIP.setAttribute('aria-hidden', 'false');
+    position(e);
+  }
+
+  function hide() {
+    hideTimer = setTimeout(() => {
+      TIP.classList.remove('visible');
+      TIP.setAttribute('aria-hidden', 'true');
+    }, 200);
+  }
+
+  TIP.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+  TIP.addEventListener('mouseleave', hide);
+
+  document.addEventListener('mouseover', async function (e) {
+    const a = e.target.closest('a[href*="wikipedia.org"]');
+    if (!a) return;
+    clearTimeout(hideTimer);
+    const article = articleFromUrl(a.href);
+    const lang    = langFromUrl(a.href);
+    if (!article) return;
+    // Show placeholder while loading
+    tipTitle.textContent = article.replace(/_/g, ' ');
+    tipDesc.textContent  = 'Carregant…';
+    tipImg.src = '';
+    tipImg.parentElement.style.display = 'none';
+    tipLink.href = a.href;
+    TIP.classList.add('visible');
+    TIP.setAttribute('aria-hidden', 'false');
+    position(e);
+    const data = await fetchSummary(lang, article);
+    if (data) show(data, a.href, e);
+  });
+
+  document.addEventListener('mousemove', function (e) {
+    if (TIP.classList.contains('visible') && !e.target.closest('#wiki-tooltip')) position(e);
+  });
+
+  document.addEventListener('mouseout', function (e) {
+    const a = e.target.closest('a[href*="wikipedia.org"]');
+    if (a && !e.relatedTarget?.closest('#wiki-tooltip')) hide();
+  });
+})();
+</script>
