@@ -5,8 +5,8 @@ ordre: 1
 web: ""
 draft: false
 ---
-**Manuel López Poy** (Madrid, 1957) és periodista, escriptor i una de les veus més reconegudes del blues a Espanya. Ha dedicat més de quatre dècades a difondre, analitzar i documentar la música afroamericana en els seus múltiples formats: premsa, ràdio, televisió i llibre.
+**Manuel López Poy** —Sarria (Lugo), 1958— és periodista i autor de llibres com _Camino a la libertad, historia social del blues_; _Todo Blues_; _Los días azules, historias de blues_; _Entre el cielo y el infierno, efemérides del blues_, i _Blues, la novela gráfica_.
 
-És autor de diverses obres de referència sobre el blues en castellà, entre les quals destaquen _Ritmo y Blues_ i _Solo Blues_, i ha col·laborat amb festivals, associacions i mitjans de tot l'Estat. Durant anys ha dirigit i presentat el programa _La Hora del Blues_, un dels espais radiofònics de blues més longeus d'Europa.
+Dirigeix l'Anuari del Blues editat per la Societat de Blues de Barcelona i és guionista de documentals com _Barnablues, la historia del blues a Barcelona_ i _Hondarribia Crossroads_. També és autor d'obres de ficció com el llibre de relats _Aires de tormenta_, i és guionista de novel·la gràfica.
 
-Per a _40 anys de Blues a Barcelona_ ha escrit les biografies de cada músic retratat, combinant rigor periodístic i passió bluesera per donar veu a una escena que coneix de primera mà des dels seus orígens.
+Per a _40 anys de Blues a Barcelona_ ha escrit les biografies de tots els músics que hi surten retratats, combinant rigor periodístic i passió bluesera per donar veu a una escena que coneix de primera mà des dels orígens.
