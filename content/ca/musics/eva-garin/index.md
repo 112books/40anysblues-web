@@ -1,6 +1,6 @@
 ---
-title: Eva Garin
-nom_complet: Eva Garin
+title: Eva Garín
+nom_complet: Eva Garín
 malnom: ''
 born_year: 1987
 born_city: Barcelona
@@ -19,7 +19,7 @@ bands:
 - Lejaim
 - Marxing Band del TM
 - Sant Andreu Jazz Band
-ordre: 82
+ordre: 999
 draft: false
 session_date: 05/02/2021
 ---
