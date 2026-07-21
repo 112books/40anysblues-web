@@ -80,8 +80,29 @@
         <!-- Els Culpables -->
         <section class="autors-section" id="autors">
           <h2>Els Culpables</h2>
+          {{ $autors := sort (where site.RegularPages "Section" "autors") "Params.ordre" }}
+          {{ $principal := index $autors 0 }}
+          {{ $resta := after 1 $autors }}
+
+          <!-- Principal: sol a la primera fila -->
+          {{ with $principal }}
+          {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+          <div class="autors-principal">
+            <a href="{{ .RelPermalink }}" class="autor-card">
+              {{ if $img }}
+              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
+              {{ else }}
+              <div class="autor-foto autor-foto--placeholder"></div>
+              {{ end }}
+              <h3>{{ .Title }}</h3>
+              {{ with .Params.rol }}<p class="autor-rol">{{ . }}</p>{{ end }}
+            </a>
+          </div>
+          {{ end }}
+
+          <!-- Resta d'autors -->
           <div class="autors-grid">
-            {{ range sort (where site.RegularPages "Section" "autors") "Params.ordre" }}
+            {{ range $resta }}
             {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
             <a href="{{ .RelPermalink }}" class="autor-card">
               {{ if $img }}
@@ -93,7 +114,6 @@
               {{ with .Params.rol }}<p class="autor-rol">{{ . }}</p>{{ end }}
             </a>
             {{ end }}
-
           </div>
         </section>
 

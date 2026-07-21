@@ -766,6 +766,7 @@ h1, h2, h3 { font-weight: 700; }
 
 /* Autors */
 .autors-section { margin-bottom: 4rem; }
+.autors-principal { display: flex; justify-content: center; margin-bottom: 2.5rem; }
 .autors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 2.5rem; }
 .autor-card { text-align: center; }
 .autor-foto {
