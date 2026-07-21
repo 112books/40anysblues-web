@@ -7,7 +7,7 @@ born_city: Barcelona
 instruments:
 - Piano
 bands:
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 - Blues Explosion
 - Blues Reunion
 - Big Mama & The Blues Messengers

@@ -10,7 +10,7 @@ bands:
 - The Clean Pockets
 - Trio de Cuatreros
 - Barrio Viejo
-- Malacara Bues Band
+- Malacara Blues Band
 - Las Balas Perdidas
 ordre: 132
 draft: false

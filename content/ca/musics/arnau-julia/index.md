@@ -10,7 +10,7 @@ bands:
 - The Sick Boys
 - Barcelona Big Blues Band
 - Lluís Coloma Trio
-- Balta Bordoy & The Bad Boys
+- Balta Bordoy and The Bad Boys
 - Scaramanga
 - Martin Burguez Rhythm Combo
 ordre: 107

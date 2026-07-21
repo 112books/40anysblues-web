@@ -8,7 +8,7 @@ instruments:
 - Harmònica
 - Veu
 bands:
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 ordre: 2
 draft: false
 session_date: 15/03/2021

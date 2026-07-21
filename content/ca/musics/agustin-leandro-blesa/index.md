@@ -8,7 +8,7 @@ instruments:
 - Guitarra
 - Veu
 bands:
-- Huckelberry Finn
+- Huckleberry Finn
 - Empty Pockets
 - Ramon and the Go Go Dancer
 - Barrio Viejo

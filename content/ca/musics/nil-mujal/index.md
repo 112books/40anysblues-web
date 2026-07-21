@@ -9,7 +9,7 @@ instruments:
 bands:
 - Swing Shot
 - Janine Johnson
-- Balta Bordoy & The Bad Boys
+- Balta Bordoy and The Bad Boys
 - Original Jazz Orchestra del Taller de Músics
 - Barcelona Big Blues Band
 - Mambo Jambo Arkestra

@@ -11,7 +11,7 @@ bands:
 - Down Home
 - Shine
 - The Acoustic Blues Company
-- Chino & The Big Bet
+- Chino Swingslide & The Big Bet
 ordre: 26
 draft: false
 session_date: 11/01/2021

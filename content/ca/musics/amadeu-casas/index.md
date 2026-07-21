@@ -8,7 +8,7 @@ instruments:
 - Guitarra
 - Veu
 bands:
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 - Blues Explosion
 - Blues Reunion
 - The Blues Messengers

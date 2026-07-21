@@ -8,7 +8,7 @@ instruments:
 - Baix
 bands:
 - Paquito Groove Band
-- Big Jamboree
+- The Big Jamboree
 - Barcelona Big Blues Band
 - The Belmontes
 ordre: 121

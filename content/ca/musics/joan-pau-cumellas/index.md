@@ -8,7 +8,7 @@ instruments:
 - Harmònica
 bands:
 - Louisiana Vamper
-- Mr.Hurricand Band
+- Mr Hurricane Band
 - Joan Pau Cumellas & Miguel Talavera
 - Valentí Moya Trio & Joan Pau Cumellas
 - QuicoLabora, Barcelona Bluegrass Band

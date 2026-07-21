@@ -8,7 +8,7 @@ instruments:
 - Bateria
 bands:
 - Paquito Blues Band
-- Chef Dave & The Cooks
+- Chef Dave and The Cooks
 ordre: 131
 draft: false
 session_date: 07/03/2022

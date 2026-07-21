@@ -7,7 +7,7 @@ born_city: Barcelona
 instruments:
 - Baix
 bands:
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 - Merchan Lester & Delirium Blues
 - Blues Explosion
 - Merchan Mas Preus Blues Band

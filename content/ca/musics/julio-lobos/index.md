@@ -13,7 +13,7 @@ bands:
 - Johnny Cobro
 - Carambola Blues Band
 - Screamin’ Gil Ricky & The Blues Distorsion
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 - Big Mama & The Messengers
 - Lone Rhino Club
 ordre: 102

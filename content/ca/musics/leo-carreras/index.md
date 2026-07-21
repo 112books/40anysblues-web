@@ -12,7 +12,7 @@ bands:
 - Swallow It
 - Holden Torana
 - Fas Tard
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 - Sweet Little and the Midnight Laters
 - Chilindron Chicken
 - Port O’ San Blues Band

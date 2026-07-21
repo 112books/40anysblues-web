@@ -7,10 +7,10 @@ born_city: Barcelona
 instruments:
 - Bateria
 bands:
-- Ivanow Jazz Roup
+- Ivanow Jazz Group
 - Krokodilos
 - Down Home
-- Chino & The Big Bet
+- Chino Swingslide & The Big Bet
 - Bernat Font Trio
 - Barcelona Big Blues Band
 - Barcelona Jazz Orquestra

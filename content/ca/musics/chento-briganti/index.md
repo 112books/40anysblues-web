@@ -8,9 +8,9 @@ instruments:
 - Bateria
 bands:
 - Àncora Blues Band
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 - Chicago Blues Tributo
-- New Blues Explosion
+- The New Blues Explosion
 - Chento G. Briganti Blues Band
 ordre: 11
 draft: false

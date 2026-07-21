@@ -7,17 +7,17 @@ born_city: Barcelona
 instruments:
 - Bateria
 bands:
-- Ivanow Jazz Roup
+- Ivanow Jazz Group
 - Krokodilos
 - Down Home
-- Chino and The Big Bet
+- Chino Swingslide & The Big Bet
 - Bernat Font Trio
 - Barcelona Big Blues Band
 - Barcelona Jazz Orquestra
 - Shakin All
 - Bumpy Roof Band
 - Gordon Webster
-- Ray Gelato And The Giants
+- Ray Gelato and The Giants
 - Professor Cunningham and His Old School
 ordre: 85
 draft: false

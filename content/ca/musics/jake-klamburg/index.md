@@ -8,7 +8,7 @@ instruments:
 - Bateria
 bands:
 - La Testapazza
-- Chino Swingside & The Big Bet
+- Chino Swingslide & The Big Bet
 - Sweet Marta & The Blues Shakers
 - Balta Bordoy
 - The Bad Boys

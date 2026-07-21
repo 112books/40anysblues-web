@@ -7,7 +7,7 @@ born_city: Barcelona
 instruments:
 - Saxo tenor
 bands:
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 - Javier Vargas Blues Band
 - Raimundo Amador
 - Gene «Mighty Flea» Conners

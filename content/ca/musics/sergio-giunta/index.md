@@ -7,11 +7,11 @@ born_city: Buenos Aires
 instruments:
 - Guitarra
 bands:
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 - Chicago Blues Tributo
 - Muddy Waters Tribute Bcn Band
 - Delirium Blues Band
-- New Blues Explosion
+- The New Blues Explosion
 - Blue Moon Ramblers
 - Smokey Blues Company
 - The Bayou

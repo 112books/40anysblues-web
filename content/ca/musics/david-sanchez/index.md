@@ -8,7 +8,7 @@ instruments:
 - Harmònica
 - Veu
 bands:
-- Chef Dave & The Cooks
+- Chef Dave and The Cooks
 - Hoodoo Men
 - The Black Cat Bones
 - Lowdown Grovers

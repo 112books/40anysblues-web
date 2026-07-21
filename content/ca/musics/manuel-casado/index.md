@@ -8,7 +8,7 @@ instruments:
 - Guitarra
 bands:
 - Crazy Shoes
-- Chevy and the Hot Weels
+- Chevy & The Hot Wheels
 - The Big Jamboree
 - Ella and the Night Shouters
 - The Night Shouters

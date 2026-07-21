@@ -9,7 +9,7 @@ instruments:
 bands:
 - Fas Tard
 - Sweet Little & Midnight Laters
-- Harmònica Zúmel Blues Band
+- Harmònica Zumel Blues Band
 ordre: 16
 draft: false
 session_date: 18/03/2022

@@ -7,7 +7,7 @@ born_city: Palma de Mallorca
 instruments:
 - Guitarra
 bands:
-- Balta Bordoy & The Bad Boys
+- Balta Bordoy and The Bad Boys
 - Big Dani Pérez Organ Quartet
 - Julian Vaughan Blues Trio
 - Los Peligrosos Gentlemen
