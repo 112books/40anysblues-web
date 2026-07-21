@@ -1,6 +1,6 @@
 ---
-title: Ana Lee Winter
-nom_complet: Ana Lee Winter
+title: Anna Lee Winter
+nom_complet: Anna Lee Winter
 malnom: ''
 born_year: 1964
 born_city: Calahorra
@@ -13,7 +13,7 @@ bands:
 - Anna Lee Blues Experience
 - Anna Lee & Connie Lynch
 - Anna Lee Instrumental Experience
-ordre: 31
+ordre: 999
 draft: false
 session_date: 05/05/2021
 ---
