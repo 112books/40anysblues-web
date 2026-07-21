@@ -9,6 +9,7 @@ instruments:
 bands:
 - The King Revelers
 - The Blues Prisoners
+- Bluesnet Band
 ordre: 99
 draft: false
 session_date: 12/02/2021

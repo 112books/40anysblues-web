@@ -1,6 +1,6 @@
 ---
-title: Matías Miguez
-nom_complet: Matías Miguez
+title: Matías Míguez
+nom_complet: Matías Míguez
 malnom: ''
 born_year: 1973
 born_city: Buenos Aires
@@ -11,7 +11,7 @@ bands:
 - Cece Giannotti
 - Los Saxofonistas Salvajes
 - Big Mama Montse & 30'S Band
-ordre: 110
+ordre: 999
 draft: false
 session_date: 15/02/2021
 ---
