@@ -1,7 +1,7 @@
 ---
 title: Joan Linux
-rol: Fotografia
-ordre: 2
+rol: Editor i Fotògraf
+ordre: 1
 web: ""
 draft: false
 ---
