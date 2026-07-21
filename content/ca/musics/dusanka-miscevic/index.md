@@ -1,7 +1,7 @@
 ---
 title: Duska Miscevic
-nom_complet: Dusanka Miscevic
-malnom: Duska Miscevic
+nom_complet: Duska Miscevic
+malnom: ''
 born_year: 1978
 born_city: Belgrad
 instruments:
@@ -13,7 +13,7 @@ bands:
 - Micaela Chalmeta Big Band
 - Ladies First
 - Kaleidoskop
-ordre: 38
+ordre: 999
 draft: false
 session_date: 15/01/2021
 ---
