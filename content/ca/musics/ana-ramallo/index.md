@@ -11,7 +11,7 @@ bands:
 - Blues Bunny
 - Justerini & Blues
 - Fool For Seven
-- Teoría de Taburete
+- Teoría del Taburete
 ordre: 69
 draft: false
 session_date: 18/03/2022
