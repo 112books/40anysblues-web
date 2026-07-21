@@ -1,6 +1,6 @@
 ---
 title: MA Lonesome
-nom_complet: Miguel Angel Lonesome
+nom_complet: Miguel Ángel Alonso
 malnom: MA Lonesome
 born_year: 1972
 born_city: L'Hospitalet de Llobregat
@@ -16,7 +16,7 @@ bands:
 - Los Tres Cerditos
 - Red & Lonesome
 - Los Fabulosos Trueno
-ordre: 123
+ordre: 999
 draft: false
 session_date: 16/12/2020
 ---
