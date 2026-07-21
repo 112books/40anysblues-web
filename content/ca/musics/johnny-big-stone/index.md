@@ -3,7 +3,7 @@ title: Johnny Big Stone
 nom_complet: Johnny Big Stone
 malnom: ''
 born_year: 1972
-born_city: Premià de Mar,
+born_city: Premià de Mar
 instruments:
 - Guitarra
 - Veu
