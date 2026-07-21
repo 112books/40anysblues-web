@@ -9,7 +9,7 @@ instruments:
 bands:
 - Alex Zayas Band
 - Miguel Talavera Band
-ordre: 999
+ordre: 95
 draft: false
 session_date: 21/12/2021
 ---
