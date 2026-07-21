@@ -1,6 +1,6 @@
 ---
-title: Reginald Villardell
-nom_complet: Reginald Villardell
+title: Reginald Vilardell
+nom_complet: Reginald Vilardell
 malnom: ''
 born_year: 1974
 born_city: Barcelona
@@ -18,7 +18,7 @@ bands:
 - Wax & Boogie
 - Johnny “Big Stone” & The Blues Workers
 - Poyo Moya Trio
-ordre: 45
+ordre: 999
 draft: false
 session_date: 10/12/2020
 ---
