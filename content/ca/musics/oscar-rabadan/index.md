@@ -9,7 +9,7 @@ instruments:
 bands:
 - The Midnight Rockets
 - Blas Picón & The Junk Express
-- Victor Puertas & Mellowtones
+- Victor Puertas & The Mellow Tones
 - Three Time Losers
 ordre: 67
 draft: false
