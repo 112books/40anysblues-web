@@ -1,6 +1,6 @@
 ---
-title: Hèctor Martin
-nom_complet: Hèctor Martin
+title: Héctor Martin
+nom_complet: Héctor Martin
 malnom: ''
 born_year: 1983
 born_city: Barcelona
@@ -15,7 +15,7 @@ bands:
 - Mambo Jambo Arkestra
 - Lone Rhino Club
 - Yakety Yak
-ordre: 59
+ordre: 999
 draft: false
 session_date: 16/12/2020
 ---
