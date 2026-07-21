@@ -1,6 +1,6 @@
 ---
-title: Artem Suliev
-nom_complet: Artem Suliev
+title: Artem Zhulyev
+nom_complet: Artem Zhulyev
 malnom: ''
 born_year: 1978
 born_city: Kropyvnytskyi (Ucraïna)
@@ -14,7 +14,7 @@ bands:
 - The Rhythm Treasures
 - Barcelona Big Blues Band
 - Flamingo Tours
-ordre: 92
+ordre: 999
 draft: false
 session_date: 07/12/2020
 ---

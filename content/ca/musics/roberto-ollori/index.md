@@ -1,6 +1,6 @@
 ---
-title: Roberto Ollori
-nom_complet: Roberto Ollori
+title: Roberto Olori
+nom_complet: Roberto Olori
 malnom: ''
 born_year: 1968
 born_city: Brugg (Suïssa)
@@ -9,7 +9,7 @@ instruments:
 bands:
 - Alex Zayas Band
 - Miguel Talavera Band
-ordre: 95
+ordre: 999
 draft: false
 session_date: 21/12/2021
 ---

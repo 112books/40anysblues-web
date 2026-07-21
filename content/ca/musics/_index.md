@@ -30,7 +30,7 @@ En els dies de la pandèmia de la COVID-19, quan l'univers dels músics es va en
 <details class="acordio">
 <summary class="acordio-cap">On?</summary>
 <div class="acordio-cos">
-Al barri popular de La Sagrera sobreviu un dels centres de producció i difusió de cultura underground més importants de la ciutat: la Nau Bostik. Curiosament, l'origen d'aquest complex es troba al mateix lloc que la música que il·lustren aquestes pàgines: els Estats Units. L'any 1923 — l'any en què Bessie Smith grava <em>Down Hearted Blues</em> — s'instal·la a Barcelona l'empresa nord-americana The Boston Blacking Co., que adopta el nom de Bostik. Aquesta enorme indústria es va convertir l'any 2015 en un centre de difusió i agitació cultural gràcies als veïns del barri. És aquí on el retratista ha instal·lat el seu refugi fotogràfic.
+Al barri popular de La Sagrera sobreviu un dels centres de producció i difusió de cultura underground més importants de la ciutat: la Nau Bostik. Curiosament, l'origen d'aquest complex es troba al mateix lloc que la música que il·lustren aquestes pàgines: els Estats Units. L'any 1923 — l'any en què Bessie Smith grava <em>Down Hearted Blues</em>— s'instal·la a Barcelona l'empresa nord-americana The Boston Blacking Co., que adopta el nom de Bostik. Aquesta enorme indústria es va convertir l'any 2015 en un centre de difusió i agitació cultural gràcies als veïns del barri. És aquí on el retratista ha instal·lat el seu refugi fotogràfic.
 </div>
 </details>
 
