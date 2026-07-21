@@ -11,7 +11,7 @@ bands:
 - Johnny Big Stone & Sweet Marta
 - Sweet Marta & The Blues Shakers
 - Womblues
-- Indigo Blues
+- Índigo Blues
 ordre: 79
 draft: false
 session_date: 06/02/2021
