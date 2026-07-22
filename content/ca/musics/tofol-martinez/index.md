@@ -10,8 +10,8 @@ bands:
 - Tòfol Martínez Blues Band
 - Big Mama Montse & Tòfol Martínez Band
 - Cotton Blues
-- Koko Jean & The Tonics
-- Dani Nel·lo & Organ Trio
+- Koko-Jean & the Tonics
+- Dani Nel·lo + Organ Trio
 ordre: 93
 draft: false
 session_date: 17/03/2022

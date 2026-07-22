@@ -9,7 +9,7 @@ instruments:
 - Piano
 - Veu
 bands:
-- Midnight Rockets
+- The Midnight Rockets
 - Dr. Soul
 - Alex A TNT
 - Tota Blues

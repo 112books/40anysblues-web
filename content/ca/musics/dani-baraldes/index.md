@@ -7,10 +7,10 @@ born_city: Barcelona
 instruments:
 - Guitarra
 bands:
-- Dani Nel·lo y la banda del Zoco
+- Nel·lo y La banda del Zoco
 - Vertigo
 - Los Mambo Jambo
-- Koko Jean & The Tonics
+- Koko-Jean & the Tonics
 - Dani Baraldés & The XXX Band
 ordre: 60
 draft: false

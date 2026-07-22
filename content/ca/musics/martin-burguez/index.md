@@ -11,7 +11,7 @@ bands:
 - Martín Burguez y el Club del Jump,
 - Martín Burguez & His Rhythm Combo
 - The Groovy Four
-- Dani Nel·lo & Organ Trio
+- Dani Nel·lo + Organ Trio
 ordre: 86
 draft: false
 session_date: 28/06/2023

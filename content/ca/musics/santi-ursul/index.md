@@ -13,7 +13,7 @@ bands:
 - The Stamp
 - Smoking Stones
 - Dani Nel·lo Saxorama
-- Dani Baraldes & XXX Band
+- Dani Baraldés & The XXX Band
 - Made in Black
 - Hola Raffaella
 - Undercovers

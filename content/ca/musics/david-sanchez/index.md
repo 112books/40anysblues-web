@@ -11,7 +11,7 @@ bands:
 - Chef Dave and The Cooks
 - Hoodoo Men
 - The Black Cat Bones
-- Lowdown Grovers
+- The Lowdown Groovers
 - Chef Dave & Balta Bordoy
 ordre: 70
 draft: false

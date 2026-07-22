@@ -8,7 +8,7 @@ instruments:
 - Bateria
 bands:
 - The Big Jamboree
-- Velvet Candles
+- The Velvet Candles
 - The Sparkles
 - The Speedways
 - The Starways

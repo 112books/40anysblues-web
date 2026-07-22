@@ -9,7 +9,7 @@ instruments:
 bands:
 - The Big Jamboree
 - Barcelona Big Blues Band
-- Velvet Candles
+- The Velvet Candles
 - The Sparkles
 - Big Dani Perez Saxplosion
 - Alice and the Wonders

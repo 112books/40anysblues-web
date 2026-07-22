@@ -9,8 +9,8 @@ instruments:
 bands:
 - Los Rebeldes
 - Nel·lo y La banda del Zoco
-- Tandoori Le Noir
-- Dani Nel·lo & Organ Trio
+- Tandoori Lenoir
+- Dani Nel·lo + Organ Trio
 - Los Mambo Jambo
 - Los Saxofonistas Salvajes
 ordre: 6

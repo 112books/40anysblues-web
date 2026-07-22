@@ -10,7 +10,7 @@ instruments:
 bands:
 - Johnny Pérez Trio
 - Cotton Roots
-- Johnny BigStone & the Blues Workers
+- Johnny Big Stone & the Blues Workers
 - Sweet Marta & The Blues Shakers
 - Victor Puertas & The Mellow Tones
 ordre: 46

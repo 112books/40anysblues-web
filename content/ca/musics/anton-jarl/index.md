@@ -9,7 +9,7 @@ instruments:
 bands:
 - Los Mambo Jambo
 - Rambalaya
-- Koko Jean & The Tonics
+- Koko-Jean & the Tonics
 - Magnolia
 - Anton Jarl Quintet
 - Los Drummonds

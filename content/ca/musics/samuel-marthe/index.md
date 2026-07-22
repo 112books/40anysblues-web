@@ -8,7 +8,7 @@ instruments:
 - Trombó
 bands:
 - Samuel Marthe Trio
-- Mambo Jambo Arkestra
+- Los Mambo Jambo Arkestra
 - Django Orchestra
 - Domino Swing Septet
 - Swing Shot

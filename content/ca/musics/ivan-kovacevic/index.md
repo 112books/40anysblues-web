@@ -7,8 +7,8 @@ born_city: Belgrad
 instruments:
 - Contrabaix
 bands:
-- Lazy Jumpers
-- Nu Niles
+- The Lazy Jumpers
+- The Nu Niles
 - Down Home
 - Bernat Font Trio
 - Shine

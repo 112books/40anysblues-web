@@ -8,7 +8,7 @@ instruments:
 - Trombó
 bands:
 - Barcelona Big Blues Band
-- Mambo Jambo Arkestra
+- Los Mambo Jambo Arkestra
 ordre: 63
 draft: false
 session_date: 17/05/2021

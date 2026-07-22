@@ -7,7 +7,7 @@ born_city: Mataró
 instruments:
 - Veu
 bands:
-- Txell Sust & August Tharrats Blues Trio
+- Txell Sust & August Tharrats Trio
 - La Vella Dixieland
 ordre: 20
 draft: false

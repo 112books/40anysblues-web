@@ -12,7 +12,7 @@ bands:
 - Dani Nel·lo y los Saxofonistas Salvajes
 - Rambalaya
 - Scaramanga
-- Mambo Jambo Arkestra
+- Los Mambo Jambo Arkestra
 - Lone Rhino Club
 - Yakety Yak
 ordre: 999

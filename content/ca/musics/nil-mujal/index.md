@@ -12,7 +12,7 @@ bands:
 - Balta Bordoy and The Bad Boys
 - Original Jazz Orchestra del Taller de Músics
 - Barcelona Big Blues Band
-- Mambo Jambo Arkestra
+- Los Mambo Jambo Arkestra
 ordre: 87
 draft: false
 session_date: 22/04/2021

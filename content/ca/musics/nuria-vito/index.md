@@ -13,7 +13,7 @@ bands:
 - The Big Blues Band
 - Hot Carajillo’s Happy Band
 - Barcelona Big Blues Band
-- Mambo Jambo Arkestra
+- Los Mambo Jambo Arkestra
 ordre: 112
 draft: false
 session_date: 05/03/2021

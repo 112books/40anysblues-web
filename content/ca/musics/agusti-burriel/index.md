@@ -7,7 +7,7 @@ born_city: Barcelona
 instruments:
 - Veu
 bands:
-- Velvet Candles
+- The Velvet Candles
 - The Big Jamboree
 - Los Torontos
 - Elvis Tribute Band

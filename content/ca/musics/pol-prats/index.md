@@ -10,7 +10,7 @@ bands:
 - Down Home
 - Ivanow Jazz Group
 - Barcelona Big Blues Band
-- Mambo Jambo Arkestra
+- Los Mambo Jambo Arkestra
 - The Big Easy’s Crew
 - Nación Funk - Soul Party
 - Big Yuyu & Hot Nite Band

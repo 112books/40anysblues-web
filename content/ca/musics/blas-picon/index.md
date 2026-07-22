@@ -11,7 +11,7 @@ instruments:
 bands:
 - The Bop Pills
 - Brioles
-- The Nu-Niles
+- The Nu Niles
 - Mario Cobo
 - The Mellow Tones
 - Sweet Marta & The Blues Shakers
