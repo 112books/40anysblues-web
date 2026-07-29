@@ -3,7 +3,7 @@ title: Igor Kossenkov
 nom_complet: Igor Kossenkov
 malnom: ''
 born_year: 1961
-born_city: Riazan
+born_city: Riazan (Rússia)
 instruments:
 - Trombó
 bands:

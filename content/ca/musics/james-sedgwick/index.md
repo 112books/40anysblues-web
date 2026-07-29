@@ -3,7 +3,7 @@ title: James Sedgwick
 nom_complet: James Sedgwick
 malnom: ''
 born_year: 1975
-born_city: St Catharines
+born_city: St Catharines (Canadà)
 instruments:
 - Guitarra
 - Harmònica

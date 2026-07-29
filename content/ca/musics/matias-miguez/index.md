@@ -3,7 +3,7 @@ title: Matías Míguez
 nom_complet: Matías Míguez
 malnom: ''
 born_year: 1973
-born_city: Buenos Aires
+born_city: Buenos Aires (Argentina)
 instruments:
 - Baix
 bands:

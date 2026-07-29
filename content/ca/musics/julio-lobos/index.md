@@ -3,7 +3,7 @@ title: Julio Lobos
 nom_complet: Julio Lobos
 malnom: ''
 born_year: 1961
-born_city: Santiago de Chile
+born_city: Santiago de Chile (Xile)
 instruments:
 - Piano
 - Veu

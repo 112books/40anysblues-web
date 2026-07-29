@@ -3,7 +3,7 @@ title: Martin J. Merino
 nom_complet: Martin J. Merino
 malnom: ''
 born_year: 1975
-born_city: Buenos Aires
+born_city: Buenos Aires (Argentina)
 instruments:
 - Guitarra
 - Baix

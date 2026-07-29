@@ -1,6 +1,6 @@
 ---
-title: Héctor Martin
-nom_complet: Héctor Martin
+title: Héctor Martín
+nom_complet: Héctor Martín
 malnom: ''
 born_year: 1983
 born_city: Barcelona

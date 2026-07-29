@@ -3,7 +3,7 @@ title: Duska Miscevic
 nom_complet: Duska Miscevic
 malnom: ''
 born_year: 1978
-born_city: Belgrad
+born_city: Belgrad (Sèrbia)
 instruments:
 - Saxo
 bands:

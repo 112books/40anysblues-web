@@ -3,7 +3,7 @@ title: Eric Ibañes
 nom_complet: Eric Ibañes
 malnom: ''
 born_year: 1992
-born_city: Bella Vista, Argentina
+born_city: Bella Vista (Argentina)
 instruments:
 - Bateria
 - Guitarra

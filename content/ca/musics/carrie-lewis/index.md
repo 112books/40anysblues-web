@@ -3,7 +3,7 @@ title: Carrie Lewis
 nom_complet: Carrie Lewis
 malnom: ''
 born_year: 1972
-born_city: Portland
+born_city: Portland (EUA)
 instruments:
 - Veu
 bands:

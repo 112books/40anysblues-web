@@ -3,7 +3,7 @@ title: Woolfi
 nom_complet: Javier Alonso Artieda
 malnom: Woolfi
 born_year: 1963
-born_city: Rambouillet
+born_city: Rambouillet (França)
 instruments:
 - Guitarra
 - Veu

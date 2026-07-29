@@ -3,7 +3,7 @@ title: Agustín Leandro Blesa
 nom_complet: Agustín Leandro Blesa
 malnom: ''
 born_year: 1986
-born_city: Santa Fe, Argentina
+born_city: Santa Fe (Argentina)
 instruments:
 - Guitarra
 - Veu

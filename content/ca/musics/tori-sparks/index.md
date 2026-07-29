@@ -3,7 +3,7 @@ title: Tori Sparks
 nom_complet: Tori Sparks
 malnom: ''
 born_year: 1983
-born_city: Chicago
+born_city: Chicago (EUA)
 instruments:
 - Guitarra
 - Veu

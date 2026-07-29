@@ -3,7 +3,7 @@ title: Martín Burguez
 nom_complet: Martín Burguez
 malnom: ''
 born_year: 1988
-born_city: Montevideo
+born_city: Montevideo (Uruguai)
 instruments:
 - Guitarra
 - Veu

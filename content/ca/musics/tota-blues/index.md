@@ -3,7 +3,7 @@ title: Tota Blues
 nom_complet: Tota Blues
 malnom: ''
 born_year: 1974
-born_city: Buenos Aires
+born_city: Buenos Aires (Argentina)
 instruments:
 - Harmònica
 - Veu

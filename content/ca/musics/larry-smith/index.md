@@ -3,7 +3,7 @@ title: Larry Smith
 nom_complet: Larry Smith
 malnom: ''
 born_year: 1954
-born_city: Felixstowe, Anglaterra
+born_city: Felixstowe (Anglaterra)
 instruments:
 - Guitarra
 - Veu

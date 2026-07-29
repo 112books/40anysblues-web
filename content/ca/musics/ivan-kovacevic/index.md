@@ -3,7 +3,7 @@ title: Ivan Kovacevic
 nom_complet: Ivan Kovacevic
 malnom: ''
 born_year: 1977
-born_city: Belgrad
+born_city: Belgrad (Sèrbia)
 instruments:
 - Contrabaix
 bands:

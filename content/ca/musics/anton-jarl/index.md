@@ -3,7 +3,7 @@ title: Anton Jarl
 nom_complet: Anton Jarl
 malnom: ''
 born_year: 1975
-born_city: Malmö
+born_city: Malmö (Suècia)
 instruments:
 - Bateria
 bands:

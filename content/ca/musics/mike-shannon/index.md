@@ -3,7 +3,7 @@ title: Mike Shannon
 nom_complet: Mike Shannon
 malnom: ''
 born_year: 1950
-born_city: Davenport
+born_city: Davenport (EUA)
 instruments:
 - Harmònica
 - Veu

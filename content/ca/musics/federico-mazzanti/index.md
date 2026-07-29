@@ -3,7 +3,7 @@ title: Federico Mazzanti
 nom_complet: Federico Mazzanti
 malnom: ''
 born_year: 1972
-born_city: Buenos Aires
+born_city: Buenos Aires (Argentina)
 instruments:
 - Piano
 bands:

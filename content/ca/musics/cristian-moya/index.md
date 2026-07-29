@@ -3,7 +3,7 @@ title: Poyo Moya
 nom_complet: Cristian Moya
 malnom: Poyo Moya
 born_year: 1978
-born_city: Rosario
+born_city: Rosario (Argentina)
 instruments:
 - Piano
 - Guitarra

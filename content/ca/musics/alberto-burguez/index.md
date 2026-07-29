@@ -3,7 +3,7 @@ title: Alberto Burguez
 nom_complet: Alberto Burguez
 malnom: ''
 born_year: 1992
-born_city: Montevideo
+born_city: Montevideo (Uruguai)
 instruments:
 - Piano
 - Veu

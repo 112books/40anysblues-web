@@ -1,9 +1,9 @@
 ---
-title: Bryan O Mahoney
-nom_complet: Bryan O Mahoney
+title: Bryan O Mahony
+nom_complet: Bryan O Mahony
 malnom: ''
 born_year: 1978
-born_city: Cork
+born_city: Cork (Irlanda)
 instruments:
 - Guitarra
 - Veu
