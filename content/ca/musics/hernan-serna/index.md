@@ -1,6 +1,6 @@
 ---
 title: Chino Swingslide
-nom_complet: Hernán Serna
+nom_complet: Hernán Senra
 malnom: Chino Swingslide
 born_year: 1980
 born_city: Buenos Aires (Argentina)

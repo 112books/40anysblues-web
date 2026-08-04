@@ -6,6 +6,7 @@ born_year: 1979
 born_city: Buenos Aires (Argentina)
 instruments:
 - Guitarra
+- Veu
 bands:
 - Harmònica Zumel Blues Band
 - Chicago Blues Tributo

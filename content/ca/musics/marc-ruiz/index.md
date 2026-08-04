@@ -17,7 +17,7 @@ bands:
 - Big Dani Pérez Band
 - Groove House
 - Miguel Talavera Organ Trio
-- Big Blues Band de Barcelona
+- Barcelona Big Blues Band
 - New Old School
 - Paquito Groove Band
 ordre: 39

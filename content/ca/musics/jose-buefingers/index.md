@@ -1,6 +1,6 @@
 ---
-title: José Bluefingers
-nom_complet: José Bluefingers
+title: Jose Bluefingers
+nom_complet: Jose Bluefingers
 malnom: ''
 born_year: 1962
 born_city: Barcelona
@@ -10,7 +10,7 @@ bands:
 - Harmònica Zumel Blues Band
 - Fas Tard
 - La Incombustible
-- Txus Blues & José Bluefingers
+- Txus Blues & Jose Bluefingers
 - Silver Bluesers
 ordre: 999
 draft: false
