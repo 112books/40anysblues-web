@@ -1,6 +1,6 @@
 ---
 title: Cobre
-nom_complet: Jorge Cobre Jornet
+nom_complet: Jordi Cobre Jornet
 malnom: Cobre
 born_year: 1975
 born_city: Viladecans
@@ -11,7 +11,7 @@ bands:
 - Dr. Blues
 - 4 Copas
 - Julián Kanevsky Trio
-ordre: 91
+ordre: 999
 draft: false
 session_date: 29/03/2022
 ---

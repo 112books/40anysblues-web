@@ -1,6 +1,6 @@
 ---
-title: Bryan O Mahony
-nom_complet: Bryan O Mahony
+title: Brian O Mahony
+nom_complet: Brian O Mahony
 malnom: ''
 born_year: 1978
 born_city: Cork (Irlanda)
@@ -15,7 +15,7 @@ bands:
 - Virginia and the Woolfs
 - Sedgwick & Shingles
 - Stereo Star Band
-ordre: 115
+ordre: 999
 draft: false
 session_date: 25/11/2013
 ---

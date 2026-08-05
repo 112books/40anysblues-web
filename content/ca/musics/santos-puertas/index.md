@@ -1,7 +1,7 @@
 ---
 title: Santos Puertas
-nom_complet: Santos Puertas
-malnom: ''
+nom_complet: Pere Puertas
+malnom: Santos Puertas
 born_year: 1973
 born_city: Barcelona
 instruments:
@@ -13,7 +13,7 @@ bands:
 - Sax-O-Rama amb Dani Nel·lo
 - Flamingo Tours
 - Triple Santos
-ordre: 28
+ordre: 999
 draft: false
 session_date: 11/02/2021
 ---
