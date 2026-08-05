@@ -1,7 +1,7 @@
 ---
 title: Little Jordi
-nom_complet: Jordi Abad
-malnom: Little Jordi
+nom_complet: Little Jordi
+malnom: ''
 born_year: 1979
 born_city: Barcelona
 instruments:
@@ -14,7 +14,7 @@ bands:
 - Hoover Flags
 - Wax & Boogie
 - David Giorcelli Trio
-ordre: 44
+ordre: 999
 draft: false
 session_date: 13/01/2021
 ---

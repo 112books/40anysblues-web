@@ -1,7 +1,7 @@
 ---
 title: Sweet Marta
-nom_complet: Marta Suñé
-malnom: Sweet Marta
+nom_complet: Sweet Marta
+malnom: ''
 born_year: 1983
 born_city: Girona
 instruments:
@@ -12,7 +12,7 @@ bands:
 - Sweet Marta & The Blues Shakers
 - Womblues
 - Índigo Blues
-ordre: 79
+ordre: 999
 draft: false
 session_date: 06/02/2021
 ---

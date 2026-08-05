@@ -1,6 +1,6 @@
 ---
 title: Poyo Moya
-nom_complet: Cristian Moya
+nom_complet: Cristian 'Poyo' Moya
 malnom: Poyo Moya
 born_year: 1978
 born_city: Rosario (Argentina)
@@ -13,7 +13,7 @@ bands:
 - Los Vándalos
 - Poyo Moya Trio
 - Tota Blues Band
-ordre: 76
+ordre: 999
 draft: false
 session_date: 12/05/2021
 ---

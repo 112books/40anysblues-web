@@ -1,7 +1,7 @@
 ---
 title: MA Lonesome
-nom_complet: Miguel Ángel Alonso
-malnom: MA Lonesome
+nom_complet: MA Lonesome
+malnom: ''
 born_year: 1972
 born_city: L'Hospitalet de Llobregat
 instruments:

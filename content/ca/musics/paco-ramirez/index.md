@@ -1,6 +1,6 @@
 ---
 title: Predicador Ramírez
-nom_complet: Paco Ramírez
+nom_complet: Paco 'Predicador' Ramírez
 malnom: Predicador Ramírez
 born_year: 1962
 born_city: Barcelona
@@ -16,7 +16,7 @@ bands:
 - Chicago Blues Tributo
 - Predicador Ramírez y los Apóstoles del Ritmo
 - Predicador Ramírez Blues Band
-ordre: 65
+ordre: 999
 draft: false
 session_date: 17/03/2021
 ---

@@ -1,7 +1,7 @@
 ---
 title: Daniel Higiénico
-nom_complet: Daniel Soler
-malnom: Daniel Higiénico
+nom_complet: Daniel Higiénico
+malnom: ''
 born_year: 1960
 born_city: Barcelona
 instruments:
@@ -11,7 +11,7 @@ bands:
 - Daniel Higiénico y la Quartet de Baño Band
 - Daniel Higiénico Band
 - Daniel Higiénico Blues Experience
-ordre: 54
+ordre: 999
 draft: false
 session_date: 26/04/2021
 ---

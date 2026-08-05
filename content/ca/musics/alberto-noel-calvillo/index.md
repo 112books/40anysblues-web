@@ -1,6 +1,6 @@
 ---
 title: El Tolo
-nom_complet: Alberto Noel Calvillo
+nom_complet: Alberto Noel Calvillo 'El Tolo'
 malnom: El Tolo
 born_year: 1982
 born_city: Barcelona
@@ -11,7 +11,7 @@ bands:
 - A Contra Blues
 - Red Rombo
 - The Flat Pack
-ordre: 62
+ordre: 999
 draft: false
 session_date: 18/12/2020
 ---

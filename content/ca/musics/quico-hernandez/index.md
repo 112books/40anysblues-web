@@ -1,6 +1,6 @@
 ---
 title: Cuco Cutre
-nom_complet: Quico Hernández
+nom_complet: Quico 'Cuco Cutre' Hernández
 malnom: Cuco Cutre
 born_year: 1990
 born_city: Barcelona
@@ -15,7 +15,7 @@ bands:
 - Gadjo, Saffran
 - The Royal Melon Orquestra
 - Lost’n’Found.
-ordre: 127
+ordre: 999
 draft: false
 session_date: 08/03/2021
 ---

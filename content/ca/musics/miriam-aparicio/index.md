@@ -1,7 +1,7 @@
 ---
 title: Sister Marion
-nom_complet: Miriam Aparicio
-malnom: Sister Marion
+nom_complet: Sister Marion
+malnom: ''
 born_year: 1974
 born_city: Barcelona
 instruments:
@@ -12,7 +12,7 @@ bands:
 - Big Mama & Sister Marion
 - Backdoor Strangers
 - Womblues
-ordre: 47
+ordre: 999
 draft: false
 session_date: 30-31/03/2019
 ---

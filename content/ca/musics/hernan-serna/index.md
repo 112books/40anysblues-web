@@ -1,7 +1,7 @@
 ---
 title: Chino Swingslide
-nom_complet: Hernán Senra
-malnom: Chino Swingslide
+nom_complet: Chino Swingslide
+malnom: ''
 born_year: 1980
 born_city: Buenos Aires (Argentina)
 instruments:
@@ -12,7 +12,7 @@ bands:
 - Shine
 - The Acoustic Blues Company
 - Chino Swingslide & The Big Bet
-ordre: 26
+ordre: 999
 draft: false
 session_date: 11/01/2021
 ---

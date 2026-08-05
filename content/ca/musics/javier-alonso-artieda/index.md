@@ -1,6 +1,6 @@
 ---
 title: Woolfi
-nom_complet: Javier Alonso Artieda
+nom_complet: Javier 'Wolfi' Alonso
 malnom: Woolfi
 born_year: 1963
 born_city: Rambouillet (França)
@@ -11,7 +11,7 @@ bands:
 - The Wakan Blues Band
 - Woolfi and the Little Band
 - Monterrey Band
-ordre: 129
+ordre: 999
 draft: false
 session_date: 29/05/2023
 ---
