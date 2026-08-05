@@ -1,6 +1,7 @@
 ---
 title: Marc Ruiz
 nom_complet: Marc Ruiz
+nom_real: ''
 malnom: ''
 born_year: 1972
 born_city: Sabadell

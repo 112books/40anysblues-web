@@ -1,6 +1,7 @@
 ---
 title: Oscar Wolf
 nom_complet: Oscar Wolf
+nom_real: ''
 malnom: ''
 born_year: 1984
 born_city: Barcelona

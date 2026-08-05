@@ -1,6 +1,7 @@
 ---
 title: Sweet Marta
 nom_complet: Sweet Marta
+nom_real: Marta Suñé
 malnom: ''
 born_year: 1983
 born_city: Girona

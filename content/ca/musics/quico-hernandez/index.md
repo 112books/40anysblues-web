@@ -1,6 +1,7 @@
 ---
 title: Cuco Cutre
 nom_complet: Quico 'Cuco Cutre' Hernández
+nom_real: Quico Hernández
 malnom: Cuco Cutre
 born_year: 1990
 born_city: Barcelona

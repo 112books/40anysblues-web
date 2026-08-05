@@ -1,6 +1,7 @@
 ---
 title: Fredy García
 nom_complet: Fredy García
+nom_real: ''
 malnom: ''
 born_year: 1973
 born_city: Pineda de Mar

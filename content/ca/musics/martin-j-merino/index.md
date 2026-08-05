@@ -1,6 +1,7 @@
 ---
 title: Martin J. Merino
 nom_complet: Martin J. Merino
+nom_real: ''
 malnom: ''
 born_year: 1975
 born_city: Buenos Aires (Argentina)

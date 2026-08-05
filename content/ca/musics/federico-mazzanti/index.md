@@ -1,6 +1,7 @@
 ---
 title: Federico Mazzanti
 nom_complet: Federico Mazzanti
+nom_real: ''
 malnom: ''
 born_year: 1972
 born_city: Buenos Aires (Argentina)

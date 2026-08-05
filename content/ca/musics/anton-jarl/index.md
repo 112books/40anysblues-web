@@ -1,6 +1,7 @@
 ---
 title: Anton Jarl
 nom_complet: Anton Jarl
+nom_real: ''
 malnom: ''
 born_year: 1975
 born_city: Malmö (Suècia)

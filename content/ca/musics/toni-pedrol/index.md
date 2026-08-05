@@ -1,6 +1,7 @@
 ---
 title: Toni Pedrol
 nom_complet: Toni Pedrol
+nom_real: ''
 malnom: ''
 born_year: 1965
 born_city: Barcelona

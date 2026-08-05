@@ -1,6 +1,7 @@
 ---
 title: Arnau Julià
 nom_complet: Arnau Julià
+nom_real: ''
 malnom: ''
 born_year: 1991
 born_city: Barcelona

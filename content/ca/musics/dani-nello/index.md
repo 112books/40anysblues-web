@@ -1,6 +1,7 @@
 ---
 title: Dani Nel·lo
 nom_complet: Dani Nel·lo
+nom_real: ''
 malnom: ''
 born_year: 1967
 born_city: Barcelona

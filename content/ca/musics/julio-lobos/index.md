@@ -1,6 +1,7 @@
 ---
 title: Julio Lobos
 nom_complet: Julio Lobos
+nom_real: ''
 malnom: ''
 born_year: 1961
 born_city: Santiago de Chile (Xile)

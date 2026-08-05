@@ -1,6 +1,7 @@
 ---
 title: Xavi Malacara
 nom_complet: Xavi Malacara
+nom_real: ''
 malnom: ''
 born_year: 1966
 born_city: Barcelona

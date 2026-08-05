@@ -1,6 +1,7 @@
 ---
 title: Jose Bluefingers
 nom_complet: Jose Bluefingers
+nom_real: ''
 malnom: ''
 born_year: 1962
 born_city: Barcelona

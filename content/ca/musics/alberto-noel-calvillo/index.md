@@ -1,6 +1,7 @@
 ---
 title: El Tolo
 nom_complet: Alberto Noel Calvillo 'El Tolo'
+nom_real: Alberto Noel Calvillo
 malnom: El Tolo
 born_year: 1982
 born_city: Barcelona

@@ -1,6 +1,7 @@
 ---
 title: Cesc Miró
 nom_complet: Cesc Miró
+nom_real: ''
 malnom: ''
 born_year: 1974
 born_city: Martorell

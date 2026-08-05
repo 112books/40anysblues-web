@@ -1,6 +1,7 @@
 ---
 title: Pepe J. Gómez
 nom_complet: Pepe J. Gómez
+nom_real: ''
 malnom: ''
 born_year: 1966
 born_city: Alosno, Huelva

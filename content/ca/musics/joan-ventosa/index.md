@@ -1,6 +1,7 @@
 ---
 title: Joan Ventosa
 nom_complet: Joan Ventosa
+nom_real: ''
 malnom: ''
 born_year: 1958
 born_city: Barcelona

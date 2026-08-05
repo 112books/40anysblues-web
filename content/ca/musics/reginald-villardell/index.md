@@ -1,6 +1,7 @@
 ---
 title: Reginald Vilardell
 nom_complet: Reginald Vilardell
+nom_real: ''
 malnom: ''
 born_year: 1974
 born_city: Barcelona

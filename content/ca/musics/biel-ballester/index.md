@@ -1,6 +1,7 @@
 ---
 title: Biel Ballester
 nom_complet: Biel Ballester
+nom_real: ''
 malnom: ''
 born_year: 1974
 born_city: Palma de Mallorca

@@ -1,6 +1,7 @@
 ---
 title: Mario Cobo
 nom_complet: Mario Cobo
+nom_real: ''
 malnom: ''
 born_year: 1975
 born_city: Barcelona

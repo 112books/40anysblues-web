@@ -1,6 +1,7 @@
 ---
 title: Quim Quiñonero
 nom_complet: Quim Quiñonero
+nom_real: ''
 malnom: ''
 born_year: 1967
 born_city: Barcelona

@@ -1,6 +1,7 @@
 ---
 title: David Pastor
 nom_complet: David Pastor
+nom_real: ''
 malnom: ''
 born_year: 1974
 born_city: Bad Honnef (Alemanya)

@@ -1,6 +1,7 @@
 ---
 title: Sergi Escriu
 nom_complet: Sergi Escriu
+nom_real: ''
 malnom: ''
 born_year: 1976
 born_city: Sabadell

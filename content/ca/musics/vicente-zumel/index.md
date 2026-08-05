@@ -1,6 +1,7 @@
 ---
 title: Vicente Zúmel
 nom_complet: Vicente Zúmel
+nom_real: ''
 malnom: ''
 born_year: 1952
 born_city: Barcelona

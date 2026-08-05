@@ -1,6 +1,7 @@
 ---
 title: Johnny Big Stone
 nom_complet: Johnny Big Stone
+nom_real: ''
 malnom: ''
 born_year: 1972
 born_city: Premià de Mar

@@ -1,6 +1,7 @@
 ---
 title: Anaïs Martín
 nom_complet: Anaïs Martín
+nom_real: ''
 malnom: ''
 born_year: 1984
 born_city: Màlaga

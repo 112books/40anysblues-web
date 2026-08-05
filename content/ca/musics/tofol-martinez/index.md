@@ -1,6 +1,7 @@
 ---
 title: Tòfol Martínez
 nom_complet: Tòfol Martínez
+nom_real: ''
 malnom: ''
 born_year: 1979
 born_city: Sabadell

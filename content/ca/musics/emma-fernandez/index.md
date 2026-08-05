@@ -1,6 +1,7 @@
 ---
 title: Emma Fernández
 nom_complet: Emma Fernández
+nom_real: ''
 malnom: ''
 born_year: 1987
 born_city: Barcelona

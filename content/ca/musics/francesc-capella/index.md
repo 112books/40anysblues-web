@@ -1,6 +1,7 @@
 ---
 title: Francesc Capella
 nom_complet: Francesc Capella
+nom_real: ''
 malnom: ''
 born_year: 1962
 born_city: Barcelona

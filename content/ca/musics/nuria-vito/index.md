@@ -1,6 +1,7 @@
 ---
 title: Núria Vitó
 nom_complet: Núria Vitó
+nom_real: ''
 malnom: ''
 born_year: 1975
 born_city: Terrassa

@@ -1,6 +1,7 @@
 ---
 title: Chento Briganti
 nom_complet: Chento Briganti
+nom_real: ''
 malnom: ''
 born_year: 1952
 born_city: Barcelona

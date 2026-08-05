@@ -1,6 +1,7 @@
 ---
 title: Cobre
 nom_complet: Jordi Cobre Jornet
+nom_real: ''
 malnom: Cobre
 born_year: 1975
 born_city: Viladecans

@@ -1,6 +1,7 @@
 ---
 title: Manolo Germán
 nom_complet: Manolo Germán
+nom_real: ''
 malnom: ''
 born_year: 1970
 born_city: Cardona

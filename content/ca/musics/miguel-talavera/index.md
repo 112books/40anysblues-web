@@ -1,6 +1,7 @@
 ---
 title: Miguel Talavera
 nom_complet: Miguel Talavera
+nom_real: ''
 malnom: ''
 born_year: 1975
 born_city: Barcelona

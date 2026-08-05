@@ -1,6 +1,7 @@
 ---
 title: Little Jordi
 nom_complet: Little Jordi
+nom_real: Jordi Abad
 malnom: ''
 born_year: 1979
 born_city: Barcelona

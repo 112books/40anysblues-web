@@ -1,6 +1,7 @@
 ---
 title: Santi Ursul
 nom_complet: Santi Ursul
+nom_real: ''
 malnom: ''
 born_year: 1959
 born_city: Barcelona

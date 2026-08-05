@@ -1,6 +1,7 @@
 ---
 title: Monique Makon
 nom_complet: Monique Makon
+nom_real: ''
 malnom: ''
 born_year: 1997
 born_city: Barcelona

@@ -1,6 +1,7 @@
 ---
 title: Predicador Ramírez
 nom_complet: Paco 'Predicador' Ramírez
+nom_real: Paco Ramírez
 malnom: Predicador Ramírez
 born_year: 1962
 born_city: Barcelona

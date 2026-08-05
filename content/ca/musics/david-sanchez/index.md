@@ -1,6 +1,7 @@
 ---
 title: David Sánchez
 nom_complet: David Sánchez
+nom_real: ''
 malnom: ''
 born_year: 1971
 born_city: Barcelona

@@ -1,6 +1,7 @@
 ---
 title: Agustí Burriel
 nom_complet: Agustí Burriel
+nom_real: ''
 malnom: ''
 born_year: 1984
 born_city: Barcelona

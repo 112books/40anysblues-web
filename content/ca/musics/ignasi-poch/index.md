@@ -1,6 +1,7 @@
 ---
 title: Ignasi Poch
 nom_complet: Ignasi Poch
+nom_real: ''
 malnom: ''
 born_year: 1978
 born_city: Barcelona

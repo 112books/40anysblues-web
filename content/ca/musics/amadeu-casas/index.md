@@ -1,6 +1,7 @@
 ---
 title: Amadeu Casas
 nom_complet: Amadeu Casas
+nom_real: ''
 malnom: ''
 born_year: 1954
 born_city: Barcelona

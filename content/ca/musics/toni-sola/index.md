@@ -1,6 +1,7 @@
 ---
 title: Toni Solà
 nom_complet: Toni Solà
+nom_real: ''
 malnom: ''
 born_year: 1966
 born_city: Barcelona

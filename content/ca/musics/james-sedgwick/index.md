@@ -1,6 +1,7 @@
 ---
 title: James Sedgwick
 nom_complet: James Sedgwick
+nom_real: ''
 malnom: ''
 born_year: 1975
 born_city: St Catharines (Canadà)

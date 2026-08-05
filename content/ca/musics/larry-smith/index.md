@@ -1,6 +1,7 @@
 ---
 title: Larry Smith
 nom_complet: Larry Smith
+nom_real: ''
 malnom: ''
 born_year: 1954
 born_city: Felixstowe (Anglaterra)

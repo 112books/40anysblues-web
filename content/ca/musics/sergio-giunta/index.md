@@ -1,6 +1,7 @@
 ---
 title: Sergio Giunta
 nom_complet: Sergio Giunta
+nom_real: ''
 malnom: ''
 born_year: 1979
 born_city: Buenos Aires (Argentina)

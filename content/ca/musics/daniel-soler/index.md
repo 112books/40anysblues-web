@@ -1,6 +1,7 @@
 ---
 title: Daniel Higiénico
 nom_complet: Daniel Higiénico
+nom_real: Daniel Soler
 malnom: ''
 born_year: 1960
 born_city: Barcelona

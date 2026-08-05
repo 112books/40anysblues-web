@@ -1,6 +1,7 @@
 ---
 title: Carles Nadal
 nom_complet: Carles Nadal
+nom_real: ''
 malnom: ''
 born_year: ''
 born_city: ''

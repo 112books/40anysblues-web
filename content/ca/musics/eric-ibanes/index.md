@@ -1,6 +1,7 @@
 ---
 title: Eric Ibañes
 nom_complet: Eric Ibañes
+nom_real: ''
 malnom: ''
 born_year: 1992
 born_city: Bella Vista (Argentina)

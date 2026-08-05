@@ -1,6 +1,7 @@
 ---
 title: Anita Rouge
 nom_complet: Anita Rouge
+nom_real: ''
 malnom: ''
 born_year: 1988
 born_city: Barcelona

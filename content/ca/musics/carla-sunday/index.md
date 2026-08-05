@@ -1,6 +1,7 @@
 ---
 title: Carla Sunday
 nom_complet: Carla Sunday
+nom_real: ''
 malnom: ''
 born_year: 1990
 born_city: Barcelona

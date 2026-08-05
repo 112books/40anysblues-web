@@ -1,6 +1,7 @@
 ---
 title: Ignasi Terraza
 nom_complet: Ignasi Terraza
+nom_real: ''
 malnom: ''
 born_year: 1962
 born_city: Barcelona

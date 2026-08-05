@@ -1,6 +1,7 @@
 ---
 title: Artem Zhulyev
 nom_complet: Artem Zhulyev
+nom_real: ''
 malnom: ''
 born_year: 1978
 born_city: Kropyvnytskyi (Ucraïna)

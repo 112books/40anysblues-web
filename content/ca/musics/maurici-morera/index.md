@@ -1,6 +1,7 @@
 ---
 title: Maurici Morera
 nom_complet: Maurici Morera
+nom_real: ''
 malnom: ''
 born_year: 1968
 born_city: Sabadell

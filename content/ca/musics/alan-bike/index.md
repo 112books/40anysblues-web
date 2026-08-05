@@ -1,6 +1,7 @@
 ---
 title: Alan Bike
 nom_complet: Alan Bike
+nom_real: ''
 malnom: ''
 born_year: 1958
 born_city: Barcelona

@@ -1,6 +1,7 @@
 ---
 title: Victor Puertas
 nom_complet: Victor Puertas
+nom_real: ''
 malnom: ''
 born_year: 1981
 born_city: Barcelona

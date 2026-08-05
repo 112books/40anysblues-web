@@ -41,6 +41,8 @@
       fuse = new Fuse(data, {
         keys: [
           { name: 'title', weight: 3 },
+          { name: 'nom_real', weight: 3 },
+          { name: 'malnom', weight: 2 },
           { name: 'instruments', weight: 2 },
           { name: 'bands', weight: 2 },
           { name: 'born_city', weight: 1 },

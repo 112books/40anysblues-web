@@ -1,6 +1,7 @@
 ---
 title: Tota Blues
 nom_complet: Tota Blues
+nom_real: ''
 malnom: ''
 born_year: 1974
 born_city: Buenos Aires (Argentina)

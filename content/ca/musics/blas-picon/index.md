@@ -1,6 +1,7 @@
 ---
 title: Blas Picón
 nom_complet: Blas Picón
+nom_real: ''
 malnom: ''
 born_year: 1969
 born_city: Barcelona

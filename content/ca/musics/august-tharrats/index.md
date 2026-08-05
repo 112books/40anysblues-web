@@ -1,6 +1,7 @@
 ---
 title: August Tharrats
 nom_complet: August Tharrats
+nom_real: ''
 malnom: ''
 born_year: 1956
 born_city: Barcelona

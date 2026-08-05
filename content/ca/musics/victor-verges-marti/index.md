@@ -1,6 +1,7 @@
 ---
 title: Víctor Vergés Martí
 nom_complet: Víctor Vergés Martí
+nom_real: ''
 malnom: ''
 born_year: 1967
 born_city: Barcelona

@@ -1,6 +1,7 @@
 ---
 title: Pau Ruiz Alguersuari
 nom_complet: Pau Ruiz Alguersuari
+nom_real: ''
 malnom: ''
 born_year: 1970
 born_city: Sabadell

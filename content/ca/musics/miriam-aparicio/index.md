@@ -1,6 +1,7 @@
 ---
 title: Sister Marion
 nom_complet: Sister Marion
+nom_real: Miriam Aparicio
 malnom: ''
 born_year: 1974
 born_city: Barcelona

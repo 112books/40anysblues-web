@@ -1,6 +1,7 @@
 ---
 title: Ster Wax
 nom_complet: Ster Wax
+nom_real: ''
 malnom: ''
 born_year: 1983
 born_city: Sabadell

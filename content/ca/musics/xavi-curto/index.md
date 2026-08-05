@@ -1,6 +1,7 @@
 ---
 title: Xavi Curto
 nom_complet: Xavi Curto
+nom_real: ''
 malnom: ''
 born_year: 1965
 born_city: Tortosa

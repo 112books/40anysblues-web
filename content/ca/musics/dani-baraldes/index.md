@@ -1,6 +1,7 @@
 ---
 title: Dani Baraldés
 nom_complet: Dani Baraldés
+nom_real: ''
 malnom: ''
 born_year: 1974
 born_city: Barcelona

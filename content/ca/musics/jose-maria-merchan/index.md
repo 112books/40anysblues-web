@@ -1,6 +1,7 @@
 ---
 title: José María Merchan
 nom_complet: José María Merchan
+nom_real: ''
 malnom: ''
 born_year: 1953
 born_city: Barcelona

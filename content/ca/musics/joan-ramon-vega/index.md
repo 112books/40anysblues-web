@@ -1,6 +1,7 @@
 ---
 title: Joan Ramon Vega
 nom_complet: Joan Ramon Vega
+nom_real: ''
 malnom: ''
 born_year: 1968
 born_city: Barcelona

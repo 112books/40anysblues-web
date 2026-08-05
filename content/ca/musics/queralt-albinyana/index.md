@@ -1,6 +1,7 @@
 ---
 title: Queralt Albinyana
 nom_complet: Queralt Albinyana
+nom_real: ''
 malnom: ''
 born_year: 1980
 born_city: Terrassa

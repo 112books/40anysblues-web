@@ -1,6 +1,7 @@
 ---
 title: Manuel Casado
 nom_complet: Manuel Casado
+nom_real: ''
 malnom: ''
 born_year: 1972
 born_city: Terrassa

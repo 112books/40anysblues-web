@@ -1,6 +1,7 @@
 ---
 title: Quico Pi de la Serra
 nom_complet: Quico Pi de la Serra
+nom_real: ''
 malnom: ''
 born_year: 1942
 born_city: Barcelona

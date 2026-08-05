@@ -1,6 +1,7 @@
 ---
 title: Ana Ramallo
 nom_complet: Ana Ramallo
+nom_real: ''
 malnom: ''
 born_year: 1968
 born_city: Sabadell

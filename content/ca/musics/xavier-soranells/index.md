@@ -1,6 +1,7 @@
 ---
 title: Xavier Soranells
 nom_complet: Xavier Soranells
+nom_real: ''
 malnom: ''
 born_year: 1973
 born_city: Barcelona

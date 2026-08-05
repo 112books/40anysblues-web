@@ -1,6 +1,7 @@
 ---
 title: Poyo Moya
 nom_complet: Cristian 'Poyo' Moya
+nom_real: Cristian Moya
 malnom: Poyo Moya
 born_year: 1978
 born_city: Rosario (Argentina)

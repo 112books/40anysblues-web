@@ -1,6 +1,7 @@
 ---
 title: Fer Tejero Vélez
 nom_complet: Fer Tejero Vélez
+nom_real: ''
 malnom: ''
 born_year: 1979
 born_city: Buenos Aires (Argentina)

@@ -1,6 +1,7 @@
 ---
 title: Hoochie Coochie Sonia
 nom_complet: Hoochie Coochie Sonia
+nom_real: ''
 malnom: ''
 born_year: 1978
 born_city: Barcelona

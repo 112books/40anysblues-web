@@ -1,6 +1,7 @@
 ---
 title: Pep Rius
 nom_complet: Pep Rius
+nom_real: ''
 malnom: ''
 born_year: 1961
 born_city: Barcelona

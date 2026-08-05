@@ -1,6 +1,7 @@
 ---
 title: Roberto Olori
 nom_complet: Roberto Olori
+nom_real: ''
 malnom: ''
 born_year: 1968
 born_city: Brugg (Suïssa)

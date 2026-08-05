@@ -1,6 +1,7 @@
 ---
 title: Marian Barahona
 nom_complet: Marian Barahona
+nom_real: ''
 malnom: ''
 born_year: 1975
 born_city: Esplugues de Llobregat

@@ -1,6 +1,7 @@
 ---
 title: Pere Miró
 nom_complet: Pere Miró
+nom_real: ''
 malnom: ''
 born_year: 1988
 born_city: Martorell

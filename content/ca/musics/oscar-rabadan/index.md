@@ -1,6 +1,7 @@
 ---
 title: Oscar Rabadán
 nom_complet: Oscar Rabadán
+nom_real: ''
 malnom: ''
 born_year: 1969
 born_city: Barcelona

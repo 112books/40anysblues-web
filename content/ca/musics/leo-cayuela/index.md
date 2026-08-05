@@ -1,6 +1,7 @@
 ---
 title: Leo Cayuela
 nom_complet: Leo Cayuela
+nom_real: ''
 malnom: ''
 born_year: 1968
 born_city: Barcelona

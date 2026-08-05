@@ -1,6 +1,7 @@
 ---
 title: Elias Babad
 nom_complet: Elias Babad
+nom_real: ''
 malnom: ''
 born_year: 1995
 born_city: Pàdua (Itàlia)

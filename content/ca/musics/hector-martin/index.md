@@ -1,6 +1,7 @@
 ---
 title: Héctor Martín
 nom_complet: Héctor Martín
+nom_real: ''
 malnom: ''
 born_year: 1983
 born_city: Barcelona

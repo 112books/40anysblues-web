@@ -1,6 +1,7 @@
 ---
 title: Joan Vigo
 nom_complet: Joan Vigo
+nom_real: ''
 malnom: ''
 born_year: 1985
 born_city: Cerdanyola del Vallès

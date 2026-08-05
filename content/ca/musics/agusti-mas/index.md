@@ -1,6 +1,7 @@
 ---
 title: Agustí Mas
 nom_complet: Agustí Mas
+nom_real: ''
 malnom: ''
 born_year: 1956
 born_city: Barcelona

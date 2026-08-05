@@ -1,6 +1,7 @@
 ---
 title: Sergi Estella
 nom_complet: Sergi Estella
+nom_real: ''
 malnom: ''
 born_year: 1987
 born_city: Terrassa

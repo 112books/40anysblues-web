@@ -1,6 +1,7 @@
 ---
 title: Martí Elias Vinyals
 nom_complet: Martí Elias Vinyals
+nom_real: ''
 malnom: ''
 born_year: 1983
 born_city: Barcelona

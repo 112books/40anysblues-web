@@ -1,6 +1,7 @@
 ---
 title: Lluís Coloma
 nom_complet: Lluís Coloma
+nom_real: ''
 malnom: ''
 born_year: 1973
 born_city: Barcelona

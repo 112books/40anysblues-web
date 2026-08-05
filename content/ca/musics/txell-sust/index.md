@@ -1,6 +1,7 @@
 ---
 title: Txell Sust
 nom_complet: Txell Sust
+nom_real: ''
 malnom: ''
 born_year: 1971
 born_city: Mataró

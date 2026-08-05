@@ -1,6 +1,7 @@
 ---
 title: Carlos Pérez
 nom_complet: Carlos Pérez
+nom_real: ''
 malnom: ''
 born_year: 1970
 born_city: Barcelona

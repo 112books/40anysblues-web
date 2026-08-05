@@ -1,6 +1,7 @@
 ---
 title: Tori Sparks
 nom_complet: Tori Sparks
+nom_real: ''
 malnom: ''
 born_year: 1983
 born_city: Chicago (EUA)

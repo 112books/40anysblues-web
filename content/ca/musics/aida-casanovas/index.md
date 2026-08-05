@@ -1,6 +1,7 @@
 ---
 title: Aïda Casanovas
 nom_complet: Aïda Casanovas
+nom_real: ''
 malnom: ''
 born_year: 1983
 born_city: Barcelona

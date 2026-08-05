@@ -1,6 +1,7 @@
 ---
 title: Emilio Torres
 nom_complet: Emilio Torres
+nom_real: ''
 malnom: ''
 born_year: 1965
 born_city: Terrassa

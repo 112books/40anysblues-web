@@ -1,6 +1,7 @@
 ---
 title: Jonathan Herrero
 nom_complet: Jonathan Herrero
+nom_real: ''
 malnom: ''
 born_year: 1980
 born_city: Vitoria-Gasteiz

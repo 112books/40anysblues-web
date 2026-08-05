@@ -1,6 +1,7 @@
 ---
 title: Lluís Souto
 nom_complet: Lluís Souto
+nom_real: ''
 malnom: ''
 born_year: 1970
 born_city: Terrassa

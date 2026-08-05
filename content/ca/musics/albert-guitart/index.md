@@ -1,6 +1,7 @@
 ---
 title: Albert Guitart
 nom_complet: Albert Guitart
+nom_real: ''
 malnom: ''
 born_year: 1964
 born_city: Barcelona

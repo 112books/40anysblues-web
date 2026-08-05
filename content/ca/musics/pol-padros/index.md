@@ -1,6 +1,7 @@
 ---
 title: Pol Padrós
 nom_complet: Pol Padrós
+nom_real: ''
 malnom: ''
 born_year: 1989
 born_city: Vic

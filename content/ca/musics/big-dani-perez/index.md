@@ -1,6 +1,7 @@
 ---
 title: Big Dani Pérez
 nom_complet: Big Dani Pérez
+nom_real: ''
 malnom: ''
 born_year: 1979
 born_city: Barcelona

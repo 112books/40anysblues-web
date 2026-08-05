@@ -1,6 +1,7 @@
 ---
 title: Leo Carreras
 nom_complet: Leo Carreras
+nom_real: ''
 malnom: ''
 born_year: 1961
 born_city: Barcelona

@@ -1,6 +1,7 @@
 ---
 title: Joan Pau Cumellas
 nom_complet: Joan Pau Cumellas
+nom_real: ''
 malnom: ''
 born_year: 1970
 born_city: Barcelona

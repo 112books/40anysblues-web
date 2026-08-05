@@ -1,6 +1,7 @@
 ---
 title: Big Mama Montse
 nom_complet: Big Mama Montse
+nom_real: ''
 malnom: ''
 born_year: 1963
 born_city: Barcelona

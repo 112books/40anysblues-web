@@ -1,6 +1,7 @@
 ---
 title: Frank Barnes
 nom_complet: Frank Barnes
+nom_real: ''
 malnom: ''
 born_year: 1995
 born_city: Barcelona

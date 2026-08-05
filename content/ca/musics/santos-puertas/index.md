@@ -1,6 +1,7 @@
 ---
 title: Santos Puertas
 nom_complet: Pere Puertas
+nom_real: ''
 malnom: Santos Puertas
 born_year: 1973
 born_city: Barcelona

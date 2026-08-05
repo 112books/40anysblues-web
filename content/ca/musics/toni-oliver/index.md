@@ -1,6 +1,7 @@
 ---
 title: Toni Oliver
 nom_complet: Toni Oliver
+nom_real: ''
 malnom: ''
 born_year: ''
 born_city: ''

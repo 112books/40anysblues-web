@@ -1,6 +1,7 @@
 ---
 title: Nerea Guerrero
 nom_complet: Nerea Guerrero
+nom_real: ''
 malnom: ''
 born_year: 1991
 born_city: Barcelona

@@ -1,6 +1,7 @@
 ---
 title: Balta Bordoy
 nom_complet: Balta Bordoy
+nom_real: ''
 malnom: ''
 born_year: 1973
 born_city: Palma de Mallorca

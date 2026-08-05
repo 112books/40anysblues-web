@@ -1,6 +1,7 @@
 ---
 title: Carlos Navarrete
 nom_complet: Carlos Navarrete
+nom_real: ''
 malnom: ''
 born_year: 1978
 born_city: Sabadell

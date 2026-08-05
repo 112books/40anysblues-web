@@ -1,6 +1,7 @@
 ---
 title: Javier Cortés
 nom_complet: Javier Cortés
+nom_real: ''
 malnom: ''
 born_year: 1985
 born_city: Mollet del Vallès

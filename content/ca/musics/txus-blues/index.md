@@ -1,6 +1,7 @@
 ---
 title: Txus Blues
 nom_complet: Txus Blues
+nom_real: ''
 malnom: ''
 born_year: 1964
 born_city: Barcelona

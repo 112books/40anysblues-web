@@ -1,6 +1,7 @@
 ---
 title: Julio Vallejo
 nom_complet: Julio Vallejo
+nom_real: ''
 malnom: ''
 born_year: 1964
 born_city: Barcelona

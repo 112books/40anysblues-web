@@ -1,6 +1,7 @@
 ---
 title: Pepino Pascual
 nom_complet: Pepino Pascual
+nom_real: ''
 malnom: ''
 born_year: 1960
 born_city: La Palma de Cervelló

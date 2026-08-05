@@ -1,6 +1,7 @@
 ---
 title: 'David Giorcelli '
 nom_complet: 'David Giorcelli '
+nom_real: ''
 malnom: ''
 born_year: 1976
 born_city: barcelona

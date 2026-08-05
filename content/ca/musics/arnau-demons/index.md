@@ -1,6 +1,7 @@
 ---
 title: Arnau Demons
 nom_complet: Arnau Demons
+nom_real: ''
 malnom: ''
 born_year: 2001
 born_city: Barcelona

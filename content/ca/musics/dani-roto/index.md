@@ -1,6 +1,7 @@
 ---
 title: Dani Roto
 nom_complet: Dani Roto
+nom_real: ''
 malnom: ''
 born_year: 1987
 born_city: Cerdanyola del Vallès

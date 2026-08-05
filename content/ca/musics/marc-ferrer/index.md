@@ -1,6 +1,7 @@
 ---
 title: Marc Ferrer
 nom_complet: Marc Ferrer
+nom_real: ''
 malnom: ''
 born_year: 1975
 born_city: Masquefa

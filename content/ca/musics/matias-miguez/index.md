@@ -1,6 +1,7 @@
 ---
 title: Matías Míguez
 nom_complet: Matías Míguez
+nom_real: ''
 malnom: ''
 born_year: 1973
 born_city: Buenos Aires (Argentina)

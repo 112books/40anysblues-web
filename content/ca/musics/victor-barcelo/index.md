@@ -1,6 +1,7 @@
 ---
 title: Víctor Barceló
 nom_complet: Víctor Barceló
+nom_real: ''
 malnom: ''
 born_year: 1995
 born_city: Barcelona

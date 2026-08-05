@@ -1,6 +1,7 @@
 ---
 title: Rai Jiménez
 nom_complet: Rai Jiménez
+nom_real: ''
 malnom: ''
 born_year: 2002
 born_city: Barcelona

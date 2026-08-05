@@ -1,6 +1,7 @@
 ---
 title: Agustín Leandro Blesa
 nom_complet: Agustín Leandro Blesa
+nom_real: ''
 malnom: ''
 born_year: 1986
 born_city: Santa Fe (Argentina)

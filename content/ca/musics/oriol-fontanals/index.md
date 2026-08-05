@@ -1,6 +1,7 @@
 ---
 title: Oriol Fontanals
 nom_complet: Oriol Fontanals
+nom_real: ''
 malnom: ''
 born_year: 1986
 born_city: Barcelona
