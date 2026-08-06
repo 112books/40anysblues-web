@@ -6,7 +6,7 @@ malnom: ''
 born_year: 1987
 born_city: Cerdanyola del Vallès
 instruments:
-- Guitarra resonadora
+- Guitarra ressonadora
 - Veu
 bands:
 - Dani Roto & The SickRoto Blues BigBand Orquesta
