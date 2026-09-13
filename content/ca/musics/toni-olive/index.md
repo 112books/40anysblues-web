@@ -1,6 +1,6 @@
 ---
-title: Toni Oliver
-nom_complet: Toni Oliver
+title: Toni Olivé
+nom_complet: Toni Olivé
 nom_real: ''
 malnom: ''
 born_year: 1954
