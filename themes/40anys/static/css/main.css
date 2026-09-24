@@ -1341,6 +1341,48 @@ h1, h2, h3 { font-weight: 700; }
 .stats-footer-note { color: var(--text2); font-size: .78rem; margin-top: 2rem; }
 .stats-footer-note a { color: var(--text2); }
 
+/* Pestanyes */
+.stats-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.stats-tab {
+  background: none; border: none; border-bottom: 3px solid transparent;
+  color: var(--text2); cursor: pointer; font-family: var(--font-body);
+  font-size: .9rem; padding: .65rem 1.2rem; margin-bottom: -1px;
+  transition: color .2s, border-color .2s;
+}
+.stats-tab:hover { color: var(--text); }
+.stats-tab.active { color: var(--accent-light); border-bottom-color: var(--accent-light); }
+.stats-tab--qr.active { color: #e8a020; border-bottom-color: #e8a020; }
+.stats-tab-panel { display: none; }
+.stats-tab-panel.active { display: block; }
+
+/* Dos columnes */
+.stats-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 700px) { .stats-two-col { grid-template-columns: 1fr; } }
+
+/* QR kpi */
+.stats-kpi--qr { border-color: rgba(232,160,32,.5); background: rgba(232,160,32,.06); }
+.stats-kpi--qr .stats-kpi-num { color: #e8a020; }
+
+/* Top lists */
+.stats-top-ol { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+.stats-top-item {
+  display: flex; align-items: center; gap: .6rem;
+  background: var(--bg2); border-radius: 4px; padding: .45rem .65rem;
+  position: relative; overflow: hidden;
+}
+.stats-top-rank { color: var(--text2); font-size: .75rem; min-width: 1.2rem; text-align: right; position: relative; }
+.stats-top-bar-wrap { position: absolute; left: 0; top: 0; bottom: 0; width: 100%; z-index: 0; }
+.stats-top-bar { height: 100%; background: rgba(26,111,181,.1); transition: width .4s; }
+.stats-top-bar--ref { background: rgba(74,159,212,.1); }
+.stats-top-name { position: relative; flex: 1; font-size: .82rem; color: var(--text2); word-break: break-all; }
+.stats-top-count { position: relative; font-size: .85rem; color: var(--text); font-weight: 600; white-space: nowrap; }
+
+/* Refs list */
+.stats-refs-list .stats-top-name { font-family: monospace; }
+
+/* Controls */
+.stats-controls { display: flex; align-items: center; gap: 1rem; margin-top: .75rem; flex-wrap: wrap; }
+
 /* === Newsletter slide-in + tab === */
 .nl-tab {
   position: fixed;

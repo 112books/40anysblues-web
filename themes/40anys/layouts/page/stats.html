@@ -4,66 +4,107 @@
 
     <div class="stats-header">
       <h1>Estadístiques</h1>
-      <p class="stats-sub">Visites en temps real · <a href="https://40anysbluesbcn.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> · sense cookies</p>
-      <div class="stats-period-btns" role="group" aria-label="Període">
-        <button class="stats-period-btn active" data-days="30">30 dies</button>
-        <button class="stats-period-btn" data-days="90">90 dies</button>
-        <button class="stats-period-btn" data-days="365">1 any</button>
+      <p class="stats-sub">Dades en temps real · <a href="https://40anysbluesbcn.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> · sense cookies</p>
+      <div class="stats-controls">
+        <div class="stats-period-btns" role="group" aria-label="Període">
+          <button class="stats-period-btn active" data-days="30">30 dies</button>
+          <button class="stats-period-btn" data-days="90">90 dies</button>
+          <button class="stats-period-btn" data-days="365">1 any</button>
+        </div>
       </div>
     </div>
 
-    <!-- KPIs -->
-    <div class="stats-kpis">
-      <div class="stats-kpi">
-        <span class="stats-kpi-num" id="kpi-total">—</span>
-        <span class="stats-kpi-label">visites totals</span>
-      </div>
-      <div class="stats-kpi stats-kpi--highlight">
-        <span class="stats-kpi-num" id="kpi-qr">—</span>
-        <span class="stats-kpi-label">des del QR del llibre</span>
-      </div>
-      <div class="stats-kpi">
-        <span class="stats-kpi-num" id="kpi-avg">—</span>
-        <span class="stats-kpi-label">visites de mitja/dia</span>
-      </div>
-    </div>
+    <!-- Pestanyes -->
+    <nav class="stats-tabs" role="tablist">
+      <button class="stats-tab active" role="tab" aria-selected="true"  data-tab="general">Visites</button>
+      <button class="stats-tab"        role="tab" aria-selected="false" data-tab="musics">Músics &amp; Grups</button>
+      <button class="stats-tab stats-tab--qr" role="tab" aria-selected="false" data-tab="qr">&#9733; QR del Llibre</button>
+    </nav>
 
-    <!-- Gràfic diari -->
-    <section class="stats-section">
-      <h2>Visites diàries</h2>
-      <div class="stats-chart-wrap">
-        <canvas id="chart-daily" height="80"></canvas>
-      </div>
-    </section>
+    <!-- ══ TAB: GENERAL ══════════════════════════════════════════════════════ -->
+    <div id="tab-general" class="stats-tab-panel active">
 
-    <!-- Apartat QR Llibre -->
-    <section class="stats-section stats-section--qr">
-      <h2>Visites del QR del Llibre</h2>
-      <p class="stats-section-desc">Visitants que han escanejat el codi QR imprès al llibre <em>40 Anys de Blues a Barcelona</em>.</p>
-      <div class="stats-kpis stats-kpis--sub">
+      <div class="stats-kpis">
         <div class="stats-kpi">
+          <span class="stats-kpi-num" id="kpi-total">—</span>
+          <span class="stats-kpi-label">visites totals</span>
+        </div>
+        <div class="stats-kpi">
+          <span class="stats-kpi-num" id="kpi-avg">—</span>
+          <span class="stats-kpi-label">mitja/dia</span>
+        </div>
+        <div class="stats-kpi">
+          <span class="stats-kpi-num" id="kpi-pages">—</span>
+          <span class="stats-kpi-label">pàgines visitades</span>
+        </div>
+      </div>
+
+      <section class="stats-section">
+        <h2>Visites diàries</h2>
+        <div class="stats-chart-wrap"><canvas id="chart-daily" height="80"></canvas></div>
+      </section>
+
+      <section class="stats-section">
+        <h2>Per dia de la setmana</h2>
+        <div class="stats-chart-wrap"><canvas id="chart-weekday" height="60"></canvas></div>
+      </section>
+
+      <section class="stats-section">
+        <h2>Qui ens linka</h2>
+        <div id="stats-refs" class="stats-refs-list"><p class="stats-loading">Carregant...</p></div>
+      </section>
+
+    </div>
+
+    <!-- ══ TAB: MÚSICS & GRUPS ════════════════════════════════════════════════ -->
+    <div id="tab-musics" class="stats-tab-panel">
+
+      <div class="stats-two-col">
+        <section class="stats-section">
+          <h2>Top 10 Músics</h2>
+          <div id="stats-top-musics" class="stats-top-list"><p class="stats-loading">Carregant...</p></div>
+        </section>
+        <section class="stats-section">
+          <h2>Top 10 Grups</h2>
+          <div id="stats-top-bands" class="stats-top-list"><p class="stats-loading">Carregant...</p></div>
+        </section>
+      </div>
+
+    </div>
+
+    <!-- ══ TAB: QR DEL LLIBRE ════════════════════════════════════════════════ -->
+    <div id="tab-qr" class="stats-tab-panel">
+
+      <p class="stats-section-desc">Visitants que han escanejat el codi QR imprès al llibre <em>40 Anys de Blues a Barcelona</em>.</p>
+
+      <div class="stats-kpis">
+        <div class="stats-kpi stats-kpi--qr">
           <span class="stats-kpi-num" id="qr-total">—</span>
           <span class="stats-kpi-label">visites QR (període)</span>
         </div>
-        <div class="stats-kpi">
+        <div class="stats-kpi stats-kpi--qr">
           <span class="stats-kpi-num" id="qr-pct">—</span>
           <span class="stats-kpi-label">del total de visites</span>
         </div>
+        <div class="stats-kpi stats-kpi--qr">
+          <span class="stats-kpi-num" id="qr-avg">—</span>
+          <span class="stats-kpi-label">mitja/dia</span>
+        </div>
       </div>
-      <div class="stats-chart-wrap">
-        <canvas id="chart-qr" height="60"></canvas>
-      </div>
-    </section>
 
-    <!-- Pàgines més visitades -->
-    <section class="stats-section">
-      <h2>Pàgines més visitades</h2>
-      <div id="stats-pages" class="stats-pages-list">
-        <p class="stats-loading">Carregant...</p>
-      </div>
-    </section>
+      <section class="stats-section">
+        <h2>Visites QR diàries</h2>
+        <div class="stats-chart-wrap"><canvas id="chart-qr" height="80"></canvas></div>
+      </section>
 
-    <p class="stats-footer-note">Les estadístiques són públiques i no utilitzen cookies. Tecnologia: <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a>.</p>
+      <section class="stats-section">
+        <h2>Per dia de la setmana (QR)</h2>
+        <div class="stats-chart-wrap"><canvas id="chart-qr-weekday" height="60"></canvas></div>
+      </section>
+
+    </div>
+
+    <p class="stats-footer-note">Estadístiques públiques sense cookies · <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a></p>
 
   </div>
 </div>
@@ -74,207 +115,202 @@
   var GC    = 'https://40anysbluesbcn.goatcounter.com';
   var TOKEN = '1rhvnf850y7hp21159pzvqxf281e6ct7jrwf5fm1tzhju0avufj3';
   var QR_PATH = '/?ref=llibre';
+  var DIES = ['Diumenge','Dilluns','Dimarts','Dimecres','Dijous','Divendres','Dissabte'];
 
-  var currentDays = 30;
-  var chartDaily, chartQr;
+  var charts = {};
 
+  // ── Utilitats ────────────────────────────────────────────────────────────
   function dateRange(days) {
     var end   = new Date(); end.setDate(end.getDate() - 1);
     var start = new Date(); start.setDate(start.getDate() - days);
-    return {
-      start: start.toISOString().slice(0, 10),
-      end:   end.toISOString().slice(0, 10),
-    };
-  }
-
-  function gcFetch(endpoint, params) {
-    var url = GC + '/api/v0' + endpoint + '?';
-    var p = Object.assign({ limit: 200 }, params);
-    url += Object.keys(p).map(function (k) {
-      return encodeURIComponent(k) + '=' + encodeURIComponent(p[k]);
-    }).join('&');
-    return fetch(url, {
-      headers: { 'Authorization': 'Bearer ' + TOKEN }
-    }).then(function (r) { return r.json(); });
+    return { start: start.toISOString().slice(0,10), end: end.toISOString().slice(0,10) };
   }
 
   function allDays(start, end) {
-    var days = [], d = new Date(start);
-    var e = new Date(end);
-    while (d <= e) {
-      days.push(d.toISOString().slice(0, 10));
-      d.setDate(d.getDate() + 1);
-    }
+    var days = [], d = new Date(start), e = new Date(end);
+    while (d <= e) { days.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+1); }
     return days;
   }
 
   function shortDate(iso) {
-    var d = new Date(iso);
-    return (d.getDate()) + '/' + (d.getMonth() + 1);
+    var d = new Date(iso); return d.getDate()+'/'+(d.getMonth()+1);
   }
 
-  function renderCharts(hitsData, days) {
+  function gcFetch(endpoint, params) {
+    var url = GC+'/api/v0'+endpoint+'?';
+    var p = Object.assign({limit:500}, params);
+    url += Object.keys(p).map(function(k){ return encodeURIComponent(k)+'='+encodeURIComponent(p[k]); }).join('&');
+    return fetch(url, { headers: {'Authorization':'Bearer '+TOKEN} }).then(function(r){ return r.json(); });
+  }
+
+  function mkChart(id, cfg) {
+    if (charts[id]) charts[id].destroy();
+    charts[id] = new Chart(document.getElementById(id), cfg);
+  }
+
+  function barCfg(labels, data, color, label) {
+    return {
+      type:'bar',
+      data:{ labels:labels, datasets:[{ label:label, data:data,
+        backgroundColor:color+'55', borderColor:color+'cc', borderWidth:1, borderRadius:2 }] },
+      options:{ responsive:true,
+        plugins:{ legend:{display:false}, tooltip:{mode:'index'} },
+        scales:{
+          x:{ticks:{color:'#888',maxTicksLimit:15},grid:{color:'#2a2a2a'}},
+          y:{ticks:{color:'#888'},grid:{color:'#2a2a2a'},beginAtZero:true}
+        }
+      }
+    };
+  }
+
+  // ── Renderitza tot ───────────────────────────────────────────────────────
+  function render(hitsData, refsData, days) {
     var range = dateRange(days);
     var daysList = allDays(range.start, range.end);
 
-    // Acumula visites per dia i per path
-    var byDay   = {};
-    var qrByDay = {};
-    var byPage  = {};
-    var total   = 0;
-    var qrTotal = 0;
+    var byDay={}, qrByDay={}, byPage={}, byWeekday=new Array(7).fill(0), qrByWeekday=new Array(7).fill(0);
+    var total=0, qrTotal=0;
+    daysList.forEach(function(d){ byDay[d]=0; qrByDay[d]=0; });
 
-    daysList.forEach(function (d) { byDay[d] = 0; qrByDay[d] = 0; });
-
-    (hitsData.hits || []).forEach(function (item) {
-      var path = item.path || '';
-      var pageTotal = 0;
-      (item.stats || []).forEach(function (s) {
-        var date = (s.day || '').slice(0, 10);
-        var count = s.daily || 0;
-        if (!count || !byDay.hasOwnProperty(date)) return;
-        byDay[date]   += count;
-        total         += count;
-        pageTotal     += count;
-        if (path === QR_PATH) {
-          qrByDay[date] = (qrByDay[date] || 0) + count;
-          qrTotal       += count;
-        }
+    (hitsData.hits||[]).forEach(function(item){
+      var path=item.path||'';
+      var pageTotal=0;
+      (item.stats||[]).forEach(function(s){
+        var date=(s.day||'').slice(0,10);
+        var count=s.daily||0;
+        if(!count||!byDay.hasOwnProperty(date)) return;
+        byDay[date]+=count; total+=count; pageTotal+=count;
+        var wd=new Date(date).getDay();
+        byWeekday[wd]+=count;
+        if(path===QR_PATH){ qrByDay[date]=(qrByDay[date]||0)+count; qrTotal+=count; qrByWeekday[wd]+=count; }
       });
-      if (pageTotal > 0) {
-        byPage[path] = (byPage[path] || 0) + pageTotal;
-      }
+      if(pageTotal>0) byPage[path]=(byPage[path]||0)+pageTotal;
     });
 
-    var avg = total > 0 ? Math.round(total / daysList.length) : 0;
-    var pct = total > 0 ? Math.round(qrTotal / total * 100) : 0;
+    var avg = total>0 ? Math.round(total/daysList.length) : 0;
+    var qrAvg = qrTotal>0 ? Math.round(qrTotal/daysList.length) : 0;
+    var pct = total>0 ? Math.round(qrTotal/total*100) : 0;
+    var uniquePages = Object.keys(byPage).length;
 
-    document.getElementById('kpi-total').textContent = total.toLocaleString('ca');
-    document.getElementById('kpi-qr').textContent    = qrTotal.toLocaleString('ca');
-    document.getElementById('kpi-avg').textContent   = avg.toLocaleString('ca');
-    document.getElementById('qr-total').textContent  = qrTotal.toLocaleString('ca');
-    document.getElementById('qr-pct').textContent    = pct + '%';
+    document.getElementById('kpi-total').textContent  = total.toLocaleString('ca');
+    document.getElementById('kpi-avg').textContent    = avg.toLocaleString('ca');
+    document.getElementById('kpi-pages').textContent  = uniquePages.toLocaleString('ca');
+    document.getElementById('qr-total').textContent   = qrTotal.toLocaleString('ca');
+    document.getElementById('qr-pct').textContent     = pct+'%';
+    document.getElementById('qr-avg').textContent     = qrAvg.toLocaleString('ca');
 
-    // Chart diari
+    // Chart diari total
     var labels = daysList.map(shortDate);
-    var dataMain = daysList.map(function (d) { return byDay[d]; });
-    var dataQrLine = daysList.map(function (d) { return qrByDay[d]; });
-
-    if (chartDaily) chartDaily.destroy();
-    chartDaily = new Chart(document.getElementById('chart-daily'), {
-      type: 'bar',
-      data: {
-        labels: labels,
-        datasets: [
-          {
-            label: 'Visites totals',
-            data: dataMain,
-            backgroundColor: 'rgba(26,111,181,.55)',
-            borderColor: 'rgba(74,159,212,.8)',
-            borderWidth: 1,
-            borderRadius: 2,
-          },
-          {
-            label: 'QR Llibre',
-            data: dataQrLine,
-            type: 'line',
-            borderColor: '#e8a020',
-            backgroundColor: 'rgba(232,160,32,.15)',
-            borderWidth: 2,
-            pointRadius: 3,
-            fill: true,
-            tension: 0.3,
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { labels: { color: '#e8e8e8', font: { size: 12 } } },
-          tooltip: { mode: 'index', intersect: false }
-        },
-        scales: {
-          x: { ticks: { color: '#888', maxTicksLimit: 15 }, grid: { color: '#2a2a2a' } },
-          y: { ticks: { color: '#888' }, grid: { color: '#2a2a2a' }, beginAtZero: true }
-        }
-      }
+    var cfg = barCfg(labels, daysList.map(function(d){return byDay[d];}), '#1a6fb5', 'Visites');
+    cfg.data.datasets.push({
+      label:'QR Llibre', data:daysList.map(function(d){return qrByDay[d];}),
+      type:'line', borderColor:'#e8a020', backgroundColor:'rgba(232,160,32,.12)',
+      borderWidth:2, pointRadius:2, fill:true, tension:0.3
     });
+    mkChart('chart-daily', cfg);
 
-    // Chart QR
-    var dataQr = daysList.map(function (d) { return qrByDay[d]; });
-    if (chartQr) chartQr.destroy();
-    chartQr = new Chart(document.getElementById('chart-qr'), {
-      type: 'bar',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'QR Llibre',
-          data: dataQr,
-          backgroundColor: 'rgba(232,160,32,.55)',
-          borderColor: 'rgba(232,160,32,.9)',
-          borderWidth: 1,
-          borderRadius: 2,
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false },
-          tooltip: { mode: 'index' }
-        },
-        scales: {
-          x: { ticks: { color: '#888', maxTicksLimit: 15 }, grid: { color: '#2a2a2a' } },
-          y: { ticks: { color: '#888' }, grid: { color: '#2a2a2a' }, beginAtZero: true }
-        }
-      }
-    });
+    // Chart per dia de setmana
+    var wdLabels = DIES.map(function(n){ return n.slice(0,3); });
+    mkChart('chart-weekday', barCfg(wdLabels, byWeekday, '#4a9fd4', 'Visites per dia'));
 
-    // Pàgines
-    var sorted = Object.keys(byPage)
-      .filter(function (p) { return byPage[p] > 0; })
-      .sort(function (a, b) { return byPage[b] - byPage[a]; })
-      .slice(0, 20);
+    // Chart QR diari
+    mkChart('chart-qr', barCfg(labels, daysList.map(function(d){return qrByDay[d];}), '#e8a020', 'QR Llibre'));
 
-    var html = '<ol class="stats-pages-ol">';
-    sorted.forEach(function (path) {
+    // Chart QR per dia setmana
+    mkChart('chart-qr-weekday', barCfg(wdLabels, qrByWeekday, '#e8a020', 'QR per dia'));
+
+    // Top músics i grups
+    renderTopList('stats-top-musics', byPage, '/musics/', total);
+    renderTopList('stats-top-bands',  byPage, '/bands/',  total);
+
+    // Referrers
+    renderRefs(refsData);
+  }
+
+  function renderTopList(id, byPage, prefix, total) {
+    var items = Object.keys(byPage)
+      .filter(function(p){ return p.startsWith(prefix) && p !== prefix; })
+      .sort(function(a,b){ return byPage[b]-byPage[a]; })
+      .slice(0,10);
+
+    if(!items.length){ document.getElementById(id).innerHTML='<p class="stats-loading">Sense dades per a aquest període.</p>'; return; }
+
+    var max = byPage[items[0]];
+    var html = '<ol class="stats-top-ol">';
+    items.forEach(function(path, i){
       var count = byPage[path];
-      var isQr = path === QR_PATH;
-      var label = path === '/' ? 'Inici' : path;
-      var bar = total > 0 ? Math.round(count / byPage[sorted[0]] * 100) : 0;
-      html += '<li class="stats-page-item' + (isQr ? ' stats-page-item--qr' : '') + '">'
-        + '<div class="stats-page-bar-wrap">'
-        + '<div class="stats-page-bar" style="width:' + bar + '%"></div>'
-        + '</div>'
-        + '<span class="stats-page-path">' + (isQr ? '&#9733; ' : '') + label + '</span>'
-        + '<span class="stats-page-count">' + count.toLocaleString('ca') + '</span>'
-        + '</li>';
+      var name  = decodeURIComponent(path.replace(prefix,'').replace(/\/$/,''));
+      var bar   = Math.round(count/max*100);
+      html += '<li class="stats-top-item">'
+        +'<span class="stats-top-rank">'+(i+1)+'</span>'
+        +'<div class="stats-top-bar-wrap"><div class="stats-top-bar" style="width:'+bar+'%"></div></div>'
+        +'<span class="stats-top-name">'+name+'</span>'
+        +'<span class="stats-top-count">'+count.toLocaleString('ca')+'</span>'
+        +'</li>';
     });
     html += '</ol>';
-    document.getElementById('stats-pages').innerHTML = html;
+    document.getElementById(id).innerHTML = html;
   }
 
+  function renderRefs(refsData) {
+    var refs = (refsData.refs||[]).filter(function(r){ return r.count>0; }).slice(0,15);
+    if(!refs.length){ document.getElementById('stats-refs').innerHTML='<p class="stats-loading">Sense dades de referents per a aquest període.</p>'; return; }
+    var max = refs[0].count;
+    var html = '<ol class="stats-top-ol">';
+    refs.forEach(function(r, i){
+      var bar = Math.round(r.count/max*100);
+      var name = r.name||'Directe/desconegut';
+      html += '<li class="stats-top-item">'
+        +'<span class="stats-top-rank">'+(i+1)+'</span>'
+        +'<div class="stats-top-bar-wrap"><div class="stats-top-bar stats-top-bar--ref" style="width:'+bar+'%"></div></div>'
+        +'<span class="stats-top-name">'+name+'</span>'
+        +'<span class="stats-top-count">'+r.count.toLocaleString('ca')+'</span>'
+        +'</li>';
+    });
+    html += '</ol>';
+    document.getElementById('stats-refs').innerHTML = html;
+  }
+
+  // ── Càrrega de dades ─────────────────────────────────────────────────────
   function load(days) {
-    currentDays = days;
     var range = dateRange(days);
-    document.getElementById('stats-pages').innerHTML = '<p class="stats-loading">Carregant...</p>';
-    ['kpi-total','kpi-qr','kpi-avg','qr-total','qr-pct'].forEach(function (id) {
-      document.getElementById(id).textContent = '—';
+    // Reset UI
+    ['kpi-total','kpi-avg','kpi-pages','qr-total','qr-pct','qr-avg'].forEach(function(id){
+      document.getElementById(id).textContent='—';
+    });
+    ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
+      document.getElementById(id).innerHTML='<p class="stats-loading">Carregant...</p>';
     });
 
-    gcFetch('/stats/hits', { start: range.start, end: range.end, limit: 500 })
-      .then(function (data) { renderCharts(data, days); })
-      .catch(function (e) {
-        document.getElementById('stats-pages').innerHTML = '<p class="stats-error">Error carregant les dades. Torna-ho a provar.</p>';
-        console.error(e);
+    Promise.all([
+      gcFetch('/stats/hits',  {start:range.start, end:range.end}),
+      gcFetch('/stats/refs',  {start:range.start, end:range.end, limit:20})
+    ]).then(function(results){
+      render(results[0], results[1], days);
+    }).catch(function(e){
+      console.error(e);
+      ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
+        document.getElementById(id).innerHTML='<p class="stats-error">Error carregant les dades.</p>';
       });
+    });
   }
 
-  // Botons de període
-  document.querySelectorAll('.stats-period-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      document.querySelectorAll('.stats-period-btn').forEach(function (b) { b.classList.remove('active'); });
+  // ── Pestanyes ────────────────────────────────────────────────────────────
+  document.querySelectorAll('.stats-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.stats-tab').forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+      document.querySelectorAll('.stats-tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active'); tab.setAttribute('aria-selected','true');
+      document.getElementById('tab-'+tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ── Botons de període ────────────────────────────────────────────────────
+  document.querySelectorAll('.stats-period-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.stats-period-btn').forEach(function(b){ b.classList.remove('active'); });
       btn.classList.add('active');
-      load(parseInt(btn.dataset.days, 10));
+      load(parseInt(btn.dataset.days,10));
     });
   });
 
