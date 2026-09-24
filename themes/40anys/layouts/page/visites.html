@@ -1,0 +1,38 @@
+{{ define "main" }}
+<article class="content-page visites-page">
+  <div class="container">
+
+    <div class="visites-header">
+      <h1>Llibre de visites</h1>
+      <p class="visites-intro">Quaranta anys de blues donen per a moltes històries. Si en coneixes alguna, si ets músic d'aquest projecte, si simplement vols deixar constància que has passat per aquí — aquest és el lloc.</p>
+      <p class="visites-nota">Per comentar cal un compte de <a href="https://github.com" target="_blank" rel="noopener">GitHub</a> (gratuït). Els comentaris queden públics i moderats.</p>
+    </div>
+
+    <div class="visites-separador">
+      <span class="visites-separador-icon">♦</span>
+    </div>
+
+    <div class="visites-giscus" id="giscus-wrap">
+      <!-- CONFIGURACIÓ GISCUS — cal omplir repo-id i category-id -->
+      <!-- Obtenir-los a: https://giscus.app -->
+      <script src="https://giscus.app/client.js"
+        data-repo="112books/40anysblues-web"
+        data-repo-id="PENDENT"
+        data-category="General"
+        data-category-id="PENDENT"
+        data-mapping="specific"
+        data-term="llibre-de-visites"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="{{ .Site.BaseURL }}giscus-theme.css"
+        data-lang="ca"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+
+  </div>
+</article>
+{{ end }}

@@ -1383,6 +1383,42 @@ h1, h2, h3 { font-weight: 700; }
 /* Controls */
 .stats-controls { display: flex; align-items: center; gap: 1rem; margin-top: .75rem; flex-wrap: wrap; }
 
+/* === Llibre de visites === */
+.visites-page .container { max-width: 760px; }
+.visites-header { margin-bottom: 2.5rem; }
+.visites-header h1 {
+  font-family: var(--font-head);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.visites-intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: .75rem;
+}
+.visites-nota {
+  font-size: .82rem;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.visites-nota a { color: var(--text2); text-decoration: underline; }
+.visites-separador {
+  text-align: center;
+  margin: 2rem 0 2.5rem;
+  color: var(--accent);
+  letter-spacing: .5em;
+  font-size: .9rem;
+  opacity: .5;
+}
+.visites-giscus {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 200px;
+}
+
 /* === Newsletter slide-in + tab === */
 .nl-tab {
   position: fixed;

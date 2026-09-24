@@ -1,0 +1,71 @@
+/* Giscus custom theme — 40 Anys de Blues a Barcelona */
+/* Adaptat al disseny fosc del web */
+
+:root {
+  --color-canvas-default: #1a1a1a;
+  --color-canvas-subtle: #242424;
+  --color-canvas-overlay: #1a1a1a;
+  --color-border-default: #2a2a2a;
+  --color-border-muted: #222;
+  --color-fg-default: #e8e8e8;
+  --color-fg-muted: #999;
+  --color-fg-subtle: #666;
+  --color-accent-fg: #4a9fd4;
+  --color-accent-emphasis: #1a6fb5;
+  --color-btn-bg: #242424;
+  --color-btn-border: #2a2a2a;
+  --color-btn-hover-bg: #2e2e2e;
+  --color-btn-primary-bg: #1a6fb5;
+  --color-btn-primary-hover-bg: #4a9fd4;
+  --color-btn-primary-fg: #fff;
+  --color-input-bg: #0f0f0f;
+  --color-input-border: #2a2a2a;
+  --color-input-focus-border: #4a9fd4;
+  --color-social-reaction-bg-hover: rgba(74,159,212,.15);
+  --color-social-reaction-bg-reacted-hover: rgba(74,159,212,.2);
+  --color-timeline-badge-bg: #242424;
+  --color-neutral-muted: rgba(255,255,255,.05);
+  --color-scale-blue-1: rgba(26,111,181,.15);
+  --color-prettylights-syntax-comment: #8b949e;
+  --color-prettylights-syntax-constant: #79c0ff;
+  --color-prettylights-syntax-entity: #d2a8ff;
+  --color-prettylights-syntax-string: #a5d6ff;
+  --color-prettylights-syntax-keyword: #ff7b72;
+}
+
+.gsc-comment-box-textarea,
+.gsc-comment-box-textarea:focus {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: .92rem;
+  background: #0f0f0f;
+  color: #e8e8e8;
+  border-color: #2a2a2a;
+  border-radius: 6px;
+}
+
+.gsc-comment-header,
+.gsc-comment-author {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+}
+
+.gsc-comment-content {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-size: .92rem;
+  line-height: 1.7;
+}
+
+.gsc-comments-count,
+.gsc-reply-count {
+  color: #999;
+  font-size: .82rem;
+}
+
+.gsc-main { font-family: 'Source Sans 3', system-ui, sans-serif; }
+
+/* Reaccions */
+.gsc-reactions-button { border-radius: 20px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
