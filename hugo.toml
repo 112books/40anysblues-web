@@ -31,8 +31,7 @@ defaultContentLanguageInSubdir = false
 [params]
   author = 'Joan Linux'
   goatcounter = '40anysbluesbcn'
-  password_protected = true
-  site_password = 'LinuxBCN2026'
+  password_protected = false
 
 [outputs]
   home = ["HTML", "JSON"]

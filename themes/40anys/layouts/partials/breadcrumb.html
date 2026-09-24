@@ -9,3 +9,19 @@
   <span class="breadcrumb-actual" aria-current="page">{{ .Title }}</span>
   {{ end }}
 </nav>
+{{- if not .IsHome -}}
+{{- $items := slice (dict "position" 1 "name" "Inici" "item" .Site.BaseURL) -}}
+{{- range $i, $a := .Ancestors.Reverse -}}
+  {{- $items = $items | append (dict "position" (add $i 2) "name" $a.Title "item" $a.Permalink) -}}
+{{- end -}}
+{{- if not .IsSection -}}
+  {{- $items = $items | append (dict "position" (add (len .Ancestors) 2) "name" .Title "item" .Permalink) -}}
+{{- end -}}
+{{- $schema := dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" (slice) -}}
+{{- $elements := slice -}}
+{{- range $items -}}
+  {{- $elements = $elements | append (dict "@type" "ListItem" "position" .position "name" .name "item" .item) -}}
+{{- end -}}
+{{- $schema = merge $schema (dict "itemListElement" $elements) -}}
+<script type="application/ld+json">{{ $schema | jsonify }}</script>
+{{- end -}}
