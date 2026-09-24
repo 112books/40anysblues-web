@@ -1297,6 +1297,50 @@ h1, h2, h3 { font-weight: 700; }
   transform: translateY(-2px);
 }
 
+/* === Pàgina Estadístiques === */
+.stats-page .container { max-width: 900px; }
+.stats-header { margin-bottom: 2rem; }
+.stats-sub { color: var(--text2); font-size: .85rem; margin-top: .3rem; }
+.stats-sub a { color: var(--text2); }
+.stats-period-btns { display: flex; gap: .5rem; margin-top: 1rem; }
+.stats-period-btn {
+  background: var(--bg3); border: 1px solid var(--border); color: var(--text2);
+  border-radius: 4px; padding: .3rem .8rem; font-size: .82rem; cursor: pointer;
+  font-family: var(--font-body); transition: background .2s, color .2s;
+}
+.stats-period-btn.active,
+.stats-period-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.stats-kpis { display: flex; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.stats-kpis--sub { margin-bottom: 1rem; }
+.stats-kpi {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 1.2rem 1.5rem; flex: 1; min-width: 140px; text-align: center;
+}
+.stats-kpi--highlight { border-color: rgba(232,160,32,.5); background: rgba(232,160,32,.06); }
+.stats-kpi-num { display: block; font-family: var(--font-head); font-size: 2rem; color: var(--accent-light); }
+.stats-kpi--highlight .stats-kpi-num { color: #e8a020; }
+.stats-kpi-label { font-size: .78rem; color: var(--text2); text-transform: uppercase; letter-spacing: .05em; }
+.stats-section { margin-bottom: 3rem; }
+.stats-section h2 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--text); }
+.stats-section--qr { border-left: 3px solid #e8a020; padding-left: 1.25rem; }
+.stats-section-desc { color: var(--text2); font-size: .85rem; margin-bottom: 1rem; }
+.stats-chart-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.stats-loading { color: var(--text2); font-size: .85rem; padding: 1rem 0; }
+.stats-error { color: #e05555; font-size: .85rem; }
+.stats-pages-ol { list-style: none; display: flex; flex-direction: column; gap: .4rem; }
+.stats-page-item {
+  display: flex; align-items: center; gap: .75rem; position: relative;
+  background: var(--bg2); border-radius: 4px; padding: .5rem .75rem; overflow: hidden;
+}
+.stats-page-item--qr { border-left: 3px solid #e8a020; }
+.stats-page-bar-wrap { position: absolute; inset: 0; z-index: 0; }
+.stats-page-bar { height: 100%; background: rgba(26,111,181,.12); transition: width .4s; }
+.stats-page-item--qr .stats-page-bar { background: rgba(232,160,32,.12); }
+.stats-page-path { position: relative; flex: 1; font-size: .82rem; color: var(--text2); font-family: monospace; word-break: break-all; }
+.stats-page-count { position: relative; font-size: .85rem; color: var(--text); font-weight: 600; white-space: nowrap; }
+.stats-footer-note { color: var(--text2); font-size: .78rem; margin-top: 2rem; }
+.stats-footer-note a { color: var(--text2); }
+
 /* === Newsletter slide-in + tab === */
 .nl-tab {
   position: fixed;
