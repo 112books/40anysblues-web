@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-  <meta name="googlebot" content="noindex, nofollow">
-  <meta name="CCBot" content="noindex">
-  <meta name="GPTBot" content="noindex">
-  <meta name="anthropic-ai" content="noindex">
-  <meta name="PerplexityBot" content="noindex">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ .Permalink }}">
   <link rel="icon" type="image/png" href="/logotips/40-anys-de-Blues-a-Barcelona-logo-Rounded-150x150.png">
   {{ partial "og.html" . }}
+  {{ partial "schema-global.html" . }}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+3:wght@400;600&family=Caveat:wght@400;600&display=swap">

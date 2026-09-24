@@ -1,0 +1,33 @@
+{{- if .IsHome -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "inLanguage": "ca",
+  "publisher": {
+    "@type": "Organization",
+    "name": "112Books",
+    "url": "https://112books.eu",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ absURL "/logotips/40-anys-de-Blues-a-Catalunya-logo-Rounded-150x150.png" }}"
+    }
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "112Books",
+  "url": "https://112books.eu",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "{{ absURL "/logotips/112books-logo.png" }}"
+  }
+}
+</script>
+{{- end -}}

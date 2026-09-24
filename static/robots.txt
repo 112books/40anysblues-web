@@ -1,32 +1,42 @@
-User-agent: *
-Disallow: /
+# 40 Anys de Blues a Barcelona — https://40anysblues.112books.eu/
+# robots.txt — actualitzat 2026-09-24
 
+# Cercadors principals
 User-agent: Googlebot
-Disallow: /
+Allow: /
 
 User-agent: Bingbot
-Disallow: /
+Allow: /
 
+User-agent: Applebot
+Allow: /
+
+# Bots de cerca IA (cercadors, no entrenament)
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
-User-agent: CCBot
-Disallow: /
+User-agent: OAI-SearchBot
+Allow: /
 
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
+User-agent: ClaudeBot
+Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+# Xarxes socials
+User-agent: FacebookBot
+Allow: /
+
+# Bots d'entrenament IA (bloquejats — no indexació)
+User-agent: CCBot
 Disallow: /
 
 User-agent: Omgilibot
 Disallow: /
 
-User-agent: FacebookBot
-Disallow: /
+# Resta: permès
+User-agent: *
+Allow: /
 
-User-agent: Applebot
-Disallow: /
+Sitemap: https://40anysblues.112books.eu/sitemap.xml

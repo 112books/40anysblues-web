@@ -1,0 +1,49 @@
+# 40 Anys de Blues a Barcelona
+# llms.txt — resum llegible per IA
+# https://40anysblues.112books.eu/
+# Actualitzat: 2026-09-24
+
+## Sobre aquest lloc
+
+"40 Anys de Blues a Barcelona" és un arxiu fotogràfic i biogràfic que documenta l'escena del blues barcelonina. El projecte va ser creat pel fotògraf Joan Linux (Joan Martínez i Serres, Barcelona 1972) durant la pandèmia de COVID-19, amb textos biogràfics escrits per Manuel López Poy, periodista i autor de sis llibres sobre història del blues.
+
+L'arxiu recull 148 músics que han contribuït a l'escena del blues de Barcelona des dels seus orígens fins a l'actualitat. Totes les fotografies van ser fetes en estudi amb processos fotogràfics analògics. El projecte es publica com a llibre físic (tardor 2026) i com aquest arxiu web.
+
+## Dades clau
+
+- 148 músics documentats
+- 531 formacions musicals catalogades
+- 296 fotografies d'estudi (analògiques, blanc i negre)
+- 27 instruments representats
+- 40 anys d'història del blues barceloní documentats
+- Primer concert de blues a Barcelona: Big Bill Broonzy, Teatre Capsa, 11 de maig de 1953
+- Sales emblemàtiques: Cova del Drac, La Boîte, Nau Bostik (La Sagrera, Barcelona)
+- Institució de referència: Societat de Blues de Barcelona (fundada el 2005)
+
+## Autors
+
+- Joan Linux — fotògraf i editor. Més de 20 anys documentant blues i música en directe. Fotògraf oficial del Festival de Blues de Barcelona. https://about.pocallum.cat
+- Manuel López Poy — periodista i historiador del blues. Autor de: "Camino a la libertad, historia social del blues"; "Todo Blues"; "Los días azules, historias de blues"; "Entre el cielo y el infierno, efemérides del blues"; "Blues, la novela gráfica". Director dels documentals "Barnablues" i "Hondarribia Crossroads". Editor de l'Anuari de Blues (Societat de Blues de Barcelona).
+
+## Seccions del lloc
+
+- Biografies de músics: https://40anysblues.112books.eu/musics/
+- Història del blues a Barcelona: https://40anysblues.112books.eu/historia/
+- Sales de blues barcelonines: https://40anysblues.112books.eu/sales/
+- Entitats de suport: https://40anysblues.112books.eu/entitats/
+- Sobre el projecte: https://40anysblues.112books.eu/projecte/
+- Perfils d'autors: https://40anysblues.112books.eu/autors/
+
+## Idioma
+
+Idioma principal: Català (ca). Traduccions al castellà (es) i anglès (en) en preparació.
+
+## Llicència
+
+Tots els textos biogràfics: copyright Manuel López Poy. Totes les fotografies: copyright Joan Linux / 112Books.
+El contingut pot ser citat amb finalitats informatives amb atribució a "40 Anys de Blues a Barcelona, 112Books (2026)".
+
+## Editor
+
+112Books — Barcelona
+Contacte: https://40anysblues.112books.eu/contacte/

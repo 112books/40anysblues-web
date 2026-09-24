@@ -94,4 +94,19 @@
   });
 })();
 </script>
+
+{{- $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") -}}
+{{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" (cond (and .Params.nom_complet (ne .Params.nom_complet "")) .Params.nom_complet .Title) "url" .Permalink "description" (.Summary | plainify | htmlUnescape | truncate 200) "inLanguage" "ca" -}}
+{{- if $img -}}{{- $person = merge $person (dict "image" $img.Permalink) -}}{{- end -}}
+{{- with .Params.malnom -}}{{- $person = merge $person (dict "alternateName" .) -}}{{- end -}}
+{{- with .Params.born_year -}}{{- $person = merge $person (dict "birthDate" (printf "%d" .)) -}}{{- end -}}
+{{- with .Params.death_year -}}{{- $person = merge $person (dict "deathDate" (printf "%d" .)) -}}{{- end -}}
+{{- with .Params.born_city -}}{{- $person = merge $person (dict "birthPlace" (dict "@type" "Place" "addressLocality" . "addressCountry" "ES")) -}}{{- end -}}
+{{- with .Params.instruments -}}{{- $person = merge $person (dict "knowsAbout" .) -}}{{- end -}}
+{{- with .Params.bands -}}
+  {{- $groups := slice -}}
+  {{- range . -}}{{- $groups = $groups | append (dict "@type" "MusicGroup" "name" .) -}}{{- end -}}
+  {{- $person = merge $person (dict "memberOf" $groups) -}}
+{{- end -}}
+<script type="application/ld+json">{{ $person | jsonify }}</script>
 {{ end }}
