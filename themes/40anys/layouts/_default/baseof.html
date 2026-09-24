@@ -25,6 +25,15 @@
   {{ partial "coming-soon.html" . }}
   {{ partial "newsletter-popup.html" . }}
   {{ partial "wiki-tooltip.html" . }}
+  <script>
+  (function(){
+    document.addEventListener('contextmenu', function(e){ if(e.target.tagName==='IMG') e.preventDefault(); });
+    document.addEventListener('dragstart',   function(e){ if(e.target.tagName==='IMG') e.preventDefault(); });
+    document.addEventListener('keydown', function(e){
+      if((e.ctrlKey||e.metaKey) && (e.key==='s'||e.key==='S')) e.preventDefault();
+    });
+  })();
+  </script>
   {{ with .Site.Params.goatcounter }}
   <script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   {{ end }}
