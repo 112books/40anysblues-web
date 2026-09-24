@@ -211,6 +211,9 @@ img { max-width: 100%; display: block; }
 .footer-copy { color: var(--text2); margin-bottom: .4rem; font-size: .85rem; }
 .footer-copy a { color: var(--text2); }
 .footer-copy a:hover { color: var(--accent-light); }
+.footer-copyright { font-size: .72rem; color: var(--text2); opacity: .7; line-height: 1.5; margin-top: .3rem; max-width: 340px; }
+.footer-copyright a { color: var(--text2); text-decoration: underline; }
+.footer-copyright a:hover { color: var(--accent-light); }
 .footer-legal { display: flex; gap: 1rem; justify-content: flex-start; }
 .footer-legal a { color: var(--text2); font-size: .8rem; }
 .footer-legal a:hover { color: var(--accent-light); }
