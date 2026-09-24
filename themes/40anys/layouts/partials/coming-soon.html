@@ -63,14 +63,12 @@
 
 <script>
 (function () {
-  var LAUNCH   = new Date('2026-11-05T19:00:00').getTime();
-  var SKIP_KEY = 'cs_skip';
-  var overlay  = document.getElementById('cs-overlay');
+  var LAUNCH  = new Date('2026-11-05T19:00:00').getTime();
+  var overlay = document.getElementById('cs-overlay');
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
   if (Date.now() >= LAUNCH) { overlay.remove(); return; }
-  if (sessionStorage.getItem(SKIP_KEY)) { overlay.remove(); return; }
 
   overlay.style.display = 'flex';
 
