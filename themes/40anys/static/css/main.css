@@ -1557,8 +1557,19 @@ h1, h2, h3 { font-weight: 700; }
   box-shadow: 0 12px 48px rgba(0,0,0,.6);
 }
 
-.cs-logo { margin-bottom: 1.2rem; }
-.cs-logo img { width: 80px; height: 80px; object-fit: contain; opacity: .9; }
+.cs-coberta {
+  margin-bottom: 1.4rem;
+  display: flex;
+  justify-content: center;
+}
+.cs-coberta img {
+  width: auto;
+  max-width: 200px;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.6);
+}
 
 .cs-pre {
   font-family: var(--font-body);
