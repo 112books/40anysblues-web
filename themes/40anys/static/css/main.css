@@ -1296,3 +1296,108 @@ h1, h2, h3 { font-weight: 700; }
   background: rgba(26,111,181,.75);
   transform: translateY(-2px);
 }
+
+/* === Newsletter slide-in + tab === */
+.nl-tab {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(100%);
+  z-index: 8000;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  padding: .6rem .4rem 2.4rem;
+  cursor: pointer;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--font-body);
+  font-size: .75rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: transform .35s ease, opacity .35s ease, background .2s;
+}
+.nl-tab--visible {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+.nl-tab--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.nl-tab:hover { background: var(--accent-light); }
+
+.nl-panel {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(calc(100% + 2rem));
+  z-index: 7999;
+  width: 280px;
+  transition: transform .35s ease;
+}
+.nl-panel--visible {
+  transform: translateY(-50%) translateX(0);
+}
+.nl-panel-inner {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  padding: 1.25rem 1.25rem 1rem;
+  position: relative;
+}
+.nl-tanca {
+  position: absolute;
+  top: .6rem;
+  right: .7rem;
+  background: none;
+  border: none;
+  color: var(--text2);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: .2rem;
+}
+.nl-tanca:hover { color: var(--text); }
+.nl-titol {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: .4rem;
+  padding-right: 1.5rem;
+}
+.nl-desc {
+  font-size: .82rem;
+  color: var(--text2);
+  margin-bottom: .9rem;
+  line-height: 1.5;
+}
+.nl-form { display: flex; flex-direction: column; gap: .5rem; }
+.nl-form input[type=email] {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: .85rem;
+  padding: .5rem .7rem;
+  width: 100%;
+}
+.nl-form input[type=email]:focus {
+  outline: none;
+  border-color: var(--accent-light);
+}
+.nl-form .btn-blues {
+  font-size: .85rem;
+  padding: .5rem;
+}
+.nl-ok { color: var(--accent-light); font-size: .85rem; text-align: center; padding: .5rem 0; }
+.nl-legal { font-size: .72rem; color: var(--text2); margin-top: .6rem; }
+.nl-legal a { color: var(--text2); }
+
+@media (max-width: 600px) {
+  .nl-panel { width: 260px; }
+}

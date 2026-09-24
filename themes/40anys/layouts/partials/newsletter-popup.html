@@ -1,0 +1,114 @@
+<!-- Newsletter slide-in + tab persistent -->
+<div id="nl-wrap" aria-live="polite">
+  <!-- Tab persistent (sempre visible un cop el popup s'ha vist) -->
+  <button id="nl-tab" class="nl-tab" aria-label="Obrir subscripció al butlletí" aria-expanded="false" hidden>
+    <span class="nl-tab-text">Butlletí</span>
+  </button>
+
+  <!-- Panel slide-in -->
+  <div id="nl-panel" class="nl-panel" role="complementary" aria-label="Subscripció al butlletí" hidden>
+    <div class="nl-panel-inner">
+      <button id="nl-tanca" class="nl-tanca" aria-label="Tancar">&#x2715;</button>
+      <p class="nl-titol">Segueix el projecte</p>
+      <p class="nl-desc">Rep notícies del blues barceloní, la presentació del llibre i novetats del projecte.</p>
+      <form id="nl-form"
+            action="https://8a40afa7.sibforms.com/serve/MUIFAB9YHIYuqP5hMMsd-zZSxaquqLRcfFdGRvZXadAWd3zTEfiTKSOf6AGGamMW9MMQFbyBH5x7kXc_POpABrs4R3frIPwzA34nbv1SDddfjzZPJPx0Fn2DLsYKdqmm2M-A-pY_t4zH0XUtBgW7vdF5Pu-2_PbGdSIGwBut2w9uhaSlGQ6T9Dz3AGxeWZsgZEGS2H4uYSCsSvE6Fg=="
+            method="POST" class="nl-form">
+        <input type="email" name="EMAIL" required placeholder="el teu correu" autocomplete="email" aria-label="Correu electrònic">
+        <input type="text" name="email_address_check" value="" style="display:none">
+        <input type="hidden" name="locale" value="ca">
+        <input type="hidden" name="html_type" value="simple">
+        <button type="submit" class="btn-blues">Subscriure'm</button>
+      </form>
+      <div id="nl-ok" class="nl-ok" hidden>
+        <p>Gràcies! Comprova el teu correu per confirmar.</p>
+      </div>
+      <p class="nl-legal"><a href="/legal/privacitat/">Privacitat</a> · pots cancel·lar quan vulguis.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var STORE_KEY = 'nl_seen';
+  var DELAY_SHOW = 5000;
+  var DELAY_AUTO_FOLD = 8000;
+
+  var wrap  = document.getElementById('nl-wrap');
+  var tab   = document.getElementById('nl-tab');
+  var panel = document.getElementById('nl-panel');
+  var tanca = document.getElementById('nl-tanca');
+  var form  = document.getElementById('nl-form');
+  var ok    = document.getElementById('nl-ok');
+
+  function openPanel() {
+    panel.hidden = false;
+    panel.classList.add('nl-panel--visible');
+    tab.setAttribute('aria-expanded', 'true');
+    tab.classList.add('nl-tab--hidden');
+  }
+
+  function closePanel() {
+    panel.classList.remove('nl-panel--visible');
+    tab.setAttribute('aria-expanded', 'false');
+    tab.classList.remove('nl-tab--hidden');
+    setTimeout(function () { panel.hidden = true; }, 350);
+  }
+
+  function showTab() {
+    tab.hidden = false;
+    setTimeout(function () { tab.classList.add('nl-tab--visible'); }, 10);
+  }
+
+  var autoFoldTimer;
+
+  // Primera vegada: popup automàtic
+  if (!localStorage.getItem(STORE_KEY)) {
+    setTimeout(function () {
+      showTab();
+      openPanel();
+      localStorage.setItem(STORE_KEY, '1');
+      autoFoldTimer = setTimeout(function () {
+        closePanel();
+      }, DELAY_AUTO_FOLD);
+    }, DELAY_SHOW);
+  } else {
+    // Ja l'ha vist: mostra només el tab
+    showTab();
+  }
+
+  // Tab: obre/tanca el panel
+  tab.addEventListener('click', function () {
+    clearTimeout(autoFoldTimer);
+    if (panel.hidden || !panel.classList.contains('nl-panel--visible')) {
+      openPanel();
+    } else {
+      closePanel();
+    }
+  });
+
+  // Botó X: tanca
+  tanca.addEventListener('click', function () {
+    clearTimeout(autoFoldTimer);
+    closePanel();
+  });
+
+  // Formulari Brevo
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    btn.textContent = 'Enviant...';
+    fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' })
+      .then(function () {
+        form.hidden = true;
+        ok.hidden = false;
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = "Subscriure'm";
+      });
+  });
+})();
+</script>
