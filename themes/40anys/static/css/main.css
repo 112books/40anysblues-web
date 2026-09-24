@@ -1523,3 +1523,199 @@ h1, h2, h3 { font-weight: 700; }
 @media (max-width: 600px) {
   .nl-panel { width: 260px; }
 }
+
+/* ============================================================
+   COMING SOON OVERLAY
+   ============================================================ */
+.cs-overlay {
+  display: none; /* JS el fa visible */
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(8, 8, 8, .82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.cs-overlay.cs-sortint {
+  animation: cs-fade-out .5s ease forwards;
+}
+@keyframes cs-fade-out {
+  to { opacity: 0; }
+}
+
+.cs-card {
+  background: rgba(22, 22, 22, .96);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 12px;
+  padding: 2.2rem 2rem 1.8rem;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 12px 48px rgba(0,0,0,.6);
+}
+
+.cs-logo { margin-bottom: 1.2rem; }
+.cs-logo img { width: 80px; height: 80px; object-fit: contain; opacity: .9; }
+
+.cs-pre {
+  font-family: var(--font-body);
+  font-size: .78rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin: 0 0 .4rem;
+}
+.cs-titol {
+  font-family: var(--font-title);
+  font-size: clamp(1.35rem, 4vw, 1.9rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+  margin: 0 0 1.4rem;
+}
+
+/* Compte enrere */
+.cs-countdown {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: .3rem;
+  margin-bottom: 1.6rem;
+}
+.cs-cd-bloc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 3.2rem;
+}
+.cs-cd-bloc span:first-child {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  line-height: 1;
+}
+.cs-cd-label {
+  font-size: .65rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text2);
+  margin-top: .1rem;
+}
+.cs-cd-sep {
+  font-size: 1.6rem;
+  color: var(--text2);
+  padding-bottom: .6rem;
+}
+
+/* Esdeveniments */
+.cs-events {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.cs-event {
+  flex: 1;
+  min-width: 160px;
+  text-align: center;
+}
+.cs-event-tipus {
+  font-size: .7rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin: 0 0 .25rem;
+}
+.cs-event-data {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 .2rem;
+}
+.cs-event-lloc {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 .15rem;
+}
+.cs-event-adreca {
+  font-size: .75rem;
+  color: var(--text2);
+  line-height: 1.45;
+  margin: 0;
+}
+.cs-event-sep {
+  font-size: .8rem;
+  color: var(--text2);
+  padding-top: 1.2rem;
+  flex: 0;
+}
+
+/* Newsletter */
+.cs-newsletter { margin-bottom: 1.2rem; }
+.cs-nl-text {
+  font-size: .82rem;
+  color: var(--text2);
+  margin: 0 0 .6rem;
+}
+.cs-form {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cs-form input[type=email] {
+  flex: 1;
+  min-width: 200px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: .85rem;
+  padding: .5rem .75rem;
+}
+.cs-form input[type=email]:focus {
+  outline: none;
+  border-color: var(--accent-light);
+}
+.cs-form button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: .85rem;
+  font-weight: 600;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  transition: background .2s;
+}
+.cs-form button:hover { background: var(--accent-light); }
+.cs-ok { color: var(--accent-light); font-size: .88rem; padding: .4rem 0; }
+
+/* Botó explorar */
+.cs-skip {
+  background: none;
+  border: none;
+  color: var(--text2);
+  font-family: var(--font-body);
+  font-size: .78rem;
+  cursor: pointer;
+  padding: .3rem .5rem;
+  transition: color .2s;
+}
+.cs-skip:hover { color: var(--text); }
+
+@media (max-width: 480px) {
+  .cs-card { padding: 1.8rem 1.2rem 1.4rem; }
+  .cs-events { flex-direction: column; align-items: center; }
+  .cs-event-sep { display: none; }
+}

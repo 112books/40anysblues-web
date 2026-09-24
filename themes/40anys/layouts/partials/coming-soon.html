@@ -1,0 +1,101 @@
+{{/* Overlay "pròximament" — actiu fins el 5 de novembre de 2026 a les 19:00 */}}
+{{/* Fons semitransparent + blur: el web és visible però no llegible. JS only, SEO transparent. */}}
+<div id="cs-overlay" class="cs-overlay" aria-modal="true" role="dialog" aria-label="Pròximament">
+
+  <div class="cs-card">
+
+    <div class="cs-logo">
+      <img src="/logotips/40-anys-de-Blues-a-Catalunya-logo.png" alt="40 Anys de Blues a Barcelona" width="120" height="120">
+    </div>
+
+    <p class="cs-pre">Pròximament</p>
+    <h1 class="cs-titol">40 Anys de Blues<br>a Barcelona</h1>
+
+    <div class="cs-countdown" id="cs-countdown" aria-live="polite">
+      <div class="cs-cd-bloc"><span id="cd-dies">—</span><span class="cs-cd-label">dies</span></div>
+      <div class="cs-cd-sep">:</div>
+      <div class="cs-cd-bloc"><span id="cd-hores">—</span><span class="cs-cd-label">hores</span></div>
+      <div class="cs-cd-sep">:</div>
+      <div class="cs-cd-bloc"><span id="cd-min">—</span><span class="cs-cd-label">min</span></div>
+    </div>
+
+    <div class="cs-events">
+      <div class="cs-event">
+        <p class="cs-event-tipus">Presentació del llibre</p>
+        <p class="cs-event-data">5 de novembre · 19h</p>
+        <p class="cs-event-lloc">Biblioteca Tecla Sala</p>
+        <p class="cs-event-adreca">Av. de Josep Tarradellas i Joan, 44<br>L'Hospitalet de Llobregat</p>
+      </div>
+      <div class="cs-event-sep">♦</div>
+      <div class="cs-event">
+        <p class="cs-event-tipus">Exposició fotogràfica</p>
+        <p class="cs-event-data">Des del 28 de novembre</p>
+        <p class="cs-event-lloc">Centre Cultural Collblanc La Torrassa</p>
+        <p class="cs-event-adreca">C/ Mare de Déu dels Desemparats, 87<br>L'Hospitalet de Llobregat</p>
+      </div>
+    </div>
+
+    <div class="cs-newsletter">
+      <p class="cs-nl-text">Rep la invitació i totes les novetats a la bústia:</p>
+      <form id="cs-form"
+            action="https://8a40afa7.sibforms.com/serve/MUIFAB9YHIYuqP5hMMsd-zZSxaquqLRcfFdGRvZXadAWd3zTEfiTKSOf6AGGamMW9MMQFbyBH5x7kXc_POpABrs4R3frIPwzA34nbv1SDddfjzZPJPx0Fn2DLsYKdqmm2M-A-pY_t4zH0XUtBgW7vdF5Pu-2_PbGdSIGwBut2w9uhaSlGQ6T9Dz3AGxeWZsgZEGS2H4uYSCsSvE6Fg=="
+            method="POST" class="cs-form">
+        <input type="email" name="EMAIL" required placeholder="el teu correu" autocomplete="email" aria-label="Correu electrònic">
+        <input type="text" name="email_address_check" value="" style="display:none">
+        <input type="hidden" name="locale" value="ca">
+        <input type="hidden" name="html_type" value="simple">
+        <button type="submit">Subscriure'm</button>
+      </form>
+      <div id="cs-ok" class="cs-ok" hidden>
+        <p>Gràcies! Et confirmem per correu.</p>
+      </div>
+    </div>
+
+    <button id="cs-skip" class="cs-skip" aria-label="Entrar al web">
+      Explorar el web ara →
+    </button>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  var LAUNCH   = new Date('2026-11-05T19:00:00').getTime();
+  var SKIP_KEY = 'cs_skip';
+  var overlay  = document.getElementById('cs-overlay');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  if (Date.now() >= LAUNCH) { overlay.remove(); return; }
+  if (sessionStorage.getItem(SKIP_KEY)) { overlay.remove(); return; }
+
+  overlay.style.display = 'flex';
+
+  function tick() {
+    var diff = LAUNCH - Date.now();
+    if (diff <= 0) { overlay.remove(); return; }
+    document.getElementById('cd-dies').textContent  = Math.floor(diff / 86400000);
+    document.getElementById('cd-hores').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    document.getElementById('cd-min').textContent   = pad(Math.floor((diff % 3600000) / 60000));
+  }
+  tick();
+  setInterval(tick, 30000);
+
+  document.getElementById('cs-skip').addEventListener('click', function () {
+    sessionStorage.setItem(SKIP_KEY, '1');
+    overlay.classList.add('cs-sortint');
+    setTimeout(function () { overlay.remove(); }, 500);
+  });
+
+  var form = document.getElementById('cs-form');
+  var ok   = document.getElementById('cs-ok');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true; btn.textContent = 'Enviant...';
+    fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+      .then(function () { form.hidden = true; ok.hidden = false; })
+      .catch(function () { btn.disabled = false; btn.textContent = "Subscriure'm"; });
+  });
+})();
+</script>
