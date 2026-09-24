@@ -1712,18 +1712,26 @@ h1, h2, h3 { font-weight: 700; }
 .cs-form button:hover { background: var(--accent-light); }
 .cs-ok { color: var(--accent-light); font-size: .88rem; padding: .4rem 0; }
 
-/* Botó explorar */
-.cs-skip {
-  background: none;
-  border: none;
-  color: var(--text2);
-  font-family: var(--font-body);
-  font-size: .78rem;
-  cursor: pointer;
-  padding: .3rem .5rem;
-  transition: color .2s;
+/* Logos patrocinadors/editors */
+.cs-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: .4rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,.07);
 }
-.cs-skip:hover { color: var(--text); }
+.cs-logos img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  opacity: .75;
+  filter: grayscale(30%);
+  transition: opacity .2s;
+}
+.cs-logos img:hover { opacity: 1; }
 
 @media (max-width: 480px) {
   .cs-card { padding: 1.8rem 1.2rem 1.4rem; }
