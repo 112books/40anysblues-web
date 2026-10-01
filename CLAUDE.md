@@ -170,6 +170,11 @@ defaultContentLanguageInSubdir = false   # CA a l'arrel, sense prefix /ca/
 
 ## Convencions de contingut
 
+### Idioma i estil
+- **Només català.** No fem servir el castellà en cap comunicació, text ni document del projecte. Si algú no ho entén, que ho demani.
+- **Sense emoticones.** No fem servir emojis ni emoticones enlloc (web, correus, xarxes socials, documentació).
+
+
 ### index.md vs _index.md
 - **`_index.md`** → secció amb sub-pàgines (musics/, sales/, historia/)
 - **`index.md`** → pàgina individual (musics/{id}/index.md, projecte/index.md)
