@@ -23,6 +23,9 @@ Camps recollits: adreça de correu electrònic i, opcionalment, nom artístic. F
 ### Registre de músics
 Camps recollits: nom artístic i adreça de correu electrònic. Finalitat: verificar la identitat dels músics que apareixen al projecte i enviar-los comunicacions exclusives. Base legal: consentiment explícit (art. 6.1.a RGPD). Les dades es gestionen a través de **Brevo SAS**.
 
+### Comunicacions als músics participants
+Amb motiu de la presentació del llibre i de l'exposició «40 anys de blues a Barcelona», enviem un correu informatiu únic a les persones que hi apareixen retratades. Base legal: **interès legítim** a informar sobre el mateix projecte en què han participat (art. 6.1.f RGPD). Cada comunicació inclou un **enllaç de baixa d'un clic**; un cop donats de baixa, no rebran més correus. Qui vulgui seguir rebent notícies pot subscriure's voluntàriament al butlletí (consentiment, art. 6.1.a).
+
 ### Comentaris al llibre de visites
 Per deixar un comentari al llibre de visites cal un compte de **GitHub**. El comentari i el nom d'usuari queden públics. Els comentaris es gestionen a través de **Giscus** i **GitHub**. Base legal: consentiment en publicar el comentari.
 
