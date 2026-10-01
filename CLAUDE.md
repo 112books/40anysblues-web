@@ -212,10 +212,8 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 
 ### Contingut
 - [ ] Fotografies dels músics → `content/ca/musics/{id}/`
-- [ ] Bios en castellà i anglès
 - [ ] Schema markup: Organization, Person
 
 ### Funcionalitats
 - [ ] Tooltip Wikipedia per a músics externs referenciats a les bios
 - [ ] WebP + srcset per a imatges (Hugo image processing)
-- [ ] Traduccions ES/EN: estratègia pendent de decidir
