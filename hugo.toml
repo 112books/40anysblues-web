@@ -32,6 +32,9 @@ defaultContentLanguageInSubdir = false
   author = 'Joan Linux'
   goatcounter = '40anysbluesbcn'
   password_protected = false
+  # Canal de Telegram (font única per a tot el web)
+  telegram = 'https://t.me/blues40anysbcn'
+  telegram_name = '40 anys de blues a Barcelona'
 
 [outputs]
   home = ["HTML", "JSON"]

@@ -43,7 +43,7 @@
       <div id="cs-ok" class="cs-ok" hidden>
         <p>Gràcies! Et confirmem per correu.</p>
       </div>
-      <p class="cs-nl-text" style="margin-top:.6rem;">O segueix-nos al <a href="https://t.me/blues40anysbcn" target="_blank" rel="noopener">canal de Telegram</a>.</p>
+      {{ with site.Params.telegram }}<p class="cs-nl-text" style="margin-top:.6rem;">O segueix-nos al <a href="{{ . }}" target="_blank" rel="noopener">canal de Telegram «{{ site.Params.telegram_name }}»</a>.</p>{{ end }}
     </div>
 
     <div class="cs-logos">
