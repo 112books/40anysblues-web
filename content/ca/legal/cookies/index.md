@@ -13,13 +13,21 @@ Aquest lloc web **no utilitza cookies de seguiment ni publicitat**.
 
 | Tipus | Nom | Finalitat | Durada |
 |-------|-----|-----------|--------|
+| Funcional | `cookies_ok` | Recorda que has acceptat l'avís de cookies (localStorage, no és una cookie pròpiament) | Fins que s'esborra manualment |
 | Funcional | `blues40_auth` | Emmagatzema l'estat d'autenticació (localStorage, no és una cookie pròpiament) | Fins que s'esborra manualment |
+| Funcional | `nl_seen` | Recorda si ja has vist la invitació a subscriure't al butlletí (localStorage) | Fins que s'esborra manualment |
 
-La "contrasenya" d'accés s'emmagatzema al **localStorage** del navegador, no en una cookie. No es transmet a cap servidor ni es comparteix amb tercers.
+Aquestes dades s'emmagatzemen al **localStorage** del navegador, no en cookies. No es transmeten a cap servidor ni es comparteixen amb tercers.
+
+## Serveis externs
+
+- **Brevo i Formspree**: només s'activen quan envies un formulari (subscripció o contacte).
+- **Giscus / GitHub**: només s'activen al llibre de visites. En carregar-los, GitHub pot establir les seves pròpies cookies o emmagatzematge local. Consulta la [política de privacitat de GitHub](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement).
+- **GoatCounter**: les estadístiques són anònimes i **no utilitzen cookies**.
 
 ## Analítica
 
-Si s'utilitza GoatCounter per a estadístiques, aquest servei **no utilitza cookies** i processa únicament dades agregades i anònimes (país, navegador, pàgina visitada). No es pot identificar cap usuari individualment.
+GoatCounter processa únicament dades agregades i anònimes (país, navegador, pàgina visitada). No es pot identificar cap usuari individualment.
 
 ## Com gestionar les cookies
 

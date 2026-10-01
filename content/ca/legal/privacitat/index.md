@@ -23,18 +23,27 @@ Camps recollits: adreça de correu electrònic i, opcionalment, nom artístic. F
 ### Registre de músics
 Camps recollits: nom artístic i adreça de correu electrònic. Finalitat: verificar la identitat dels músics que apareixen al projecte i enviar-los comunicacions exclusives. Base legal: consentiment explícit (art. 6.1.a RGPD). Les dades es gestionen a través de **Brevo SAS**.
 
+### Comentaris al llibre de visites
+Per deixar un comentari al llibre de visites cal un compte de **GitHub**. El comentari i el nom d'usuari queden públics. Els comentaris es gestionen a través de **Giscus** i **GitHub**. Base legal: consentiment en publicar el comentari.
+
+### Analítica
+Aquest web utilitza **GoatCounter**, un sistema d'estadístiques que **no fa servir cookies** i que només tracta dades agregades i anònimes (pàgina visitada, país, navegador). No es pot identificar cap usuari individualment.
+
 ## Processadors de dades
 
 | Servei | Funció | Política |
 |--------|--------|----------|
 | Formspree, Inc. | Gestió del formulari de contacte | [formspree.io/legal](https://formspree.io/legal/privacy-policy/) |
 | Brevo SAS | Gestió de llistes i enviament de butlletins | [brevo.com/legal](https://www.brevo.com/legal/privacypolicy/) |
-| Google Fonts | Tipografies web (carrega fonts des de servidors de Google) | [google.com/policies/privacy](https://policies.google.com/privacy) |
+| Giscus / GitHub | Comentaris al llibre de visites | [docs.github.com/privacy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement) |
+| GoatCounter | Estadístiques anònimes sense cookies | [goatcounter.com/help/privacy](https://www.goatcounter.com/help/privacy) |
 | GitHub Pages | Allotjament del lloc web | [docs.github.com/privacy](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement) |
+
+Les tipografies del web (**Merriweather**, **Source Sans 3** i **Caveat**) se serveixen des d'aquest mateix domini. No es fa cap petició a Google Fonts ni a cap altre servei extern per carregar-les.
 
 ## Conservació de les dades
 
-Les dades de contacte es conserven durant el temps necessari per gestionar la consulta. Les dades de subscripció es conserven mentre es mantingui la subscripció activa.
+Les dades de contacte es conserven durant el temps necessari per gestionar la consulta. Les dades de subscripció es conserven mentre es mantingui la subscripció activa. Els comentaris del llibre de visites es conserven mentre siguin publicats.
 
 ## Drets dels usuaris
 
@@ -51,4 +60,4 @@ Per exercir qualsevol d'aquests drets, contacteu amb hola@112books.eu indicant e
 
 Ens reservem el dret de modificar aquesta política. Els canvis es publicaran en aquesta pàgina amb indicació de la data d'actualització.
 
-*Darrera actualització: juny 2026*
+*Darrera actualització: octubre 2026*
