@@ -6,3 +6,5 @@ resources/
 *-privat.md
 # Documents de treball del projecte (pla, correu, contactes): viuen al vault privat
 docs/
+# Control horari intern
+.taques/
