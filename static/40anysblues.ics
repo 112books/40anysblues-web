@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Editorial 112 Books//40 anys de blues a Barcelona//CA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:40anysblues-presentacio-20261106@40anysblues.112books.eu
+DTSTAMP:20261001T120000Z
+DTSTART:20261106T180000Z
+DTEND:20261106T200000Z
+SUMMARY:Presentació del llibre i exposició «40 anys de blues a Barcelona»
+DESCRIPTION:Presentació del llibre i inauguració de l'exposició fotogràfica «40 anys de blues a Barcelona»\, amb els retrats i les biografies de 40 anys d'escena bluesera a la ciutat.
+LOCATION:Centre Cultural Collblanc La Torrassa\, C/ Mare de Déu dels Desemparats 87\, L'Hospitalet de Llobregat
+URL:https://40anysblues.112books.eu/
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Demà és la presentació del llibre «40 anys de blues a Barcelona»
+END:VALARM
+END:VEVENT
+END:VCALENDAR
