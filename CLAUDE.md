@@ -212,6 +212,7 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 
 ### Contingut
 - [ ] Fotografies dels músics → `content/ca/musics/{id}/`
+- [ ] (Futur, no ara) Valorar traducció de les bios a l'anglès
 - [ ] Schema markup: Organization, Person
 
 ### Funcionalitats
