@@ -4,4 +4,5 @@ resources/
 .DS_Store
 # Fitxers privats amb dades personals — MAI comitir
 *-privat.md
-docs/*-privat.*
+# Documents de treball del projecte (pla, correu, contactes): viuen al vault privat
+docs/
