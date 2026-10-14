@@ -1,0 +1,18 @@
+{{ define "robots" }}<meta name="robots" content="noindex, follow">{{ end }}
+{{ define "title" }}Pàgina no trobada · {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<section class="content-page">
+  <div class="container">
+    <div class="error-page">
+      <div class="error-code" aria-hidden="true">404</div>
+      <h1>Aquesta pàgina no sona</h1>
+      <p>No hem trobat el que busques. Potser la pàgina s'ha mogut o ja no existeix. Torna a l'inici o continua explorant l'escena.</p>
+      <div class="error-links">
+        <a href="{{ relLangURL "/" }}" class="btn">Tornar a l'inici</a>
+        <a href="{{ relLangURL "/musics/" }}" class="btn btn-outline">Veure els músics</a>
+        <a href="{{ relLangURL "/cerca/" }}" class="btn btn-outline">Cercar al web</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
