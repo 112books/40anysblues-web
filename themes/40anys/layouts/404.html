@@ -5,13 +5,13 @@
   <div class="container">
     <div class="error-page">
       <div class="error-code" aria-hidden="true">404</div>
-      <h1>Aquesta pàgina no sona</h1>
-      <p>No hem trobat el que busques. Potser la pàgina s'ha mogut o ja no existeix. Torna a l'inici o continua explorant l'escena.</p>
-      <div class="error-links">
-        <a href="{{ relLangURL "/" }}" class="btn">Tornar a l'inici</a>
-        <a href="{{ relLangURL "/musics/" }}" class="btn btn-outline">Veure els músics</a>
-        <a href="{{ relLangURL "/cerca/" }}" class="btn btn-outline">Cercar al web</a>
-      </div>
+      <h1>No s'ha trobat la pàgina</h1>
+      <p>La pàgina que busques no existeix o s'ha mogut. Prova de cercar-la amb el formulari següent.</p>
+      <form class="error-search" action="{{ relLangURL "/cerca/" }}" method="get" role="search">
+        <input type="search" name="q" placeholder="Músic, instrument, formació, sala..." aria-label="Cerca" autocomplete="off">
+        <button type="submit" class="btn-blues">Cerca</button>
+      </form>
+      <p class="error-back"><a href="{{ relLangURL "/" }}">Tornar a l'inici</a></p>
     </div>
   </div>
 </section>
