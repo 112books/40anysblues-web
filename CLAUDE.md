@@ -83,6 +83,61 @@ hugo server --buildDrafts --disableFastRender
 
 ---
 
+## Portada del llibre: porta programada i panell lateral
+
+Tota la informació de la presentació, la venda i la reserva del llibre viu al
+parcial `themes/40anys/layouts/partials/llibre-popup.html`. Substitueix els
+antics `coming-soon.html` (overlay «Pròximament») i `newsletter-popup.html`
+(pestanya del butlletí), que es van eliminar.
+
+### Comportament programat per dates
+
+| Moment (hora de Barcelona) | Estat |
+|---|---|
+| Fins a `params.esdeveniment.obertura` (6/11/2026, 18:00) | Web tancat: només el pop-up centrat, fons fosc, desplaçament bloquejat i contingut `inert`. El pop-up no es pot tancar. |
+| A partir de l'obertura | Web obert per a tothom. El panell apareix a la dreta 5 segons, s'amaga sol i queda la pestanya vertical «El llibre». |
+| Segons la data | El contingut canvia sol: reserva oberta, reserva tancada, dia de la presentació (des d'una hora abans) i venda posterior. |
+
+- El càlcul es fa al navegador amb les dates de `hugo.toml` i es revisa cada
+  30 segons: si algú té la pàgina oberta quan arriba l'hora, el web s'obre i el
+  text s'actualitza sol.
+- Les dates són instants absoluts (acaben en `+01:00`): l'obertura és a les
+  18:00 de Barcelona per a qualsevol visitant, sigui quina sigui la seva zona
+  horària.
+- Si el visitant té el rellotge desajustat, veurà l'obertura abans o després.
+- Amb JavaScript desactivat no apareix la porta: el web es veu sense pop-up.
+
+### Configuració
+
+Les dates, els preus i els textos són a `hugo.toml` (`[params.esdeveniment]`
+i `[params.venda]`). Per canviar la presentació cal tocar `inici`, `obertura`,
+`data_text`, `data_curta`, `reserva_fins`, `reserva_fins_text` i també
+`static/40anysblues.ics`. Un cop fet: commit i push; el desplegament és
+automàtic i no cal tocar res el dia de la presentació.
+
+**No hi ha venda en línia.** Tots els modes acaben en un correu a
+`params.venda.email` amb l'assumpte de `params.venda.assumpte`; el paràmetre
+de botiga en línia es va retirar expressament.
+
+### Verificació abans de publicar
+
+```bash
+hugo --minify --cleanDestinationDir --baseURL 'https://40anysblues.112books.eu/'
+
+# La porta i les dates han de sortir a l'HTML generat:
+grep -o 'data-obertura=[^ >]*' public/index.html
+grep -c 'lb-panel' public/index.html
+
+# El recompte de músics ha de coincidir amb les fitxes i amb data/stats.yaml:
+ls -d content/ca/musics/*/ | wc -l
+grep total_musics data/stats.yaml
+```
+
+El canvi de mode del panell es pot provar sense esperar la data: es pot simular
+amb el rellotge del navegador o canviant temporalment `obertura` en local.
+
+---
+
 ## Ús del web com a eina de revisió
 
 El web és útil per detectar errors visualment (bandes duplicades, malnoms incorrectes, bios incompletes). El flux és:
@@ -99,8 +154,9 @@ El web **no és** l'editor — és el visualitzador de qualitat.
 
 - **Hugo** v0.159+ · tema propi `40anys` (a `themes/40anys/`)
 - **Idioma actiu:** Català (CA). Castellà i anglès preparats però `disabled = true`
-- **Password gate:** JS localStorage, contrasenya a `hugo.toml → params.site_password`
-- **Analytics:** GoatCounter (pendent — `params.goatcounter = ''`)
+- **Password gate:** desactivat (`password_protected = false`); el mecanisme (JS + localStorage) continua disponible
+- **Portada / panell del llibre:** `partials/llibre-popup.html`, programat per dates (vegeu "Portada del llibre")
+- **Analytics:** GoatCounter actiu (`params.goatcounter = '40anysbluesbcn'`)
 - **CI/CD:** GitHub Actions → deploy a `40anysblues.112books.eu`
 
 ---
@@ -122,9 +178,27 @@ defaultContentLanguageInSubdir = false   # CA a l'arrel, sense prefix /ca/
   banda = 'bands'              # → /bands/{slug}/
 
 [params]
-  password_protected = true
-  site_password = '...'        # veure CLAUDE_privat.md a obsidian-projectes
-  goatcounter = ''
+  password_protected = false
+  goatcounter = '40anysbluesbcn'
+  telegram = 'https://t.me/blues40anysbcn'
+  telegram_name = '40 anys de blues a Barcelona'
+  author = 'Joan Linux'
+
+# Dates i textos de la presentació i de la venda del llibre (font única)
+[params.esdeveniment]
+  inici = '2026-11-06T19:00:00+01:00'       # presentació
+  obertura = '2026-11-06T18:00:00+01:00'    # una hora abans: el web s'obre sol
+  data_text = '6 de novembre · 19h'
+  data_curta = '6 de novembre'
+  lloc = 'Centre Cultural Collblanc La Torrassa'
+  # ...
+
+[params.venda]
+  preu = '38'
+  preu_soci = '33'
+  email = 'info@societatbluesbarcelona.org'
+  reserva_fins = '2026-11-04T23:59:59+01:00'
+  reserva_fins_text = 'dimecres 4 de novembre'
 ```
 
 ---
@@ -155,13 +229,14 @@ defaultContentLanguageInSubdir = false   # CA a l'arrel, sense prefix /ca/
 │   └── logotips/                        # logos del projecte + entitats
 └── themes/40anys/
     ├── layouts/
-    │   ├── _default/baseof.html         # base: favicon, fonts, header, footer, password
+    │   ├── _default/baseof.html         # base: favicon, fonts, header, footer, panell del llibre
     │   ├── musics/list.html             # llistat amb filtres JS
     │   ├── musics/single.html           # fitxa músic (born/death, instruments, bandes)
     │   ├── page/projecte.html           # stats, llibres, autors, logos, cita Dixon
     │   ├── partials/header.html         # logo + nav + cerca
     │   ├── partials/footer.html         # legal + xarxes socials
     │   ├── partials/og.html             # Open Graph / Twitter Card
+    │   ├── partials/llibre-popup.html   # porta + panell del llibre (dates a hugo.toml)
     │   └── partials/scroll-utils.html  # progress bar + back-to-top
     └── static/css/main.css
 ```
@@ -207,8 +282,9 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 ## Tasques pendents
 
 ### Alta prioritat
-- [ ] GoatCounter: afegir ID a `hugo.toml → params.goatcounter`
-- [ ] Brevo DNS: verificar propagació SPF/DKIM, traduir templates al català
+- [ ] Brevo DNS: traduir templates al català
+- [ ] Comprovar el 6/11 a les 18:00 que el web s'obre sol i el panell es plega als 5 segons
+- [ ] Confirmar el recompte final de músics: 148 documentats (fitxes = pàgines). Si el llibre imprès en té més, calen les fitxes que falten
 
 ### Contingut
 - [ ] Fotografies dels músics → `content/ca/musics/{id}/`

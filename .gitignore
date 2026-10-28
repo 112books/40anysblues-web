@@ -8,3 +8,4 @@ resources/
 docs/
 # Control horari intern
 .taques/
+.taques-central/
