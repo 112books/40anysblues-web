@@ -37,6 +37,8 @@ defaultContentLanguageInSubdir = false
   data_text = '6 de novembre · 19h'
   data_curta = '6 de novembre'
   inici = '2026-11-06T19:00:00+01:00'
+  # El web es manté tancat (només el pop-up) fins a aquest moment: una hora abans.
+  obertura = '2026-11-06T18:00:00+01:00'
   lloc = 'Centre Cultural Collblanc La Torrassa'
   adreca = "C/ Mare de Déu dels Desemparats, 87 · L'Hospitalet de Llobregat"
   maps = "https://maps.google.com/?q=Centre+Cultural+Collblanc+La+Torrassa,+L%27Hospitalet+de+Llobregat"
@@ -49,8 +51,6 @@ defaultContentLanguageInSubdir = false
   assumpte = 'Reserva 40 anys de blues'
   reserva_fins = '2026-11-04T23:59:59+01:00'
   reserva_fins_text = 'dimecres 4 de novembre'
-  # Quan hi hagi botiga en línia, posa aquí l'adreça i el panell la farà servir sol.
-  url = ''
 
 [params]
   author = 'Joan Linux'
