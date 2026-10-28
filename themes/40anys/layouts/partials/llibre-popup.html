@@ -160,8 +160,12 @@
     return 'reserva';
   }
 
+  var modeAplicat = null;
+
   function aplicaMode() {
     var m = mode();
+    if (m === modeAplicat) return;
+    modeAplicat = m;
     var nodes = panel.querySelectorAll('[data-mode]');
     for (var i = 0; i < nodes.length; i++) {
       nodes[i].hidden = nodes[i].getAttribute('data-mode') !== m;
@@ -171,6 +175,9 @@
   function tick() {
     // Si el web està tancat i arriba l'hora d'obertura, obre'l sol.
     if (enPorta && !isNaN(OBERTURA) && Date.now() >= OBERTURA) surtPorta();
+
+    // Si la data canvia mentre la pàgina és oberta, actualitza el contingut.
+    aplicaMode();
 
     var cd = document.getElementById('lb-countdown');
     if (!cd) return;
