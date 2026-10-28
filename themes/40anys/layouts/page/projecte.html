@@ -1,5 +1,8 @@
 {{ define "main" }}
 {{ $stats := hugo.Data.stats }}
+{{ $ev := site.Params.esdeveniment | default dict }}
+{{ $vd := site.Params.venda | default dict }}
+{{ $mailLlibre := printf "mailto:%s?subject=%s" ($vd.email | default "info@societatbluesbarcelona.org") (replace ($vd.assumpte | default "Reserva 40 anys de blues") " " "%20") }}
 <div class="content-page projecte-page">
   <div class="container">
     <div class="projecte-layout">
@@ -70,8 +73,10 @@
               <img src="/llibres/40anysbluesbarcelona.png" alt="40 Anys de Blues a Barcelona">
               <div class="llibre-info">
                 <h3>40 Anys de Blues a Barcelona</h3>
-                <p>En preparació · Tardor 2026</p>
+                <p>Primera edició curta · {{ $vd.preu | default "38" }} € · {{ $vd.preu_soci | default "33" }} € per als socis de la SBB</p>
                 <p class="llibre-desc">L'edició definitiva. {{ $stats.total_musics }} músics, biografies completes, fotografies definitives. Quatre dècades d'una escena que segueix viva.</p>
+                <p class="llibre-desc">Presentació i inici de la venda: {{ $ev.data_text | default "6 de novembre · 19h" }} · {{ $ev.lloc | default "Centre Cultural Collblanc La Torrassa" }}.</p>
+                <p class="llibre-desc">Reserves i encàrrecs per correu a <a href="{{ $mailLlibre }}">{{ $vd.email | default "info@societatbluesbarcelona.org" }}</a>.</p>
               </div>
             </div>
           </div>

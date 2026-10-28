@@ -1,0 +1,241 @@
+{{/* Panell lateral «El llibre»: presentació + venda i reserva + butlletí.
+     Apareix sol els primers 5 segons i queda com a pestanya a la dreta.
+     Tots els textos i dates surten de hugo.toml (params.esdeveniment / params.venda),
+     i el contingut canvia sol segons la data: reserva oberta, reserva tancada,
+     dia de la presentació i venda posterior. No cal tocar res manualment. */}}
+
+{{ $ev := site.Params.esdeveniment | default dict }}
+{{ $vd := site.Params.venda | default dict }}
+
+{{ $inici      := $ev.inici | default "2026-11-06T19:00:00+01:00" }}
+{{ $dataText   := $ev.data_text | default "6 de novembre · 19h" }}
+{{ $dataCurta  := $ev.data_curta | default "6 de novembre" }}
+{{ $titolEv    := $ev.titol | default "Presentació del llibre + Exposició fotogràfica" }}
+{{ $obra       := $ev.obra | default "40 anys de blues a Barcelona" }}
+{{ $lloc       := $ev.lloc | default "Centre Cultural Collblanc La Torrassa" }}
+{{ $adreca     := $ev.adreca | default "C/ Mare de Déu dels Desemparats, 87 · L'Hospitalet de Llobregat" }}
+{{ $maps       := $ev.maps | default "https://maps.google.com/?q=Centre+Cultural+Collblanc+La+Torrassa,+L%27Hospitalet+de+Llobregat" }}
+{{ $ics        := $ev.ics | default "/40anysblues.ics" }}
+
+{{ $preu       := $vd.preu | default "38" }}
+{{ $preuSoci   := $vd.preu_soci | default "33" }}
+{{ $email      := $vd.email | default "info@societatbluesbarcelona.org" }}
+{{ $assumpte   := $vd.assumpte | default "Reserva 40 anys de blues" }}
+{{ $reservaFi  := $vd.reserva_fins | default "2026-11-04T23:59:59+01:00" }}
+{{ $reservaTxt := $vd.reserva_fins_text | default "dimecres 4 de novembre" }}
+{{ $botiga     := $vd.url | default "" }}
+
+{{ $mail := printf "mailto:%s?subject=%s" $email (replace $assumpte " " "%20") }}
+
+<button id="lb-tab" class="lb-tab" type="button" aria-label="Obrir la informació del llibre" aria-expanded="false" aria-controls="lb-panel" hidden>
+  <span class="lb-tab-text">{{ $ev.tab | default "El llibre" }}</span>
+</button>
+
+<aside id="lb-panel" class="lb-panel" aria-label="El llibre: presentació, venda i reserva"
+       data-inici="{{ $inici }}" data-reserva-fi="{{ $reservaFi }}" hidden>
+  <div class="lb-panel-inner">
+
+    <button id="lb-tanca" class="lb-tanca" type="button" aria-label="Tancar">&#x2715;</button>
+
+    <div class="lb-cap">
+      <img src="/llibres/40anysbluesbarcelona.png" alt="Coberta del llibre {{ $obra }}">
+      <div class="lb-cap-text">
+        <p class="lb-kicker">
+          <span data-mode="reserva">Pròximament</span>
+          <span data-mode="tancada" hidden>Pròximament</span>
+          <span data-mode="avui" hidden>Avui</span>
+          <span data-mode="venda" hidden>Ja a la venda</span>
+        </p>
+        <p class="lb-titol">{{ $obra }}</p>
+        <p class="lb-sub">{{ $dataText }} · {{ $lloc }}</p>
+      </div>
+    </div>
+
+    <div class="cs-events">
+      <div class="cs-event">
+        <p class="cs-event-tipus">{{ $titolEv }}<br>«{{ $obra }}»</p>
+        <p class="cs-event-data">{{ $dataText }}</p>
+        <p class="cs-event-lloc">{{ $lloc }}</p>
+        <p class="cs-event-adreca"><a href="{{ $maps }}" target="_blank" rel="noopener">{{ $adreca }}</a></p>
+        <p class="cs-event-agenda"><a href="{{ $ics }}">Afegir a l'agenda</a></p>
+      </div>
+    </div>
+
+    <div class="cs-countdown lb-countdown" id="lb-countdown" aria-live="polite">
+      <div class="cs-cd-bloc"><span id="lb-cd-dies">—</span><span class="cs-cd-label">dies</span></div>
+      <div class="cs-cd-sep">:</div>
+      <div class="cs-cd-bloc"><span id="lb-cd-hores">—</span><span class="cs-cd-label">hores</span></div>
+      <div class="cs-cd-sep">:</div>
+      <div class="cs-cd-bloc"><span id="lb-cd-min">—</span><span class="cs-cd-label">min</span></div>
+    </div>
+
+    <div class="cs-venda">
+      <p class="cs-venda-kicker">
+        <span data-mode="reserva">Exemplars a la venda el {{ $dataCurta }}</span>
+        <span data-mode="tancada" hidden>Exemplars a la venda a la presentació</span>
+        <span data-mode="avui" hidden>Avui comença la venda</span>
+        <span data-mode="venda" hidden>Exemplars disponibles</span>
+      </p>
+      <p class="cs-venda-preus"><strong>{{ $preu }} €</strong> · <strong>{{ $preuSoci }} €</strong> per als socis de la SBB <span class="cs-venda-soci">(número de soci)</span></p>
+
+      <p class="cs-venda-urgent" data-mode="reserva"><strong>Primera edició curta.</strong> Per no quedar-te sense, encarrega'l per correu a <a href="{{ $mail }}">{{ $email }}</a> abans del <strong>{{ $reservaTxt }}</strong>. Indica el teu nom, el número de soci (si escau) i quants exemplars vols.</p>
+      <p class="cs-venda-urgent" data-mode="tancada" hidden>La reserva per correu s'ha tancat. Els exemplars es posen a la venda el <strong>{{ $dataCurta }}</strong>, a la presentació, fins a exhaurir existències.</p>
+      <p class="cs-venda-urgent" data-mode="avui" hidden>Avui, <strong>{{ $dataText }}</strong>: presentació del llibre i inici de la venda d'exemplars al recinte.</p>
+      <p class="cs-venda-urgent" data-mode="venda" hidden>El llibre ja està a la venda. Per a comandes i encàrrecs, escriu a <a href="{{ $mail }}">{{ $email }}</a>.</p>
+
+      <p class="cs-venda-nota" data-mode="reserva">La venda la gestiona directament la SBB. Recollida el dia de la presentació. Pagament amb datàfon; si prefereixes efectiu, porta l'import just. Enviaments per contra reembossament; cost d'enviament i embalatge pendent de confirmar.</p>
+      <p class="cs-venda-nota" data-mode="tancada" hidden>La venda la gestiona directament la SBB. Pagament amb datàfon; si prefereixes efectiu, porta l'import just. Enviaments per contra reembossament; cost d'enviament i embalatge pendent de confirmar.</p>
+      <p class="cs-venda-nota" data-mode="avui" hidden>La venda la gestiona directament la SBB. Pagament amb datàfon; si prefereixes efectiu, porta l'import just.</p>
+      <p class="cs-venda-nota" data-mode="venda" hidden>La venda la gestiona directament la SBB. Enviaments per contra reembossament; cost d'enviament i embalatge pendent de confirmar.</p>
+
+      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="reserva">Encarrega'l per correu</a>
+      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="tancada" hidden>Encarrega'l per correu</a>
+      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="avui" hidden>Encarrega'l per correu</a>
+      {{ if $botiga }}
+      <a class="cs-venda-btn" href="{{ $botiga }}" target="_blank" rel="noopener" data-mode="venda" hidden>Comprar en línia</a>
+      {{ else }}
+      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="venda" hidden>Encarrega'l per correu</a>
+      {{ end }}
+    </div>
+
+    <div class="cs-newsletter">
+      <p class="cs-nl-text">Rep la invitació i totes les novetats a la bústia:</p>
+      <form id="lb-form"
+            action="https://8a40afa7.sibforms.com/serve/MUIFAB9YHIYuqP5hMMsd-zZSxaquqLRcfFdGRvZXadAWd3zTEfiTKSOf6AGGamMW9MMQFbyBH5x7kXc_POpABrs4R3frIPwzA34nbv1SDddfjzZPJPx0Fn2DLsYKdqmm2M-A-pY_t4zH0XUtBgW7vdF5Pu-2_PbGdSIGwBut2w9uhaSlGQ6T9Dz3AGxeWZsgZEGS2H4uYSCsSvE6Fg=="
+            method="POST" class="cs-form">
+        <input type="email" name="EMAIL" required placeholder="el teu correu" autocomplete="email" aria-label="Correu electrònic">
+        <input type="text" name="email_address_check" value="" style="display:none">
+        <input type="hidden" name="locale" value="ca">
+        <input type="hidden" name="html_type" value="simple">
+        <button type="submit">Subscriure'm</button>
+      </form>
+      <div id="lb-ok" class="cs-ok" hidden>
+        <p>Gràcies! Et confirmem per correu.</p>
+      </div>
+      <p class="lb-legal"><a href="/legal/privacitat/">Privacitat</a> · pots cancel·lar quan vulguis.</p>
+      {{ with site.Params.telegram }}<p class="cs-nl-text" style="margin-top:.6rem;">O segueix-nos al <a href="{{ . }}" target="_blank" rel="noopener">canal de Telegram «{{ site.Params.telegram_name }}»</a>.</p>{{ end }}
+    </div>
+
+    <div class="cs-logos">
+      <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 anys de blues a Barcelona">
+      <a href="https://112books.eu" target="_blank" rel="noopener"><img src="/logotips/112books-logo.png" alt="112books"></a>
+      <a href="https://societatbluesbarcelona.org" target="_blank" rel="noopener"><img src="/logotips/sbb-logo.jpg" alt="Societat Barcelonesa de Blues"></a>
+      <a href="https://www.festivalbluesbarcelona.com" target="_blank" rel="noopener"><img src="/logotips/capibola-logo.jpg" alt="Capibola Blues"></a>
+    </div>
+
+  </div>
+</aside>
+
+<script>
+(function () {
+  var STORE_KEY  = 'llibre_panel_vist';
+  var VISIBLE_MS = 5000;      // els primers 5 segons, i s'amaga
+
+  var tab   = document.getElementById('lb-tab');
+  var panel = document.getElementById('lb-panel');
+  var tanca = document.getElementById('lb-tanca');
+  var form  = document.getElementById('lb-form');
+  var ok    = document.getElementById('lb-ok');
+  if (!tab || !panel) return;
+
+  var UN_DIA     = 86400000;
+  var INICI      = Date.parse(panel.getAttribute('data-inici') || '');
+  var RESERVA_FI = Date.parse(panel.getAttribute('data-reserva-fi') || '');
+  if (isNaN(INICI))      INICI = Infinity;
+  if (isNaN(RESERVA_FI)) RESERVA_FI = Infinity;
+  var AVUI_DES   = INICI - 3600000;      // una hora abans de la presentació
+  var AVUI_FINS  = INICI + UN_DIA;       // fins l'endemà
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function mode() {
+    var now = Date.now();
+    if (now >= AVUI_FINS)  return 'venda';
+    if (now >= AVUI_DES)   return 'avui';
+    if (now >= RESERVA_FI) return 'tancada';
+    return 'reserva';
+  }
+
+  function aplicaMode() {
+    var m = mode();
+    var nodes = panel.querySelectorAll('[data-mode]');
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].hidden = nodes[i].getAttribute('data-mode') !== m;
+    }
+  }
+
+  function tick() {
+    var cd = document.getElementById('lb-countdown');
+    if (!cd) return;
+    var diff = INICI - Date.now();
+    if (!isFinite(diff) || diff <= 0) { cd.hidden = true; return; }
+    cd.hidden = false;
+    document.getElementById('lb-cd-dies').textContent  = Math.floor(diff / UN_DIA);
+    document.getElementById('lb-cd-hores').textContent = pad(Math.floor((diff % UN_DIA) / 3600000));
+    document.getElementById('lb-cd-min').textContent   = pad(Math.floor((diff % 3600000) / 60000));
+  }
+
+  var plegatTimer;
+
+  function obre() {
+    clearTimeout(plegatTimer);
+    panel.hidden = false;
+    requestAnimationFrame(function () {
+      panel.classList.add('lb-panel--visible');
+    });
+    tab.classList.add('lb-tab--hidden');
+    tab.setAttribute('aria-expanded', 'true');
+  }
+
+  function plega() {
+    clearTimeout(plegatTimer);
+    panel.classList.remove('lb-panel--visible');
+    tab.classList.remove('lb-tab--hidden');
+    tab.setAttribute('aria-expanded', 'false');
+    setTimeout(function () {
+      if (!panel.classList.contains('lb-panel--visible')) panel.hidden = true;
+    }, 380);
+  }
+
+  function mostraTab() {
+    tab.hidden = false;
+    setTimeout(function () { tab.classList.add('lb-tab--visible'); }, 10);
+  }
+
+  aplicaMode();
+  tick();
+  setInterval(tick, 30000);
+  mostraTab();
+
+  var vist = false;
+  try { vist = sessionStorage.getItem(STORE_KEY) === '1'; } catch (e) {}
+  if (!vist) {
+    try { sessionStorage.setItem(STORE_KEY, '1'); } catch (e) {}
+    obre();
+    plegatTimer = setTimeout(plega, VISIBLE_MS);
+  }
+
+  tab.addEventListener('click', function () {
+    if (panel.hidden || !panel.classList.contains('lb-panel--visible')) obre();
+    else plega();
+  });
+
+  tanca.addEventListener('click', plega);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel.classList.contains('lb-panel--visible')) plega();
+  });
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Enviant...';
+      fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
+        .then(function () { form.hidden = true; ok.hidden = false; })
+        .catch(function () { btn.disabled = false; btn.textContent = "Subscriure'm"; });
+    });
+  }
+})();
+</script>

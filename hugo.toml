@@ -28,6 +28,30 @@ defaultContentLanguageInSubdir = false
   instrument = 'instruments'
   banda = 'bands'
 
+# --- Esdeveniment i venda del llibre: font única de dates i textos ---
+# El panell lateral canvia sol de contingut segons aquestes dates (hora local catalana).
+[params.esdeveniment]
+  tab = 'El llibre'
+  titol = 'Presentació del llibre + Exposició fotogràfica'
+  obra = '40 anys de blues a Barcelona'
+  data_text = '6 de novembre · 19h'
+  data_curta = '6 de novembre'
+  inici = '2026-11-06T19:00:00+01:00'
+  lloc = 'Centre Cultural Collblanc La Torrassa'
+  adreca = "C/ Mare de Déu dels Desemparats, 87 · L'Hospitalet de Llobregat"
+  maps = "https://maps.google.com/?q=Centre+Cultural+Collblanc+La+Torrassa,+L%27Hospitalet+de+Llobregat"
+  ics = '/40anysblues.ics'
+
+[params.venda]
+  preu = '38'
+  preu_soci = '33'
+  email = 'info@societatbluesbarcelona.org'
+  assumpte = 'Reserva 40 anys de blues'
+  reserva_fins = '2026-11-04T23:59:59+01:00'
+  reserva_fins_text = 'dimecres 4 de novembre'
+  # Quan hi hagi botiga en línia, posa aquí l'adreça i el panell la farà servir sol.
+  url = ''
+
 [params]
   author = 'Joan Linux'
   goatcounter = '40anysbluesbcn'
