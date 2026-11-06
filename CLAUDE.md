@@ -164,6 +164,20 @@ El web **no és** l'editor — és el visualitzador de qualitat.
 - Cada pàgina porta `hreflang` per als tres idiomes i `x-default` cap al català.
 - La cerca té un índex per idioma (/index.json, /es/index.json, /en/index.json).
 
+### Decisions de traducció (2026-11-06)
+
+- **«Anuario del Blues»**: és el títol real de la publicació de l'SBB; es manté en
+  castellà a tots els idiomes. En genèric, «l'anuari» / «el anuario» / «the yearbook»
+  en minúscula.
+- **«Escola de Blues de Barcelona»**: nom propi, **no es tradueix** (ni a l'anglès
+  ni al castellà). Igual que «Societat de Blues de Barcelona».
+- **Enllaços a la Viquipèdia** (pàgines angleses): article en anglès si existeix;
+  si no, el català o el castellà. Eina: `scripts/sync-wiki-links.py`.
+- **Títols d'obres** («Preses Falses», «Barnablues, la història del blues a
+  Barcelona»): es mantenen en l'original, en cursiva.
+- **«Els Temples» i «Els Culpables»**: es tradueixen literalment («Los Templos» /
+  «The Temples», «Los Culpables» / «The Culprits»).
+
 ### Revisió de les traduccions
 
 1. Comparar cada pàgina amb la catalana canviant d'idioma amb el selector.
@@ -350,11 +364,8 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 - [x] Revisió automàtica de les traduccions al castellà i a l'anglès: les 190 pàgines
   de cada idioma s'han comparat amb la catalana i s'han corregit els defectes
   detectats (concordances, calcs, noms propis, cometes, països del `born_city`).
-- [ ] Repàs humà final de les traduccions: llegir les pàgines canviades i validar les
-  decisions editorials pendents (títol de la publicació «Anuari del Blues» /
-  «Anuario de Blues» segons l'idioma, «Escola de Blues de Barcelona» enfront de
-  «Barcelona Blues School» a l'anglès, i els enllaços a l'Enciclopèdia que a
-  l'anglès apunten a l'edició castellana o catalana).
+- [ ] Repàs humà final de les traduccions: llegir les pàgines canviades. Les
+  decisions editorials ja estan preses (vegeu «Decisions de traducció»).
 - [x] Sincronitzar les traduccions quan es regenerin les fitxes: `scripts/check-i18n.py`
   i `scripts/check-stats.py` comproven la coherència i s'executen al CI abans de
   compilar, de manera que un desajust atura el desplegament.
