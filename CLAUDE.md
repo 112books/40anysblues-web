@@ -109,9 +109,9 @@ antics `coming-soon.html` (overlay «Pròximament») i `newsletter-popup.html`
 
 ### Configuració
 
-Les dates, els preus i els textos són a `hugo.toml` (`[params.esdeveniment]`
-i `[params.venda]`). Per canviar la presentació cal tocar `inici`, `obertura`,
-`data_text`, `data_curta`, `reserva_fins`, `reserva_fins_text` i també
+Les dates, els preus i les adreces són a `hugo.toml` (`[params.esdeveniment]`
+i `[params.venda]`); els textos són a `themes/40anys/i18n/{ca,es,en}.toml`.
+Per canviar la presentació cal tocar `inici`, `obertura`, `reserva_fins` i
 `static/40anysblues.ics`. Un cop fet: commit i push; el desplegament és
 automàtic i no cal tocar res el dia de la presentació.
 
@@ -150,10 +150,29 @@ El web **no és** l'editor — és el visualitzador de qualitat.
 
 ---
 
+## Multilingüe (català, castellà i anglès)
+
+- **Català (CA)** és l'idioma per defecte i viu a l'arrel (/). El castellà, a /es/, i l'anglès, a /en/.
+- Els textos de la interfície són a `themes/40anys/i18n/{ca,es,en}.toml`. Cap template no ha de portar textos en català: sempre `{{ i18n "clau" }}`.
+- El contingut és a `content/{ca,es,en}/` amb **les mateixes rutes i slugs** (/es/musics/..., /en/musics/...).
+- Les **fotografies no es dupliquen**: les pàgines ES/EN agafen les imatges de la versió CA amb el parcial `partials/foto.html`.
+- El selector d'idioma és al header, a la dreta de la cerca, i només mostra els idiomes no actius (a CA es veu «ES | EN»).
+- Cada pàgina porta `hreflang` per als tres idiomes i `x-default` cap al català.
+- La cerca té un índex per idioma (/index.json, /es/index.json, /en/index.json).
+
+### Revisió de les traduccions
+
+1. Comparar cada pàgina amb la catalana canviant d'idioma amb el selector.
+2. Comprovar: noms propis, bandes, sales i entitats **sense traduir**; instruments traduïts; enllaços interns amb prefix /es/ o /en/; anys i dates intactes.
+3. Les fitxes de músics **es regeneren** des de `_fitxes/`: si es corregeix una bio, cal actualitzar també `content/es/musics/{id}/` i `content/en/musics/{id}/`.
+
+
+---
+
 ## Stack tècnic
 
 - **Hugo** v0.159+ · tema propi `40anys` (a `themes/40anys/`)
-- **Idioma actiu:** Català (CA). Castellà i anglès preparats però `disabled = true`
+- **Idiomes actius:** Català (CA, per defecte, a l'arrel), Castellà (/es/) i Anglès (/en/)
 - **Password gate:** desactivat (`password_protected = false`); el mecanisme (JS + localStorage) continua disponible
 - **Portada / panell del llibre:** `partials/llibre-popup.html`, programat per dates (vegeu "Portada del llibre")
 - **Analytics:** GoatCounter actiu (`params.goatcounter = '40anysbluesbcn'`)
@@ -172,6 +191,12 @@ defaultContentLanguageInSubdir = false   # CA a l'arrel, sense prefix /ca/
 [languages.ca]
   contentDir = 'content/ca'             # CRÍTIC: sense això les URLs van a /ca/*
   weight = 1
+[languages.es]
+  contentDir = 'content/es'
+  weight = 2
+[languages.en]
+  contentDir = 'content/en'
+  weight = 3
 
 [taxonomies]
   instrument = 'instruments'   # → /instruments/{slug}/
@@ -188,8 +213,6 @@ defaultContentLanguageInSubdir = false   # CA a l'arrel, sense prefix /ca/
 [params.esdeveniment]
   inici = '2026-11-06T19:00:00+01:00'       # presentació
   obertura = '2026-11-06T18:00:00+01:00'    # una hora abans: el web s'obre sol
-  data_text = '6 de novembre · 19h'
-  data_curta = '6 de novembre'
   lloc = 'Centre Cultural Collblanc La Torrassa'
   # ...
 
@@ -282,13 +305,15 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 ## Tasques pendents
 
 ### Alta prioritat
+- [ ] Revisió humana de les traduccions al castellà i a l'anglès (190 fitxers per idioma)
+- [ ] Sincronitzar les traduccions quan es regenerin les fitxes des de `_fitxes/`
 - [ ] Brevo DNS: traduir templates al català
 - [x] Obertura del web el 6/11: avançada de les 18:00 a les 08:00 perquè aquell dia no hi havia ningú amb ordinador. Verificat que la porta no surt i que el panell es plega als 5 segons; a les 18:00 el contingut passa sol al mode «avui».
 - [ ] Confirmar el recompte final de músics: 148 documentats (fitxes = pàgines). Si el llibre imprès en té més, calen les fitxes que falten
 
 ### Contingut
 - [ ] Fotografies dels músics → `content/ca/musics/{id}/`
-- [ ] (Futur, no ara) Valorar traducció de les bios a l'anglès
+- [x] Traducció del contingut al castellà i a l'anglès (esborrany complet, pendent de revisió)
 - [ ] Schema markup: Organization, Person
 
 ### Funcionalitats
