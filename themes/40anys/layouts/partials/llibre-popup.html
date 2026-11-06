@@ -1,17 +1,17 @@
 {{/* Panell lateral «El llibre»: presentació + venda i reserva + butlletí.
      Apareix sol els primers 5 segons i queda com a pestanya a la dreta.
-     Tots els textos i dates surten de hugo.toml (params.esdeveniment / params.venda),
-     i el contingut canvia sol segons la data: reserva oberta, reserva tancada,
-     dia de la presentació i venda posterior. No cal tocar res manualment. */}}
+     Les dates surten de hugo.toml (params.esdeveniment / params.venda) i els
+     textos de themes/40anys/i18n/{ca,es}.toml. El contingut canvia sol segons la
+     data: reserva oberta, reserva tancada, dia de la presentació i venda. */}}
 
 {{ $ev := site.Params.esdeveniment | default dict }}
 {{ $vd := site.Params.venda | default dict }}
 
 {{ $inici      := $ev.inici | default "2026-11-06T19:00:00+01:00" }}
 {{ $obertura   := $ev.obertura | default "2026-11-06T18:00:00+01:00" }}
-{{ $dataText   := $ev.data_text | default "6 de novembre · 19h" }}
-{{ $dataCurta  := $ev.data_curta | default "6 de novembre" }}
-{{ $titolEv    := $ev.titol | default "Presentació del llibre + Exposició fotogràfica" }}
+{{ $dataText   := i18n "data_esdeveniment" }}
+{{ $dataCurta  := i18n "data_esdeveniment_curta" }}
+{{ $titolEv    := i18n "event_titol" }}
 {{ $obra       := $ev.obra | default "40 anys de blues a Barcelona" }}
 {{ $lloc       := $ev.lloc | default "Centre Cultural Collblanc La Torrassa" }}
 {{ $adreca     := $ev.adreca | default "C/ Mare de Déu dels Desemparats, 87 · L'Hospitalet de Llobregat" }}
@@ -21,42 +21,42 @@
 {{ $preu       := $vd.preu | default "38" }}
 {{ $preuSoci   := $vd.preu_soci | default "33" }}
 {{ $email      := $vd.email | default "info@societatbluesbarcelona.org" }}
-{{ $assumpte   := $vd.assumpte | default "Reserva 40 anys de blues" }}
+{{ $assumpte   := i18n "lb_assumpte" }}
 {{ $reservaFi  := $vd.reserva_fins | default "2026-11-04T23:59:59+01:00" }}
-{{ $reservaTxt := $vd.reserva_fins_text | default "dimecres 4 de novembre" }}
+{{ $reservaTxt := i18n "data_reserva_fi" }}
 
 {{ $mail := printf "mailto:%s?subject=%s" $email (replace $assumpte " " "%20") }}
 
 <div id="lb-porta" class="lb-porta" role="presentation" hidden></div>
 
-<button id="lb-tab" class="lb-tab" type="button" aria-label="Obrir la informació del llibre" aria-expanded="false" aria-controls="lb-panel" hidden>
-  <span class="lb-tab-text">{{ $ev.tab | default "El llibre" }}</span>
+<button id="lb-tab" class="lb-tab" type="button" aria-label="{{ i18n "lb_aria_tab" }}" aria-expanded="false" aria-controls="lb-panel" hidden>
+  <span class="lb-tab-text">{{ i18n "lb_tab" }}</span>
 </button>
 
-<aside id="lb-panel" class="lb-panel" aria-label="El llibre: presentació, venda i reserva"
+<aside id="lb-panel" class="lb-panel" aria-label="{{ i18n "lb_aria_panel" }}"
        data-inici="{{ $inici }}" data-reserva-fi="{{ $reservaFi }}"
        data-obertura="{{ $obertura }}" hidden>
   <div class="lb-panel-inner">
 
-    <button id="lb-tanca" class="lb-tanca" type="button" aria-label="Tancar">&#x2715;</button>
+    <button id="lb-tanca" class="lb-tanca" type="button" aria-label="{{ i18n "lb_tancar" }}">&#x2715;</button>
 
     <div class="lb-esq">
-      <img class="lb-coberta" src="/llibres/40anysbluesbarcelona.png" alt="Coberta del llibre {{ $obra }}">
+      <img class="lb-coberta" src="/llibres/40anysbluesbarcelona.png" alt="{{ i18n "lb_coberta_alt" (dict "obra" $obra) }}">
       <p class="lb-kicker">
-        <span data-mode="reserva">Pròximament</span>
-        <span data-mode="tancada" hidden>Pròximament</span>
-        <span data-mode="avui" hidden>Avui</span>
-        <span data-mode="venda" hidden>Ja a la venda</span>
+        <span data-mode="reserva">{{ i18n "lb_prev" }}</span>
+        <span data-mode="tancada" hidden>{{ i18n "lb_prev" }}</span>
+        <span data-mode="avui" hidden>{{ i18n "lb_avui" }}</span>
+        <span data-mode="venda" hidden>{{ i18n "lb_venda" }}</span>
       </p>
       <p class="lb-titol">{{ $obra }}</p>
-      <p class="lb-sub">{{ $dataText }} · {{ $lloc }}</p>
+      <p class="lb-sub">{{ i18n "lb_sub" (dict "data" $dataText "lloc" $lloc) }}</p>
 
       <div class="cs-countdown lb-countdown" id="lb-countdown" aria-live="polite">
-        <div class="cs-cd-bloc"><span id="lb-cd-dies">—</span><span class="cs-cd-label">dies</span></div>
+        <div class="cs-cd-bloc"><span id="lb-cd-dies">—</span><span class="cs-cd-label">{{ i18n "lb_dies" }}</span></div>
         <div class="cs-cd-sep">:</div>
-        <div class="cs-cd-bloc"><span id="lb-cd-hores">—</span><span class="cs-cd-label">hores</span></div>
+        <div class="cs-cd-bloc"><span id="lb-cd-hores">—</span><span class="cs-cd-label">{{ i18n "lb_hores" }}</span></div>
         <div class="cs-cd-sep">:</div>
-        <div class="cs-cd-bloc"><span id="lb-cd-min">—</span><span class="cs-cd-label">min</span></div>
+        <div class="cs-cd-bloc"><span id="lb-cd-min">—</span><span class="cs-cd-label">{{ i18n "lb_min" }}</span></div>
       </div>
     </div>
 
@@ -68,51 +68,51 @@
         <p class="cs-event-data">{{ $dataText }}</p>
         <p class="cs-event-lloc">{{ $lloc }}</p>
         <p class="cs-event-adreca"><a href="{{ $maps }}" target="_blank" rel="noopener">{{ $adreca }}</a></p>
-        <p class="cs-event-agenda"><a href="{{ $ics }}">Afegir a l'agenda</a></p>
+        <p class="cs-event-agenda"><a href="{{ $ics }}">{{ i18n "lb_agenda" }}</a></p>
       </div>
     </div>
 
     <div class="cs-venda">
       <p class="cs-venda-kicker">
-        <span data-mode="reserva">Exemplars a la venda el {{ $dataCurta }}</span>
-        <span data-mode="tancada" hidden>Exemplars a la venda a la presentació</span>
-        <span data-mode="avui" hidden>Avui comença la venda</span>
-        <span data-mode="venda" hidden>Exemplars disponibles</span>
+        <span data-mode="reserva">{{ i18n "lb_venda_kicker_reserva" (dict "data" $dataCurta) }}</span>
+        <span data-mode="tancada" hidden>{{ i18n "lb_venda_kicker_tancada" }}</span>
+        <span data-mode="avui" hidden>{{ i18n "lb_venda_kicker_avui" }}</span>
+        <span data-mode="venda" hidden>{{ i18n "lb_venda_kicker_venda" }}</span>
       </p>
-      <p class="cs-venda-preus"><strong>{{ $preu }} €</strong> · <strong>{{ $preuSoci }} €</strong> per als socis de la SBB <span class="cs-venda-soci">(número de soci)</span></p>
+      <p class="cs-venda-preus">{{ i18n "lb_preus" (dict "preu" $preu "soci" $preuSoci) | safeHTML }}</p>
 
-      <p class="cs-venda-urgent" data-mode="reserva"><strong>Primera edició curta.</strong> Per no quedar-te sense, encarrega'l per correu a <a href="{{ $mail }}">{{ $email }}</a> abans del <strong>{{ $reservaTxt }}</strong>. Indica el teu nom, el número de soci (si escau) i quants exemplars vols.</p>
-      <p class="cs-venda-urgent" data-mode="tancada" hidden>La reserva per correu s'ha tancat. Els exemplars es posen a la venda el <strong>{{ $dataCurta }}</strong>, a la presentació, fins a exhaurir existències.</p>
-      <p class="cs-venda-urgent" data-mode="avui" hidden>Avui, <strong>{{ $dataText }}</strong>: presentació del llibre i inici de la venda d'exemplars al recinte.</p>
-      <p class="cs-venda-urgent" data-mode="venda" hidden>El llibre ja està a la venda. Per a comandes i encàrrecs, escriu a <a href="{{ $mail }}">{{ $email }}</a>.</p>
+      <p class="cs-venda-urgent" data-mode="reserva">{{ i18n "lb_urgent_reserva" (dict "mail" $mail "email" $email "data" $reservaTxt) | safeHTML }}</p>
+      <p class="cs-venda-urgent" data-mode="tancada" hidden>{{ i18n "lb_urgent_tancada" (dict "data" $dataCurta) | safeHTML }}</p>
+      <p class="cs-venda-urgent" data-mode="avui" hidden>{{ i18n "lb_urgent_avui" (dict "data" $dataText) | safeHTML }}</p>
+      <p class="cs-venda-urgent" data-mode="venda" hidden>{{ i18n "lb_urgent_venda" (dict "mail" $mail "email" $email) | safeHTML }}</p>
 
-      <p class="cs-venda-nota" data-mode="reserva">La venda la gestiona directament la SBB. Recollida el dia de la presentació. Pagament amb datàfon; si prefereixes efectiu, porta l'import just. Enviaments per contra reembossament; cost d'enviament i embalatge pendent de confirmar.</p>
-      <p class="cs-venda-nota" data-mode="tancada" hidden>La venda la gestiona directament la SBB. Pagament amb datàfon; si prefereixes efectiu, porta l'import just. Enviaments per contra reembossament; cost d'enviament i embalatge pendent de confirmar.</p>
-      <p class="cs-venda-nota" data-mode="avui" hidden>La venda la gestiona directament la SBB. Pagament amb datàfon; si prefereixes efectiu, porta l'import just.</p>
-      <p class="cs-venda-nota" data-mode="venda" hidden>La venda la gestiona directament la SBB. Enviaments per contra reembossament; cost d'enviament i embalatge pendent de confirmar.</p>
+      <p class="cs-venda-nota" data-mode="reserva">{{ i18n "lb_nota_reserva" }}</p>
+      <p class="cs-venda-nota" data-mode="tancada" hidden>{{ i18n "lb_nota_tancada" }}</p>
+      <p class="cs-venda-nota" data-mode="avui" hidden>{{ i18n "lb_nota_avui" }}</p>
+      <p class="cs-venda-nota" data-mode="venda" hidden>{{ i18n "lb_nota_venda" }}</p>
 
-      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="reserva">Encarrega'l per correu</a>
-      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="tancada" hidden>Encarrega'l per correu</a>
-      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="avui" hidden>Encarrega'l per correu</a>
-      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="venda" hidden>Encarrega'l per correu</a>
+      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="reserva">{{ i18n "lb_btn" }}</a>
+      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="tancada" hidden>{{ i18n "lb_btn" }}</a>
+      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="avui" hidden>{{ i18n "lb_btn" }}</a>
+      <a class="cs-venda-btn" href="{{ $mail }}" data-mode="venda" hidden>{{ i18n "lb_btn" }}</a>
     </div>
 
     <div class="cs-newsletter">
-      <p class="cs-nl-text">Rep la invitació i totes les novetats a la bústia:</p>
+      <p class="cs-nl-text">{{ i18n "lb_nl_text" }}</p>
       <form id="lb-form"
             action="https://8a40afa7.sibforms.com/serve/MUIFAB9YHIYuqP5hMMsd-zZSxaquqLRcfFdGRvZXadAWd3zTEfiTKSOf6AGGamMW9MMQFbyBH5x7kXc_POpABrs4R3frIPwzA34nbv1SDddfjzZPJPx0Fn2DLsYKdqmm2M-A-pY_t4zH0XUtBgW7vdF5Pu-2_PbGdSIGwBut2w9uhaSlGQ6T9Dz3AGxeWZsgZEGS2H4uYSCsSvE6Fg=="
             method="POST" class="cs-form">
-        <input type="email" name="EMAIL" required placeholder="el teu correu" autocomplete="email" aria-label="Correu electrònic">
+        <input type="email" name="EMAIL" required placeholder="{{ i18n "lb_nl_ph" }}" autocomplete="email" aria-label="{{ i18n "contacte_email" }}">
         <input type="text" name="email_address_check" value="" style="display:none">
-        <input type="hidden" name="locale" value="ca">
+        <input type="hidden" name="locale" value="{{ site.Language.Lang }}">
         <input type="hidden" name="html_type" value="simple">
-        <button type="submit">Subscriure'm</button>
+        <button type="submit">{{ i18n "lb_nl_btn" }}</button>
       </form>
       <div id="lb-ok" class="cs-ok" hidden>
-        <p>Gràcies! Et confirmem per correu.</p>
+        <p>{{ i18n "lb_ok" }}</p>
       </div>
-      <p class="lb-legal"><a href="/legal/privacitat/">Privacitat</a> · pots cancel·lar quan vulguis.</p>
-      {{ with site.Params.telegram }}<p class="cs-nl-text" style="margin-top:.6rem;">O segueix-nos al <a href="{{ . }}" target="_blank" rel="noopener">canal de Telegram «{{ site.Params.telegram_name }}»</a>.</p>{{ end }}
+      <p class="lb-legal"><a href="{{ relLangURL "/legal/privacitat/" }}">{{ i18n "footer_privacitat" }}</a> · {{ i18n "lb_legal" }}</p>
+      {{ with site.Params.telegram }}<p class="cs-nl-text" style="margin-top:.6rem;">{{ i18n "lb_telegram" (dict "url" . "nom" site.Params.telegram_name) | safeHTML }}</p>{{ end }}
     </div>
 
     <div class="cs-logos">
@@ -126,6 +126,7 @@
 
   </div>
 </aside>
+
 
 <script>
 (function () {
@@ -290,10 +291,10 @@
       e.preventDefault();
       var btn = form.querySelector('button[type=submit]');
       btn.disabled = true;
-      btn.textContent = 'Enviant...';
+      btn.textContent = {{ i18n "enviant" | jsonify }};
       fetch(form.action, { method: 'POST', body: new FormData(form), mode: 'no-cors' })
         .then(function () { form.hidden = true; ok.hidden = false; })
-        .catch(function () { btn.disabled = false; btn.textContent = "Subscriure'm"; });
+        .catch(function () { btn.disabled = false; btn.textContent = {{ i18n "lb_nl_btn" | jsonify }}; });
     });
   }
 })();

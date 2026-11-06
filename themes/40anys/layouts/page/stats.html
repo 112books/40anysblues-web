@@ -3,22 +3,22 @@
   <div class="container">
 
     <div class="stats-header">
-      <h1>Estadístiques</h1>
-      <p class="stats-sub">Dades en temps real · <a href="https://40anysbluesbcn.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a> · sense cookies</p>
+      <h1>{{ i18n "stats_titol" }}</h1>
+      <p class="stats-sub">{{ i18n "stats_sub" | safeHTML }}</p>
       <div class="stats-controls">
-        <div class="stats-period-btns" role="group" aria-label="Període">
-          <button class="stats-period-btn active" data-days="30">30 dies</button>
-          <button class="stats-period-btn" data-days="90">90 dies</button>
-          <button class="stats-period-btn" data-days="365">1 any</button>
+        <div class="stats-period-btns" role="group" aria-label="{{ i18n "stats_periode" }}">
+          <button class="stats-period-btn active" data-days="30">{{ i18n "stats_30dies" }}</button>
+          <button class="stats-period-btn" data-days="90">{{ i18n "stats_90dies" }}</button>
+          <button class="stats-period-btn" data-days="365">{{ i18n "stats_1any" }}</button>
         </div>
       </div>
     </div>
 
     <!-- Pestanyes -->
     <nav class="stats-tabs" role="tablist">
-      <button class="stats-tab active" role="tab" aria-selected="true"  data-tab="general">Visites</button>
-      <button class="stats-tab"        role="tab" aria-selected="false" data-tab="musics">Músics &amp; Grups</button>
-      <button class="stats-tab stats-tab--qr" role="tab" aria-selected="false" data-tab="qr">&#9733; QR del Llibre</button>
+      <button class="stats-tab active" role="tab" aria-selected="true"  data-tab="general">{{ i18n "stats_tab_visites" }}</button>
+      <button class="stats-tab"        role="tab" aria-selected="false" data-tab="musics">{{ i18n "stats_tab_musics" }}</button>
+      <button class="stats-tab stats-tab--qr" role="tab" aria-selected="false" data-tab="qr">&#9733; {{ i18n "stats_tab_qr" }}</button>
     </nav>
 
     <!-- ══ TAB: GENERAL ══════════════════════════════════════════════════════ -->
@@ -27,31 +27,31 @@
       <div class="stats-kpis">
         <div class="stats-kpi">
           <span class="stats-kpi-num" id="kpi-total">—</span>
-          <span class="stats-kpi-label">visites totals</span>
+          <span class="stats-kpi-label">{{ i18n "stats_kpi_total" }}</span>
         </div>
         <div class="stats-kpi">
           <span class="stats-kpi-num" id="kpi-avg">—</span>
-          <span class="stats-kpi-label">mitja/dia</span>
+          <span class="stats-kpi-label">{{ i18n "stats_kpi_mitja" }}</span>
         </div>
         <div class="stats-kpi">
           <span class="stats-kpi-num" id="kpi-pages">—</span>
-          <span class="stats-kpi-label">pàgines visitades</span>
+          <span class="stats-kpi-label">{{ i18n "stats_kpi_pages" }}</span>
         </div>
       </div>
 
       <section class="stats-section">
-        <h2>Visites diàries</h2>
+        <h2>{{ i18n "stats_visites_diaries" }}</h2>
         <div class="stats-chart-wrap"><canvas id="chart-daily" height="80"></canvas></div>
       </section>
 
       <section class="stats-section">
-        <h2>Per dia de la setmana</h2>
+        <h2>{{ i18n "stats_per_dia" }}</h2>
         <div class="stats-chart-wrap"><canvas id="chart-weekday" height="60"></canvas></div>
       </section>
 
       <section class="stats-section">
-        <h2>Qui ens linka</h2>
-        <div id="stats-refs" class="stats-refs-list"><p class="stats-loading">Carregant...</p></div>
+        <h2>{{ i18n "stats_qui_linka" }}</h2>
+        <div id="stats-refs" class="stats-refs-list"><p class="stats-loading">{{ i18n "stats_carregant" }}</p></div>
       </section>
 
     </div>
@@ -61,12 +61,12 @@
 
       <div class="stats-two-col">
         <section class="stats-section">
-          <h2>Top 10 Músics</h2>
-          <div id="stats-top-musics" class="stats-top-list"><p class="stats-loading">Carregant...</p></div>
+          <h2>{{ i18n "stats_top_musics" }}</h2>
+          <div id="stats-top-musics" class="stats-top-list"><p class="stats-loading">{{ i18n "stats_carregant" }}</p></div>
         </section>
         <section class="stats-section">
-          <h2>Top 10 Grups</h2>
-          <div id="stats-top-bands" class="stats-top-list"><p class="stats-loading">Carregant...</p></div>
+          <h2>{{ i18n "stats_top_bands" }}</h2>
+          <div id="stats-top-bands" class="stats-top-list"><p class="stats-loading">{{ i18n "stats_carregant" }}</p></div>
         </section>
       </div>
 
@@ -75,36 +75,36 @@
     <!-- ══ TAB: QR DEL LLIBRE ════════════════════════════════════════════════ -->
     <div id="tab-qr" class="stats-tab-panel">
 
-      <p class="stats-section-desc">Visitants que han escanejat el codi QR imprès al llibre <em>40 Anys de Blues a Barcelona</em>.</p>
+      <p class="stats-section-desc">{{ i18n "stats_qr_desc" | safeHTML }}</p>
 
       <div class="stats-kpis">
         <div class="stats-kpi stats-kpi--qr">
           <span class="stats-kpi-num" id="qr-total">—</span>
-          <span class="stats-kpi-label">visites QR (període)</span>
+          <span class="stats-kpi-label">{{ i18n "stats_qr_total" }}</span>
         </div>
         <div class="stats-kpi stats-kpi--qr">
           <span class="stats-kpi-num" id="qr-pct">—</span>
-          <span class="stats-kpi-label">del total de visites</span>
+          <span class="stats-kpi-label">{{ i18n "stats_qr_pct" }}</span>
         </div>
         <div class="stats-kpi stats-kpi--qr">
           <span class="stats-kpi-num" id="qr-avg">—</span>
-          <span class="stats-kpi-label">mitja/dia</span>
+          <span class="stats-kpi-label">{{ i18n "stats_kpi_mitja" }}</span>
         </div>
       </div>
 
       <section class="stats-section">
-        <h2>Visites QR diàries</h2>
+        <h2>{{ i18n "stats_visites_qr" }}</h2>
         <div class="stats-chart-wrap"><canvas id="chart-qr" height="80"></canvas></div>
       </section>
 
       <section class="stats-section">
-        <h2>Per dia de la setmana (QR)</h2>
+        <h2>{{ i18n "stats_per_dia_qr" }}</h2>
         <div class="stats-chart-wrap"><canvas id="chart-qr-weekday" height="60"></canvas></div>
       </section>
 
     </div>
 
-    <p class="stats-footer-note">Estadístiques públiques sense cookies · <a href="https://www.goatcounter.com" target="_blank" rel="noopener">GoatCounter</a></p>
+    <p class="stats-footer-note">{{ i18n "stats_footer" | safeHTML }}</p>
 
   </div>
 </div>
@@ -233,7 +233,7 @@
       .sort(function(a,b){ return byPage[b]-byPage[a]; })
       .slice(0,10);
 
-    if(!items.length){ document.getElementById(id).innerHTML='<p class="stats-loading">Sense dades per a aquest període.</p>'; return; }
+    if(!items.length){ document.getElementById(id).innerHTML='<p class="stats-loading">' + {{ i18n "stats_sense_dades" | jsonify }} + '</p>'; return; }
 
     var max = byPage[items[0]];
     var html = '<ol class="stats-top-ol">';
@@ -254,7 +254,7 @@
 
   function renderRefs(refsData) {
     var refs = (refsData.refs||[]).filter(function(r){ return r.count>0; }).slice(0,15);
-    if(!refs.length){ document.getElementById('stats-refs').innerHTML='<p class="stats-loading">Sense dades de referents per a aquest període.</p>'; return; }
+    if(!refs.length){ document.getElementById('stats-refs').innerHTML='<p class="stats-loading">' + {{ i18n "stats_sense_referents" | jsonify }} + '</p>'; return; }
     var max = refs[0].count;
     var html = '<ol class="stats-top-ol">';
     refs.forEach(function(r, i){
@@ -279,7 +279,7 @@
       document.getElementById(id).textContent='—';
     });
     ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
-      document.getElementById(id).innerHTML='<p class="stats-loading">Carregant...</p>';
+      document.getElementById(id).innerHTML='<p class="stats-loading">{{ i18n "stats_carregant" }}</p>';
     });
 
     Promise.all([
@@ -290,7 +290,7 @@
     }).catch(function(e){
       console.error(e);
       ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
-        document.getElementById(id).innerHTML='<p class="stats-error">Error carregant les dades.</p>';
+        document.getElementById(id).innerHTML='<p class="stats-error">' + {{ i18n "stats_error" | jsonify }} + '</p>';
       });
     });
   }

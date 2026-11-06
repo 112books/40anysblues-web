@@ -1,17 +1,17 @@
 {{ define "robots" }}<meta name="robots" content="noindex, follow">{{ end }}
-{{ define "title" }}Pàgina no trobada · {{ .Site.Title }}{{ end }}
+{{ define "title" }}{{ i18n "error_title" }} · {{ .Site.Title }}{{ end }}
 {{ define "main" }}
 <section class="content-page">
   <div class="container">
     <div class="error-page">
       <div class="error-code" aria-hidden="true">404</div>
-      <h1>No s'ha trobat la pàgina</h1>
-      <p>La pàgina que busques no existeix o s'ha mogut. Prova de cercar-la amb el formulari següent.</p>
+      <h1>{{ i18n "error_h1" }}</h1>
+      <p>{{ i18n "error_text" }}</p>
       <form class="error-search" action="{{ relLangURL "/cerca/" }}" method="get" role="search">
-        <input type="search" name="q" placeholder="Músic, instrument, formació, sala..." aria-label="Cerca" autocomplete="off">
-        <button type="submit" class="btn-blues">Cerca</button>
+        <input type="search" name="q" placeholder="{{ i18n "error_cerca_placeholder" }}" aria-label="{{ i18n "cerca_aria" }}" autocomplete="off">
+        <button type="submit" class="btn-blues">{{ i18n "error_cerca_btn" }}</button>
       </form>
-      <p class="error-back"><a href="{{ relLangURL "/" }}">Tornar a l'inici</a></p>
+      <p class="error-back"><a href="{{ relLangURL "/" }}">{{ i18n "error_tornar" }}</a></p>
     </div>
   </div>
 </section>

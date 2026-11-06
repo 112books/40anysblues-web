@@ -8,7 +8,7 @@
 
     <div class="sales-grid">
       {{ range sort .Pages "Params.ordre" }}
-      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") (.Resources.GetMatch "*.svg") }}
+      {{ $img := partial "foto.html" (dict "page" . "globs" (slice "*.jpg" "*.png" "*.webp" "*.svg")) }}
       <a href="{{ .RelPermalink }}" class="sala-card">
         <div class="sala-imatge">
           {{ if $img }}

@@ -7,6 +7,12 @@
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
   {{ block "robots" . }}<meta name="robots" content="index, follow">{{ end }}
   <link rel="canonical" href="{{ .Permalink }}">
+  {{- range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+  {{- end }}
+  {{- with .AllTranslations }}{{ with index . 0 }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{- end }}{{ end }}
   <link rel="icon" type="image/png" href="/logotips/40-anys-de-Blues-a-Barcelona-logo-Rounded-150x150.png">
   {{ partial "og.html" . }}
   {{ partial "schema-global.html" . }}

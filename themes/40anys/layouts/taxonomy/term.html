@@ -2,13 +2,13 @@
 <section class="taxonomy-section">
   <div class="container">
     <h1 class="taxonomy-title">{{ .Title }}</h1>
-    <p class="taxonomy-count">{{ len .Pages }} músic{{ if gt (len .Pages) 1 }}s{{ end }}</p>
+    <p class="taxonomy-count">{{ i18n "musics_taxo_count" (dict "Count" (len .Pages)) }}</p>
 
     <div class="taxonomy-grid">
       {{ range sort .Pages "Title" }}
       <a href="{{ .RelPermalink }}" class="taxo-card">
         <div class="taxo-foto">
-          {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+          {{ $img := partial "foto.html" (dict "page" .) }}
           {{ if $img }}
           <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
           {{ else }}

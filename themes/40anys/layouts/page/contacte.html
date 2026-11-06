@@ -2,8 +2,8 @@
 <article class="content-page contacte-page">
   <div class="container">
     <div class="form-page-header">
-      <h1>Contacte</h1>
-      <p class="form-page-sub">Envia'ns un missatge. Et respondrem per correu electrònic.</p>
+      <h1>{{ i18n "contacte_titol" }}</h1>
+      <p class="form-page-sub">{{ i18n "contacte_sub" }}</p>
     </div>
 
     <div class="form-wrap">
@@ -13,36 +13,36 @@
             class="blues-form">
 
         <div class="form-group">
-          <label for="cf-nom">Nom</label>
-          <input type="text" id="cf-nom" name="nom" required autocomplete="name" placeholder="El teu nom">
+          <label for="cf-nom">{{ i18n "contacte_nom" }}</label>
+          <input type="text" id="cf-nom" name="nom" required autocomplete="name" placeholder="{{ i18n "contacte_nom_ph" }}">
         </div>
 
         <div class="form-group">
-          <label for="cf-email">Correu electrònic</label>
-          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="tu@exemple.com">
+          <label for="cf-email">{{ i18n "contacte_email" }}</label>
+          <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="{{ i18n "contacte_email_ph" }}">
         </div>
 
         <div class="form-group">
-          <label for="cf-assumpte">Assumpte</label>
+          <label for="cf-assumpte">{{ i18n "contacte_assumpte" }}</label>
           <select id="cf-assumpte" name="assumpte">
-            <option value="">Selecciona...</option>
-            <option value="informació">Informació general</option>
-            <option value="músic">Sóc músic al llibre</option>
-            <option value="premsa">Premsa / mitjans</option>
-            <option value="col·laboració">Col·laboració</option>
-            <option value="altre">Altre</option>
+            <option value="">{{ i18n "contacte_selecciona" }}</option>
+            <option value="informació">{{ i18n "contacte_opt_info" }}</option>
+            <option value="músic">{{ i18n "contacte_opt_music" }}</option>
+            <option value="premsa">{{ i18n "contacte_opt_premsa" }}</option>
+            <option value="col·laboració">{{ i18n "contacte_opt_col" }}</option>
+            <option value="altre">{{ i18n "contacte_opt_altre" }}</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="cf-missatge">Missatge</label>
-          <textarea id="cf-missatge" name="missatge" required rows="6" placeholder="Escriu el teu missatge..."></textarea>
+          <label for="cf-missatge">{{ i18n "contacte_missatge" }}</label>
+          <textarea id="cf-missatge" name="missatge" required rows="6" placeholder="{{ i18n "contacte_missatge_ph" }}"></textarea>
         </div>
 
         <div class="form-group form-group--check">
           <label class="check-label">
             <input type="checkbox" name="rgpd" required>
-            <span>He llegit i accepto la <a href="{{ relLangURL "/legal/privacitat/" }}" target="_blank">política de privacitat</a>. Autoritzo el tractament de les meves dades per gestionar aquesta consulta.</span>
+            <span>{{ i18n "contacte_rgpd" (dict "url" (relLangURL "/legal/privacitat/")) | safeHTML }}</span>
           </label>
         </div>
 
@@ -50,18 +50,18 @@
         <input type="hidden" name="_subject" value="Contacte 40 Anys de Blues">
         <input type="hidden" name="_next" value="{{ absLangURL "/contacte/gracies/" }}">
 
-        <button type="submit" class="btn-blues">Enviar missatge</button>
+        <button type="submit" class="btn-blues">{{ i18n "contacte_enviar" }}</button>
       </form>
 
       <div id="contacte-ok" class="form-success" hidden>
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        <h2>Missatge enviat!</h2>
-        <p>Gràcies per contactar. Et respondrem aviat a <span id="cf-email-confirm"></span>.</p>
+        <h2>{{ i18n "contacte_ok_titol" }}</h2>
+        <p>{{ i18n "contacte_ok_text_plain" }} <span id="cf-email-confirm"></span>.</p>
       </div>
     </div>
 
     <div class="contacte-alt">
-      <p>O escriu-nos directament a <a href="mailto:hola@112books.eu">hola@112books.eu</a></p>
+      <p>{{ i18n "contacte_alt" }} <a href="mailto:hola@112books.eu">hola@112books.eu</a></p>
     </div>
   </div>
 </article>
@@ -76,7 +76,7 @@
     var data = new FormData(form);
     var btn = form.querySelector('button[type=submit]');
     btn.disabled = true;
-    btn.textContent = 'Enviant...';
+    btn.textContent = {{ i18n "enviant" | jsonify }};
     fetch(form.action, {
       method: 'POST',
       body: data,
@@ -89,13 +89,13 @@
         ok.hidden = false;
       } else {
         btn.disabled = false;
-        btn.textContent = 'Enviar missatge';
-        alert('Error en enviar. Prova de nou o escriu a hola@112books.eu');
+        btn.textContent = {{ i18n "contacte_enviar" | jsonify }};
+        alert({{ i18n "contacte_error" | jsonify }});
       }
     }).catch(function() {
       btn.disabled = false;
-      btn.textContent = 'Enviar missatge';
-      alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
+      btn.textContent = {{ i18n "contacte_enviar" | jsonify }};
+      alert({{ i18n "contacte_error_xarxa" | jsonify }});
     });
   });
 })();

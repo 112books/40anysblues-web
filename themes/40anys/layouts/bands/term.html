@@ -3,7 +3,7 @@
   <div class="container">
     {{ partial "breadcrumb.html" . }}
     <h1 class="taxonomy-title">{{ .Title }}</h1>
-    <p class="taxonomy-count">{{ len .Pages }} membre{{ if gt (len .Pages) 1 }}s{{ end }}</p>
+    <p class="taxonomy-count">{{ i18n "banda_membres_count" (dict "Count" (len .Pages)) }}</p>
 
     <div class="bandes-grid bandes-grid--single">
       <div class="banda-card banda-card--full">
@@ -12,7 +12,7 @@
           <li>
             <a href="{{ .RelPermalink }}" class="banda-membre-link">
               <div class="taxo-foto">
-                {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+                {{ $img := partial "foto.html" (dict "page" .) }}
                 {{ if $img }}
                 <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
                 {{ else }}

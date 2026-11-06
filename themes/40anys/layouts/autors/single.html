@@ -2,7 +2,7 @@
 <article class="autor-page">
   <div class="container">
     {{ partial "breadcrumb.html" . }}
-    {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+    {{ $img := partial "foto.html" (dict "page" .) }}
     <div class="autor-layout{{ if not $img }} autor-layout--sense-foto{{ end }}">
       <div class="autor-foto-col">
         {{ if $img }}
@@ -19,7 +19,7 @@
         <div class="autor-bio-text">{{ . }}</div>
         {{ end }}
         {{ with .Params.musica_url }}
-        <p class="autor-musica-link"><a href="{{ . }}">Vegeu també la fitxa com a músic →</a></p>
+        <p class="autor-musica-link"><a href="{{ . }}">{{ i18n "autor_vegeu_music" }}</a></p>
         {{ end }}
       </div>
     </div>

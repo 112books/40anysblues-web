@@ -1,14 +1,15 @@
 {{ define "main" }}
 <section class="cerca-section">
   <div class="container">
-    <h1 class="cerca-title">Cerca</h1>
+    <h1 class="cerca-title">{{ i18n "cerca_titol" }}</h1>
+    <script id="cerca-i18n" type="application/json">{{ dict "index" ("index.json" | relLangURL) "seccions" (dict "musics" (i18n "cerca_seccio_musics") "sales" (i18n "cerca_seccio_sales") "historia" (i18n "cerca_seccio_historia") "entitats" (i18n "cerca_seccio_entitats")) "resultat" (i18n "cerca_resultats") "resultats" (i18n "cerca_resultats_pl") "per" (i18n "cerca_per") "cap" (i18n "cerca_cap_resultat") "prova" (i18n "cerca_prova") | jsonify }}</script>
 
     <form class="cerca-form" id="cerca-form" action="" role="search">
       <input
         type="search"
         id="cerca-input"
         class="cerca-input"
-        placeholder="Músic, instrument, formació, sala..."
+        placeholder="{{ i18n "cerca_placeholder_llarg" }}"
         autocomplete="off"
         autofocus
       >
@@ -28,14 +29,10 @@
   var infoEl = document.getElementById('cerca-info');
   var fuse = null;
 
-  var sectionLabels = {
-    musics: 'Músic',
-    sales: 'Sala',
-    historia: 'Història',
-    entitats: 'Entitat'
-  };
+  var i18nData = JSON.parse(document.getElementById('cerca-i18n').textContent);
+  var sectionLabels = i18nData.seccions || {};
 
-  fetch('/index.json')
+  fetch(i18nData.index)
     .then(function (r) { return r.json(); })
     .then(function (data) {
       fuse = new Fuse(data, {
@@ -70,11 +67,11 @@
     }
     var results = fuse.search(q);
     infoEl.textContent = results.length
-      ? results.length + ' resultat' + (results.length !== 1 ? 's' : '') + ' per "' + q + '"'
-      : 'Cap resultat per "' + q + '"';
+      ? results.length + ' ' + (results.length === 1 ? i18nData.resultat : i18nData.resultats) + ' ' + i18nData.per + ' "' + q + '"'
+      : i18nData.cap + ' "' + q + '"';
 
     if (!results.length) {
-      resultsEl.innerHTML = '<p class="cerca-buit">Prova amb un altre terme.</p>';
+      resultsEl.innerHTML = '<p class="cerca-buit">' + i18nData.prova + '</p>';
       return;
     }
 

@@ -1,0 +1,17 @@
+{{/* Retorna la imatge principal d'una pàgina. Si la pàgina no en té (p. ex.
+     la versió en castellà, que comparteix les fotografies de la catalana),
+     agafa la de la seva traducció perquè no calguin còpies duplicades.
+     Paràmetres: page (la pàgina) i globs (llista de patrons, opcional). */}}
+{{- $p := .page -}}
+{{- $globs := .globs | default (slice "*.jpg" "*.png" "*.webp") -}}
+{{- $img := "" -}}
+{{- range $globs -}}{{- if not $img -}}{{- $img = $p.Resources.GetMatch . -}}{{- end -}}{{- end -}}
+{{- if not $img -}}
+  {{- range $p.Translations -}}
+    {{- if not $img -}}
+      {{- $t := . -}}
+      {{- range $globs -}}{{- if not $img -}}{{- $img = $t.Resources.GetMatch . -}}{{- end -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $img -}}

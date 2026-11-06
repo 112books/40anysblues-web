@@ -1,10 +1,10 @@
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Avís de cookies" hidden>
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="{{ i18n "cookies_aria" }}" hidden>
   <p class="cookie-text">
-    Aquest lloc no fa servir cookies de publicitat ni de seguiment. Només emprem l'emmagatzematge local (localStorage) per a l'avís, i serveis externs (Brevo, Formspree i Giscus/GitHub) només si envies un formulari o comentes. Les estadístiques són anònimes i sense cookies. <a href="{{ relLangURL "/legal/cookies/" }}">Més informació</a>
+    {{ i18n "cookies_text" }} <a href="{{ relLangURL "/legal/cookies/" }}">{{ i18n "cookies_mes" }}</a>
   </p>
   <div class="cookie-btns">
-    <button id="cookie-accept" class="btn-blues btn-blues--sm">D'acord</button>
-    <a href="{{ relLangURL "/legal/cookies/" }}" class="cookie-link">Política de cookies</a>
+    <button id="cookie-accept" class="btn-blues btn-blues--sm">{{ i18n "cookies_ok" }}</button>
+    <a href="{{ relLangURL "/legal/cookies/" }}" class="cookie-link">{{ i18n "cookies_politica" }}</a>
   </div>
 </div>
 

@@ -2,15 +2,15 @@
 <article class="content-page butlleti-page">
   <div class="container">
     <div class="form-page-header">
-      <h1>Butlletí</h1>
-      <p class="form-page-sub">Rep notícies del projecte, nous músics i novetats del blues a Barcelona.</p>
+      <h1>{{ i18n "butlleti_titol" }}</h1>
+      <p class="form-page-sub">{{ i18n "butlleti_sub" }}</p>
     </div>
 
     <div class="butlleti-grid">
       <!-- Subscripció general via Brevo -->
       <div class="butlleti-card">
-        <h2>Subscriu-te al butlletí</h2>
-        <p>Novetats del projecte, concerts, publicacions i activitats relacionades amb el blues barceloní.</p>
+        <h2>{{ i18n "butlleti_h2" }}</h2>
+        <p>{{ i18n "butlleti_p" }}</p>
 
         <form id="butlleti-form"
               action="https://8a40afa7.sibforms.com/serve/MUIFAB9YHIYuqP5hMMsd-zZSxaquqLRcfFdGRvZXadAWd3zTEfiTKSOf6AGGamMW9MMQFbyBH5x7kXc_POpABrs4R3frIPwzA34nbv1SDddfjzZPJPx0Fn2DLsYKdqmm2M-A-pY_t4zH0XUtBgW7vdF5Pu-2_PbGdSIGwBut2w9uhaSlGQ6T9Dz3AGxeWZsgZEGS2H4uYSCsSvE6Fg=="
@@ -18,35 +18,35 @@
               class="blues-form blues-form--compact">
 
           <div class="form-group">
-            <label for="bf-email">Correu electrònic</label>
-            <input type="email" id="bf-email" name="EMAIL" required autocomplete="email" placeholder="tu@exemple.com">
+            <label for="bf-email">{{ i18n "butlleti_email" }}</label>
+            <input type="email" id="bf-email" name="EMAIL" required autocomplete="email" placeholder="{{ i18n "contacte_email_ph" }}">
           </div>
 
           <div class="form-group form-group--check">
             <label class="check-label">
               <input type="checkbox" required>
-              <span>Accepto la <a href="{{ relLangURL "/legal/privacitat/" }}" target="_blank">política de privacitat</a> i el tractament de les meves dades per rebre el butlletí.</span>
+              <span>{{ i18n "butlleti_accept" (dict "url" (relLangURL "/legal/privacitat/")) | safeHTML }}</span>
             </label>
           </div>
 
           <input type="text" name="email_address_check" value="" style="display:none">
-          <input type="hidden" name="locale" value="ca">
+          <input type="hidden" name="locale" value="{{ .Site.Language.Lang }}">
           <input type="hidden" name="html_type" value="simple">
 
-          <button type="submit" class="btn-blues">Subscriure'm</button>
+          <button type="submit" class="btn-blues">{{ i18n "butlleti_btn" }}</button>
         </form>
 
         <div id="butlleti-ok" class="form-success" hidden>
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          <h2>Gràcies!</h2>
-          <p>Comprova el teu correu — t'hem enviat un email de confirmació.</p>
+          <h2>{{ i18n "butlleti_ok_titol" }}</h2>
+          <p>{{ i18n "butlleti_ok_text" }}</p>
         </div>
       </div>
 
       <!-- Músic al llibre via Brevo (llista Músics del llibre) -->
       <div class="butlleti-card butlleti-card--musics">
-        <h2>Sóc músic al llibre</h2>
-        <p>Si aparèixes al projecte <em>Preses Falses</em>, registra't per verificar les teves dades i rebre anuncis exclusius abans que ningú.</p>
+        <h2>{{ i18n "butlleti_musics_h2" }}</h2>
+        <p>{{ i18n "butlleti_musics_p" | safeHTML }}</p>
 
         <form id="musics-form"
               action="https://8a40afa7.sibforms.com/serve/MUIFACz_hpd2NQ9YH16FBm59q5lYc7K1D0b2rYArltKMrq4Il6aikiHSoF7spQZ-u6bWO248pi8notaW3uYe6m0ey_RJCBop6UWeqpjmO8Tx4XP5LI6aEJJDyvUWE9Yb3AjtIjcN760MvgIHHm5VdSMYeckTQ4PE_7dVw3POuvj-KNk02YVSnJJmWo7X2z9lG2xp2QnFrbjHHvfbOg=="
@@ -54,39 +54,39 @@
               class="blues-form blues-form--compact">
 
           <div class="form-group">
-            <label for="mf-nom">Nom artístic</label>
-            <input type="text" id="mf-nom" name="FIRSTNAME" required placeholder="Com apareixes al llibre">
+            <label for="mf-nom">{{ i18n "butlleti_musics_nom" }}</label>
+            <input type="text" id="mf-nom" name="FIRSTNAME" required placeholder="{{ i18n "butlleti_musics_nom_ph" }}">
           </div>
           <div class="form-group">
-            <label for="mf-email">Correu electrònic</label>
-            <input type="email" id="mf-email" name="EMAIL" required placeholder="tu@exemple.com">
+            <label for="mf-email">{{ i18n "butlleti_email" }}</label>
+            <input type="email" id="mf-email" name="EMAIL" required placeholder="{{ i18n "contacte_email_ph" }}">
           </div>
 
           <div class="form-group form-group--check">
             <label class="check-label">
               <input type="checkbox" required>
-              <span>Accepto la <a href="{{ relLangURL "/legal/privacitat/" }}" target="_blank">política de privacitat</a> i el tractament de les meves dades.</span>
+              <span>{{ i18n "butlleti_musics_accept" (dict "url" (relLangURL "/legal/privacitat/")) | safeHTML }}</span>
             </label>
           </div>
 
           <input type="text" name="email_address_check" value="" style="display:none">
-          <input type="hidden" name="locale" value="ca">
+          <input type="hidden" name="locale" value="{{ .Site.Language.Lang }}">
           <input type="hidden" name="html_type" value="simple">
 
-          <button type="submit" class="btn-blues">Registrar-me</button>
+          <button type="submit" class="btn-blues">{{ i18n "butlleti_musics_btn" }}</button>
         </form>
 
         <div id="musics-ok" class="form-success" hidden>
           <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-          <h2>Gràcies!</h2>
-          <p>Comprova el teu correu — t'hem enviat un email de confirmació.</p>
+          <h2>{{ i18n "butlleti_ok_titol" }}</h2>
+          <p>{{ i18n "butlleti_ok_text" }}</p>
         </div>
       </div>
     </div>
 
-    {{ with site.Params.telegram }}<p class="form-privacitat" style="text-align:center;margin-bottom:.4rem;">També ens trobaràs al <a href="{{ . }}" target="_blank" rel="noopener">canal de Telegram «{{ site.Params.telegram_name }}»</a>.</p>{{ end }}
+    {{ with site.Params.telegram }}<p class="form-privacitat" style="text-align:center;margin-bottom:.4rem;">{{ i18n "butlleti_telegram" (dict "url" . "nom" site.Params.telegram_name) | safeHTML }}</p>{{ end }}
 
-    <p class="form-privacitat">Les dades recollides s'utilitzen únicament per gestionar les comunicacions d'aquest projecte i no es comparteixen amb tercers. Pots cancel·lar la subscripció en qualsevol moment. <a href="{{ relLangURL "/legal/privacitat/" }}">Política de privacitat</a>.</p>
+    <p class="form-privacitat">{{ i18n "butlleti_legal" }} <a href="{{ relLangURL "/legal/privacitat/" }}">{{ i18n "footer_privacitat" }}</a>.</p>
   </div>
 </article>
 
@@ -101,7 +101,7 @@
       var data = new FormData(bForm);
       var btn = bForm.querySelector('button[type=submit]');
       btn.disabled = true;
-      btn.textContent = 'Enviant...';
+      btn.textContent = {{ i18n "enviant" | jsonify }};
       fetch(bForm.action, { method: 'POST', body: data, mode: 'no-cors' })
         .then(function() {
           bForm.hidden = true;
@@ -109,8 +109,8 @@
         })
         .catch(function() {
           btn.disabled = false;
-          btn.textContent = 'Subscriure\'m';
-          alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
+          btn.textContent = {{ i18n "butlleti_btn" | jsonify }};
+          alert({{ i18n "contacte_error_xarxa" | jsonify }});
         });
     });
   }
@@ -124,7 +124,7 @@
       var data = new FormData(mForm);
       var btn = mForm.querySelector('button[type=submit]');
       btn.disabled = true;
-      btn.textContent = 'Enviant...';
+      btn.textContent = {{ i18n "enviant" | jsonify }};
       fetch(mForm.action, { method: 'POST', body: data, mode: 'no-cors' })
         .then(function() {
           mForm.hidden = true;
@@ -132,8 +132,8 @@
         })
         .catch(function() {
           btn.disabled = false;
-          btn.textContent = 'Registrar-me';
-          alert('Error de xarxa. Prova de nou o escriu a hola@112books.eu');
+          btn.textContent = {{ i18n "butlleti_musics_btn" | jsonify }};
+          alert({{ i18n "contacte_error_xarxa" | jsonify }});
         });
     });
   }

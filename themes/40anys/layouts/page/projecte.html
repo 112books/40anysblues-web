@@ -27,45 +27,45 @@
 
         <!-- El Projecte en Números -->
         <section class="stats-section" id="numeros">
-          <h2>El Projecte en Números</h2>
+          <h2>{{ i18n "projecte_numeros" }}</h2>
           <div class="stats-grid">
             <div class="stat">
               <span class="stat-num">{{ $stats.total_musics }}</span>
-              <span class="stat-label">músics retratats</span>
+              <span class="stat-label">{{ i18n "home_stat_musics" }}</span>
             </div>
             <div class="stat">
               <span class="stat-num">{{ $stats.total_fotos }}</span>
-              <span class="stat-label">fotografies</span>
+              <span class="stat-label">{{ i18n "home_stat_fotos" }}</span>
             </div>
             <div class="stat">
               <span class="stat-num">{{ $stats.anys_escena }}</span>
-              <span class="stat-label">anys d'escena</span>
+              <span class="stat-label">{{ i18n "home_stat_anys" }}</span>
             </div>
             <div class="stat">
               <span class="stat-num">{{ $stats.total_instruments }}</span>
-              <span class="stat-label">instruments</span>
+              <span class="stat-label">{{ i18n "home_stat_instruments" }}</span>
             </div>
             <div class="stat">
               <span class="stat-num">{{ $stats.total_formacions }}</span>
-              <span class="stat-label">formacions documentades</span>
+              <span class="stat-label">{{ i18n "home_stat_formacions" }}</span>
             </div>
             <div class="stat">
               <span class="stat-num">{{ $stats.total_ciutats }}</span>
-              <span class="stat-label">ciutats d'origen</span>
+              <span class="stat-label">{{ i18n "home_stat_ciutats" }}</span>
             </div>
           </div>
         </section>
 
         <!-- Els Llibres -->
         <section class="llibres-section" id="llibres">
-          <h2>Els Llibres</h2>
+          <h2>{{ i18n "projecte_llibres" }}</h2>
           <div class="llibres-grid">
             <div class="llibre-card">
               <img src="/llibres/Preses-Falses.png" alt="Preses Falses">
               <div class="llibre-info">
                 <h3>Preses Falses</h3>
-                <p>40 Anys de Blues a Barcelona · 2022</p>
-                <p class="llibre-desc">La primera edició del projecte. Quasi 140 músics retratats. Les preses descartades de les sessions, un valor fotogràfic propi.</p>
+                <p>{{ i18n "projecte_llibre1_sub" }}</p>
+                <p class="llibre-desc">{{ i18n "projecte_llibre1_desc" }}</p>
                 <p class="llibre-isbn">ISBN 978-84-122960-7-5</p>
               </div>
             </div>
@@ -73,10 +73,10 @@
               <img src="/llibres/40anysbluesbarcelona.png" alt="40 Anys de Blues a Barcelona">
               <div class="llibre-info">
                 <h3>40 Anys de Blues a Barcelona</h3>
-                <p>Primera edició curta · {{ $vd.preu | default "38" }} € · {{ $vd.preu_soci | default "33" }} € per als socis de la SBB</p>
-                <p class="llibre-desc">L'edició definitiva. {{ $stats.total_musics }} músics, biografies completes, fotografies definitives. Quatre dècades d'una escena que segueix viva.</p>
-                <p class="llibre-desc">Presentació i inici de la venda: {{ $ev.data_text | default "6 de novembre · 19h" }} · {{ $ev.lloc | default "Centre Cultural Collblanc La Torrassa" }}.</p>
-                <p class="llibre-desc">Reserves i encàrrecs per correu a <a href="{{ $mailLlibre }}">{{ $vd.email | default "info@societatbluesbarcelona.org" }}</a>.</p>
+                <p>{{ i18n "projecte_llibre2_sub" (dict "preu" ($vd.preu | default "38") "soci" ($vd.preu_soci | default "33")) }}</p>
+                <p class="llibre-desc">{{ i18n "projecte_llibre2_desc" (dict "musics" $stats.total_musics) }}</p>
+                <p class="llibre-desc">{{ i18n "projecte_llibre2_pres" (dict "data" (i18n "data_esdeveniment") "lloc" ($ev.lloc | default "Centre Cultural Collblanc La Torrassa")) }}</p>
+                <p class="llibre-desc">{{ i18n "projecte_llibre2_reserves" (dict "mail" $mailLlibre "email" ($vd.email | default "info@societatbluesbarcelona.org")) | safeHTML }}</p>
               </div>
             </div>
           </div>
@@ -84,14 +84,14 @@
 
         <!-- Els Culpables -->
         <section class="autors-section" id="autors">
-          <h2>Els Culpables</h2>
+          <h2>{{ i18n "projecte_culpables" }}</h2>
           {{ $autors := sort (where site.RegularPages "Section" "autors") "Params.ordre" }}
           {{ $principal := index $autors 0 }}
           {{ $resta := after 1 $autors }}
 
           <!-- Principal: sol a la primera fila -->
           {{ with $principal }}
-          {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+          {{ $img := partial "foto.html" (dict "page" .) }}
           <div class="autors-principal">
             <a href="{{ .RelPermalink }}" class="autor-card">
               {{ if $img }}
@@ -108,7 +108,7 @@
           <!-- Resta d'autors -->
           <div class="autors-grid">
             {{ range $resta }}
-            {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+            {{ $img := partial "foto.html" (dict "page" .) }}
             <a href="{{ .RelPermalink }}" class="autor-card">
               {{ if $img }}
               <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
@@ -124,8 +124,8 @@
 
         <!-- Gràcies a -->
         <section class="gracies-section" id="gracies">
-          <h2>Gràcies a</h2>
-          <p class="gracies-intro">Projecte materialitzat gràcies a:</p>
+          <h2>{{ i18n "projecte_gracies" }}</h2>
+          <p class="gracies-intro">{{ i18n "projecte_gracies_intro" }}</p>
           <div class="gracies-logos">
             <a href="http://112books.eu" target="_blank" rel="noopener" title="Editorial 112 Books">
               <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
@@ -153,10 +153,10 @@
         {{ $biblio := where site.RegularPages "Section" "bibliografia" }}
         {{ if $biblio }}
         <section class="biblio-section" id="bibliografia">
-          <h2>Bibliografia</h2>
+          <h2>{{ i18n "projecte_biblio" }}</h2>
           <div class="biblio-grid">
             {{ range sort $biblio "Params.ordre" }}
-            {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+            {{ $img := partial "foto.html" (dict "page" .) }}
             <div class="biblio-card">
               <div class="biblio-portada">
                 {{ if $img }}
@@ -184,12 +184,12 @@
         <div class="editorial-peu">
           <div class="editorial-logo">
             <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
-            <p>Una producció de l'<a href="http://112books.eu" target="_blank" rel="noopener"><strong>Editorial 112 Books</strong></a></p>
+            <p>{{ i18n "projecte_produccio" | safeHTML }}</p>
           </div>
           <div class="editorial-cita-wrap">
             <blockquote class="projecte-cita">
               <p class="cita-en">"The blues are the roots; everything else is the fruits."</p>
-              <p class="cita-ca">«El blues són les arrels; tota la resta són els fruits.»</p>
+              <p class="cita-ca">{{ i18n "projecte_cita_trad" }}</p>
               <footer class="cita-autor">— Willie Dixon</footer>
             </blockquote>
           </div>

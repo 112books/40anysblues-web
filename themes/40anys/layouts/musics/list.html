@@ -7,9 +7,9 @@
     </div>
 
     <div class="filtres">
-      <label>Instrument:
+      <label>{{ i18n "filtre_instrument" }}:
         <select id="filtre-instrument">
-          <option value="">Tots</option>
+          <option value="">{{ i18n "filtre_tots" }}</option>
           {{ $instruments := slice }}
           {{ range .Pages }}
             {{ range .Params.instruments }}
@@ -21,9 +21,9 @@
           {{ end }}
         </select>
       </label>
-      <label>Any de naixement:
+      <label>{{ i18n "filtre_any" }}:
         <select id="filtre-any">
-          <option value="">Tots</option>
+          <option value="">{{ i18n "filtre_tots" }}</option>
           {{ $anys := slice }}
           {{ range .Pages }}
             {{ with .Params.born_year }}{{ $anys = $anys | append (string .) }}{{ end }}
@@ -33,16 +33,16 @@
           {{ end }}
         </select>
       </label>
-      <label>Cerca:
-        <input type="search" id="filtre-cerca" placeholder="Cerca per nom...">
+      <label>{{ i18n "filtre_cerca" }}:
+        <input type="search" id="filtre-cerca" placeholder="{{ i18n "filtre_cerca_placeholder" }}">
       </label>
     </div>
 
-    <p class="musics-count"><span id="count">{{ len .Pages }}</span> músics</p>
+    <p class="musics-count"><span id="count">{{ len .Pages }}</span> {{ i18n "musics_label" }}</p>
 
     <div class="musics-grid" id="musics-grid">
       {{ range sort .Pages "Params.ordre" }}
-      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      {{ $img := partial "foto.html" (dict "page" .) }}
       <a href="{{ .RelPermalink }}" class="musico-card"
          data-instruments="{{ delimit .Params.instruments "|" | lower }}"
          data-any="{{ .Params.born_year }}"

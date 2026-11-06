@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $img := or (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.svg") (.Resources.GetMatch "*.webp") }}
+{{ $img := partial "foto.html" (dict "page" . "globs" (slice "*.png" "*.jpg" "*.svg" "*.webp")) }}
 <article class="sala-page">
   <div class="container">
     {{ partial "breadcrumb.html" . }}

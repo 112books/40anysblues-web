@@ -1,6 +1,11 @@
 {{ define "main" }}
-{{ $foto := or (.Resources.GetMatch "*foto*") (.Resources.GetMatch "*photo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.webp") }}
-{{ $logo := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.svg") }}
+{{/* Imatges de l'entitat: el fitxer amb «logo» al nom és el logotip; la resta, foto.
+     Si només n'hi ha una, és el logotip. Es mira també la traducció (versió ES). */}}
+{{ $imgs := .Resources.ByType "image" }}
+{{ if not $imgs }}{{ range .Translations }}{{ if not $imgs }}{{ $imgs = .Resources.ByType "image" }}{{ end }}{{ end }}{{ end }}
+{{ $foto := "" }}{{ $logo := "" }}
+{{ range $imgs }}{{ if findRE "(?i)logo" .Name }}{{ if not $logo }}{{ $logo = . }}{{ end }}{{ else }}{{ if not $foto }}{{ $foto = . }}{{ end }}{{ end }}{{ end }}
+{{ if and $foto (not $logo) (eq (len $imgs) 1) }}{{ $logo = $foto }}{{ $foto = "" }}{{ end }}
 {{ $teImatge := or $foto $logo }}
 <article class="entitat-page">
   <div class="container">
@@ -9,7 +14,7 @@
       {{ if $teImatge }}
       <div class="entitat-logo-col">
         {{ if $foto }}
-        <button class="musico-foto-btn" aria-label="Ampliar fotografia" data-src="{{ $foto.RelPermalink }}" data-alt="{{ .Title }}">
+        <button class="musico-foto-btn" aria-label="{{ i18n "musico_ampliar" }}" data-src="{{ $foto.RelPermalink }}" data-alt="{{ .Title }}">
           <img src="{{ $foto.RelPermalink }}" alt="{{ .Title }}" class="entitat-foto"
                oncontextmenu="return false" ondragstart="return false">
           <span class="musico-foto-zoom">&#x26F6;</span>
@@ -33,8 +38,8 @@
   </div>
 </article>
 
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Fotografia ampliada">
-  <button class="lightbox-tanca" aria-label="Tancar">&#x2715;</button>
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="{{ i18n "musico_foto_ampliada" }}">
+  <button class="lightbox-tanca" aria-label="{{ i18n "tancar" }}">&#x2715;</button>
   <div class="lightbox-contingut">
     <img id="lightbox-img" src="" alt="" oncontextmenu="return false" ondragstart="return false">
   </div>

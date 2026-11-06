@@ -15,14 +15,18 @@ defaultContentLanguageInSubdir = false
       description = "Arxiu fotogràfic i biogràfic de l'escena del blues barcelonina"
   [languages.es]
     languageName = 'Castellano'
-    languageCode = 'es'
+    languageCode = 'es-ES'
     weight = 2
-    disabled = true
+    title = '40 Anys de blues a Barcelona'
+    contentDir = 'content/es'
+    [languages.es.params]
+      description = "Archivo fotográfico y biográfico de la escena del blues barcelonés"
   [languages.en]
     languageName = 'English'
     languageCode = 'en'
     weight = 3
     disabled = true
+    contentDir = 'content/en'
 
 [taxonomies]
   instrument = 'instruments'
@@ -31,11 +35,7 @@ defaultContentLanguageInSubdir = false
 # --- Esdeveniment i venda del llibre: font única de dates i textos ---
 # El panell lateral canvia sol de contingut segons aquestes dates (hora local catalana).
 [params.esdeveniment]
-  tab = 'El llibre'
-  titol = 'Presentació del llibre + Exposició fotogràfica'
   obra = '40 anys de blues a Barcelona'
-  data_text = '6 de novembre · 19h'
-  data_curta = '6 de novembre'
   inici = '2026-11-06T19:00:00+01:00'
   # El web es manté tancat (només el pop-up) fins a aquest moment. Estava previst
   # una hora abans de la presentació; el 6/11 s'ha avançat al matí perquè no hi
@@ -50,9 +50,7 @@ defaultContentLanguageInSubdir = false
   preu = '38'
   preu_soci = '33'
   email = 'info@societatbluesbarcelona.org'
-  assumpte = 'Reserva 40 anys de blues'
   reserva_fins = '2026-11-04T23:59:59+01:00'
-  reserva_fins_text = 'dimecres 4 de novembre'
 
 [params]
   author = 'Joan Linux'
@@ -61,6 +59,8 @@ defaultContentLanguageInSubdir = false
   # Canal de Telegram (font única per a tot el web)
   telegram = 'https://t.me/blues40anysbcn'
   telegram_name = '40 anys de blues a Barcelona'
+  # Músics que no surten mai al «Músic destacat» de la portada (id = carpeta)
+  aleatori_exclosos = ['toni-pedrol', 'julio-lobos', 'carrie-lewis', 'quico-pi-de-la-serra']
 
 [outputs]
   home = ["HTML", "JSON"]

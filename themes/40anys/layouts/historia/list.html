@@ -3,7 +3,7 @@
   <div class="container">
     <div class="text-offset">
       <h1>{{ .Title }}</h1>
-      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      {{ $img := partial "foto.html" (dict "page" .) }}
       <div class="historia-content">
         {{ if $img }}
         <div class="historia-foto">

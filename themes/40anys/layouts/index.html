@@ -1,7 +1,12 @@
 {{ define "main" }}
 
 {{/* Random musician */}}
-{{ $musics := where site.RegularPages "Section" "musics" }}
+{{ $musics := slice }}
+{{ $exclosos := site.Params.aleatori_exclosos | default slice }}
+{{ range where site.RegularPages "Section" "musics" }}
+  {{ $id := replaceRE "^musics/(.+)/$" "$1" .File.Dir }}
+  {{ if not (in $exclosos $id) }}{{ $musics = $musics | append . }}{{ end }}
+{{ end }}
 {{ $randomMusic := index (shuffle $musics) 0 }}
 
 
@@ -12,14 +17,14 @@
         <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
       </div>
       <div class="hero-text">
-        <h1>La història del Blues a Barcelona</h1>
-        <p>Benvinguts a <em>40 anys de Blues a Barcelona</em>. Aquest web neix del resultat de l'edició del llibre del mateix nom.</p>
-        <p>Des del 2020 que es va iniciar, hem fotografiat tots els protagonistes del Blues a la ciutat comptal.</p>
-        <p>Avui dia tenim editat el primer treball del projecte: <a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener"><em>«Preses Falses, 40 anys de Blues a Barcelona»</em></a>, un petit llibre de retrats de quasi 140 músics de Blues amb presència a Barcelona.</p>
-        <p>La fotografia tradicional com a eina d'unió. El projecte es va iniciar per en Joan Linux en intentar immortalitzar als músics que ha conegut en els seus anys de fotògraf del Festival de Blues de Barcelona. I com el mateix estil de música, la fotografia vella, química, en blanc i negre i realitzada amb andròmines que tenen els mateixos, si no més, anys que els primers instruments del blues rural dels Estats Units.</p>
+        <h1>{{ i18n "home_h1" }}</h1>
+        <p>{{ i18n "home_p1" | safeHTML }}</p>
+        <p>{{ i18n "home_p2" | safeHTML }}</p>
+        <p>{{ i18n "home_p3" | safeHTML }}</p>
+        <p>{{ i18n "home_p4" | safeHTML }}</p>
         <div class="hero-actions">
-          <a href="{{ relLangURL "/musics/" }}" class="btn">Els Músics</a>
-          <a href="{{ relLangURL "/projecte/" }}" class="btn btn-outline">El Projecte</a>
+          <a href="{{ relLangURL "/musics/" }}" class="btn">{{ i18n "home_btn_musics" }}</a>
+          <a href="{{ relLangURL "/projecte/" }}" class="btn btn-outline">{{ i18n "home_btn_projecte" }}</a>
         </div>
       </div>
     </div>
@@ -33,14 +38,14 @@
         <div class="random-foto" id="random-foto" style="display:none">
           <img id="random-img" src="" alt="">
         </div>
-        <span class="random-label">Músic destacat</span>
+        <span class="random-label">{{ i18n "home_random_label" }}</span>
         <h3 class="random-name"><a id="random-link" href="#">—</a></h3>
         <p class="random-meta" id="random-meta"></p>
       </div>
       {{/* Embed músics data for JS random pick */}}
       <script>
       {{ $data := slice }}
-      {{ range $musics }}{{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}{{ if $img }}{{ $data = $data | append (dict "url" .RelPermalink "title" .Title "img" $img.RelPermalink "instruments" (default slice .Params.instruments)) }}{{ end }}{{ end }}
+      {{ range $musics }}{{ $img := partial "foto.html" (dict "page" .) }}{{ if $img }}{{ $data = $data | append (dict "url" .RelPermalink "title" .Title "img" $img.RelPermalink "instruments" (default slice .Params.instruments)) }}{{ end }}{{ end }}
       window.__musics__ = {{ $data | jsonify | safeJS }};
       (function(){
         var list = window.__musics__ || [];
@@ -55,15 +60,15 @@
       })();
       </script>
       <div class="random-card random-card--llibres">
-        <span class="random-label">Els Llibres</span>
+        <span class="random-label">{{ i18n "home_llibres_label" }}</span>
         <div class="random-llibres-stack">
           <div class="llibre-home-card">
             <img src="/llibres/40anysbluesbarcelona.png" alt="40 Anys de Blues a Barcelona">
             <div class="llibre-home-info">
               <h3>40 Anys de Blues a Barcelona</h3>
-              <p class="llibre-sub">A la venda el 6 de novembre · 38 € · 33 € socis SBB</p>
-              <p>Primera edició curta. {{ hugo.Data.stats.total_musics }} músics, biografies completes, fotografies definitives. Quatre dècades d'una escena que segueix viva.</p>
-              <a class="btn" href="mailto:info@societatbluesbarcelona.org?subject=Reserva%2040%20anys%20de%20blues">Encarrega'l per correu</a>
+              <p class="llibre-sub">{{ i18n "home_llibre1_sub" (dict "data" (i18n "data_esdeveniment_curta") "preu" (site.Params.venda.preu | default "38") "soci" (site.Params.venda.preu_soci | default "33")) }}</p>
+              <p>{{ i18n "home_llibre1_desc" (dict "musics" hugo.Data.stats.total_musics) }}</p>
+              <a class="btn" href="mailto:info@societatbluesbarcelona.org?subject=Reserva%2040%20anys%20de%20blues">{{ i18n "home_llibre1_btn" }}</a>
             </div>
           </div>
           <div class="llibre-home-card">
@@ -72,9 +77,9 @@
             </a>
             <div class="llibre-home-info">
               <h3><a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener">Preses Falses</a></h3>
-              <p class="llibre-sub">40 Anys de Blues a Barcelona · 2022</p>
-              <p>La primera edició del projecte. Quasi 140 músics retratats en blanc i negre amb càmeres analògiques. Les preses descartades de les sessions, un valor fotogràfic propi.</p>
-              <a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener" class="btn">Comprar</a>
+              <p class="llibre-sub">{{ i18n "home_llibre2_sub" }}</p>
+              <p>{{ i18n "home_llibre2_desc" }}</p>
+              <a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener" class="btn">{{ i18n "home_llibre2_btn" }}</a>
             </div>
           </div>
         </div>
@@ -86,10 +91,10 @@
 
 <section class="home-autors">
   <div class="container">
-    <h2 class="section-title">Els Culpables</h2>
+    <h2 class="section-title">{{ i18n "home_culpables" }}</h2>
     <div class="autors-grid">
       {{ range sort (where site.RegularPages "Section" "autors") "Params.ordre" }}
-      {{ $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") }}
+      {{ $img := partial "foto.html" (dict "page" .) }}
       <a href="{{ .RelPermalink }}" class="autor-card">
         {{ if $img }}
         <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
@@ -107,14 +112,14 @@
 
 <section class="home-numeros">
   <div class="container">
-    <h2 class="section-title">El Projecte en Números</h2>
+    <h2 class="section-title">{{ i18n "home_numeros" }}</h2>
     <div class="stats-grid" id="stats-grid">
-      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_musics }}">0</span><span class="stat-label">músics retratats</span></div>
-      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_fotos }}">0</span><span class="stat-label">fotografies</span></div>
-      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.anys_escena }}">0</span><span class="stat-label">anys d'escena</span></div>
-      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_instruments }}">0</span><span class="stat-label">instruments</span></div>
-      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_formacions }}">0</span><span class="stat-label">formacions documentades</span></div>
-      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_ciutats }}">0</span><span class="stat-label">ciutats d'origen</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_musics }}">0</span><span class="stat-label">{{ i18n "home_stat_musics" }}</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_fotos }}">0</span><span class="stat-label">{{ i18n "home_stat_fotos" }}</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.anys_escena }}">0</span><span class="stat-label">{{ i18n "home_stat_anys" }}</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_instruments }}">0</span><span class="stat-label">{{ i18n "home_stat_instruments" }}</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_formacions }}">0</span><span class="stat-label">{{ i18n "home_stat_formacions" }}</span></div>
+      <div class="stat"><span class="stat-num" data-target="{{ hugo.Data.stats.total_ciutats }}">0</span><span class="stat-label">{{ i18n "home_stat_ciutats" }}</span></div>
     </div>
   </div>
 </section>
@@ -160,22 +165,22 @@
     <div class="home-gracies-top">
       <div class="home-gracies-editorial">
         <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
-        <p>Una producció de l'<a href="http://112books.eu" target="_blank" rel="noopener"><strong>Editorial 112 Books</strong></a></p>
+        <p>{{ i18n "home_produccio" | safeHTML }}</p>
       </div>
       <div class="home-gracies-dreta">
         <blockquote class="projecte-cita">
           <p class="cita-original">"The blues are the roots; everything else is the fruits."</p>
-          <p class="cita-traduccio">«El blues són les arrels; tota la resta són els fruits.»</p>
+          <p class="cita-traduccio">{{ i18n "home_cita_trad" }}</p>
           <cite>Willie Dixon</cite>
         </blockquote>
         <div class="home-gracies-bottom">
-          <p class="gracies-intro">Projecte materialitzat gràcies a:</p>
+          <p class="gracies-intro">{{ i18n "home_gracies_intro" }}</p>
           <div class="gracies-logos">
             <a href="http://112books.eu" target="_blank" rel="noopener" title="Editorial 112 Books">
               <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
             </a>
             {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
-            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+            {{ $img := partial "foto.html" (dict "page" . "globs" (slice "*logo*" "*.jpg" "*.png")) }}
             {{ if $img }}
             <a href="{{ .RelPermalink }}" title="{{ .Title }}">
               <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
@@ -183,7 +188,7 @@
             {{ end }}
             {{ end }}
             {{ with site.GetPage "/entitats/societat-de-blues-de-barcelona" }}
-            {{ $img := or (.Resources.GetMatch "*logo*") (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") }}
+            {{ $img := partial "foto.html" (dict "page" . "globs" (slice "*logo*" "*.jpg" "*.png")) }}
             {{ if $img }}
             <a href="{{ .RelPermalink }}" title="{{ .Title }}">
               <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}">
