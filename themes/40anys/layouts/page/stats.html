@@ -233,7 +233,7 @@
       .sort(function(a,b){ return byPage[b]-byPage[a]; })
       .slice(0,10);
 
-    if(!items.length){ document.getElementById(id).innerHTML='<p class="stats-loading">' + {{ i18n "stats_sense_dades" | jsonify }} + '</p>'; return; }
+    if(!items.length){ document.getElementById(id).innerHTML='<p class="stats-loading">{{ i18n "stats_sense_dades" }}</p>'; return; }
 
     var max = byPage[items[0]];
     var html = '<ol class="stats-top-ol">';
@@ -253,8 +253,8 @@
   }
 
   function renderRefs(refsData) {
-    var refs = (refsData.refs||[]).filter(function(r){ return r.count>0; }).slice(0,15);
-    if(!refs.length){ document.getElementById('stats-refs').innerHTML='<p class="stats-loading">' + {{ i18n "stats_sense_referents" | jsonify }} + '</p>'; return; }
+    var refs = ((refsData && (refsData.stats || refsData.refs)) || []).filter(function(r){ return r.count>0; }).slice(0,15);
+    if(!refs.length){ document.getElementById('stats-refs').innerHTML='<p class="stats-loading">{{ i18n "stats_sense_referents" }}</p>'; return; }
     var max = refs[0].count;
     var html = '<ol class="stats-top-ol">';
     refs.forEach(function(r, i){
@@ -283,14 +283,15 @@
     });
 
     Promise.all([
-      gcFetch('/stats/hits',  {start:range.start, end:range.end}),
-      gcFetch('/stats/refs',  {start:range.start, end:range.end, limit:20})
+      gcFetch('/stats/hits',     {start:range.start, end:range.end}).catch(function(){ return null; }),
+      gcFetch('/stats/toprefs',  {start:range.start, end:range.end, limit:20}).catch(function(){ return null; })
     ]).then(function(results){
-      render(results[0], results[1], days);
+      if (!results[0]) { throw new Error('hits'); }
+      render(results[0], results[1] || {stats: []}, days);
     }).catch(function(e){
       console.error(e);
       ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
-        document.getElementById(id).innerHTML='<p class="stats-error">' + {{ i18n "stats_error" | jsonify }} + '</p>';
+        document.getElementById(id).innerHTML='<p class="stats-error">{{ i18n "stats_error" }}</p>';
       });
     });
   }

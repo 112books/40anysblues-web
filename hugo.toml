@@ -25,8 +25,10 @@ defaultContentLanguageInSubdir = false
     languageName = 'English'
     languageCode = 'en'
     weight = 3
-    disabled = true
+    title = '40 Anys de blues a Barcelona'
     contentDir = 'content/en'
+    [languages.en.params]
+      description = "Photographic and biographical archive of Barcelona's blues scene"
 
 [taxonomies]
   instrument = 'instruments'
