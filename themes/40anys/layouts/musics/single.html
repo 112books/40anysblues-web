@@ -96,7 +96,7 @@
 </script>
 
 {{- $img := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") -}}
-{{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" (cond (and .Params.nom_complet (ne .Params.nom_complet "")) .Params.nom_complet .Title) "url" .Permalink "description" (.Summary | plainify | htmlUnescape | truncate 200) "inLanguage" "ca" -}}
+{{- $person := dict "@context" "https://schema.org" "@type" "Person" "name" (cond (and .Params.nom_complet (ne .Params.nom_complet "")) .Params.nom_complet .Title) "url" .Permalink "description" (.Summary | plainify | htmlUnescape | truncate 200) "inLanguage" .Site.Language.Lang -}}
 {{- if $img -}}{{- $person = merge $person (dict "image" $img.Permalink) -}}{{- end -}}
 {{- with .Params.malnom -}}{{- $person = merge $person (dict "alternateName" .) -}}{{- end -}}
 {{- with .Params.born_year -}}{{- $person = merge $person (dict "birthDate" (printf "%d" .)) -}}{{- end -}}

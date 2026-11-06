@@ -4,7 +4,7 @@ nom_complet: David Pastor
 nom_real: ''
 malnom: ''
 born_year: 1974
-born_city: Bad Honnef (Alemanya)
+born_city: Bad Honnef (Alemania)
 instruments:
 - Trompeta
 bands:

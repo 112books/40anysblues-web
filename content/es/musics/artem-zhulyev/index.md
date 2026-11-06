@@ -4,7 +4,7 @@ nom_complet: Artem Zhulyev
 nom_real: ''
 malnom: ''
 born_year: 1978
-born_city: Kropyvnytskyi (Ucraïna)
+born_city: Kropyvnytskyi (Ucrania)
 instruments:
 - Saxo
 bands:

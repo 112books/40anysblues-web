@@ -37,6 +37,19 @@ ESTAT = os.path.join(ARREL, "scripts", "traduccions-estat.yaml")
 IDIOMES = ("ca", "es", "en")
 PREFIX = {"ca": "", "es": "/es/", "en": "/en/"}
 CAMP_IDENTICS = ("born_year", "death_year", "ordre", "session_date", "draft", "bands")
+# Noms de pais en catala que no han de sortir a les traduccions (camp born_city)
+PAISOS_EN_CATALA = {
+    "es": ("Suïssa", "França", "Itàlia", "Alemanya", "Bèlgica", "Mèxic", "Anglaterra",
+           "Escòcia", "Àustria", "Rússia", "Ucraïna", "Suècia", "Canadà", "EUA",
+           "Regne Unit", "Veneçuela", "Sèrbia", "Moçambic", "Uruguai", "Polònia",
+           "Txèquia", "Japó", "Grècia"),
+    "en": ("Suïssa", "França", "Itàlia", "Alemanya", "Bèlgica", "Mèxic", "Anglaterra",
+           "Escòcia", "Àustria", "Rússia", "Ucraïna", "Suècia", "Canadà", "EUA",
+           "Regne Unit", "Veneçuela", "Sèrbia", "Moçambic", "Xile", "Uruguai",
+           "Polònia", "Txèquia", "Japó", "Grècia", "Irlanda", "Brasil", "París",
+           "Londres", "Belgrad", "Pàdua", "Màlaga"),
+}
+
 # Rutes que no son contingut i no porten prefix d'idioma
 EXEMPCIONS = ("/logotips/", "/css/", "/js/", "/llibres/", "/autors/", "/images/", "/fonts/", "/favicon")
 
@@ -149,6 +162,14 @@ def main() -> int:
                 )
     elif not args.quiet:
         print("Avís: encara no hi ha scripts/traduccions-estat.yaml; executal amb --actualitza")
+
+    # 2c. Noms de pais en catala dins del camp born_city de les traduccions
+    for idioma in ("es", "en"):
+        for ruta, text in sorted(pages[idioma].items()):
+            ciutat = frontmatter(text).get("born_city") or ""
+            for pais in PAISOS_EN_CATALA[idioma]:
+                if re.search(rf"(?<!\w){re.escape(pais)}(?!\w)", ciutat):
+                    avisos.append(f"{idioma}: {ruta} te el pais en catala al born_city: {ciutat}")
 
     # 3. Cos sense traduir i enllacos
     for idioma in ("es", "en"):

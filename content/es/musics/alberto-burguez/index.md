@@ -4,7 +4,7 @@ nom_complet: Alberto Burguez
 nom_real: ''
 malnom: ''
 born_year: 1992
-born_city: Montevideo (Uruguai)
+born_city: Montevideo (Uruguay)
 instruments:
 - Piano
 - Voz

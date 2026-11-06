@@ -4,7 +4,7 @@ nom_complet: Larry Smith
 nom_real: ''
 malnom: ''
 born_year: 1954
-born_city: Felixstowe (Anglaterra)
+born_city: Felixstowe (Inglaterra)
 instruments:
 - Guitarra
 - Voz

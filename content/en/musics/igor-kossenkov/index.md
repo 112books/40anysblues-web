@@ -4,7 +4,7 @@ nom_complet: Igor Kossenkov
 nom_real: ''
 malnom: ''
 born_year: 1961
-born_city: Riazan (Rússia)
+born_city: Ryazan (Russia)
 instruments:
 - Trombone
 bands:

@@ -4,7 +4,7 @@ nom_complet: Brian O Mahony
 nom_real: ''
 malnom: ''
 born_year: 1978
-born_city: Cork (Irlanda)
+born_city: Cork (Ireland)
 instruments:
 - Guitar
 - Vocals

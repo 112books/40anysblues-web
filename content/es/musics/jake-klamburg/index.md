@@ -4,7 +4,7 @@ nom_complet: Jake Klamburg
 nom_real: ''
 malnom: ''
 born_year: 1991
-born_city: Londres (Regne Unit)
+born_city: Londres (Reino Unido)
 instruments:
 - Batería
 bands:

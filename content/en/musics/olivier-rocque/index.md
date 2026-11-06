@@ -4,7 +4,7 @@ nom_complet: Olivier Rocque
 nom_real: ''
 malnom: ''
 born_year: 1972
-born_city: París (França)
+born_city: Paris (France)
 instruments:
 - Drums
 bands:

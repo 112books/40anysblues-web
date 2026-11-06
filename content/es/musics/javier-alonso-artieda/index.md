@@ -4,7 +4,7 @@ nom_complet: Javier 'Wolfi' Alonso
 nom_real: Javier Alonso Artieda
 malnom: Woolfi
 born_year: 1963
-born_city: Rambouillet (França)
+born_city: Rambouillet (Francia)
 instruments:
 - Guitarra
 - Voz

@@ -4,7 +4,7 @@ nom_complet: Elias Babad
 nom_real: ''
 malnom: ''
 born_year: 1995
-born_city: Pàdua (Itàlia)
+born_city: Padua (Italia)
 instruments:
 - Guitarra
 - Voz

@@ -4,7 +4,7 @@ nom_complet: Dusan Jevtovic
 nom_real: ''
 malnom: ''
 born_year: 1977
-born_city: Kragujevac (Sèrbia)
+born_city: Kragujevac (Serbia)
 instruments:
 - Guitar
 bands:

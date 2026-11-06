@@ -4,7 +4,7 @@ nom_complet: Mike Shannon
 nom_real: ''
 malnom: ''
 born_year: 1950
-born_city: Davenport (EUA)
+born_city: Davenport (USA)
 instruments:
 - Harmonica
 - Vocals

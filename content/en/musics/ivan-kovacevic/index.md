@@ -4,7 +4,7 @@ nom_complet: Ivan Kovacevic
 nom_real: ''
 malnom: ''
 born_year: 1977
-born_city: Belgrad (Sèrbia)
+born_city: Belgrade (Serbia)
 instruments:
 - Double bass
 bands:

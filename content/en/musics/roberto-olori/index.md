@@ -4,7 +4,7 @@ nom_complet: Roberto Olori
 nom_real: ''
 malnom: ''
 born_year: 1968
-born_city: Brugg (Suïssa)
+born_city: Brugg (Switzerland)
 instruments:
 - Drums
 bands:
