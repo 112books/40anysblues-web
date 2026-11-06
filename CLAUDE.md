@@ -330,9 +330,14 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 ## Tasques pendents
 
 ### Alta prioritat
-- [ ] Revisió humana de les traduccions al castellà i a l'anglès (190 fitxers per idioma).
-  `scripts/check-i18n.py` ja detecta pàgines que falten, frontmatter descompensat,
-  enllacos perduts, enllacos interns sense prefix d'idioma i instruments desalineats.
+- [x] Revisió automàtica de les traduccions al castellà i a l'anglès: les 190 pàgines
+  de cada idioma s'han comparat amb la catalana i s'han corregit els defectes
+  detectats (concordances, calcs, noms propis, cometes, països del `born_city`).
+- [ ] Repàs humà final de les traduccions: llegir les pàgines canviades i validar les
+  decisions editorials pendents (títol de la publicació «Anuari del Blues» /
+  «Anuario de Blues» segons l'idioma, «Escola de Blues de Barcelona» enfront de
+  «Barcelona Blues School» a l'anglès, i els enllaços a l'Enciclopèdia que a
+  l'anglès apunten a l'edició castellana o catalana).
 - [x] Sincronitzar les traduccions quan es regenerin les fitxes: `scripts/check-i18n.py`
   i `scripts/check-stats.py` comproven la coherència i s'executen al CI abans de
   compilar, de manera que un desajust atura el desplegament.
