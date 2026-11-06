@@ -94,16 +94,16 @@ antics `coming-soon.html` (overlay «Pròximament») i `newsletter-popup.html`
 
 | Moment (hora de Barcelona) | Estat |
 |---|---|
-| Fins a `params.esdeveniment.obertura` (6/11/2026, 18:00) | Web tancat: només el pop-up centrat, fons fosc, desplaçament bloquejat i contingut `inert`. El pop-up no es pot tancar. |
+| Fins a `params.esdeveniment.obertura` (6/11/2026, 08:00 — avançada; el previst era 18:00) | Web tancat: només el pop-up centrat, fons fosc, desplaçament bloquejat i contingut `inert`. El pop-up no es pot tancar. |
 | A partir de l'obertura | Web obert per a tothom. El panell apareix a la dreta 5 segons, s'amaga sol i queda la pestanya vertical «El llibre». |
 | Segons la data | El contingut canvia sol: reserva oberta, reserva tancada, dia de la presentació (des d'una hora abans) i venda posterior. |
 
 - El càlcul es fa al navegador amb les dates de `hugo.toml` i es revisa cada
   30 segons: si algú té la pàgina oberta quan arriba l'hora, el web s'obre i el
   text s'actualitza sol.
-- Les dates són instants absoluts (acaben en `+01:00`): l'obertura és a les
-  18:00 de Barcelona per a qualsevol visitant, sigui quina sigui la seva zona
-  horària.
+- Les dates són instants absoluts (acaben en `+01:00`): l'hora d'obertura és
+  sempre la de Barcelona per a qualsevol visitant, sigui quina sigui la seva
+  zona horària.
 - Si el visitant té el rellotge desajustat, veurà l'obertura abans o després.
 - Amb JavaScript desactivat no apareix la porta: el web es veu sense pop-up.
 

@@ -37,8 +37,10 @@ defaultContentLanguageInSubdir = false
   data_text = '6 de novembre · 19h'
   data_curta = '6 de novembre'
   inici = '2026-11-06T19:00:00+01:00'
-  # El web es manté tancat (només el pop-up) fins a aquest moment: una hora abans.
-  obertura = '2026-11-06T18:00:00+01:00'
+  # El web es manté tancat (només el pop-up) fins a aquest moment. Estava previst
+  # una hora abans de la presentació; el 6/11 s'ha avançat al matí perquè no hi
+  # havia ningú amb ordinador per comprovar l'obertura a les 18:00.
+  obertura = '2026-11-06T08:00:00+01:00'
   lloc = 'Centre Cultural Collblanc La Torrassa'
   adreca = "C/ Mare de Déu dels Desemparats, 87 · L'Hospitalet de Llobregat"
   maps = "https://maps.google.com/?q=Centre+Cultural+Collblanc+La+Torrassa,+L%27Hospitalet+de+Llobregat"
