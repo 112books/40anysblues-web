@@ -107,6 +107,16 @@ img { max-width: 100%; display: block; }
 .header-nav a:hover::after { width: 100%; }
 
 /* === Header search === */
+/* Selector d'idioma: discret, a la dreta de la cerca */
+.header-lang { display: flex; align-items: center; gap: .55rem; margin-left: .15rem; }
+.header-lang-link {
+  font-size: .72rem; letter-spacing: .09em; text-transform: uppercase;
+  color: var(--text2); text-decoration: none; padding: .1rem .05rem;
+  border-bottom: 1px dotted transparent; transition: color .15s, border-color .15s;
+}
+.header-lang-link:hover { color: var(--accent-light); border-bottom-color: var(--accent-light); }
+.header-lang-link + .header-lang-link { border-left: 1px solid var(--border); padding-left: .6rem; }
+
 .header-cerca {
   display: flex; align-items: center;
   background: var(--bg2); border: 1px solid var(--border);
