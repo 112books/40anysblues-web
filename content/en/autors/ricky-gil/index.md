@@ -2,7 +2,7 @@
 title: Ricky Gil
 rol: Translation and proofreading
 ordre: 3
-musica_url: /musics/ricky-gil/
+musica_url: /en/musics/ricky-gil/
 draft: false
 ---
 **Ricky Gil** (Barcelona, 1965) was the person responsible for the translation and proofreading of the biographies in _40 anys de Blues a Barcelona_, a task he accepted as a natural thing: few know the nuances of the Barcelona blues as well as he does, both from inside the stages and from the culture that surrounds it.

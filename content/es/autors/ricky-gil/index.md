@@ -2,7 +2,7 @@
 title: Ricky Gil
 rol: Traducción y corrección
 ordre: 3
-musica_url: /musics/ricky-gil/
+musica_url: /es/musics/ricky-gil/
 draft: false
 ---
 **Ricky Gil** (Barcelona, 1965) ha sido el responsable de la traducción y corrección de las biografías de _40 anys de Blues a Barcelona_, una tarea que aceptó de manera natural: pocos conocen tan bien como él los matices del blues barcelonés, tanto desde dentro de los escenarios como desde la cultura que lo rodea.

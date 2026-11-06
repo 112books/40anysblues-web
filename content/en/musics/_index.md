@@ -1,5 +1,5 @@
 ---
-title: "Musicians and Musics"
+title: "Musicians"
 ---
 
 The long gestation of this book has gradually given rise to expectations, hopes, doubts, jokes and comments of every kind, which always complicates somewhat the presentation of the experiment in question. So, to set about this task, I have fallen back on the most basic manual of journalism: the five essential questions behind any piece of reporting.

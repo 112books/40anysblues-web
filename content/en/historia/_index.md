@@ -12,7 +12,7 @@ On 31 October 1965 the American Blues and Folk Festival tour reached Barcelona's
 
 It would take until the 1980s, with the winds of change and the opening to modernity, for a home-grown blues scene to burst forth. In 1981 Vicente Zúmel launched *L'hora del Blues*, the longest-running radio programme of the genre in Spain, and the jams began at the Cova del Drac, an old temple of the Nova Cançó that would serve as a catalyst and a launch pad for the city's first blues musicians.
 
-In 2005 the Societat de Blues de Barcelona was born and, from the outset, it has brought together virtually all the musicians and fans in the city, marking a new qualitative and quantitative leap on the local scene. Jams proliferate, competitions, talks and festivals such as Primavera In Black or the Cicle de Blues & Boogie de l'Hospitalet are organised.
+In 2005 the Societat de Blues de Barcelona was born and, from the outset, it has brought together virtually all the musicians and fans in the city, marking a new qualitative and quantitative leap on the local scene. Jams proliferate; competitions, talks and festivals such as Primavera In Black or the Cicle de Blues & Boogie de l'Hospitalet are organised.
 
 In 2020, the closure caused by the COVID-19 pandemic added more nails to the coffin in which many seem to want to bury live music. But Barcelona's blues has lived through far worse times and is perfectly prepared to go on lighting up the shadows on the darkest nights of cultural banality.
 

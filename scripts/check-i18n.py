@@ -50,6 +50,17 @@ def cos(text: str) -> str:
     return re.sub(r"^---\s*\n.*?\n---", "", text.lstrip("\ufeff"), count=1, flags=re.S)
 
 
+def enllacos_frontmatter(valor) -> list:
+    """Valors del frontmatter que son rutes internes (musica_url, url_compra...)."""
+    if isinstance(valor, str):
+        return [valor] if valor.startswith("/") else []
+    if isinstance(valor, dict):
+        return [x for v in valor.values() for x in enllacos_frontmatter(v)]
+    if isinstance(valor, list):
+        return [x for v in valor for x in enllacos_frontmatter(v)]
+    return []
+
+
 def enllacos_interns(text: str) -> list:
     """Objectius interns del cos, en ordre d'aparicio."""
     return re.findall(r"\]\((/[^)\s#]*)", cos(text))
@@ -156,6 +167,14 @@ def main() -> int:
                     continue
                 if not enllac.startswith(prefix):
                     avisos.append(f"{idioma}: {ruta} enllac intern sense prefix: {enllac}")
+
+            for enllac in enllacos_frontmatter(frontmatter(text)):
+                if enllac.startswith(EXEMPCIONS):
+                    continue
+                if not enllac.startswith(prefix):
+                    avisos.append(
+                        f"{idioma}: {ruta} enllac intern al frontmatter sense prefix: {enllac}"
+                    )
 
             # Compara els enllacos interns amb els del catala
             norm = lambda xs: Counter(re.sub(r"^/es/|^/en/", "/", x.split("#")[0]) for x in xs)

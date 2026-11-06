@@ -1,6 +1,6 @@
 ---
 title: Manuel López Poy
-rol: Textos
+rol: Texts
 ordre: 2
 web: ""
 draft: false

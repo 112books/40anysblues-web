@@ -18,7 +18,7 @@ Este sitio web recoge datos personales en los siguientes casos:
 Campos recogidos: nombre y dirección de correo electrónico. Finalidad: responder a la consulta enviada. Base legal: consentimiento del usuario (art. 6.1.a RGPD). Los datos se transmiten y procesan a través de **Formspree, Inc.** ([política de privacidad de Formspree](https://formspree.io/legal/privacy-policy/)).
 
 ### Suscripción al boletín
-Campos recogidos: dirección de correo electrónico y, opcionalmente, nombre artístico. Finalidad: enviar comunicaciones sobre el proyecto *40 Anys de blues a Barcelona*. Base legal: consentimiento explícito mediante doble opt-in (art. 6.1.a RGPD). Los datos se gestionan a través de **Brevo SAS** ([política de privacidad de Brevo](https://www.brevo.com/legal/privacypolicy/)). Puedes cancelar la suscripción en cualquier momento haciendo clic en el enlace de baja incluido en cada comunicación.
+Campos recogidos: dirección de correo electrónico y, opcionalmente, nombre artístico. Finalidad: enviar comunicaciones sobre el proyecto *40 Anys de blues a Barcelona*. Base legal: consentimiento explícito mediante doble opt-in (art. 6.1.a RGPD). Los datos se gestionan a través de **Brevo SAS** ([política de privacidad de Brevo](https://www.brevo.com/legal/privacypolicy/)). Podéis cancelar la suscripción en cualquier momento haciendo clic en el enlace de baja incluido en cada comunicación.
 
 ### Registro de músicos
 Campos recogidos: nombre artístico y dirección de correo electrónico. Finalidad: verificar la identidad de los músicos que aparecen en el proyecto y enviarles comunicaciones exclusivas. Base legal: consentimiento explícito (art. 6.1.a RGPD). Los datos se gestionan a través de **Brevo SAS**.

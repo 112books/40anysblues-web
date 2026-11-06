@@ -1,5 +1,5 @@
 ---
-title: Anuaris de Blues
+title: Anuario de Blues
 autor: Societat de Blues de Barcelona
 url_compra: ''
 ordre: 4
