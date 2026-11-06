@@ -109,12 +109,30 @@
   </div>
 </div>
 
+{{/* Noms llegibles de les pàgines de taxonomia (bandes i instruments), que no
+     són a l'índex de la cerca. Serveixen per no ensenyar slugs al rànquing. */}}
+{{- $noms := dict -}}
+{{- range site.Pages -}}
+  {{- $noms = merge $noms (dict (strings.TrimSuffix "/" .RelPermalink) .LinkTitle) -}}
+{{- end -}}
+{{- range $taxo, $termes := site.Taxonomies -}}
+  {{- range $terme, $wp := $termes -}}
+    {{- with $wp.Page -}}
+      {{- $noms = merge $noms (dict (strings.TrimSuffix "/" .RelPermalink) .LinkTitle) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<script type="application/json" id="stats-noms">{{ $noms | jsonify | safeJS }}</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
 (function () {
   var GC    = 'https://40anysbluesbcn.goatcounter.com';
   var TOKEN = '1rhvnf850y7hp21159pzvqxf281e6ct7jrwf5fm1tzhju0avufj3';
-  var QR_PATH = '/?ref=llibre';
+  // Les visites del QR del llibre s'envien com a /qr-llibre des de baseof.html
+  // (GoatCounter no desa el paràmetre ?ref=llibre a la ruta).
+  var QR_PATH       = '/qr-llibre';
+  var PREFIX_MUSICS = "{{ "/musics/" | relLangURL }}";
+  var PREFIX_BANDS  = "{{ "/bands/" | relLangURL }}";
 
   // Idioma de la pàgina: números i textos del gràfic han de sortir en aquesta llengua.
   var LANG   = "{{ .Site.Language.Lang }}";
@@ -128,6 +146,9 @@
     directe:    "{{ i18n "stats_directe" }}",
     dies:       "{{ i18n "stats_dies_curt" }}".split(',')
   };
+
+  var NOMS = {};
+  try { NOMS = JSON.parse(document.getElementById('stats-noms').textContent); } catch (e) {}
 
   var charts = {};
 
@@ -144,8 +165,9 @@
   }
 
   function dateRange(days) {
-    var end   = new Date(); end.setDate(end.getDate() - 1);
-    var start = new Date(); start.setDate(start.getDate() - days);
+    // El període inclou el dia d'avui; si no, les visites del dia mai no surten.
+    var end   = new Date();
+    var start = new Date(); start.setDate(start.getDate() - (days - 1));
     return { start: isoLocal(start), end: isoLocal(end) };
   }
 
@@ -163,7 +185,11 @@
     var url = GC+'/api/v0'+endpoint+'?';
     var p = Object.assign({limit:500}, params);
     url += Object.keys(p).map(function(k){ return encodeURIComponent(k)+'='+encodeURIComponent(p[k]); }).join('&');
-    return fetch(url, { headers: {'Authorization':'Bearer '+TOKEN} }).then(function(r){ return r.json(); });
+    return fetch(url, { headers: {'Authorization':'Bearer '+TOKEN}, cache: 'no-store' })
+      .then(function(r){
+        if (!r.ok) throw new Error(endpoint+' → HTTP '+r.status);
+        return r.json();
+      });
   }
 
   function mkChart(id, cfg) {
@@ -188,6 +214,15 @@
 
   // ── Renderitza tot ───────────────────────────────────────────────────────
   function render(hitsData, refsData, days) {
+    // Noms de les pàgines: /musics/xyz/ → «Nom del músic», per no ensenyar slugs.
+    // NOMS ve del lloc (pàgines i termes de taxonomia). Les rutes poden arribar
+    // percent-encodades, així que hi afegim la variant descodificada.
+    var noms = {};
+    Object.keys(NOMS).forEach(function(k){
+      noms[k] = NOMS[k];
+      try { noms[decodeURIComponent(k)] = NOMS[k]; } catch (e) {}
+    });
+
     var range = dateRange(days);
     var daysList = allDays(range.start, range.end);
 
@@ -243,14 +278,14 @@
     mkChart('chart-qr-weekday', barCfg(wdLabels, qrByWeekday, '#e8a020', TXT.qrDia));
 
     // Top músics i grups
-    renderTopList('stats-top-musics', byPage, '/musics/', total);
-    renderTopList('stats-top-bands',  byPage, '/bands/',  total);
+    renderTopList('stats-top-musics', byPage, PREFIX_MUSICS, total, noms);
+    renderTopList('stats-top-bands',  byPage, PREFIX_BANDS,  total, noms);
 
     // Referrers
     renderRefs(refsData);
   }
 
-  function renderTopList(id, byPage, prefix, total) {
+  function renderTopList(id, byPage, prefix, total, noms) {
     var items = Object.keys(byPage)
       .filter(function(p){ return p.startsWith(prefix) && p !== prefix; })
       .sort(function(a,b){ return byPage[b]-byPage[a]; })
@@ -262,12 +297,13 @@
     var html = '<ol class="stats-top-ol">';
     items.forEach(function(path, i){
       var count = byPage[path];
-      var name  = decodeURIComponent(path.replace(prefix,'').replace(/\/$/,''));
+      var ruta  = path.replace(/\/$/, '');
+      var name  = (noms && noms[ruta]) || decodeURIComponent(path.replace(prefix,'').replace(/\/$/,''));
       var bar   = Math.round(count/max*100);
       html += '<li class="stats-top-item">'
         +'<span class="stats-top-rank">'+(i+1)+'</span>'
         +'<div class="stats-top-bar-wrap"><div class="stats-top-bar" style="width:'+bar+'%"></div></div>'
-        +'<span class="stats-top-name">'+name+'</span>'
+        +'<span class="stats-top-name"><a href="'+ruta+'/">'+name+'</a></span>'
         +'<span class="stats-top-count">'+NR.format(count)+'</span>'
         +'</li>';
     });
@@ -306,15 +342,15 @@
     });
 
     Promise.all([
-      gcFetch('/stats/hits',     {start:range.start, end:range.end}).catch(function(){ return null; }),
-      gcFetch('/stats/toprefs',  {start:range.start, end:range.end, limit:20}).catch(function(){ return null; })
+      gcFetch('/stats/hits',    {start:range.start, end:range.end}),
+      gcFetch('/stats/toprefs', {start:range.start, end:range.end, limit:20}).catch(function(){ return null; })
     ]).then(function(results){
-      if (!results[0]) { throw new Error('hits'); }
       render(results[0], results[1] || {stats: []}, days);
     }).catch(function(e){
-      console.error(e);
+      console.error('goatcounter', e);
       ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
-        document.getElementById(id).innerHTML='<p class="stats-error">{{ i18n "stats_error" }}</p>';
+        document.getElementById(id).innerHTML =
+          '<p class="stats-error">{{ i18n "stats_error" }} <small>(' + e.message + ')</small></p>';
       });
     });
   }

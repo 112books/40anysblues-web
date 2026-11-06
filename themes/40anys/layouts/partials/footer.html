@@ -6,7 +6,7 @@
           <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
         </a>
         <p class="footer-copy">© {{ now.Year }} <a href="http://112books.eu" target="_blank" rel="noopener">Editorial 112 Books</a> · Joan Linux</p>
-        <p class="footer-copyright">{{ i18n "footer_copyright" (dict "contacte" (relLangURL "/contacte/")) }}</p>
+        <p class="footer-copyright">{{ i18n "footer_copyright" (dict "contacte" (relLangURL "/contacte/")) | safeHTML }}</p>
         <nav class="footer-legal">
           <a href="{{ relLangURL "/legal/avis-legal/" }}">{{ i18n "footer_avis_legal" }}</a>
           <a href="{{ relLangURL "/legal/privacitat/" }}">{{ i18n "footer_privacitat" }}</a>

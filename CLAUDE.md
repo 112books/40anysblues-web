@@ -186,6 +186,20 @@ python3 scripts/check-i18n.py              # veure què ha canviat
 python3 scripts/check-i18n.py --actualitza # desar l'estat revisat
 ```
 
+## Estadístiques (pàgina /stats)
+
+- La pàgina llegeix l'API de GoatCounter (`api/v0/stats/hits` i `stats/toprefs`)
+  des del navegador amb el token públic de l'activitat; si una crida falla, es
+  mostra l'error i el codi HTTP a la mateixa pàgina.
+- El període inclou **el dia d'avui** (abans l'últim dia quedava fora i les
+  visites del dia no sortien mai).
+- Els rànquings de músics i bandes fan servir els prefixos d'idioma
+  (`/musics/`, `/es/musics/`, `/en/musics/`…) i els noms surten de les pàgines i
+  dels termes de taxonomia del lloc, no dels slugs de la URL.
+- **QR del llibre**: el codi imprès apunta a `/?ref=llibre`. Com que GoatCounter
+  no desa els paràmetres de consulta, `baseof.html` envia una visita addicional
+  a `/qr-llibre` quan detecta `ref=llibre`; la pestanya QR compta aquest camí.
+
 `scripts/check-stats.py` fa el mateix amb les estadístiques: comprova que
 `data/stats.yaml` coincideixi amb les pàgines, els instruments, les formacions,
 les ciutats i els anys del contingut. Els dos controls s'executen al CI abans de

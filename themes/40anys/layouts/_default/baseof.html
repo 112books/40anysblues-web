@@ -41,6 +41,23 @@
   </script>
   {{ with .Site.Params.goatcounter }}
   <script data-goatcounter="https://{{ . }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script>
+  // El QR imprès al llibre apunta a /?ref=llibre. GoatCounter no desa els
+  // paràmetres de consulta, així que enviem una visita pròpia a /qr-llibre
+  // per poder comptar les visites del llibre (pestanya QR de /stats).
+  (function () {
+    if (!/[?&]ref=llibre\b/.test(window.location.search)) return;
+    var intents = 0;
+    var t = setInterval(function () {
+      if (window.goatcounter && window.goatcounter.count) {
+        clearInterval(t);
+        window.goatcounter.count({ path: '/qr-llibre', title: 'QR del llibre' });
+      } else if (++intents > 50) {
+        clearInterval(t);
+      }
+    }, 100);
+  })();
+  </script>
   {{ end }}
 </body>
 </html>
