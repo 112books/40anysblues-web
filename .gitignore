@@ -9,3 +9,5 @@ docs/
 # Control horari intern
 .taques/
 .taques-central/
+# Estadístiques generades al build (scripts/fetch-stats.py)
+static/stats-data.json

@@ -188,9 +188,12 @@ python3 scripts/check-i18n.py --actualitza # desar l'estat revisat
 
 ## Estadístiques (pàgina /stats)
 
-- La pàgina llegeix l'API de GoatCounter (`api/v0/stats/hits` i `stats/toprefs`)
-  des del navegador amb el token públic de l'activitat; si una crida falla, es
-  mostra l'error i el codi HTTP a la mateixa pàgina.
+- Les dades **es generen al build**: `scripts/fetch-stats.py` descarrega els
+  períodes de 30, 90 i 365 dies de l'API de GoatCounter (token al secret
+  `GOATCOUNTER_TOKEN`, mai al navegador) i escriu `static/stats-data.json`,
+  que la pàgina llegeix del mateix domini. Sense CORS, sense token públic i
+  sense dependre de l'API en cada visita.
+- Els textos i els números surten en l'idioma de la pàgina.
 - El període inclou **el dia d'avui** (abans l'últim dia quedava fora i les
   visites del dia no sortien mai).
 - Els rànquings de músics i bandes fan servir els prefixos d'idioma

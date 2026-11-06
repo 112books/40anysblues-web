@@ -26,6 +26,11 @@ jobs:
           python3 scripts/check-stats.py
           python3 scripts/check-i18n.py
 
+      - name: Estadístiques (GoatCounter)
+        env:
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+        run: python3 scripts/fetch-stats.py
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:

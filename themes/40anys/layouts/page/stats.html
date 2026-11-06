@@ -126,8 +126,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
 (function () {
-  var GC    = 'https://40anysbluesbcn.goatcounter.com';
-  var TOKEN = '1rhvnf850y7hp21159pzvqxf281e6ct7jrwf5fm1tzhju0avufj3';
+  // Les dades es generen al build (scripts/fetch-stats.py) i es publiquen com a
+  // /stats-data.json: el navegador no crida l API ni porta cap token.
+  var DATA_URL = '/stats-data.json';
   // Les visites del QR del llibre s'envien com a /qr-llibre des de baseof.html
   // (GoatCounter no desa el paràmetre ?ref=llibre a la ruta).
   var QR_PATH       = '/qr-llibre';
@@ -181,15 +182,15 @@
     var d = parseDay(iso); return d.getDate()+'/'+(d.getMonth()+1);
   }
 
-  function gcFetch(endpoint, params) {
-    var url = GC+'/api/v0'+endpoint+'?';
-    var p = Object.assign({limit:500}, params);
-    url += Object.keys(p).map(function(k){ return encodeURIComponent(k)+'='+encodeURIComponent(p[k]); }).join('&');
-    return fetch(url, { headers: {'Authorization':'Bearer '+TOKEN}, cache: 'no-store' })
-      .then(function(r){
-        if (!r.ok) throw new Error(endpoint+' → HTTP '+r.status);
+  var dataPromise = null;
+  function getData() {
+    if (!dataPromise) {
+      dataPromise = fetch(DATA_URL, { cache: 'no-store' }).then(function(r){
+        if (!r.ok) throw new Error('stats-data.json → HTTP '+r.status);
         return r.json();
       });
+    }
+    return dataPromise;
   }
 
   function mkChart(id, cfg) {
@@ -213,7 +214,7 @@
   }
 
   // ── Renderitza tot ───────────────────────────────────────────────────────
-  function render(hitsData, refsData, days) {
+  function render(hitsData, refsData, days, range) {
     // Noms de les pàgines: /musics/xyz/ → «Nom del músic», per no ensenyar slugs.
     // NOMS ve del lloc (pàgines i termes de taxonomia). Les rutes poden arribar
     // percent-encodades, així que hi afegim la variant descodificada.
@@ -223,7 +224,6 @@
       try { noms[decodeURIComponent(k)] = NOMS[k]; } catch (e) {}
     });
 
-    var range = dateRange(days);
     var daysList = allDays(range.start, range.end);
 
     var byDay={}, qrByDay={}, byPage={}, byWeekday=new Array(7).fill(0), qrByWeekday=new Array(7).fill(0);
@@ -332,7 +332,6 @@
 
   // ── Càrrega de dades ─────────────────────────────────────────────────────
   function load(days) {
-    var range = dateRange(days);
     // Reset UI
     ['kpi-total','kpi-avg','kpi-pages','qr-total','qr-pct','qr-avg'].forEach(function(id){
       document.getElementById(id).textContent='—';
@@ -341,11 +340,10 @@
       document.getElementById(id).innerHTML='<p class="stats-loading">{{ i18n "stats_carregant" }}</p>';
     });
 
-    Promise.all([
-      gcFetch('/stats/hits',    {start:range.start, end:range.end}),
-      gcFetch('/stats/toprefs', {start:range.start, end:range.end, limit:20}).catch(function(){ return null; })
-    ]).then(function(results){
-      render(results[0], results[1] || {stats: []}, days);
+    getData().then(function(all){
+      var p = (all.periods || {})[String(days)];
+      if (!p || !p.hits || !p.range) throw new Error('sense dades per al període ' + days);
+      render(p.hits, p.refs || {stats: []}, days, p.range);
     }).catch(function(e){
       console.error('goatcounter', e);
       ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
