@@ -283,7 +283,7 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 
 ### Alta prioritat
 - [ ] Brevo DNS: traduir templates al català
-- [ ] Comprovar el 6/11 a les 18:00 que el web s'obre sol i el panell es plega als 5 segons
+- [x] Obertura del web el 6/11: avançada de les 18:00 a les 08:00 perquè aquell dia no hi havia ningú amb ordinador. Verificat que la porta no surt i que el panell es plega als 5 segons; a les 18:00 el contingut passa sol al mode «avui».
 - [ ] Confirmar el recompte final de músics: 148 documentats (fitxes = pàgines). Si el llibre imprès en té més, calen les fitxes que falten
 
 ### Contingut
