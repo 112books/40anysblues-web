@@ -188,6 +188,10 @@ stats_carregant = "Loading..."
 stats_error = "Error loading the data."
 stats_sense_dades = "No data for this period."
 stats_sense_referents = "No referrer data for this period."
+stats_visites_dia = "Visits per day"
+stats_qr_dia = "QR per day"
+stats_directe = "Direct/unknown"
+stats_dies_curt = "Sun,Mon,Tue,Wed,Thu,Fri,Sat"
 
 # --- Project page ---
 projecte_numeros = "The Project in Numbers"

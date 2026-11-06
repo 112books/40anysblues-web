@@ -115,25 +115,48 @@
   var GC    = 'https://40anysbluesbcn.goatcounter.com';
   var TOKEN = '1rhvnf850y7hp21159pzvqxf281e6ct7jrwf5fm1tzhju0avufj3';
   var QR_PATH = '/?ref=llibre';
-  var DIES = ['Diumenge','Dilluns','Dimarts','Dimecres','Dijous','Divendres','Dissabte'];
+
+  // Idioma de la pàgina: números i textos del gràfic han de sortir en aquesta llengua.
+  var LANG   = "{{ .Site.Language.Lang }}";
+  var LOCALE = { ca: 'ca-ES', es: 'es-ES', en: 'en-GB' }[LANG] || 'ca-ES';
+  var NR     = new Intl.NumberFormat(LOCALE);
+  var TXT = {
+    visites:    "{{ i18n "stats_tab_visites" }}",
+    qr:         "{{ i18n "stats_tab_qr" }}",
+    visitesDia: "{{ i18n "stats_visites_dia" }}",
+    qrDia:      "{{ i18n "stats_qr_dia" }}",
+    directe:    "{{ i18n "stats_directe" }}",
+    dies:       "{{ i18n "stats_dies_curt" }}".split(',')
+  };
 
   var charts = {};
 
   // ── Utilitats ────────────────────────────────────────────────────────────
+  // Dates en hora local: toISOString() passa a UTC i desplaça el darrer dia.
+  function isoLocal(d) {
+    var m = d.getMonth()+1, day = d.getDate();
+    return d.getFullYear()+'-'+(m<10?'0':'')+m+'-'+(day<10?'0':'')+day;
+  }
+
+  function parseDay(iso) {
+    var p = iso.split('-');
+    return new Date(+p[0], +p[1]-1, +p[2]);
+  }
+
   function dateRange(days) {
     var end   = new Date(); end.setDate(end.getDate() - 1);
     var start = new Date(); start.setDate(start.getDate() - days);
-    return { start: start.toISOString().slice(0,10), end: end.toISOString().slice(0,10) };
+    return { start: isoLocal(start), end: isoLocal(end) };
   }
 
   function allDays(start, end) {
-    var days = [], d = new Date(start), e = new Date(end);
-    while (d <= e) { days.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+1); }
+    var days = [], d = parseDay(start), e = parseDay(end);
+    while (d <= e) { days.push(isoLocal(d)); d.setDate(d.getDate()+1); }
     return days;
   }
 
   function shortDate(iso) {
-    var d = new Date(iso); return d.getDate()+'/'+(d.getMonth()+1);
+    var d = parseDay(iso); return d.getDate()+'/'+(d.getMonth()+1);
   }
 
   function gcFetch(endpoint, params) {
@@ -180,7 +203,7 @@
         var count=s.daily||0;
         if(!count||!byDay.hasOwnProperty(date)) return;
         byDay[date]+=count; total+=count; pageTotal+=count;
-        var wd=new Date(date).getDay();
+        var wd=parseDay(date).getDay();
         byWeekday[wd]+=count;
         if(path===QR_PATH){ qrByDay[date]=(qrByDay[date]||0)+count; qrTotal+=count; qrByWeekday[wd]+=count; }
       });
@@ -192,32 +215,32 @@
     var pct = total>0 ? Math.round(qrTotal/total*100) : 0;
     var uniquePages = Object.keys(byPage).length;
 
-    document.getElementById('kpi-total').textContent  = total.toLocaleString('ca');
-    document.getElementById('kpi-avg').textContent    = avg.toLocaleString('ca');
-    document.getElementById('kpi-pages').textContent  = uniquePages.toLocaleString('ca');
-    document.getElementById('qr-total').textContent   = qrTotal.toLocaleString('ca');
-    document.getElementById('qr-pct').textContent     = pct+'%';
-    document.getElementById('qr-avg').textContent     = qrAvg.toLocaleString('ca');
+    document.getElementById('kpi-total').textContent  = NR.format(total);
+    document.getElementById('kpi-avg').textContent    = NR.format(avg);
+    document.getElementById('kpi-pages').textContent  = NR.format(uniquePages);
+    document.getElementById('qr-total').textContent   = NR.format(qrTotal);
+    document.getElementById('qr-pct').textContent     = NR.format(pct)+'%';
+    document.getElementById('qr-avg').textContent     = NR.format(qrAvg);
 
     // Chart diari total
     var labels = daysList.map(shortDate);
-    var cfg = barCfg(labels, daysList.map(function(d){return byDay[d];}), '#1a6fb5', 'Visites');
+    var cfg = barCfg(labels, daysList.map(function(d){return byDay[d];}), '#1a6fb5', TXT.visites);
     cfg.data.datasets.push({
-      label:'QR Llibre', data:daysList.map(function(d){return qrByDay[d];}),
+      label:TXT.qr, data:daysList.map(function(d){return qrByDay[d];}),
       type:'line', borderColor:'#e8a020', backgroundColor:'rgba(232,160,32,.12)',
       borderWidth:2, pointRadius:2, fill:true, tension:0.3
     });
     mkChart('chart-daily', cfg);
 
     // Chart per dia de setmana
-    var wdLabels = DIES.map(function(n){ return n.slice(0,3); });
-    mkChart('chart-weekday', barCfg(wdLabels, byWeekday, '#4a9fd4', 'Visites per dia'));
+    var wdLabels = TXT.dies;
+    mkChart('chart-weekday', barCfg(wdLabels, byWeekday, '#4a9fd4', TXT.visitesDia));
 
     // Chart QR diari
-    mkChart('chart-qr', barCfg(labels, daysList.map(function(d){return qrByDay[d];}), '#e8a020', 'QR Llibre'));
+    mkChart('chart-qr', barCfg(labels, daysList.map(function(d){return qrByDay[d];}), '#e8a020', TXT.qr));
 
     // Chart QR per dia setmana
-    mkChart('chart-qr-weekday', barCfg(wdLabels, qrByWeekday, '#e8a020', 'QR per dia'));
+    mkChart('chart-qr-weekday', barCfg(wdLabels, qrByWeekday, '#e8a020', TXT.qrDia));
 
     // Top músics i grups
     renderTopList('stats-top-musics', byPage, '/musics/', total);
@@ -245,7 +268,7 @@
         +'<span class="stats-top-rank">'+(i+1)+'</span>'
         +'<div class="stats-top-bar-wrap"><div class="stats-top-bar" style="width:'+bar+'%"></div></div>'
         +'<span class="stats-top-name">'+name+'</span>'
-        +'<span class="stats-top-count">'+count.toLocaleString('ca')+'</span>'
+        +'<span class="stats-top-count">'+NR.format(count)+'</span>'
         +'</li>';
     });
     html += '</ol>';
@@ -259,12 +282,12 @@
     var html = '<ol class="stats-top-ol">';
     refs.forEach(function(r, i){
       var bar = Math.round(r.count/max*100);
-      var name = r.name||'Directe/desconegut';
+      var name = r.name || TXT.directe;
       html += '<li class="stats-top-item">'
         +'<span class="stats-top-rank">'+(i+1)+'</span>'
         +'<div class="stats-top-bar-wrap"><div class="stats-top-bar stats-top-bar--ref" style="width:'+bar+'%"></div></div>'
         +'<span class="stats-top-name">'+name+'</span>'
-        +'<span class="stats-top-count">'+r.count.toLocaleString('ca')+'</span>'
+        +'<span class="stats-top-count">'+NR.format(r.count)+'</span>'
         +'</li>';
     });
     html += '</ol>';

@@ -20,6 +20,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Comprova dades i traduccions
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 scripts/check-stats.py
+          python3 scripts/check-i18n.py
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:

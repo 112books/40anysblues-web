@@ -7,7 +7,7 @@ born_year: 1987
 born_city: Barcelona
 instruments:
 - Piano
-- Veu
+- Voz
 bands:
 - Emma Fernández
 ordre: 68

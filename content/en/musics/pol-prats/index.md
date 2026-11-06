@@ -6,7 +6,7 @@ malnom: ''
 born_year: 1983
 born_city: Barcelona
 instruments:
-- Tenor Sax
+- Tenor sax
 bands:
 - Down Home
 - Ivanow Jazz Group

@@ -131,6 +131,10 @@ grep -c 'lb-panel' public/index.html
 # El recompte de músics ha de coincidir amb les fitxes i amb data/stats.yaml:
 ls -d content/ca/musics/*/ | wc -l
 grep total_musics data/stats.yaml
+
+# Coherència de les dades i de les traduccions (també s'executa al CI):
+python3 scripts/check-stats.py
+python3 scripts/check-i18n.py
 ```
 
 El canvi de mode del panell es pot provar sense esperar la data: es pot simular
@@ -305,8 +309,18 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 ## Tasques pendents
 
 ### Alta prioritat
-- [ ] Revisió humana de les traduccions al castellà i a l'anglès (190 fitxers per idioma)
-- [ ] Sincronitzar les traduccions quan es regenerin les fitxes des de `_fitxes/`
+- [ ] Revisió humana de les traduccions al castellà i a l'anglès (190 fitxers per idioma).
+  `scripts/check-i18n.py` ja detecta pàgines que falten, frontmatter descompensat,
+  enllacos perduts, enllacos interns sense prefix d'idioma i instruments desalineats.
+- [x] Sincronitzar les traduccions quan es regenerin les fitxes: `scripts/check-i18n.py`
+  i `scripts/check-stats.py` comproven la coherència i s'executen al CI abans de
+  compilar, de manera que un desajust atura el desplegament.
+- [ ] Corregir a `_fitxes/` (repo privat) els dos casos normalitzats només al web:
+  `pol-prats.md` («Saxo Tenor» → «Saxo tenor») i `dani-roto.md` (espai no separable
+  dins de «SickRoto Blues BigBand Orquesta»). Si es regenera abans de corregir-ho,
+  els canvis es perdran.
+- [x] Estadístiques: la pàgina `/stats` ja és multilingüe (dies de la setmana, textos
+  dels gràfics, format de números per idioma) i calcula el període en hora local.
 - [ ] Brevo DNS: traduir templates al català
 - [x] Obertura del web el 6/11: avançada de les 18:00 a les 08:00 perquè aquell dia no hi havia ningú amb ordinador. Verificat que la porta no surt i que el panell es plega als 5 segons; a les 18:00 el contingut passa sol al mode «avui».
 - [ ] Confirmar el recompte final de músics: 148 documentats (fitxes = pàgines). Si el llibre imprès en té més, calen les fitxes que falten
@@ -314,8 +328,10 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 ### Contingut
 - [ ] Fotografies dels músics → `content/ca/musics/{id}/`
 - [x] Traducció del contingut al castellà i a l'anglès (esborrany complet, pendent de revisió)
-- [ ] Schema markup: Organization, Person
+- [x] Schema markup: Organization (`partials/schema-global.html`) i Person amb
+  lloc i data de naixement, instruments i formacions (`musics/single.html`)
 
 ### Funcionalitats
-- [ ] Tooltip Wikipedia per a músics externs referenciats a les bios
+- [x] Tooltip Wikipedia per a músics externs referenciats a les bios
+  (`partials/wiki-tooltip.html`)
 - [ ] WebP + srcset per a imatges (Hugo image processing)

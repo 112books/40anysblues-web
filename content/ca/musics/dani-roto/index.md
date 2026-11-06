@@ -9,7 +9,7 @@ instruments:
 - Guitarra ressonadora
 - Veu
 bands:
-- Dani Roto & The SickRoto Blues BigBand Orquesta
+- Dani Roto & The SickRoto Blues BigBand Orquesta
 - Dani Roto & The Hobos
 ordre: 135
 draft: false

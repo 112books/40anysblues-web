@@ -6,7 +6,7 @@ malnom: ''
 born_year: 1983
 born_city: Santa Cruz de La Palma
 instruments:
-- Contrabaix
+- Contrabajo
 bands:
 - The Clean Pockets
 - Trio de Cuatreros
