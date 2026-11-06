@@ -170,6 +170,27 @@ El web **no és** l'editor — és el visualitzador de qualitat.
 2. Comprovar: noms propis, bandes, sales i entitats **sense traduir**; instruments traduïts; enllaços interns amb prefix /es/ o /en/; anys i dates intactes.
 3. Les fitxes de músics **es regeneren** des de `_fitxes/`: si es corregeix una bio, cal actualitzar també `content/es/musics/{id}/` i `content/en/musics/{id}/`.
 
+### Control de sincronització de les traduccions
+
+`scripts/check-i18n.py` fa quatre comprovacions: que ES i EN tinguin totes les
+pàgines, que el frontmatter que no es tradueix coincideixi, que els enllaços
+interns portin el prefix d'idioma i que no es perdin enllaços respecte del
+català. A més, desa una empremta del contingut català a
+`scripts/traduccions-estat.yaml`: quan es regenera `content/ca/` i una pàgina
+canvia, el control avisa que cal revisar-ne la traducció.
+
+Un cop revisada la traducció d'una pàgina, s'actualitza l'estat:
+
+```bash
+python3 scripts/check-i18n.py              # veure què ha canviat
+python3 scripts/check-i18n.py --actualitza # desar l'estat revisat
+```
+
+`scripts/check-stats.py` fa el mateix amb les estadístiques: comprova que
+`data/stats.yaml` coincideixi amb les pàgines, els instruments, les formacions,
+les ciutats i els anys del contingut. Els dos controls s'executen al CI abans de
+compilar.
+
 
 ---
 

@@ -8,10 +8,14 @@ Revisa, per a cada pagina:
   - Que el cos no sigui el catala sense traduir.
   - Que els enllacos interns portin el prefix d'idioma (/es/ o /en/).
   - Que les traduccions no perdin ni afegeixin enllacos respecte del catala.
+  - Que el catala no hagi canviat des de la darrera sincronitzacio de les
+    traduccions (empremta desada a scripts/traduccions-estat.yaml).
 
 Us:
-    python3 scripts/check-i18n.py            # informe complet
-    python3 scripts/check-i18n.py --quiet    # nomes errors
+    python3 scripts/check-i18n.py               # informe complet
+    python3 scripts/check-i18n.py --quiet       # nomes errors
+    python3 scripts/check-i18n.py --actualitza  # desa l'estat actual despres
+                                                # de revisar les traduccions
 
 Sortida: 0 si tot quadra, 1 si hi ha errors.
 """
@@ -20,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import hashlib
 import os
 import re
 import sys
@@ -28,6 +33,7 @@ from collections import Counter
 import yaml
 
 ARREL = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ESTAT = os.path.join(ARREL, "scripts", "traduccions-estat.yaml")
 IDIOMES = ("ca", "es", "en")
 PREFIX = {"ca": "", "es": "/es/", "en": "/en/"}
 CAMP_IDENTICS = ("born_year", "death_year", "ordre", "session_date", "draft", "bands")
@@ -53,6 +59,26 @@ def clau_relativa(ruta: str) -> str:
     return os.path.relpath(ruta, os.path.join(ARREL, "content", "ca"))
 
 
+def empremta(text: str) -> str:
+    """Empremta del cos catala, per detectar canvis posteriors a la traduccio."""
+    return hashlib.sha256(text.lstrip("\ufeff").strip().encode("utf-8")).hexdigest()[:16]
+
+
+def carrega_estat() -> dict:
+    if not os.path.exists(ESTAT):
+        return {}
+    with open(ESTAT, encoding="utf-8") as f:
+        return yaml.safe_load(f) or {}
+
+
+def desa_estat(pages: dict) -> None:
+    estat = {ruta: empremta(text) for ruta, text in sorted(pages.items())}
+    with open(ESTAT, "w", encoding="utf-8") as f:
+        f.write("# Empremtes del contingut catala en el moment de revisar les traduccions.\n")
+        f.write("# Actualitza'l amb: python3 scripts/check-i18n.py --actualitza\n")
+        yaml.safe_dump(estat, f, allow_unicode=True, sort_keys=True)
+
+
 def carrega_pagines() -> dict:
     """Retorna {idioma: {ruta_relativa: text}}."""
     pages = {}
@@ -66,6 +92,11 @@ def carrega_pagines() -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Comprova les traduccions del web.")
     parser.add_argument("--quiet", action="store_true", help="nomes mostra els errors")
+    parser.add_argument(
+        "--actualitza",
+        action="store_true",
+        help="desa l'estat actual del catala (fer-ho despres de revisar les traduccions)",
+    )
     args = parser.parse_args()
 
     pages = carrega_pagines()
@@ -94,6 +125,19 @@ def main() -> int:
             for camp in CAMP_IDENTICS:
                 if a.get(camp) != b.get(camp):
                     errors.append(f"{idioma}: {ruta} te {camp}={b.get(camp)!r} i el catala {a.get(camp)!r}")
+
+    # 2b. El catala ha canviat des de la darrera sincronitzacio?
+    estat = carrega_estat()
+    if estat:
+        for ruta, text in sorted(base_ca.items()):
+            if ruta not in estat:
+                avisos.append(f"catala: {ruta} es nou; revisa'n les traduccions i actualitza l'estat")
+            elif estat[ruta] != empremta(text):
+                avisos.append(
+                    f"catala: {ruta} ha canviat des de la darrera sincronitzacio; revisa la traduccio ES/EN"
+                )
+    elif not args.quiet:
+        print("Avís: encara no hi ha scripts/traduccions-estat.yaml; executal amb --actualitza")
 
     # 3. Cos sense traduir i enllacos
     for idioma in ("es", "en"):
@@ -132,6 +176,10 @@ def main() -> int:
                 errors.append(
                     f"{idioma}: {ruta} te {len(b)} instruments i el catala {len(a)} ({b} / {a})"
                 )
+
+    if args.actualitza:
+        desa_estat(base_ca)
+        print(f"Estat desat: {len(base_ca)} pagines a {os.path.relpath(ESTAT, ARREL)}")
 
     for avis in avisos:
         print(f"AVIS: {avis}")
