@@ -3,7 +3,7 @@
 <section class="cerca-section">
   <div class="container">
     <h1 class="cerca-title">{{ i18n "cerca_titol" }}</h1>
-    <script id="cerca-i18n" type="application/json">{{ dict "index" ("index.json" | relLangURL) "seccions" (dict "musics" (i18n "cerca_seccio_musics") "sales" (i18n "cerca_seccio_sales") "historia" (i18n "cerca_seccio_historia") "entitats" (i18n "cerca_seccio_entitats")) "resultat" (i18n "cerca_resultats") "resultats" (i18n "cerca_resultats_pl") "per" (i18n "cerca_per") "cap" (i18n "cerca_cap_resultat") "prova" (i18n "cerca_prova") | jsonify }}</script>
+    <script id="cerca-i18n" type="application/json">{{ dict "index" ("index.json" | relLangURL) "seccions" (dict "musics" (i18n "cerca_seccio_musics") "sales" (i18n "cerca_seccio_sales") "historia" (i18n "cerca_seccio_historia") "entitats" (i18n "cerca_seccio_entitats")) "resultat" (i18n "cerca_resultats") "resultats" (i18n "cerca_resultats_pl") "per" (i18n "cerca_per") "cap" (i18n "cerca_cap_resultat") "prova" (i18n "cerca_prova") | jsonify | safeJS }}</script>
 
     <form class="cerca-form" id="cerca-form" action="" role="search">
       <input
