@@ -1,0 +1,37 @@
+{{/* Imatge optimitzada a partir d'un recurs de pàgina.
+
+     Genera variants WebP (400, 800 i 1400 px) i les serveix amb srcset/sizes,
+     amb la mida declarada per evitar desplaçaments de maquetació (CLS).
+     Si el recurs no es pot processar (SVG), cau a un <img> normal.
+
+     Paràmetres:
+       res      recurs d'imatge (obligatori)
+       alt      text alternatiu
+       class    classe CSS
+       sizes    atribut sizes (per defecte 100vw)
+       loading  lazy (per defecte) o eager
+       attrs    atributs extra en text (p. ex. oncontextmenu="return false")
+*/}}
+{{- $res := .res -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $sizes := .sizes | default "100vw" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $attrs := .attrs | default "" -}}
+{{- $set := slice -}}
+{{- $fallback := "" -}}
+{{- if eq $res.MediaType.SubType "svg" -}}
+  <img src="{{ $res.RelPermalink }}" alt="{{ $alt }}"{{ with $class }} class="{{ . }}"{{ end }}{{ with $attrs }} {{ . | safeHTMLAttr }}{{ end }}>
+{{- else -}}
+  {{- range (slice 400 800 1400) -}}
+    {{- if ge $res.Width . -}}
+      {{- $v := $res.Resize (printf "%dx webp q80" .) -}}
+      {{- $set = $set | append (printf "%s %dw" $v.RelPermalink $v.Width) -}}
+      {{- $fallback = $v -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if not $fallback -}}{{- $fallback = $res -}}{{- end -}}
+  <img src="{{ $fallback.RelPermalink }}"{{ with $set }} srcset="{{ delimit . ", " }}" sizes="{{ $sizes }}"{{ end }}
+       width="{{ $fallback.Width }}" height="{{ $fallback.Height }}" alt="{{ $alt }}"
+       {{- with $class }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="async"{{ with $attrs }} {{ . | safeHTMLAttr }}{{ end }}>
+{{- end -}}

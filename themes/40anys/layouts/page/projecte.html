@@ -61,7 +61,7 @@
           <h2>{{ i18n "projecte_llibres" }}</h2>
           <div class="llibres-grid">
             <div class="llibre-card">
-              <img src="/llibres/Preses-Falses.png" alt="Preses Falses">
+              <img src="/llibres/Preses-Falses.webp" width="600" height="842" alt="Preses Falses">
               <div class="llibre-info">
                 <h3>Preses Falses</h3>
                 <p>{{ i18n "projecte_llibre1_sub" }}</p>
@@ -70,7 +70,7 @@
               </div>
             </div>
             <div class="llibre-card">
-              <img src="/llibres/40anysbluesbarcelona.png" alt="40 Anys de Blues a Barcelona">
+              <img src="/llibres/40anysbluesbarcelona.webp" width="800" height="1131" alt="40 Anys de Blues a Barcelona">
               <div class="llibre-info">
                 <h3>40 Anys de Blues a Barcelona</h3>
                 <p>{{ i18n "projecte_llibre2_sub" (dict "preu" ($vd.preu | default "38") "soci" ($vd.preu_soci | default "33")) }}</p>
@@ -95,7 +95,7 @@
           <div class="autors-principal">
             <a href="{{ .RelPermalink }}" class="autor-card">
               {{ if $img }}
-              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
+              {{ partial "img.html" (dict "res" $img "alt" .Title "class" "autor-foto" "sizes" "(max-width: 600px) 45vw, 180px") }}
               {{ else }}
               <div class="autor-foto autor-foto--placeholder"></div>
               {{ end }}
@@ -111,7 +111,7 @@
             {{ $img := partial "foto.html" (dict "page" .) }}
             <a href="{{ .RelPermalink }}" class="autor-card">
               {{ if $img }}
-              <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
+              {{ partial "img.html" (dict "res" $img "alt" .Title "class" "autor-foto" "sizes" "(max-width: 600px) 45vw, 180px") }}
               {{ else }}
               <div class="autor-foto autor-foto--placeholder"></div>
               {{ end }}
@@ -128,7 +128,7 @@
           <p class="gracies-intro">{{ i18n "projecte_gracies_intro" }}</p>
           <div class="gracies-logos">
             <a href="http://112books.eu" target="_blank" rel="noopener" title="Editorial 112 Books">
-              <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
+              <img src="/logotips/112books-logo.webp" alt="Editorial 112 Books">
             </a>
             {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
             <a href="{{ .RelPermalink }}" title="{{ .Title }}">
@@ -141,7 +141,7 @@
             </a>
             {{ end }}
             <a href="https://about.pocallum.cat" target="_blank" rel="noopener" title="Pocallum">
-              <img src="/logotips/pocallum-logo.png" alt="Pocallum">
+              <img src="/logotips/pocallum-logo.webp" alt="Pocallum">
             </a>
             <a href="https://llumatics.com" target="_blank" rel="noopener" title="Llumàtics">
               <img src="/logotips/llumatic-logo.svg" alt="Llumàtics">
@@ -183,7 +183,7 @@
         <!-- Logotip editorial + cita Willie Dixon -->
         <div class="editorial-peu">
           <div class="editorial-logo">
-            <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
+            <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.webp" alt="40 Anys de Blues a Barcelona">
             <p>{{ i18n "projecte_produccio" | safeHTML }}</p>
           </div>
           <div class="editorial-cita-wrap">
@@ -215,7 +215,7 @@
     "inLanguage": "ca",
     "bookFormat": "https://schema.org/Hardcover",
     "about": {"@type": "Thing", "name": "Blues a Barcelona"},
-    "image": "{{ absURL "/llibres/Preses-Falses.png" }}"
+    "image": "{{ absURL "/llibres/Preses-Falses.webp" }}"
   },
   {
     "@context": "https://schema.org",

@@ -8,7 +8,7 @@
       {{ $img := partial "foto.html" (dict "page" .) }}
       <a href="{{ .RelPermalink }}" class="autor-card">
         {{ if $img }}
-        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
+        {{ partial "img.html" (dict "res" $img "alt" .Title "class" "autor-foto" "sizes" "(max-width: 600px) 45vw, 180px") }}
         {{ else }}
         <div class="autor-foto autor-foto--placeholder"></div>
         {{ end }}

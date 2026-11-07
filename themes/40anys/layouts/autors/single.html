@@ -6,7 +6,7 @@
     <div class="autor-layout{{ if not $img }} autor-layout--sense-foto{{ end }}">
       <div class="autor-foto-col">
         {{ if $img }}
-        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto-gran">
+        {{ partial "img.html" (dict "res" $img "alt" .Title "class" "autor-foto-gran" "sizes" "(max-width: 600px) 60vw, 380px") }}
         {{ end }}
       </div>
       <div class="autor-info-col">

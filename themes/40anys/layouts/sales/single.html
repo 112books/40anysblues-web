@@ -6,7 +6,7 @@
     <div class="sala-layout{{ if not $img }} sala-layout--sense-logo{{ end }}">
       {{ if $img }}
       <div class="sala-logo-col">
-        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="sala-logo" loading="lazy">
+        {{ partial "img.html" (dict "res" $img "alt" .Title "class" "sala-logo" "sizes" "220px") }}
       </div>
       {{ end }}
       <div class="sala-info-col">

@@ -7,7 +7,7 @@
       <div class="historia-content">
         {{ if $img }}
         <div class="historia-foto">
-          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+          {{ partial "img.html" (dict "res" $img "alt" .Title "sizes" "(max-width: 900px) 100vw, 720px") }}
         </div>
         {{ end }}
         {{ with .Content }}

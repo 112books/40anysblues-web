@@ -14,7 +14,7 @@
   <div class="container">
     <div class="hero-grid">
       <div class="hero-logo">
-        <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
+        <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.webp" alt="40 Anys de Blues a Barcelona">
       </div>
       <div class="hero-text">
         <h1>{{ i18n "home_h1" }}</h1>
@@ -45,7 +45,7 @@
       {{/* Embed músics data for JS random pick */}}
       <script>
       {{ $data := slice }}
-      {{ range $musics }}{{ $img := partial "foto.html" (dict "page" .) }}{{ if $img }}{{ $data = $data | append (dict "url" .RelPermalink "title" .Title "img" $img.RelPermalink "instruments" (default slice .Params.instruments)) }}{{ end }}{{ end }}
+      {{ range $musics }}{{ $img := partial "foto.html" (dict "page" .) }}{{ if $img }}{{ $thumb := $img.Resize "600x webp q80" }}{{ $data = $data | append (dict "url" .RelPermalink "title" .Title "img" $thumb.RelPermalink "instruments" (default slice .Params.instruments)) }}{{ end }}{{ end }}
       window.__musics__ = {{ $data | jsonify | safeJS }};
       (function(){
         var list = window.__musics__ || [];
@@ -63,7 +63,7 @@
         <span class="random-label">{{ i18n "home_llibres_label" }}</span>
         <div class="random-llibres-stack">
           <div class="llibre-home-card">
-            <img src="/llibres/40anysbluesbarcelona.png" alt="40 Anys de Blues a Barcelona">
+            <img src="/llibres/40anysbluesbarcelona.webp" width="800" height="1131" alt="40 Anys de Blues a Barcelona">
             <div class="llibre-home-info">
               <h3>40 Anys de Blues a Barcelona</h3>
               <p class="llibre-sub">{{ i18n "home_llibre1_sub" (dict "data" (i18n "data_esdeveniment_curta") "preu" (site.Params.venda.preu | default "38") "soci" (site.Params.venda.preu_soci | default "33")) }}</p>
@@ -73,7 +73,7 @@
           </div>
           <div class="llibre-home-card">
             <a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener">
-              <img src="/llibres/Preses-Falses.png" alt="Preses Falses">
+              <img src="/llibres/Preses-Falses.webp" width="600" height="842" alt="Preses Falses">
             </a>
             <div class="llibre-home-info">
               <h3><a href="https://www.112books.eu/producte/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener">Preses Falses</a></h3>
@@ -97,7 +97,7 @@
       {{ $img := partial "foto.html" (dict "page" .) }}
       <a href="{{ .RelPermalink }}" class="autor-card">
         {{ if $img }}
-        <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="autor-foto">
+        {{ partial "img.html" (dict "res" $img "alt" .Title "class" "autor-foto" "sizes" "(max-width: 600px) 45vw, 180px") }}
         {{ else }}
         <div class="autor-foto autor-foto--placeholder"></div>
         {{ end }}
@@ -164,7 +164,7 @@
   <div class="container">
     <div class="home-gracies-top">
       <div class="home-gracies-editorial">
-        <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.png" alt="40 Anys de Blues a Barcelona">
+        <img src="/logotips/40-anys-de-Blues-a-Barcelona-logo.webp" alt="40 Anys de Blues a Barcelona">
         <p>{{ i18n "home_produccio" | safeHTML }}</p>
       </div>
       <div class="home-gracies-dreta">
@@ -177,7 +177,7 @@
           <p class="gracies-intro">{{ i18n "home_gracies_intro" }}</p>
           <div class="gracies-logos">
             <a href="http://112books.eu" target="_blank" rel="noopener" title="Editorial 112 Books">
-              <img src="/logotips/112books-logo.png" alt="Editorial 112 Books">
+              <img src="/logotips/112books-logo.webp" alt="Editorial 112 Books">
             </a>
             {{ with site.GetPage "/entitats/associacio-capibola-blues" }}
             {{ $img := partial "foto.html" (dict "page" . "globs" (slice "*logo*" "*.jpg" "*.png")) }}
@@ -196,7 +196,7 @@
             {{ end }}
             {{ end }}
             <a href="https://about.pocallum.cat" target="_blank" rel="noopener" title="Pocallum">
-              <img src="/logotips/pocallum-logo.png" alt="Pocallum">
+              <img src="/logotips/pocallum-logo.webp" alt="Pocallum">
             </a>
             <a href="https://llumatics.com" target="_blank" rel="noopener" title="Llumàtics">
               <img src="/logotips/llumatic-logo.svg" alt="Llumàtics">

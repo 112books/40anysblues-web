@@ -7,9 +7,9 @@
       <div class="musico-foto-col">
         {{ if $img }}
         <div class="musico-polaroid{{ if not .Params.session_date }} musico-polaroid--sense-data{{ end }}">
-          <button class="musico-foto-btn" aria-label="{{ i18n "musico_ampliar" }}" data-src="{{ $img.RelPermalink }}" data-alt="{{ .Title }}">
-            <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" class="musico-foto"
-                 oncontextmenu="return false" ondragstart="return false">
+          {{ $big := $img.Resize "1400x webp q80" }}
+          <button class="musico-foto-btn" aria-label="{{ i18n "musico_ampliar" }}" data-src="{{ $big.RelPermalink }}" data-alt="{{ .Title }}">
+            {{ partial "img.html" (dict "res" $img "alt" .Title "class" "musico-foto" "sizes" "280px" "loading" "eager" "attrs" "oncontextmenu=\"return false\" ondragstart=\"return false\"") }}
             <span class="musico-foto-zoom">&#x26F6;</span>
           </button>
           {{ with .Params.session_date }}

@@ -10,7 +10,7 @@
         <div class="taxo-foto">
           {{ $img := partial "foto.html" (dict "page" .) }}
           {{ if $img }}
-          <img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+          {{ partial "img.html" (dict "res" $img "alt" .Title "sizes" "(max-width: 600px) 45vw, 200px") }}
           {{ else }}
           <div class="taxo-foto-placeholder"></div>
           {{ end }}

@@ -48,7 +48,7 @@
          data-any="{{ .Params.born_year }}"
          data-nom="{{ .Title | lower }}">
         <div class="card-foto">
-          {{ if $img }}<img src="{{ $img.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+          {{ if $img }}{{ partial "img.html" (dict "res" $img "alt" .Title "sizes" "(max-width: 600px) 45vw, 220px") }}
           {{ else }}<div class="card-foto-placeholder"></div>{{ end }}
         </div>
         <div class="card-nom">{{ .Title }}</div>
