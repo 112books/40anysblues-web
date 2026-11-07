@@ -217,7 +217,7 @@ python3 scripts/check-i18n.py --actualitza # desar l'estat revisat
   no desa els paràmetres de consulta, `baseof.html` envia una visita addicional
   a `/qr-llibre` quan detecta `ref=llibre`; la pestanya QR compta aquest camí.
 
-El workflow es torna a executar cada 6 hores (schedule) encara que no hi hagi
+El workflow es torna a executar cada hora (schedule) encara que no hi hagi
 canvis, de manera que les dades no queden mai massa desfasades. Si es vol
 informació al segon, caldria consultar l'API des del navegador amb un token
 públic, cosa que es va descartar per seguretat.
@@ -393,4 +393,4 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 ### Funcionalitats
 - [x] Tooltip Wikipedia per a músics externs referenciats a les bios
   (`partials/wiki-tooltip.html`)
-- [ ] WebP + srcset per a imatges (Hugo image processing)
+- [x] WebP + srcset per a imatges (parcial partials/img.html, variants 400/800/1400 px)

@@ -8,9 +8,9 @@
       <p class="stats-sub">{{ i18n "stats_sub" | safeHTML }}</p>
       <div class="stats-controls">
         <div class="stats-period-btns" role="group" aria-label="{{ i18n "stats_periode" }}">
-          <button class="stats-period-btn active" data-days="30">{{ i18n "stats_mes" }}</button>
+          <button class="stats-period-btn active" data-days="1">{{ i18n "stats_dia" }}</button>
           <button class="stats-period-btn" data-days="7">{{ i18n "stats_setmana" }}</button>
-          <button class="stats-period-btn" data-days="1">{{ i18n "stats_dia" }}</button>
+          <button class="stats-period-btn" data-days="30">{{ i18n "stats_mes" }}</button>
           <button class="stats-period-btn" data-days="90">{{ i18n "stats_trimestre" }}</button>
           <button class="stats-period-btn" data-days="365">{{ i18n "stats_any" }}</button>
           <button class="stats-period-btn" data-days="total">{{ i18n "stats_total" }}</button>
@@ -376,7 +376,7 @@
     });
   });
 
-  load('30');
+  load('1');
 })();
 </script>
 {{ end }}
