@@ -311,7 +311,7 @@ img { max-width: 100%; height: auto; display: block; }
 .random-llibres-stack { display: flex; flex-direction: column; gap: 0; margin-top: .75rem; }
 .random-llibres-stack .llibre-home-card { padding: 1.5rem 0; }
 .random-llibres-stack .llibre-home-card + .llibre-home-card { border-top: 1px solid var(--border); }
-.random-llibres-stack .llibre-home-card img { width: 300px; max-width: 100%; flex-shrink: 0; }
+.random-llibres-stack .llibre-home-card img { width: 300px; height: auto; max-width: 100%; flex-shrink: 0; }
 
 /* === Books Home === */
 .home-llibres { padding: 0 0 5rem; }
@@ -343,6 +343,7 @@ img { max-width: 100%; height: auto; display: block; }
 .llibre-home-card img {
   border: 1px solid var(--border);
   width: 130px;
+  height: auto;
 }
 .llibre-home-info h3 {
   font-family: var(--font-head);

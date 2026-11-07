@@ -56,6 +56,8 @@ defaultContentLanguageInSubdir = false
 
 [params]
   author = 'Joan Linux'
+  # Puja aquest valor quan canviï el CSS per forçar la recàrrega
+  asset_version = '2026-11-07a'
   goatcounter = '40anysbluesbcn'
   password_protected = false
   # Canal de Telegram (font única per a tot el web)
