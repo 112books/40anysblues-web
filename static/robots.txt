@@ -29,6 +29,8 @@ User-agent: FacebookBot
 Allow: /
 
 # Bots d'entrenament IA (bloquejats — no indexació)
+User-agent: Google-Extended
+Disallow: /
 User-agent: CCBot
 Disallow: /
 
