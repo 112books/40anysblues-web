@@ -4,7 +4,9 @@
   {{- if $res -}}{{- $ogImage = $res.Permalink -}}{{- end -}}
 {{- end -}}
 {{- $ogTitle := cond .IsHome .Site.Title (printf "%s · %s" .Title .Site.Title) -}}
-{{- $ogDesc := or .Description .Site.Params.description -}}
+{{- $ogDesc := .Description -}}
+{{- if not $ogDesc }}{{ with .Summary }}{{ $ogDesc = . | plainify | truncate 160 }}{{ end }}{{ end -}}
+{{- if not $ogDesc }}{{ $ogDesc = .Site.Params.description }}{{ end -}}
 
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">

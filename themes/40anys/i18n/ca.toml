@@ -246,6 +246,18 @@ stats_qr_total = "visites QR (període)"
 stats_qr_pct = "del total de visites"
 stats_qr_mitja = "mitja/dia"
 
+
+
+
+
+# --- Períodes de les estadístiques ---
+stats_dia = "Avui"
+stats_setmana = "Setmana"
+stats_mes = "Mes"
+stats_trimestre = "Trimestre"
+stats_any = "Any"
+stats_total = "Total"
+
 [musics_count]
 one = "{{ .Count }} músic"
 other = "{{ .Count }} músics"

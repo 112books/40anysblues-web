@@ -203,7 +203,7 @@ python3 scripts/check-i18n.py --actualitza # desar l'estat revisat
 ## Estadístiques (pàgina /stats)
 
 - Les dades **es generen al build**: `scripts/fetch-stats.py` descarrega els
-  períodes de 30, 90 i 365 dies de l'API de GoatCounter (token al secret
+  períodes d'1 dia, 7, 30, 90, 365 dies i el total de l'API de GoatCounter (token al secret
   `GOATCOUNTER_TOKEN`, mai al navegador) i escriu `static/stats-data.json`,
   que la pàgina llegeix del mateix domini. Sense CORS, sense token públic i
   sense dependre de l'API en cada visita.
@@ -216,6 +216,11 @@ python3 scripts/check-i18n.py --actualitza # desar l'estat revisat
 - **QR del llibre**: el codi imprès apunta a `/?ref=llibre`. Com que GoatCounter
   no desa els paràmetres de consulta, `baseof.html` envia una visita addicional
   a `/qr-llibre` quan detecta `ref=llibre`; la pestanya QR compta aquest camí.
+
+El workflow es torna a executar cada 6 hores (schedule) encara que no hi hagi
+canvis, de manera que les dades no queden mai massa desfasades. Si es vol
+informació al segon, caldria consultar l'API des del navegador amb un token
+públic, cosa que es va descartar per seguretat.
 
 `scripts/check-stats.py` fa el mateix amb les estadístiques: comprova que
 `data/stats.yaml` coincideixi amb les pàgines, els instruments, les formacions,

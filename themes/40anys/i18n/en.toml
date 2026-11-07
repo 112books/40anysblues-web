@@ -251,6 +251,18 @@ data_esdeveniment_curta = "6 November"
 data_reserva_fi = "Wednesday 4 November"
 lb_assumpte = "Reserva 40 anys de blues"
 
+
+
+
+
+# --- Períodes de les estadístiques ---
+stats_dia = "Today"
+stats_setmana = "Week"
+stats_mes = "Month"
+stats_trimestre = "Quarter"
+stats_any = "Year"
+stats_total = "All time"
+
 [musics_count]
 one = "{{ .Count }} musician"
 other = "{{ .Count }} musicians"

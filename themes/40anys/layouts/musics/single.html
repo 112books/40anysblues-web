@@ -108,5 +108,5 @@
   {{- range . -}}{{- $groups = $groups | append (dict "@type" "MusicGroup" "name" .) -}}{{- end -}}
   {{- $person = merge $person (dict "memberOf" $groups) -}}
 {{- end -}}
-<script type="application/ld+json">{{ $person | jsonify }}</script>
+<script type="application/ld+json">{{ $person | jsonify | safeJS }}</script>
 {{ end }}

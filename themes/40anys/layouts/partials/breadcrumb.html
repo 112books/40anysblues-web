@@ -23,5 +23,5 @@
   {{- $elements = $elements | append (dict "@type" "ListItem" "position" .position "name" .name "item" .item) -}}
 {{- end -}}
 {{- $schema = merge $schema (dict "itemListElement" $elements) -}}
-<script type="application/ld+json">{{ $schema | jsonify }}</script>
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
 {{- end -}}

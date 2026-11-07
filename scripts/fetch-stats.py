@@ -19,7 +19,7 @@ from zoneinfo import ZoneInfo
 SITE = os.environ.get("GOATCOUNTER_SITE", "https://40anysbluesbcn.goatcounter.com")
 TOKEN = os.environ.get("GOATCOUNTER_TOKEN", "").strip()
 OUT = os.environ.get("STATS_OUT", "static/stats-data.json")
-PERIODS = (30, 90, 365)
+PERIODS = (1, 7, 30, 90, 365, 'total')
 QR_PATH = "/qr-llibre"
 
 
@@ -41,7 +41,10 @@ def main():
 
     for days in PERIODS:
         end = today
-        start = today - timedelta(days=days - 1)
+        if days == 'total':
+            start = date(2020, 1, 1)   # inici del projecte
+        else:
+            start = today - timedelta(days=days - 1)
         rng = {"start": start.isoformat(), "end": end.isoformat()}
         out["periods"][str(days)] = {
             "range": rng,
