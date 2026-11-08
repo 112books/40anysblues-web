@@ -6,6 +6,7 @@
     <div class="stats-header">
       <h1>{{ i18n "stats_titol" }}</h1>
       <p class="stats-sub">{{ i18n "stats_sub" | safeHTML }}</p>
+      <p class="stats-updated" id="stats-updated" hidden>{{ i18n "stats_actualitzat" }}: <span id="stats-updated-data"></span></p>
       <div class="stats-controls">
         <div class="stats-period-btns" role="group" aria-label="{{ i18n "stats_periode" }}">
           <button class="stats-period-btn active" data-days="1">{{ i18n "stats_dia" }}</button>
@@ -345,6 +346,13 @@
     });
 
     getData().then(function(all){
+      if (all.generated) {
+        var d = new Date(all.generated);
+        if (!isNaN(d.getTime())) {
+          document.getElementById('stats-updated-data').textContent = d.toLocaleString(LOCALE, {dateStyle: 'short', timeStyle: 'short'});
+          document.getElementById('stats-updated').hidden = false;
+        }
+      }
       var p = (all.periods || {})[String(days)];
       if (!p || !p.hits || !p.range) throw new Error('sense dades per al període ' + days);
       render(p.hits, p.refs || {stats: []}, days, p.range);

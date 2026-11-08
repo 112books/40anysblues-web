@@ -258,6 +258,11 @@ stats_trimestre = "Trimestre"
 stats_any = "Any"
 stats_total = "Total"
 
+
+
+
+stats_actualitzat = "Darrera actualització"
+
 [musics_count]
 one = "{{ .Count }} músic"
 other = "{{ .Count }} músics"

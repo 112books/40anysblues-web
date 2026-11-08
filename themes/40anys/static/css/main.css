@@ -1875,3 +1875,4 @@ h1, h2, h3 { font-weight: 700; }
   .cs-venda { padding: .9rem; }
   .cs-form input[type=email] { min-width: 0; }
 }
+.stats-updated { font-size: .8rem; color: var(--text2); margin-top: .35rem; opacity: .8; }

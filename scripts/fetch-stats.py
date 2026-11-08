@@ -37,7 +37,7 @@ def main():
 
     # Mateixa franja que calculava la pàgina: inclou el dia d'avui (hora de Barcelona).
     today = datetime.now(ZoneInfo("Europe/Madrid")).date()
-    out = {"generated": today.isoformat(), "qr_path": QR_PATH, "periods": {}}
+    out = {"generated": datetime.now(ZoneInfo("Europe/Madrid")).isoformat(timespec="minutes"), "qr_path": QR_PATH, "periods": {}}
 
     for days in PERIODS:
         end = today
