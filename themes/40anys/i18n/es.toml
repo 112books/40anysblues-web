@@ -269,6 +269,7 @@ nav_projecte_index = "Indice del proyecto"
 stats_tabs_aria = "Pestanas de las estadisticas"
 cerca_form_aria = "Buscar en el sitio"
 cerca_header_aria = "Busqueda rapida"
+saltar_contingut = "Salta al contenido"
 [musics_count]
 one = "{{ .Count }} músico"
 other = "{{ .Count }} músicos"

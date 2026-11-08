@@ -269,6 +269,7 @@ nav_projecte_index = "Index del projecte"
 stats_tabs_aria = "Pestanyes de les estadistiques"
 cerca_form_aria = "Cerca al web"
 cerca_header_aria = "Cerca rapida"
+saltar_contingut = "Salta al contingut"
 [musics_count]
 one = "{{ .Count }} músic"
 other = "{{ .Count }} músics"

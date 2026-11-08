@@ -1884,3 +1884,16 @@ h1, h2, h3 { font-weight: 700; }
 
 /* Enllacos de text: color mes clar sobre fons fosc */
 .section-intro a, .page-content a, .musico-bio a, .historia-content a, .entitat-bio a, .sala-bio a { color: var(--accent-light); }
+
+/* Enllac per saltar al contingut */
+.skip-link {
+  position: absolute; left: 1rem; top: -3rem; z-index: 9999;
+  background: var(--accent); color: #fff; padding: .6rem 1rem; border-radius: 4px;
+  text-decoration: none; transition: top .15s;
+}
+.skip-link:focus { top: 1rem; }
+
+/* Respecta qui prefereix menys moviment */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}

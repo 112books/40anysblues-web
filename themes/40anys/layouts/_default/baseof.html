@@ -21,9 +21,11 @@
   <link rel="stylesheet" href="/css/main.css?v={{ site.Params.asset_version | default "1" }}">
 </head>
 <body>
+  <a class="skip-link" href="#main">{{ i18n "saltar_contingut" }}</a>
+  
   {{ if .Site.Params.password_protected }}{{ partial "password-gate.html" . }}{{ end }}
   {{ partial "header.html" . }}
-  <main>
+  <main id="main">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
