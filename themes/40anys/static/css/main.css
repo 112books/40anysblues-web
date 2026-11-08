@@ -726,7 +726,7 @@ h1, h2, h3 { font-weight: 700; }
 .section-intro p:last-child em:only-child {
   display: block; margin-top: 1rem;
   font-size: .8rem; font-style: normal; letter-spacing: .04em;
-  color: var(--accent-light); opacity: .7;
+  color: var(--accent-light);
   border-top: 1px solid var(--border); padding-top: .6rem;
 }
 .section-items {
@@ -1878,6 +1878,9 @@ h1, h2, h3 { font-weight: 700; }
 .stats-updated { font-size: .8rem; color: var(--text2); margin-top: .35rem; }
 
 /* Enllaços dins de text: subratllats perque no depenguin nomes del color */
-.musico-bio a, .page-content a, .section-intro a, .historia-content a, .entitat-bio a, .sala-bio a, .autor-bio-text a, .musico-dades a, .cookie-text a, .cookie-link, .llibre-desc a, .stats-sub a, .cs-venda-urgent a, .cs-venda-nota a, .lb-legal a, .form-privacitat a, .contacte-alt a, .musico-dades a {
+.musico-bio a, .page-content a, .section-intro a, .check-label a, .historia-content a, .entitat-bio a, .sala-bio a, .autor-bio-text a, .musico-dades a, .cookie-text a, .cookie-link, .llibre-desc a, .stats-sub a, .cs-venda-urgent a, .cs-venda-nota a, .lb-legal a, .form-privacitat a, .contacte-alt a, .musico-dades a {
   text-decoration: underline; text-underline-offset: .18em;
 }
+
+/* Enllacos de text: color mes clar sobre fons fosc */
+.section-intro a, .page-content a, .musico-bio a, .historia-content a, .entitat-bio a, .sala-bio a { color: var(--accent-light); }

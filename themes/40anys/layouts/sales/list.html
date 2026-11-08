@@ -12,7 +12,7 @@
       <a href="{{ .RelPermalink }}" class="sala-card">
         <div class="sala-imatge">
           {{ if $img }}
-          {{ partial "img.html" (dict "res" $img "alt" .Title "sizes" "(max-width: 600px) 45vw, 300px") }}
+          {{ partial "img.html" (dict "res" $img "alt" "" "sizes" "(max-width: 600px) 45vw, 300px") }}
           {{ else }}
           <div class="sala-imatge-placeholder">
             <span>{{ .Title }}</span>

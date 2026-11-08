@@ -44,9 +44,16 @@
         {{ end }}
       </div>
     </div>
+    {{/* Navegacio circular en el mateix ordre que /musics (camp ordre, com el llibre) */}}
+    {{ $llista := sort (where site.RegularPages "Section" "musics") "Params.ordre" }}
+    {{ $n := len $llista }}
+    {{ $idx := 0 }}
+    {{ range $i, $p := $llista }}{{ if eq $p.RelPermalink $.RelPermalink }}{{ $idx = $i }}{{ end }}{{ end }}
+    {{ $prev := index $llista (mod (sub $idx 1) $n) }}
+    {{ $next := index $llista (mod (add $idx 1) $n) }}
     <div class="musico-nav">
-      {{ with .PrevInSection }}<a href="{{ .RelPermalink }}" class="nav-prev" data-href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ end }}
-      {{ with .NextInSection }}<a href="{{ .RelPermalink }}" class="nav-next" data-href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+      <a href="{{ $prev.RelPermalink }}" class="nav-prev" data-href="{{ $prev.RelPermalink }}">← {{ $prev.Title }}</a>
+      <a href="{{ $next.RelPermalink }}" class="nav-next" data-href="{{ $next.RelPermalink }}">{{ $next.Title }} →</a>
     </div>
   </div>
 </article>
