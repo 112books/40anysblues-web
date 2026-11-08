@@ -11,6 +11,7 @@ Variable d'entorn: GOATCOUNTER_TOKEN (secret del repositori).
 import json
 import os
 import sys
+import time
 import urllib.parse
 import urllib.request
 from datetime import date, datetime, timedelta
@@ -23,11 +24,18 @@ PERIODS = (1, 7, 30, 90, 365, 'total')
 QR_PATH = "/qr-llibre"
 
 
-def api(path, params):
+def api(path, params, intents=4):
     url = SITE + "/api/v0" + path + "?" + urllib.parse.urlencode(params)
-    req = urllib.request.Request(url, headers={"Authorization": "Bearer " + TOKEN})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.load(resp)
+    ultim = None
+    for i in range(intents):
+        try:
+            req = urllib.request.Request(url, headers={"Authorization": "Bearer " + TOKEN})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.load(resp)
+        except Exception as e:
+            ultim = e
+            time.sleep(2 * (i + 1))
+    raise ultim
 
 
 def main():
@@ -46,11 +54,14 @@ def main():
         else:
             start = today - timedelta(days=days - 1)
         rng = {"start": start.isoformat(), "end": end.isoformat()}
-        out["periods"][str(days)] = {
-            "range": rng,
-            "hits": api("/stats/hits", {"limit": 500, **rng}),
-            "refs": api("/stats/toprefs", {"limit": 20, **rng}),
-        }
+        try:
+            out["periods"][str(days)] = {
+                "range": rng,
+                "hits": api("/stats/hits", {"limit": 500, **rng}),
+                "refs": api("/stats/toprefs", {"limit": 20, **rng}),
+            }
+        except Exception as e:
+            print("AVIS: no s ha pogut baixar el periode " + str(days) + ": " + str(e), file=sys.stderr)
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as fh:
