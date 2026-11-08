@@ -1897,3 +1897,11 @@ h1, h2, h3 { font-weight: 700; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
 }
+/* Estandards que compleix el web */
+.footer-standards {
+  border-top: 1px solid var(--border); margin-top: 1.75rem; padding-top: 1rem;
+  font-size: .74rem; letter-spacing: .02em;
+  color: var(--text2); text-align: center; line-height: 1.9;
+}
+.footer-standards span { white-space: nowrap; }
+.footer-standards span + span::before { content: " · "; color: var(--text2); }

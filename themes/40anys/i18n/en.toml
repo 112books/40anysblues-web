@@ -275,6 +275,7 @@ stats_tabs_aria = "Statistics tabs"
 cerca_form_aria = "Search the site"
 cerca_header_aria = "Quick search"
 saltar_contingut = "Skip to content"
+footer_estandards_aria = "Standards this site meets"
 [musics_count]
 one = "{{ .Count }} musician"
 other = "{{ .Count }} musicians"

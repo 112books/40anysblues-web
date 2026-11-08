@@ -270,6 +270,7 @@ stats_tabs_aria = "Pestanas de las estadisticas"
 cerca_form_aria = "Buscar en el sitio"
 cerca_header_aria = "Busqueda rapida"
 saltar_contingut = "Salta al contenido"
+footer_estandards_aria = "Estandares que cumple este sitio"
 [musics_count]
 one = "{{ .Count }} músico"
 other = "{{ .Count }} músicos"
