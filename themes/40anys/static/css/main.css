@@ -7,7 +7,7 @@
   --bg2: #1a1a1a;
   --bg3: #242424;
   --text: #e8e8e8;
-  --text2: #888;
+  --text2: #9aa0a6;
   --accent: #1a6fb5;
   --accent-light: #4a9fd4;
   --border: #2a2a2a;
@@ -221,7 +221,7 @@ img { max-width: 100%; height: auto; display: block; }
 .footer-copy { color: var(--text2); margin-bottom: .4rem; font-size: .85rem; }
 .footer-copy a { color: var(--text2); }
 .footer-copy a:hover { color: var(--accent-light); }
-.footer-copyright { font-size: .72rem; color: var(--text2); opacity: .7; line-height: 1.5; margin-top: .3rem; max-width: 340px; }
+.footer-copyright { font-size: .72rem; color: var(--text2); line-height: 1.5; margin-top: .3rem; max-width: 340px; }
 .footer-copyright a { color: var(--text2); text-decoration: underline; }
 .footer-copyright a:hover { color: var(--accent-light); }
 .footer-legal { display: flex; gap: 1rem; justify-content: flex-start; }
@@ -286,7 +286,7 @@ img { max-width: 100%; height: auto; display: block; }
   font-size: .75rem;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--accent);
+  color: var(--accent-light);
   margin-bottom: .5rem;
 }
 .random-name { font-family: var(--font-head); font-size: 1.5rem; margin-bottom: .5rem; }
@@ -817,7 +817,7 @@ h1, h2, h3 { font-weight: 700; }
 .llibre-info h3 { font-family: var(--font-head); margin-bottom: .25rem; }
 .llibre-info p { font-size: .85rem; color: var(--text2); margin-top: .3rem; }
 .llibre-desc { color: var(--text) !important; }
-.llibre-isbn { font-size: .75rem !important; color: var(--border) !important; }
+.llibre-isbn { font-size: .75rem !important; color: var(--text2) !important; }
 
 /* Autors */
 .autors-section { margin-bottom: 4rem; }
@@ -1875,4 +1875,9 @@ h1, h2, h3 { font-weight: 700; }
   .cs-venda { padding: .9rem; }
   .cs-form input[type=email] { min-width: 0; }
 }
-.stats-updated { font-size: .8rem; color: var(--text2); margin-top: .35rem; opacity: .8; }
+.stats-updated { font-size: .8rem; color: var(--text2); margin-top: .35rem; }
+
+/* Enllaços dins de text: subratllats perque no depenguin nomes del color */
+.musico-bio a, .page-content a, .section-intro a, .historia-content a, .entitat-bio a, .sala-bio a, .autor-bio-text a, .musico-dades a, .cookie-text a, .cookie-link, .llibre-desc a, .stats-sub a, .cs-venda-urgent a, .cs-venda-nota a, .lb-legal a, .form-privacitat a, .contacte-alt a, .musico-dades a {
+  text-decoration: underline; text-underline-offset: .18em;
+}

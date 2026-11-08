@@ -7,14 +7,14 @@
         </a>
         <p class="footer-copy">© {{ now.Year }} <a href="http://112books.eu" target="_blank" rel="noopener">Editorial 112 Books</a> · Joan Linux</p>
         <p class="footer-copyright">{{ i18n "footer_copyright" (dict "contacte" (relLangURL "/contacte/")) | safeHTML }}</p>
-        <nav class="footer-legal">
+        <nav class="footer-legal" aria-label="{{ i18n "footer_legal_aria" }}">
           <a href="{{ relLangURL "/legal/avis-legal/" }}">{{ i18n "footer_avis_legal" }}</a>
           <a href="{{ relLangURL "/legal/privacitat/" }}">{{ i18n "footer_privacitat" }}</a>
           <a href="{{ relLangURL "/legal/cookies/" }}">{{ i18n "footer_cookies" }}</a>
         </nav>
       </div>
       <div class="footer-mid">
-        <nav class="footer-nav-sec">
+        <nav class="footer-nav-sec" aria-label="{{ i18n "footer_enllacos_aria" }}">
           <a href="{{ relLangURL "/contacte/" }}">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             {{ i18n "footer_contacte" }}

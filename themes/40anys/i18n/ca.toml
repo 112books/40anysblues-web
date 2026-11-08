@@ -263,6 +263,12 @@ stats_total = "Total"
 
 stats_actualitzat = "Darrera actualització"
 
+footer_legal_aria = "Enllacos legals"
+footer_enllacos_aria = "Enllacos del peu"
+nav_projecte_index = "Index del projecte"
+stats_tabs_aria = "Pestanyes de les estadistiques"
+cerca_form_aria = "Cerca al web"
+cerca_header_aria = "Cerca rapida"
 [musics_count]
 one = "{{ .Count }} músic"
 other = "{{ .Count }} músics"
