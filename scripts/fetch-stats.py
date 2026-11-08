@@ -54,11 +54,14 @@ def main():
         else:
             start = today - timedelta(days=days - 1)
         rng = {"start": start.isoformat(), "end": end.isoformat()}
+        # L'API de GoatCounter perd el darrer dia si la finestra es d'un sol dia;
+        # demanem un dia mes i despres filtrem pel rang real.
+        qstart = start - timedelta(days=1)
         try:
             out["periods"][str(days)] = {
                 "range": rng,
-                "hits": api("/stats/hits", {"limit": 500, **rng}),
-                "refs": api("/stats/toprefs", {"limit": 20, **rng}),
+                "hits": api("/stats/hits", {"limit": 500, "start": qstart.isoformat(), "end": rng["end"]}),
+                "refs": api("/stats/toprefs", {"limit": 20, "start": qstart.isoformat(), "end": rng["end"]}),
             }
         except Exception as e:
             print("AVIS: no s ha pogut baixar el periode " + str(days) + ": " + str(e), file=sys.stderr)
