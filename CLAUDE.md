@@ -203,6 +203,21 @@ python3 scripts/check-i18n.py              # veure què ha canviat
 python3 scripts/check-i18n.py --actualitza # desar l'estat revisat
 ```
 
+## Enllaços interns
+
+- `scripts/check-links.py` revisa tots els `href` i `src` de l'HTML generat
+  (cal executar `hugo` abans) i atura el CI si algun enllaç intern no resol.
+  Amb el contingut actual valida més de 99.000 enllaços.
+- Les llistes de taxonomia (`/bands/`, `/instruments/`) han de fer servir el
+  `RelPermalink` de la pàgina del terme, no construir la URL amb el nom: els
+  noms amb espais o accents generaven enllaços com
+  `/bands/the%20suitcase%20brothers/` que no existeixen.
+- Els enllaços a fitxes de músics i bandes han de coincidir amb el slug real
+  (`/musics/david-giorcelli/`, `/musics/jose-buefingers/`,
+  `/bands/los-vándalos/`). El control del CI ho detecta abans de publicar.
+- Els enllaços externs i les ancores pures (`#`) se salten; els interns amb
+  `#fragment` es comproven pel camí, sense el fragment.
+
 ## Estadístiques (pàgina /stats)
 
 - Les dades **es generen al build**: `scripts/fetch-stats.py` descarrega els
@@ -382,16 +397,18 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
   detectats (concordances, calcs, noms propis, cometes, països del `born_city`).
 - [ ] Repàs humà final de les traduccions: llegir les pàgines canviades. Les
   decisions editorials ja estan preses (vegeu «Decisions de traducció»).
+  El 2026-11-09 s'hi va fer una passada completa de control (catalanismes,
+  barreges d'idioma, estructura, frontmatter i enllaços) sense cap avís pendent;
+  només falta la lectura humana final.
 - [x] Sincronitzar les traduccions quan es regenerin les fitxes: `scripts/check-i18n.py`
   i `scripts/check-stats.py` comproven la coherència i s'executen al CI abans de
   compilar, de manera que un desajust atura el desplegament.
-- [ ] Corregir a `_fitxes/` (repo privat) els casos normalitzats només al web:
-  `pol-prats.md` («Saxo Tenor» → «Saxo tenor»), `dani-roto.md` (espai no separable
-  dins de «SickRoto Blues BigBand Orquesta») i els enllaços trencats de
-  `ster-wax.md`, `frank-barnes.md` i `arnau-demons.md` (`/musics/david-giorcelli-/`
-  → `/musics/david-giorcelli/`), `txus-blues.md` (`jose-bluefingers` →
-  `jose-buefingers`) i `cristian-moya.md` (`los-vandalos` → `los-vándalos`).
-  Al web ja estan corregits; si es regenera abans de corregir-ho, els canvis es perdran.
+- [x] Corregir a `_fitxes/` (repo privat) els casos normalitzats només al web:
+  `pol-prats.md` («Saxo Tenor» → «Saxo tenor»), `dani-roto.md` (espai no
+  separable dins de «SickRoto Blues BigBand Orquesta») i els cinc enllaços
+  trencats de `ster-wax.md`, `frank-barnes.md`, `arnau-demons.md`,
+  `txus-blues.md` i `cristian-moya.md`. Fet el 2026-11-09 (commits `1a886560`
+  i `9a5d3ff2` del repo privat); el web ja coincidia.
 - [x] Enllaços interns: `scripts/check-links.py` valida els enllaços del web generat
   al CI, i s'ha corregit la llista de bandes, que enllaçava amb espais
   (`/bands/the%20suitcase%20brothers/` en lloc de `/bands/the-suitcase-brothers/`).
