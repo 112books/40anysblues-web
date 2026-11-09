@@ -135,6 +135,9 @@ grep total_musics data/stats.yaml
 # Coherència de les dades i de les traduccions (també s'executa al CI):
 python3 scripts/check-stats.py
 python3 scripts/check-i18n.py
+
+# Enllaços interns del web generat (també s'executa al CI):
+python3 scripts/check-links.py public
 ```
 
 El canvi de mode del panell es pot provar sense esperar la data: es pot simular
@@ -382,10 +385,16 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 - [x] Sincronitzar les traduccions quan es regenerin les fitxes: `scripts/check-i18n.py`
   i `scripts/check-stats.py` comproven la coherència i s'executen al CI abans de
   compilar, de manera que un desajust atura el desplegament.
-- [ ] Corregir a `_fitxes/` (repo privat) els dos casos normalitzats només al web:
-  `pol-prats.md` («Saxo Tenor» → «Saxo tenor») i `dani-roto.md` (espai no separable
-  dins de «SickRoto Blues BigBand Orquesta»). Si es regenera abans de corregir-ho,
-  els canvis es perdran.
+- [ ] Corregir a `_fitxes/` (repo privat) els casos normalitzats només al web:
+  `pol-prats.md` («Saxo Tenor» → «Saxo tenor»), `dani-roto.md` (espai no separable
+  dins de «SickRoto Blues BigBand Orquesta») i els enllaços trencats de
+  `ster-wax.md`, `frank-barnes.md` i `arnau-demons.md` (`/musics/david-giorcelli-/`
+  → `/musics/david-giorcelli/`), `txus-blues.md` (`jose-bluefingers` →
+  `jose-buefingers`) i `cristian-moya.md` (`los-vandalos` → `los-vándalos`).
+  Al web ja estan corregits; si es regenera abans de corregir-ho, els canvis es perdran.
+- [x] Enllaços interns: `scripts/check-links.py` valida els enllaços del web generat
+  al CI, i s'ha corregit la llista de bandes, que enllaçava amb espais
+  (`/bands/the%20suitcase%20brothers/` en lloc de `/bands/the-suitcase-brothers/`).
 - [x] Estadístiques: la pàgina `/stats` ja és multilingüe (dies de la setmana, textos
   dels gràfics, format de números per idioma) i calcula el període en hora local.
 - [ ] Brevo DNS: traduir templates al català
