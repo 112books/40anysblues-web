@@ -59,6 +59,11 @@
         <div id="stats-refs" class="stats-refs-list"><p class="stats-loading">{{ i18n "stats_carregant" }}</p></div>
       </section>
 
+      <section class="stats-section">
+        <h2>{{ i18n "stats_top_pages" }}</h2>
+        <div id="stats-top-pages" class="stats-top-list"><p class="stats-loading">{{ i18n "stats_carregant" }}</p></div>
+      </section>
+
     </div>
 
     <!-- ══ TAB: MÚSICS & GRUPS ════════════════════════════════════════════════ -->
@@ -117,13 +122,16 @@
 {{/* Noms llegibles de les pàgines de taxonomia (bandes i instruments), que no
      són a l'índex de la cerca. Serveixen per no ensenyar slugs al rànquing. */}}
 {{- $noms := dict -}}
-{{- range site.Pages -}}
-  {{- $noms = merge $noms (dict (strings.TrimSuffix "/" .RelPermalink) .LinkTitle) -}}
-{{- end -}}
-{{- range $taxo, $termes := site.Taxonomies -}}
-  {{- range $terme, $wp := $termes -}}
-    {{- with $wp.Page -}}
-      {{- $noms = merge $noms (dict (strings.TrimSuffix "/" .RelPermalink) .LinkTitle) -}}
+{{- range site.Sites -}}
+  {{- $s := . -}}
+  {{- range $s.Pages -}}
+    {{- $noms = merge $noms (dict (strings.TrimSuffix "/" .RelPermalink) .LinkTitle) -}}
+  {{- end -}}
+  {{- range $taxo, $termes := $s.Taxonomies -}}
+    {{- range $terme, $wp := $termes -}}
+      {{- with $wp.Page -}}
+        {{- $noms = merge $noms (dict (strings.TrimSuffix "/" .RelPermalink) .LinkTitle) -}}
+      {{- end -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
@@ -227,6 +235,11 @@
     Object.keys(NOMS).forEach(function(k){
       noms[k] = NOMS[k];
       try { noms[decodeURIComponent(k)] = NOMS[k]; } catch (e) {}
+      // GoatCounter desa les rutes sense barra final
+      var sense = k.replace(/\/$/, '');
+      noms[sense] = NOMS[k];
+      try { noms[decodeURIComponent(sense)] = NOMS[k]; } catch (e) {}
+      noms[k.replace(/\/?$/, '/')] = NOMS[k];
     });
 
     var daysList = allDays(range.start, range.end);
@@ -285,6 +298,7 @@
     // Top músics i grups
     renderTopList('stats-top-musics', byPage, PREFIX_MUSICS, total, noms);
     renderTopList('stats-top-bands',  byPage, PREFIX_BANDS,  total, noms);
+    renderTopList('stats-top-pages',  byPage, '', total, noms);
 
     // Referrers
     renderRefs(refsData);
@@ -341,7 +355,7 @@
     ['kpi-total','kpi-avg','kpi-pages','qr-total','qr-pct','qr-avg'].forEach(function(id){
       document.getElementById(id).textContent='—';
     });
-    ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
+    ['stats-refs','stats-top-musics','stats-top-bands','stats-top-pages'].forEach(function(id){
       document.getElementById(id).innerHTML='<p class="stats-loading">{{ i18n "stats_carregant" }}</p>';
     });
 
@@ -358,7 +372,7 @@
       render(p.hits, p.refs || {stats: []}, days, p.range);
     }).catch(function(e){
       console.error('goatcounter', e);
-      ['stats-refs','stats-top-musics','stats-top-bands'].forEach(function(id){
+      ['stats-refs','stats-top-musics','stats-top-bands','stats-top-pages'].forEach(function(id){
         document.getElementById(id).innerHTML =
           '<p class="stats-error">{{ i18n "stats_error" }} <small>(' + e.message + ')</small></p>';
       });

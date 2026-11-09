@@ -271,6 +271,7 @@ cerca_form_aria = "Cerca al web"
 cerca_header_aria = "Cerca rapida"
 saltar_contingut = "Salta al contingut"
 footer_estandards_aria = "Estandards que compleix aquest web"
+stats_top_pages = "Pagines mes visitades"
 [musics_count]
 one = "{{ .Count }} músic"
 other = "{{ .Count }} músics"

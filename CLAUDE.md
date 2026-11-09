@@ -213,6 +213,14 @@ python3 scripts/check-i18n.py --actualitza # desar l'estat revisat
 - Els rànquings de músics i bandes fan servir els prefixos d'idioma
   (`/musics/`, `/es/musics/`, `/en/musics/`…) i els noms surten de les pàgines i
   dels termes de taxonomia del lloc, no dels slugs de la URL.
+- **Dies en UTC**: GoatCounter compta els dies en UTC; el fitxer de dades també, perquè
+  «Avui» coincideixi amb el panell de GoatCounter.
+- **Finestra amb marge**: l'API no retorna el darrer dia quan la finestra és d'un sol dia,
+  així que es demana un dia més i es filtra pel rang real.
+- **Endpoint `stats/total` no fiable**: per a aquest lloc retorna zeros en dies amb visites;
+  la pàgina fa servir sempre `stats/hits`.
+- **Rànquing de pàgines**: la pestanya general mostra les pàgines més visitades amb el nom
+  de la pàgina (tots els idiomes), no el slug.
 - **QR del llibre**: el codi imprès apunta a `/?ref=llibre`. Com que GoatCounter
   no desa els paràmetres de consulta, `baseof.html` envia una visita addicional
   a `/qr-llibre` quan detecta `ref=llibre`; la pestanya QR compta aquest camí.

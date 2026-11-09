@@ -14,7 +14,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 SITE = os.environ.get("GOATCOUNTER_SITE", "https://40anysbluesbcn.goatcounter.com")
@@ -44,7 +44,7 @@ def main():
         return 0
 
     # Mateixa franja que calculava la pàgina: inclou el dia d'avui (hora de Barcelona).
-    today = datetime.now(ZoneInfo("Europe/Madrid")).date()
+    today = datetime.now(timezone.utc).date()   # GoatCounter compta els dies en UTC
     out = {"generated": datetime.now(ZoneInfo("Europe/Madrid")).isoformat(timespec="minutes"), "qr_path": QR_PATH, "periods": {}}
 
     for days in PERIODS:
