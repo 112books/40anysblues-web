@@ -1,5 +1,5 @@
 # 40 Anys de Blues a Barcelona — https://40anysblues.112books.eu/
-# robots.txt — actualitzat 2026-11-10
+# robots.txt — actualitzat 2026-11-11
 # Resum del lloc per a models de llenguatge: https://40anysblues.112books.eu/llms.txt
 
 # Cercadors principals
