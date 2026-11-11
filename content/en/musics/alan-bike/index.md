@@ -14,7 +14,7 @@ instruments:
 - Vocals
 bands:
 - Alan Bike
-- Los tres cerditos
+- Los Tres Cerditos
 - Bike & Lonesome
 ordre: 17
 draft: false

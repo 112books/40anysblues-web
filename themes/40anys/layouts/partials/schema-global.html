@@ -1,33 +1,17 @@
+{{/* Schema.org global: WebSite i Organization.
+
+     Surt a la portada de cada idioma. El WebSite descriu el lloc (nom, idioma,
+     cercador intern) i n'identifica el creador (Joan Linux) i l'editorial
+     (112Books); la pagina de l'autor en dona el detall. */}}
 {{- if .IsHome -}}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{{ .Site.Title }}",
-  "url": "{{ .Site.BaseURL }}",
-  "description": "{{ .Site.Params.description }}",
-  "inLanguage": "{{ .Site.Language.Lang }}",
-  "publisher": {
-    "@type": "Organization",
-    "name": "112Books",
-    "url": "https://112books.eu",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ absURL "/logotips/40-anys-de-Blues-a-Catalunya-logo-Rounded-150x150.png" }}"
-    }
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "112Books",
-  "url": "https://112books.eu",
-  "logo": {
-    "@type": "ImageObject",
-    "url": "{{ absURL "/logotips/112books-logo.png" }}"
-  }
-}
-</script>
+{{- $autor := dict "@type" "Person" "name" "Joan Linux" "alternateName" "Joan Martínez i Serres" "url" (absLangURL "/autors/joan-linux/") "sameAs" (slice "https://about.pocallum.cat") -}}
+{{- with site.GetPage "/autors/joan-linux" -}}
+  {{- $autor = merge $autor (dict "name" .Title "url" .Permalink "jobTitle" .Params.rol) -}}
+  {{- with .Params.sameAs -}}{{- $autor = merge $autor (dict "sameAs" .) -}}{{- end -}}
+{{- end -}}
+{{- $editorial := dict "@type" "Organization" "@id" "https://112books.eu/#organization" "name" "112Books" "url" "https://112books.eu" "logo" (dict "@type" "ImageObject" "url" (absURL "/logotips/112books-logo.png")) -}}
+{{- $cerca := dict "@type" "SearchAction" "target" (dict "@type" "EntryPoint" "urlTemplate" (printf "%s?q={search_term_string}" (absLangURL "/cerca/"))) "query-input" "required name=search_term_string" -}}
+{{- $web := dict "@context" "https://schema.org" "@type" "WebSite" "@id" (printf "%s#website" .Site.Home.Permalink) "name" .Site.Title "url" .Site.Home.Permalink "description" .Site.Params.description "inLanguage" .Site.Language.Lang "publisher" $editorial "creator" $autor "potentialAction" $cerca -}}
+<script type="application/ld+json">{{ $web | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ $editorial | jsonify | safeJS }}</script>
 {{- end -}}

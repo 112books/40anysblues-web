@@ -3,6 +3,7 @@
   <div class="container">
     <h1 class="taxonomy-title">{{ .Title }}</h1>
     <p class="taxonomy-count">{{ i18n "musics_taxo_count" (dict "Count" (len .Pages)) }}</p>
+    <p class="taxonomy-intro">{{ i18n "instruments_intro" (dict "nom" .Title) }}</p>
 
     <div class="taxonomy-grid">
       {{ range sort .Pages "Title" }}

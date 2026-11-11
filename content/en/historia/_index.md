@@ -1,5 +1,6 @@
 ---
 title: "The history of blues in Barcelona"
+description: "The history of the blues in Barcelona, from Big Bill Broonzy's 1953 concert at the Capsa theatre to today's scene: venues, radio, organisations and musicians, by Manuel López Poy."
 ---
 
 ## Big Bill in the background

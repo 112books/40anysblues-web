@@ -253,6 +253,99 @@ públic, cosa que es va descartar per seguretat.
 les ciutats i els anys del contingut. Els dos controls s'executen al CI abans de
 compilar.
 
+## SEO i cerca amb IA (GEO/AEO)
+
+Actualitzat el 2026-11-11. L'objectiu és que el web surti quan algú busca els
+músics, els grups, el projecte, «La història del blues a Barcelona», «Joan
+Linux» o «fotografia de gran format», en els tres idiomes.
+
+### Metadades
+
+- **Un sol motor de descripcions**: `partials/seo-desc.html` retorna la
+  metadescripció de qualsevol pàgina, per a `<meta name="description">`,
+  `og:description` i `twitter:description`. Ordre: camp `description` del
+  frontmatter; si no n'hi ha, descripció generada segons el tipus de pàgina
+  (fitxa de grup, fitxa d'instrument, llista de taxonomia, llibre de la
+  bibliografia) o el resum del contingut; i, com a últim recurs, la descripció
+  general del lloc. Es talla a 158 caràcters.
+- Les pàgines de servei (butlletí, cerca, contacte, estadístiques, visites,
+  legal) porten `description` al frontmatter perquè no caiguin al text general.
+- **Títols**: les fitxes d'autor porten el rol («Joan Linux, Editor i
+  Fotògraf …») i les llistes de taxonomia, una formulació descriptiva
+  («Grups i formacions de blues a Barcelona», «Instruments del blues a
+  Barcelona»). La portada suma el tema al nom del projecte.
+- `/cerca/` va amb `noindex, follow`; `/stats/` també (el defineix la seva
+  plantilla).
+
+### hreflang
+
+- `partials/alternates.html` retorna les versions equivalents d'una pàgina i
+  `baseof.html` n'escriu els `hreflang` i l'`x-default` (sempre el català).
+- Els instruments es tradueixen («guitarra» / «guitar» / «armónica»), així que
+  cada idioma té slugs diferents i Hugo no enllaça les traduccions sol. Per
+  això `partials/taxo-term-map.html` construeix un mapa de pàgines de terme
+  equivalents a partir dels membres que comparteixen (clau = adreces catalanes
+  dels músics ordenades). Les bandes, sales i entitats no es tradueixen i
+  funcionen amb el mecanisme normal.
+- L'idioma dels `hreflang` surt de `locale` (a `hugo.toml`), que és el mateix
+  valor que fa servir el sitemap.
+
+### Schema.org
+
+| Pàgina | Tipus |
+|---|---|
+| Portada | `WebSite` (amb `creator` = Joan Linux i `SearchAction`) + `Organization` |
+| Fitxa de músic | `Person` amb `ImageObject` (autoria i data de sessió), instruments, formacions i lloc de naixement |
+| Fitxa de grup | `MusicGroup` amb els membres enllaçats |
+| Instrument, llistes de secció | `CollectionPage` + `ItemList` |
+| `/historia/` i `/fotografia/` | `Article` amb autor i `about` |
+| Fitxa d'autor | `Person` amb `alternateName`, `jobTitle` i `sameAs` |
+| Bibliografia | `Book` |
+| Totes (menys la portada) | `BreadcrumbList` |
+
+El codi viu a `partials/schema-global.html` (portada),
+`partials/schema-page.html` (per tipus), `musics/single.html` i
+`page/projecte.html` (els llibres). El lloc de naixement surt de
+`born_city`: si porta parèntesis («Buenos Aires (Argentina)»), el país és el
+del parèntesi; si no, Espanya.
+
+### Fotografia de gran format
+
+`content/{ca,es,en}/fotografia/` és una pàgina per idioma que explica el
+procés (format mitjà 6×6 amb Hasselblad, gran format 8×10 amb Horseman,
+pel·lícules, revelat amb Rodinal) i enllaça amb els músics, la història i el
+projecte. Surt al peu de pàgina, a la portada, a l'índex del projecte i a la
+fitxa de Joan Linux. Les dades tècniques (Hasselblad 500 CM en 6×6, Horseman
+en 8×10, Rollei RPX 100 / Ilford HP5 / Foma 100 i 400, revelador Rodinal) estan
+confirmades per l'autor l'11 de novembre de 2026.
+
+### Cercadors i assistents amb IA
+
+- `static/robots.txt` permet els cercadors i els assistents que citen
+  (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-SearchBot,
+  PerplexityBot…) i bloqueja els d'ús exclusivament d'entrenament
+  (Google-Extended, CCBot, Omgilibot).
+- `static/llms.txt` és el resum del lloc per a models de llenguatge: què és,
+  pàgines principals, dades clau, autors, llibres i condicions de citació.
+  **S'ha d'actualitzar a mà** quan canviïn les xifres o s'afegeixin seccions.
+- `scripts/seo-audit.py` revisa l'HTML generat: descripcions que cauen al text
+  general, canonical, hreflang, títols repetits i validesa del JSON-LD.
+
+### Decisions preses
+
+- **Grups d'un sol membre** (424 de les 530 formacions): es mantenen indexats.
+  Són entitats reals, amb text propi, `MusicGroup` i enllaços als membres; no
+  s'hi posa `noindex` (decisió de l'11 de novembre de 2026).
+- **Títols repetits** entre una fitxa de grup i la del músic amb el mateix nom
+  («Tota Blues», «Alan Bike»…): són entitats distintes i es deixen així.
+- **«Los Tres Cerditos»**: la fitxa d'Alan Bike deia «Los tres cerditos» i la de
+  MA Lonesome «Los Tres Cerditos». S'ha unificat a la forma amb majúscules al
+  web (tres idiomes) i `data/stats.yaml` ha passat de 531 a 530 formacions.
+  **Pendent a la font**: cal fer el mateix canvi a `_fitxes/alan-bike.md` del
+  repo privat; si no, la propera regeneració de `content/ca/musics/` el
+  reintrodueix.
+
+
 
 ---
 

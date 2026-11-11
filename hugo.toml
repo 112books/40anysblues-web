@@ -6,24 +6,24 @@ defaultContentLanguageInSubdir = false
 
 [languages]
   [languages.ca]
-    languageName = 'Català'
-    languageCode = 'ca'
+    label = 'Català'
+    locale = 'ca'
     weight = 1
     title = '40 Anys de blues a Barcelona'
     contentDir = 'content/ca'
     [languages.ca.params]
       description = "Arxiu fotogràfic i biogràfic de l'escena del blues barcelonina"
   [languages.es]
-    languageName = 'Castellano'
-    languageCode = 'es-ES'
+    label = 'Castellano'
+    locale = 'es-ES'
     weight = 2
     title = '40 Anys de blues a Barcelona'
     contentDir = 'content/es'
     [languages.es.params]
       description = "Archivo fotográfico y biográfico de la escena del blues barcelonés"
   [languages.en]
-    languageName = 'English'
-    languageCode = 'en'
+    label = 'English'
+    locale = 'en'
     weight = 3
     title = '40 Anys de blues a Barcelona'
     contentDir = 'content/en'
@@ -57,7 +57,7 @@ defaultContentLanguageInSubdir = false
 [params]
   author = 'Joan Linux'
   # Puja aquest valor quan canviï el CSS per forçar la recàrrega
-  asset_version = '2026-11-07a'
+  asset_version = '2026-11-11a'
   goatcounter = '40anysbluesbcn'
   password_protected = false
   # Canal de Telegram (font única per a tot el web)

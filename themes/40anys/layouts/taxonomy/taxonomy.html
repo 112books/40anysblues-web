@@ -1,8 +1,25 @@
+{{/* Llistes de taxonomia: /bands/ i /instruments/.
+
+     El titol de la pestanya i l'H1 no son el nom generic de la taxonomia
+     («Bands», «Instruments») sino una formulacio que descriu el contingut i el
+     lloc, perque aquestes dues pagines son la porta d'entrada de les cerques
+     «grups de blues Barcelona» i «instruments del blues». */}}
+{{ define "title" }}{{ if eq .Section "bands" }}{{ i18n "bands_title" }}{{ else if eq .Section "instruments" }}{{ i18n "instruments_title" }}{{ else }}{{ .Title }}{{ end }} · {{ .Site.Title }}{{ end }}
 {{ define "main" }}
+{{ $titol := .Title }}
+{{ $intro := "" }}
+{{ if eq .Section "bands" }}
+  {{ $titol = i18n "bands_title" }}
+  {{ $intro = i18n "seo_desc_bandes_index" (dict "num" (len .Pages)) }}
+{{ else if eq .Section "instruments" }}
+  {{ $titol = i18n "instruments_title" }}
+  {{ $intro = i18n "seo_desc_instruments_index" (dict "num" (len .Pages)) }}
+{{ end }}
 <section class="taxonomy-section">
   <div class="container">
-    <h1 class="taxonomy-title">{{ .Title }}</h1>
+    <h1 class="taxonomy-title">{{ $titol }}</h1>
     <p class="taxonomy-count">{{ i18n "musics_taxo_count" (dict "Count" (len .Pages)) }}</p>
+    {{ with $intro }}<p class="taxonomy-intro">{{ . }}</p>{{ end }}
 
     <div class="taxonomy-grid">
       {{ range sort .Pages "Title" }}

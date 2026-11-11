@@ -1,0 +1,32 @@
+{{/* Retorna les versions equivalents d'una pagina en els altres idiomes.
+
+     Format: llista de diccionaris { lang, url }. El primer element que
+     correspongui al catala es fa servir com a x-default.
+
+     Camí normal: les traduccions que Hugo coneix (AllTranslations).
+     Cas dels instruments: el slug del terme canvia d'idioma, aixi que es
+     busquen les pagines germanes pel mapa de membres (taxo-term-map.html). */}}
+{{- $p := . -}}
+{{- $out := slice -}}
+{{- range $p.AllTranslations -}}
+  {{- $out = $out | append (dict "lang" (.Language.Locale | default .Lang) "url" .Permalink) -}}
+{{- end -}}
+{{- if and (lt (len $out) 3) (eq $p.Kind "term") (eq $p.Section "instruments") -}}
+  {{- $mapa := partialCached "taxo-term-map.html" $p.Section $p.Section -}}
+  {{- $membres := slice -}}
+  {{- range $p.Pages -}}
+    {{- $ca := .Permalink -}}
+    {{- if ne .Lang "ca" -}}
+      {{- range .Translations -}}{{- if eq .Lang "ca" -}}{{- $ca = .Permalink -}}{{- end -}}{{- end -}}
+    {{- end -}}
+    {{- $membres = $membres | append $ca -}}
+  {{- end -}}
+  {{- $clau := delimit (sort $membres) "|" -}}
+  {{- with index $mapa $clau -}}
+    {{- $out = slice -}}
+    {{- range $lang, $url := . -}}
+      {{- $out = $out | append (dict "lang" $lang "url" $url) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

@@ -1,8 +1,10 @@
+{{ define "title" }}{{ i18n "bands_title" }} · {{ .Site.Title }}{{ end }}
 {{ define "main" }}
 <section class="taxonomy-section">
   <div class="container">
-    <h1 class="taxonomy-title">{{ i18n "formacions_titol" }}</h1>
+    <h1 class="taxonomy-title">{{ i18n "bands_title" }}</h1>
     <p class="taxonomy-count">{{ i18n "formacions_count" (dict "Count" (len site.Taxonomies.bands)) }}</p>
+    <p class="taxonomy-intro">{{ i18n "seo_desc_bandes_index" (dict "num" (len site.Taxonomies.bands)) }}</p>
 
     <div class="bandes-grid">
       {{ range $slug, $pages := site.Taxonomies.bands }}

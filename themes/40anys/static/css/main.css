@@ -978,6 +978,13 @@ h1, h2, h3 { font-weight: 700; }
   border-bottom: 1px solid var(--border);
 }
 .taxonomy-count { color: var(--text2); font-size: .85rem; margin-bottom: 2rem; }
+/* Text introductori generat a les llistes de taxonomia i a les fitxes de grup:
+   dona context a la pagina (i a la metadescripcio) sense passar de mida. */
+.taxonomy-intro {
+  max-width: 62ch; color: var(--text2); font-size: 1rem;
+  line-height: 1.65; margin: 0 0 2rem;
+}
+.taxonomy-count + .taxonomy-intro { margin-top: -1.2rem; }
 
 .taxonomy-grid {
   display: grid;

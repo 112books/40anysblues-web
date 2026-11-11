@@ -1,5 +1,6 @@
 ---
 title: "Qui dona suport al blues?"
+description: "Les entitats que sostenen el blues a Barcelona: la Societat de Blues de Barcelona, La Hora del Blues, Capibola Blues, Bad Music i l'Escola de Blues de Barcelona."
 
 ---
 

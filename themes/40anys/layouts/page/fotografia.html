@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="content-page historia-page">
+  <div class="container">
+    <div class="text-offset">
+      {{ partial "breadcrumb.html" . }}
+      <h1>{{ .Title }}</h1>
+      <div class="historia-content">
+        {{ with .Content }}
+        <div class="page-content">{{ . }}</div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ .Site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify | truncate 160 }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
-  {{ block "robots" . }}<meta name="robots" content="index, follow">{{ end }}
+  <meta name="description" content="{{ partial "seo-desc.html" . }}">
+  {{ block "robots" . }}<meta name="robots" content="{{ if eq .Section "cerca" }}noindex, follow{{ else }}index, follow{{ end }}">{{ end }}
+  <meta name="author" content="{{ site.Params.author }}">
+  {{/* x-default: sempre la versio catalana, que es l'idioma principal. */}}
+  {{- $alternates := partial "alternates.html" . -}}
+  {{- $xdefault := .Permalink -}}
+  {{- if eq .Lang "ca" }}{{ $xdefault = .Permalink }}{{ end -}}
+  {{- range $alternates }}{{ if eq .lang "ca" }}{{ $xdefault = .url }}{{ end }}{{ end -}}
   <link rel="canonical" href="{{ .Permalink }}">
-  {{- range .AllTranslations }}
-  <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+  {{- range $alternates }}
+  <link rel="alternate" hreflang="{{ .lang }}" href="{{ .url }}">
   {{- end }}
-  {{- with .AllTranslations }}{{ with index . 0 }}
-  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
-  {{- end }}{{ end }}
+  <link rel="alternate" hreflang="x-default" href="{{ $xdefault }}">
   <link rel="icon" type="image/png" href="/logotips/40-anys-de-Blues-a-Barcelona-logo-Rounded-150x150.png">
   {{ partial "og.html" . }}
   {{ partial "schema-global.html" . }}
+  {{ partial "schema-page.html" . }}
   <link rel="stylesheet" href="/css/fonts.css?v={{ site.Params.asset_version | default "1" }}">
   <link rel="stylesheet" href="/css/main.css?v={{ site.Params.asset_version | default "1" }}">
 </head>

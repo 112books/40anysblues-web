@@ -1,0 +1,40 @@
+{{/* Mapa d'equivalencies entre les pagines de terme d'una taxonomia i els tres
+     idiomes.
+
+     Els noms de les bandes, sales i entitats no es tradueixen i, per tant, el
+     slug del terme coincideix als tres idiomes: Hugo enllaça les traduccions
+     sol. Els instruments, en canvi, SI que es tradueixen («guitarra»,
+     «guitar», «guitarra»), i per aixo cada idioma acaba amb slugs diferents i
+     sense cap enllac hreflang entre ells.
+
+     Aquest parcial construeix, un sol cop per taxonomia, un mapa
+     clau de membres -> { idioma: pagina del terme }. La clau es la llista
+     ordenada de les adreces catalanes dels membres, de manera que dues
+     pagines de terme son la mateixa entitat si tenen els mateixos musics.
+
+     Parametre: el nom de la taxonomia (p. ex. "instruments").
+     Retorna: dict clau -> dict idioma -> permalink. */}}
+{{- $tax := . -}}
+{{- $mapa := dict -}}
+{{- range hugo.Sites -}}
+  {{- $s := . -}}
+  {{- $lang := $s.Language.Lang -}}
+  {{- with $s.GetPage (printf "/%s" $tax) -}}
+    {{- range .Pages -}}
+      {{- $term := . -}}
+      {{- $membres := slice -}}
+      {{- range $term.Pages -}}
+        {{- $ca := .Permalink -}}
+        {{- if ne .Lang "ca" -}}
+          {{- range .Translations -}}{{- if eq .Lang "ca" -}}{{- $ca = .Permalink -}}{{- end -}}{{- end -}}
+        {{- end -}}
+        {{- $membres = $membres | append $ca -}}
+      {{- end -}}
+      {{- $clau := delimit (sort $membres) "|" -}}
+      {{- $entrada := index $mapa $clau | default dict -}}
+      {{- $entrada = merge $entrada (dict $lang $term.Permalink) -}}
+      {{- $mapa = merge $mapa (dict $clau $entrada) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $mapa -}}

@@ -1,5 +1,6 @@
 ---
 title: "Músics i Músiques"
+description: "Les 148 biografies de músics de blues de Barcelona retratats per Joan Linux: instruments, formacions, any i lloc de naixement, i els textos de Manuel López Poy."
 ---
 
 La llarga gestació d'aquest llibre ha anat generant expectatives, il·lusions, dubtes, acudits i comentaris de tota mena, cosa que sempre complica una mica la presentació de l'experiment en qüestió. Per tant, per escometre aquesta tasca, he recorregut al manual més bàsic del periodisme: les cinc preguntes essencials de qualsevol informació.

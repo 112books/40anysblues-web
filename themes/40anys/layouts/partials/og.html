@@ -1,20 +1,45 @@
+{{/* Open Graph i Twitter Card.
+
+     La imatge de compartició es la fotografia principal de la pagina; si la
+     pagina no en te (les versions ES i EN comparteixen les fotos de la CA),
+     s'agafa la de la traduccio i, si no n'hi ha cap, el logotip del projecte. */}}
 {{- $ogImage := absURL "/logotips/40-anys-de-Blues-a-Barcelona-logo.png" -}}
+{{- $imgAlt := .Site.Title -}}
+{{- $dims := "" -}}
 {{- if .IsPage -}}
   {{- $res := or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") -}}
-  {{- if $res -}}{{- $ogImage = $res.Permalink -}}{{- end -}}
+  {{- if not $res -}}
+    {{- range .Translations -}}
+      {{- if not $res -}}{{- $res = or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") (.Resources.GetMatch "*.webp") -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if $res -}}
+    {{- $share := $res -}}
+    {{- if and (ne $res.MediaType.SubType "svg") (ge $res.Width 1200) -}}
+      {{- $share = $res.Resize "1200x webp q82" -}}
+    {{- end -}}
+    {{- $ogImage = $share.Permalink -}}
+    {{- $dims = printf "\n<meta property=\"og:image:width\" content=\"%d\">\n<meta property=\"og:image:height\" content=\"%d\">" $share.Width $share.Height -}}
+    {{- $imgAlt = printf "%s — %s" (.Params.nom_complet | default .Title) .Site.Title -}}
+  {{- end -}}
 {{- end -}}
+{{- $locales := dict "ca" "ca_ES" "es" "es_ES" "en" "en_US" -}}
+{{- $ogLocale := or (index $locales .Site.Language.Lang) "ca_ES" -}}
+{{- $ogDesc := partial "seo-desc.html" . -}}
 {{- $ogTitle := cond .IsHome .Site.Title (printf "%s · %s" .Title .Site.Title) -}}
-{{- $ogDesc := .Description -}}
-{{- if not $ogDesc }}{{ with .Summary }}{{ $ogDesc = . | plainify | truncate 160 }}{{ end }}{{ end -}}
-{{- if not $ogDesc }}{{ $ogDesc = .Site.Params.description }}{{ end -}}
-
 <meta property="og:type" content="{{ if .IsHome }}website{{ else }}article{{ end }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ $ogTitle }}">
 <meta property="og:description" content="{{ $ogDesc }}">
 <meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ $ogLocale }}">
+{{- range .AllTranslations }}{{ if ne .Lang $.Site.Language.Lang }}
+<meta property="og:locale:alternate" content="{{ or (index $locales .Lang) "ca_ES" }}">
+{{- end }}{{ end }}
 <meta property="og:image" content="{{ $ogImage }}">
+<meta property="og:image:alt" content="{{ $imgAlt }}">{{ $dims }}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $ogTitle }}">
 <meta name="twitter:description" content="{{ $ogDesc }}">
 <meta name="twitter:image" content="{{ $ogImage }}">
+<meta name="twitter:image:alt" content="{{ $imgAlt }}">

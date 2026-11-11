@@ -1,3 +1,7 @@
+{{/* El titol de la fitxa d'autor porta el rol: distingeix la pagina de la del
+     music amb el mateix nom (Ricky Gil, Lluis Souto) i reforça la cerca per
+     «fotograf» i «periodista». */}}
+{{ define "title" }}{{ with .Params.rol }}{{ $.Title }}, {{ . }}{{ else }}{{ .Title }}{{ end }} · {{ .Site.Title }}{{ end }}
 {{ define "main" }}
 <article class="autor-page">
   <div class="container">

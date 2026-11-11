@@ -1,5 +1,6 @@
 ---
 title: "Who supports the blues?"
+description: "The organisations behind the blues in Barcelona: the Societat de Blues de Barcelona, La Hora del Blues, Capibola Blues, Bad Music and the Escola de Blues de Barcelona."
 
 ---
 

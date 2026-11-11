@@ -1,0 +1,64 @@
+{{/* Schema.org de la pagina, segons el tipus.
+
+     Les fitxes de music (musics/single.html) i la del projecte (page/projecte.html)
+     porten el seu propi schema; aqui s'hi afegeixen els tipus que faltaven:
+       - MusicGroup: fitxa de grup (/bands/{slug}/)
+       - CollectionPage + ItemList: fitxes d'instrument i llistes de seccio
+       - Article: la historia del blues a Barcelona i la pagina de fotografia
+       - Person: fitxes d'autor (Joan Linux, Manuel Lopez Poy...)
+       - Book: bibliografia
+*/}}
+{{- $p := . -}}
+{{- $lang := .Site.Language.Lang -}}
+{{- $desc := partial "seo-desc.html" . -}}
+{{- $editorial := dict "@type" "Organization" "@id" "https://112books.eu/#organization" "name" "112Books" "url" "https://112books.eu" -}}
+{{- $web := dict "@type" "WebSite" "name" .Site.Title "url" .Site.Home.Permalink -}}
+{{- $schemas := slice -}}
+
+{{- if and (eq .Kind "term") (eq .Section "bands") -}}
+  {{- $membres := slice -}}
+  {{- range sort .Pages "Title" -}}{{- $membres = $membres | append (dict "@type" "Person" "name" .Title "url" .Permalink) -}}{{- end -}}
+  {{- $schemas = $schemas | append (dict "@context" "https://schema.org" "@type" "MusicGroup" "@id" (printf "%s#musicgroup" .Permalink) "name" .Title "url" .Permalink "description" $desc "genre" "Blues" "inLanguage" $lang "member" $membres "isPartOf" $web) -}}
+
+{{- else if and (eq .Kind "term") (eq .Section "instruments") -}}
+  {{- $items := slice -}}
+  {{- range $i, $m := sort .Pages "Title" -}}{{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "url" $m.Permalink "name" $m.Title) -}}{{- end -}}
+  {{- $schemas = $schemas | append (dict "@context" "https://schema.org" "@type" "CollectionPage" "@id" (printf "%s#collection" .Permalink) "name" .Title "url" .Permalink "description" $desc "inLanguage" $lang "isPartOf" $web "mainEntity" (dict "@type" "ItemList" "numberOfItems" (len .Pages) "itemListElement" $items)) -}}
+
+{{- else if eq .Kind "taxonomy" -}}
+  {{- $schemas = $schemas | append (dict "@context" "https://schema.org" "@type" "CollectionPage" "@id" (printf "%s#collection" .Permalink) "name" .Title "url" .Permalink "description" $desc "inLanguage" $lang "isPartOf" $web) -}}
+
+{{- else if and (eq .Kind "section") (in (slice "musics" "sales" "entitats" "autors" "bibliografia") .Section) -}}
+  {{- $items := slice -}}
+  {{- range $i, $m := .Pages.ByParam "ordre" -}}{{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "url" $m.Permalink "name" $m.Title) -}}{{- end -}}
+  {{- $schemas = $schemas | append (dict "@context" "https://schema.org" "@type" "CollectionPage" "@id" (printf "%s#collection" .Permalink) "name" .Title "url" .Permalink "description" $desc "inLanguage" $lang "isPartOf" $web "mainEntity" (dict "@type" "ItemList" "numberOfItems" (len .Pages) "itemListElement" $items)) -}}
+
+{{- else if and (eq .Section "historia") (eq .Kind "section") -}}
+  {{- $autor := dict "@type" "Person" "name" "Manuel López Poy" "url" (absLangURL "/autors/manuel-lopez-poy/") -}}
+  {{- $art := dict "@context" "https://schema.org" "@type" "Article" "@id" (printf "%s#article" .Permalink) "headline" .Title "name" .Title "url" .Permalink "description" $desc "inLanguage" $lang "author" $autor "publisher" $editorial "isPartOf" $web "about" (dict "@type" "Thing" "name" (i18n "seo_about_blues")) -}}
+  {{- with or (.Resources.GetMatch "*.jpg") (.Resources.GetMatch "*.png") -}}{{- $art = merge $art (dict "image" .Permalink) -}}{{- end -}}
+  {{- $schemas = $schemas | append $art -}}
+
+{{- else if and (eq .Kind "page") (eq .Section "autors") -}}
+  {{- $person := dict "@context" "https://schema.org" "@type" "Person" "@id" (printf "%s#person" .Permalink) "name" .Title "url" .Permalink "description" $desc "inLanguage" $lang "jobTitle" (.Params.rol | default "") -}}
+  {{- with .Params.nom_complet -}}{{- $person = merge $person (dict "alternateName" .) -}}{{- end -}}
+  {{- with .Params.sameAs -}}{{- $person = merge $person (dict "sameAs" .) -}}{{- end -}}
+  {{- with partial "foto.html" (dict "page" .) -}}{{- $person = merge $person (dict "image" .Permalink) -}}{{- end -}}
+  {{- with .Params.musica_url -}}{{- $person = merge $person (dict "sameAs" (slice (absURL .))) -}}{{- end -}}
+  {{- $schemas = $schemas | append $person -}}
+
+{{- else if and (eq .Kind "page") (eq .Section "bibliografia") -}}
+  {{- $book := dict "@context" "https://schema.org" "@type" "Book" "@id" (printf "%s#book" .Permalink) "name" .Title "url" .Permalink "inLanguage" $lang "publisher" $editorial -}}
+  {{- with .Params.autor -}}{{- $book = merge $book (dict "author" (dict "@type" "Person" "name" .)) -}}{{- end -}}
+  {{- with .Params.isbn -}}{{- $book = merge $book (dict "isbn" .) -}}{{- end -}}
+  {{- with partial "foto.html" (dict "page" .) -}}{{- $book = merge $book (dict "image" .Permalink) -}}{{- end -}}
+  {{- $schemas = $schemas | append $book -}}
+
+{{- else if eq .Layout "fotografia" -}}
+  {{- $autor := dict "@type" "Person" "name" "Joan Linux" "url" (absLangURL "/autors/joan-linux/") "sameAs" (slice "https://about.pocallum.cat") -}}
+  {{- $schemas = $schemas | append (dict "@context" "https://schema.org" "@type" "Article" "@id" (printf "%s#article" .Permalink) "headline" .Title "name" .Title "url" .Permalink "description" $desc "inLanguage" $lang "author" $autor "publisher" $editorial "isPartOf" $web "about" (slice (dict "@type" "Thing" "name" (i18n "seo_about_fotografia")) (dict "@type" "Thing" "name" (i18n "seo_about_blues")))) -}}
+{{- end -}}
+
+{{- range $schemas -}}
+<script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
+{{- end -}}

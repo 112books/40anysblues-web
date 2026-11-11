@@ -1,5 +1,6 @@
 ---
 title: "El Proyecto"
+description: "El proyecto «40 anys de Blues a Barcelona»: los libros, los autores, las cifras del archivo y la bibliografía de un trabajo fotográfico y biográfico de cuatro décadas de blues en la ciudad."
 type: "page"
 layout: "projecte"
 ---

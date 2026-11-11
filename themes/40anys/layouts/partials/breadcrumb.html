@@ -1,8 +1,10 @@
 <nav class="breadcrumb" aria-label="{{ i18n "breadcrumb_aria" }}">
   <a href="{{ relLangURL "/" }}">{{ i18n "breadcrumb_inici" }}</a>
   {{ range .Ancestors.Reverse }}
+  {{ $nom := .Title }}
+  {{ if eq .Kind "taxonomy" }}{{ if eq .Section "bands" }}{{ $nom = i18n "bands_title" }}{{ else if eq .Section "instruments" }}{{ $nom = i18n "instruments_title" }}{{ end }}{{ end }}
   <span aria-hidden="true"> / </span>
-  <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+  <a href="{{ .RelPermalink }}">{{ $nom }}</a>
   {{ end }}
   {{ if not .IsHome }}
   <span aria-hidden="true"> / </span>
@@ -12,7 +14,12 @@
 {{- if not .IsHome -}}
 {{- $items := slice (dict "position" 1 "name" (i18n "breadcrumb_inici") "item" .Site.BaseURL) -}}
 {{- range $i, $a := .Ancestors.Reverse -}}
-  {{- $items = $items | append (dict "position" (add $i 2) "name" $a.Title "item" $a.Permalink) -}}
+  {{- $nom := $a.Title -}}
+  {{- if eq $a.Kind "taxonomy" -}}
+    {{- if eq $a.Section "bands" -}}{{- $nom = i18n "bands_title" -}}
+    {{- else if eq $a.Section "instruments" -}}{{- $nom = i18n "instruments_title" -}}{{- end -}}
+  {{- end -}}
+  {{- $items = $items | append (dict "position" (add $i 2) "name" $nom "item" $a.Permalink) -}}
 {{- end -}}
 {{- if not .IsSection -}}
   {{- $items = $items | append (dict "position" (add (len .Ancestors) 2) "name" .Title "item" .Permalink) -}}

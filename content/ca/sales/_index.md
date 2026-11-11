@@ -1,5 +1,6 @@
 ---
 title: "Els Temples del blues"
+description: "Els temples del blues a Barcelona: La Cova del Drac, Jamboree, La Boîte, Pipa Club, Tia Felipa i la resta de sales i bars que han fet l'escena des del 1953."
 
 ---
 

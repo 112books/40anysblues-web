@@ -3,7 +3,17 @@
   <div class="container">
     {{ partial "breadcrumb.html" . }}
     <h1 class="taxonomy-title">{{ .Title }}</h1>
+    {{/* Text introductori generat: dona context a la pagina i a la descripcio
+         (abans aquestes fitxes sortien amb la descripcio general del lloc). */}}
+    {{ $noms := slice }}
+    {{ range sort .Pages "Title" }}{{ $noms = $noms | append .Title }}{{ end }}
+    {{ $llista := delimit $noms ", " }}
     <p class="taxonomy-count">{{ i18n "banda_membres_count" (dict "Count" (len .Pages)) }}</p>
+    {{ if eq (len .Pages) 1 }}
+    <p class="taxonomy-intro">{{ i18n "bands_intro_un" (dict "membres" $llista) }}</p>
+    {{ else }}
+    <p class="taxonomy-intro">{{ i18n "bands_intro" (dict "num" (len .Pages) "membres" $llista) }}</p>
+    {{ end }}
 
     <div class="bandes-grid bandes-grid--single">
       <div class="banda-card banda-card--full">

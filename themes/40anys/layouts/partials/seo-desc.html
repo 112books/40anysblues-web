@@ -1,0 +1,50 @@
+{{/* Descripcio d'una pagina per a <meta name="description">, Open Graph i Twitter.
+
+     Ordre de preferencia:
+       1. El camp `description` del frontmatter (les pagines que en porten manen).
+       2. Descripcio generada segons el tipus de pagina: fitxes de grup (term de la
+          taxonomia «bands»), fitxes d'instrument, llistes de taxonomia i la resta
+          de llistes, que agafen el resum del contingut.
+       3. La descripcio general del lloc.
+
+     Retorna text pla, en una sola linia i amb un maxim de 158 caracters. */}}
+{{- $d := .Description | default "" -}}
+{{- if not $d -}}
+  {{- if eq .Kind "term" -}}
+    {{- $n := len .Pages -}}
+    {{- $noms := slice -}}
+    {{- range first 6 (sort .Pages "Title") }}{{ $noms = $noms | append .Title }}{{ end -}}
+    {{- $llista := delimit $noms ", " -}}
+    {{- if gt $n 6 }}{{ $llista = printf "%s..." $llista }}{{ end -}}
+    {{- if eq .Section "bands" -}}
+      {{- if eq $n 1 -}}
+        {{- $d = i18n "seo_desc_banda_un" (dict "nom" .Title "membres" $llista) -}}
+      {{- else -}}
+        {{- $d = i18n "seo_desc_banda" (dict "nom" .Title "num" $n "membres" $llista) -}}
+      {{- end -}}
+    {{- else if eq .Section "instruments" -}}
+      {{- $d = i18n "seo_desc_instrument" (dict "nom" .Title "num" $n) -}}
+    {{- else -}}
+      {{- $d = i18n "seo_desc_term" (dict "nom" .Title "num" $n) -}}
+    {{- end -}}
+  {{- else if eq .Kind "taxonomy" -}}
+    {{- $n := len .Pages -}}
+    {{- if eq .Section "bands" -}}
+      {{- $d = i18n "seo_desc_bandes_index" (dict "num" $n) -}}
+    {{- else if eq .Section "instruments" -}}
+      {{- $d = i18n "seo_desc_instruments_index" (dict "num" $n) -}}
+    {{- else -}}
+      {{- $d = i18n "seo_desc_taxo_index" (dict "nom" .Title "num" $n) -}}
+    {{- end -}}
+  {{- else if and (eq .Section "bibliografia") (eq .Kind "page") -}}
+    {{- $d = i18n "seo_desc_llibre" (dict "titol" .Title "autor" (.Params.autor | default "")) -}}
+  {{- else -}}
+    {{- with .Summary -}}{{- $d = . | plainify -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $d -}}{{- $d = .Site.Params.description -}}{{- end -}}
+{{- $d = $d | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
+{{- if gt (len $d) 158 -}}
+  {{- $d = printf "%s..." (strings.TrimSpace (replaceRE "\\s+\\S*$" "" (substr $d 0 155))) -}}
+{{- end -}}
+{{- return $d -}}
