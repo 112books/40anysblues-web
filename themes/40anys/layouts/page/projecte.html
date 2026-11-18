@@ -10,11 +10,12 @@
       <!-- Índex lateral esquerre -->
       <aside class="projecte-sidebar">
         <nav class="projecte-index" aria-label="{{ i18n "nav_projecte_index" }}">
-          <a href="#numeros">El projecte en números</a>
-          <a href="#llibres">Els llibres</a>
-          <a href="#autors">Els culpables</a>
-          <a href="#gracies">Gràcies a</a>
-          <a href="#bibliografia">Bibliografia</a>
+          <a href="#proleg">{{ i18n "projecte_preleg" }}</a>
+          <a href="#numeros">{{ i18n "projecte_numeros" }}</a>
+          <a href="#llibres">{{ i18n "projecte_llibres" }}</a>
+          <a href="#autors">{{ i18n "projecte_culpables" }}</a>
+          <a href="#gracies">{{ i18n "projecte_gracies" }}</a>
+          <a href="#bibliografia">{{ i18n "projecte_biblio" }}</a>
           <a href="#premsa">{{ i18n "projecte_premsa_nav" }}</a>
           <a href="{{ relLangURL "/fotografia/" }}">{{ i18n "nav_fotografia" }}</a>
         </nav>
@@ -25,10 +26,7 @@
 
         <h1>{{ .Title }}</h1>
 
-        <div class="projecte-proleg">
-          <figure class="proleg-portada">
-            <img src="/llibres/40anysbluesbarcelona.webp" width="400" height="566" alt="{{ i18n "projecte_portada_alt" }}">
-          </figure>
+        <div class="projecte-proleg" id="proleg">
           <div class="page-content">{{ .Content }}</div>
         </div>
 
@@ -79,7 +77,7 @@
               </div>
             </div>
             <div class="llibre-card">
-              <img src="/llibres/40anysbluesbarcelona.webp" width="800" height="1131" alt="40 Anys de Blues a Barcelona">
+              <img src="/llibres/40anysbluesbarcelona.webp" width="797" height="1129" alt="40 Anys de Blues a Barcelona">
               <div class="llibre-info">
                 <h3>40 Anys de Blues a Barcelona</h3>
                 <p>{{ i18n "projecte_llibre2_sub" (dict "preu" ($vd.preu | default "38") "soci" ($vd.preu_soci | default "33")) }}</p>

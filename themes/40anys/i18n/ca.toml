@@ -184,6 +184,7 @@ projecte_llibre2_sub = "Primera edició curta · {{ .preu }} € · {{ .soci }} 
 projecte_llibre2_desc = "L'edició definitiva. {{ .musics }} músics, biografies completes, fotografies definitives. Quatre dècades d'una escena que segueix viva."
 projecte_llibre2_pres = "Presentació i inici de la venda: {{ .data }} · {{ .lloc }}."
 projecte_llibre2_reserves = "Reserves i encàrrecs per correu a <a href=\"{{ .mail }}\">{{ .email }}</a>."
+projecte_preleg = "Pròleg"
 projecte_portada_alt = "Portada del llibre «40 anys de blues a Barcelona»"
 projecte_premsa = "On es parla de 40 anys de blues a Barcelona"
 projecte_premsa_nav = "On es parla"

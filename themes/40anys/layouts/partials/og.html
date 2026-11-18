@@ -37,7 +37,7 @@
 <meta property="og:locale:alternate" content="{{ or (index $locales .Lang) "ca_ES" }}">
 {{- end }}{{ end }}
 <meta property="og:image" content="{{ $ogImage }}">
-<meta property="og:image:alt" content="{{ $imgAlt }}">{{ $dims }}
+<meta property="og:image:alt" content="{{ $imgAlt }}">{{ $dims | safeHTML }}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $ogTitle }}">
 <meta name="twitter:description" content="{{ $ogDesc }}">

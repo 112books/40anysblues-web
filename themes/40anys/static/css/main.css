@@ -828,16 +828,16 @@ h1, h2, h3 { font-weight: 700; }
 .projecte-proleg .page-content p { max-width: 72ch; }
 .proleg-portada {
   float: right;
-  width: 400px;
-  margin: .4rem 0 1.75rem 2.5rem;
+  width: 50%;
+  margin: .35rem 0 1.5rem 2rem;
 }
 .proleg-portada img {
   width: 100%; height: auto; display: block;
   border: 1px solid var(--border);
   box-shadow: 0 12px 32px rgba(0, 0, 0, .5);
 }
-@media (max-width: 1150px) {
-  .proleg-portada { float: none; width: min(400px, 100%); margin: 0 auto 1.75rem; }
+@media (max-width: 900px) {
+  .proleg-portada { float: none; width: min(320px, 100%); margin: .5rem auto 1.75rem; }
   .projecte-proleg .page-content { max-width: 720px; }
   .projecte-proleg .page-content p { max-width: none; }
 }

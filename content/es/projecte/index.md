@@ -7,6 +7,8 @@ layout: "projecte"
 
 ## El resto de las cosas, las podemos dejar para mañana
 
+{{< portada-llibre >}}
+
 El blues llegó a Barcelona como quien llega tarde a una fiesta: sin prisa, pero con una elegancia que nadie pudo ignorar. Era una noche calurosa de 1953 y Big Bill Broonzy, una de las figuras más emblemáticas de este género musical, subía al escenario del teatro C.A.P.S.A. de la ciudad condal con su guitarra amplificada y su voz desgarrada. Fue un concierto que pocos recuerdan haber presenciado (la memoria es frágil en tiempos de dictadura), pero cuya leyenda se ha ido engrandeciendo con el paso de las décadas y que hoy sigue inspirando a todos los aficionados locales que entienden que el blues, más que un estilo musical, es una forma de habitar en este mundo tan incongruente y apasionante que hemos heredado, generación tras generación, acorde tras acorde.
 
 Curiosamente, la fotografía llegó a Barcelona mucho tiempo antes y con cierta urgencia después de su invención. En 1839, los primeros daguerrotipos empezaron a captar los contornos de una ciudad que, como el blues, debía aprender a reinventarse con cada nuevo plan urbanístico, con cada contraluz que cegaba la mirada de unas personas que no entendían hacia dónde avanzaba la sociedad, y con cada sombra que proyectaban los nuevos tiempos que acabarían sucumbiendo a la llegada del tranvía eléctrico (seamos honestos, tampoco han cambiado tantas cosas). Desde entonces, las dos formas artísticas, la música y la imagen, han evolucionado en paralelo, capturando las historias, las emociones y la batalla persistente entre la melancolía y la esperanza, entre lo que es moderno y lo que es tradicional, una batalla que sigue vigente en el universo digital en el que habitamos hoy en día.

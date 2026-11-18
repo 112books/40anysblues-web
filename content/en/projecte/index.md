@@ -7,6 +7,8 @@ layout: "projecte"
 
 ## The rest we can leave for tomorrow
 
+{{< portada-llibre >}}
+
 The blues arrived in Barcelona like someone late to a party: unhurried, but with an elegance nobody could ignore. It was a warm night in 1953 and Big Bill Broonzy, one of the most emblematic figures of this musical genre, was climbing onto the stage of the C.A.P.S.A. theatre in the Catalan capital with his amplified guitar and his torn voice. It was a concert that few remember having witnessed (memory is fragile in times of dictatorship), but whose legend has grown greater with the passing of the decades and which today still inspires all the local enthusiasts who understand that the blues, more than a musical style, is a way of inhabiting this world, so incongruous and thrilling, that we have inherited, generation after generation, chord after chord.
 
 Curiously, photography arrived in Barcelona much earlier, and with a certain urgency, after its invention. In 1839, the first daguerreotypes began to capture the outlines of a city which, like the blues, had to learn to reinvent itself with every new urban plan, with every backlight that dazzled the eyes of people who did not understand where society was heading, and with every shadow cast by the new times that would end up succumbing to the arrival of the electric tram (let us be honest, not that many things have changed either). Ever since, the two art forms, music and image, have evolved in parallel, capturing the stories, the emotions and the persistent battle between melancholy and hope, between what is modern and what is traditional, a battle that remains alive in the digital universe we inhabit today.

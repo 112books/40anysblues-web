@@ -315,7 +315,7 @@ del parèntesi; si no, Espanya.
 procés (format mitjà 6×6 amb Hasselblad, gran format 8×10 amb Horseman,
 pel·lícules, revelat amb Rodinal) i enllaça amb els músics, la història i el
 projecte. Surt al peu de pàgina, a la portada, a l'índex del projecte i a la
-fitxa de Joan Linux. Les dades tècniques (Hasselblad 500 CM en 6×6, Horseman
+fitxa de Joan Linux. Les dades tècniques (Hasselblad 500 C/M en 6×6, Horseman
 en 8×10, Rollei RPX 100 / Ilford HP5 / Foma 100 i 400, revelador Rodinal) estan
 confirmades per l'autor l'11 de novembre de 2026.
 
