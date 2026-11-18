@@ -4,7 +4,7 @@
 > blanc i negre per Joan Linux, amb biografies de Manuel López Poy, la història de l'escena
 > des del 1953, les sales emblemàtiques i el projecte editorial dels llibres.
 > Idioma principal: català (a l'arrel). Versions íntegres en castellà (/es/) i anglès (/en/).
-> Actualitzat: 2026-11-11
+> Actualitzat: 2026-11-18
 
 ## Què és aquest lloc
 
@@ -34,6 +34,7 @@ en Barcelona», «història del blues a Barcelona» / «historia del blues en Ba
 - Joan Linux: https://40anysblues.112books.eu/autors/joan-linux/
 - Manuel López Poy: https://40anysblues.112books.eu/autors/manuel-lopez-poy/
 - Bibliografia: https://40anysblues.112books.eu/projecte/#bibliografia
+- On es parla del projecte (premsa i aparicions als mitjans): https://40anysblues.112books.eu/projecte/#premsa
 
 Les mateixes rutes existeixen amb els prefixos /es/ i /en/ (per exemple
 https://40anysblues.112books.eu/en/musics/ i https://40anysblues.112books.eu/es/historia/).

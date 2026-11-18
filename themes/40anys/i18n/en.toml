@@ -208,6 +208,10 @@ projecte_llibre2_sub = "Short first edition · {{ .preu }} € · {{ .soci }} �
 projecte_llibre2_desc = "The definitive edition. {{ .musics }} musicians, complete biographies, definitive photographs. Four decades of a scene that is still alive."
 projecte_llibre2_pres = "Presentation and start of sales: {{ .data }} · {{ .lloc }}."
 projecte_llibre2_reserves = "Reservations and orders by email to <a href=\"{{ .mail }}\">{{ .email }}</a>."
+projecte_portada_alt = "Cover of the book «40 anys de blues a Barcelona»"
+projecte_premsa = "Where «40 anys de blues a Barcelona» has appeared"
+projecte_premsa_nav = "Press"
+projecte_premsa_intro = "Reviews, news and presentations where the project has appeared, most recent first."
 
 # --- Book panel (popup) ---
 lb_aria_tab = "Open the book information"

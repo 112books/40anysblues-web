@@ -818,6 +818,56 @@ h1, h2, h3 { font-weight: 700; }
 .llibre-info p { font-size: .85rem; color: var(--text2); margin-top: .3rem; }
 .llibre-desc { color: var(--text) !important; }
 .llibre-isbn { font-size: .75rem !important; color: var(--text2) !important; }
+.llibre-info h3 a { color: inherit; }
+.llibre-info h3 a:hover { color: var(--accent-light); }
+.llibre-enllac { flex-shrink: 0; }
+
+/* Pròleg: portada flotant a la dreta del text de David Moreu */
+.projecte-proleg::after { content: ""; display: block; clear: both; }
+.projecte-proleg .page-content { max-width: none; }
+.projecte-proleg .page-content p { max-width: 72ch; }
+.proleg-portada {
+  float: right;
+  width: 400px;
+  margin: .4rem 0 1.75rem 2.5rem;
+}
+.proleg-portada img {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .5);
+}
+@media (max-width: 1150px) {
+  .proleg-portada { float: none; width: min(400px, 100%); margin: 0 auto 1.75rem; }
+  .projecte-proleg .page-content { max-width: 720px; }
+  .projecte-proleg .page-content p { max-width: none; }
+}
+
+/* On es parla del projecte (premsa) */
+.premsa-section { margin-bottom: 4rem; }
+.premsa-intro { font-size: .95rem; color: var(--text2); margin-bottom: 1.5rem; max-width: 60ch; }
+.premsa-llista { list-style: none; border-top: 1px solid var(--border); }
+.premsa-item {
+  display: grid;
+  grid-template-columns: 8rem 11rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: .9rem .25rem;
+  border-bottom: 1px solid var(--border);
+}
+.premsa-data { font-size: .85rem; color: var(--text2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.premsa-mitja {
+  font-size: .78rem; color: var(--accent-light);
+  text-transform: uppercase; letter-spacing: .05em; line-height: 1.4;
+}
+.premsa-titol { font-size: .98rem; line-height: 1.5; }
+.premsa-item:hover { background: var(--bg2); }
+@media (max-width: 700px) {
+  .premsa-item { grid-template-columns: 1fr; gap: .3rem; padding: .9rem .1rem; }
+  .premsa-data { order: 1; }
+  .premsa-mitja { order: 2; }
+  .premsa-titol { order: 3; }
+}
+
 
 /* Autors */
 .autors-section { margin-bottom: 4rem; }

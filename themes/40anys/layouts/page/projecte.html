@@ -15,6 +15,7 @@
           <a href="#autors">Els culpables</a>
           <a href="#gracies">Gràcies a</a>
           <a href="#bibliografia">Bibliografia</a>
+          <a href="#premsa">{{ i18n "projecte_premsa_nav" }}</a>
           <a href="{{ relLangURL "/fotografia/" }}">{{ i18n "nav_fotografia" }}</a>
         </nav>
       </aside>
@@ -24,7 +25,12 @@
 
         <h1>{{ .Title }}</h1>
 
-        <div class="page-content">{{ .Content }}</div>
+        <div class="projecte-proleg">
+          <figure class="proleg-portada">
+            <img src="/llibres/40anysbluesbarcelona.webp" width="400" height="566" alt="{{ i18n "projecte_portada_alt" }}">
+          </figure>
+          <div class="page-content">{{ .Content }}</div>
+        </div>
 
         <!-- El Projecte en Números -->
         <section class="stats-section" id="numeros">
@@ -62,9 +68,11 @@
           <h2>{{ i18n "projecte_llibres" }}</h2>
           <div class="llibres-grid">
             <div class="llibre-card">
-              <img src="/llibres/Preses-Falses.webp" width="600" height="842" alt="Preses Falses">
+              <a class="llibre-enllac" href="https://www.112books.eu/product/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener">
+                <img src="/llibres/Preses-Falses.webp" width="600" height="842" alt="Preses Falses">
+              </a>
               <div class="llibre-info">
-                <h3>Preses Falses</h3>
+                <h3><a href="https://www.112books.eu/product/preses-falses-40-anys-de-blues-a-barcelona/" target="_blank" rel="noopener">Preses Falses</a></h3>
                 <p>{{ i18n "projecte_llibre1_sub" }}</p>
                 <p class="llibre-desc">{{ i18n "projecte_llibre1_desc" }}</p>
                 <p class="llibre-isbn">ISBN 978-84-122960-7-5</p>
@@ -178,6 +186,24 @@
             </div>
             {{ end }}
           </div>
+        </section>
+        {{ end }}
+
+        <!-- On es parla del projecte -->
+        {{ $premsa := sort (hugo.Data.premsa | default slice) "data" "desc" }}
+        {{ if $premsa }}
+        <section class="premsa-section" id="premsa">
+          <h2>{{ i18n "projecte_premsa" }}</h2>
+          <p class="premsa-intro">{{ i18n "projecte_premsa_intro" }}</p>
+          <ul class="premsa-llista">
+            {{ range $premsa }}
+            <li class="premsa-item">
+              <time class="premsa-data" datetime="{{ .data }}">{{ time.Format ":date_medium" .data }}</time>
+              <span class="premsa-mitja">{{ .mitja }}</span>
+              <a class="premsa-titol" href="{{ .url }}" target="_blank" rel="noopener">{{ .titol }}</a>
+            </li>
+            {{ end }}
+          </ul>
         </section>
         {{ end }}
 

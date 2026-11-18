@@ -21,4 +21,4 @@ Writing about the blues in Barcelona also means writing about a city that does n
 
 And this is where we truly find Joan Linux’s merit as a photographer, because this book celebrates not only the bluesmen and blueswomen of Barcelona, but also the people who have made it possible, from the trenches of cultural activism, for the devil’s music to take deep root in our city and to grow like a beautiful baobab on the bank of a river. For those venturing into this genre for the first time, “40 anys de Blues a Barcelona” will be an invitation to connect with a scene which, to paraphrase Kerouac, “burns, burns like fabulous yellow rockets exploding like spiders among the stars”. For those who already carry the blues in their soul, it will be a mirror in which to find themselves again. And for everyone, it will be a reminder that the blues, like Barcelona, never stops reinventing itself. So come in, look, listen and let this centuries-old music do the work. The rest we can leave for tomorrow.
 
-_David Moreu_
+_[David Moreu](https://www.davidmoreu.com)_

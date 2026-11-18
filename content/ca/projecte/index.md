@@ -21,4 +21,4 @@ Escriure sobre el blues a Barcelona també significa escriure sobre una ciutat q
 
 I aquí és on realment trobem el mèrit de Joan Linux com a fotògraf, perquè aquest llibre no celebra únicament els bluesmen i blueswomen de Barcelona, sinó també les persones que han fet possible, des de les trinxeres de l’activisme cultural, que la música del diable arreli profundament a la nostra ciutat i creixi com un bell baobab a la riba d’un riu. Per als qui s’endinsin per primera vegada en aquest gènere, «40 anys de Blues a Barcelona» serà una invitació a connectar amb una escena que, parafrasejant Kerouac, «crema, crema com fabulosos coets grocs esclatant igual que aranyes entre les estrelles». Per als qui ja duen el blues a l’ànima, serà un mirall en el qual retrobar-se. I per a tots i totes, serà un recordatori que el blues, com  Barcelona, no deixa mai de reinventar-se. Així doncs, passeu, mireu, escolteu i deixeu que aquesta música centenària faci la feina. La resta de coses, les podem deixar per demà.
 
-_David Moreu_
+_[David Moreu](https://www.davidmoreu.com)_
