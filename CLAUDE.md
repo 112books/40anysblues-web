@@ -521,3 +521,21 @@ Sempre cursiva amb link a fitxa: `*[Manuel López Poy](/autors/manuel-lopez-poy/
 - [x] Tooltip Wikipedia per a músics externs referenciats a les bios
   (`partials/wiki-tooltip.html`)
 - [x] WebP + srcset per a imatges (parcial partials/img.html, variants 400/800/1400 px)
+
+### Idees a estudiar
+
+- [ ] **Còpies en paper dels retrats.** Estudiar com oferir còpies d'autor de les
+  fotografies dels músics: mides i tiratge, còpia química al laboratori o impressió
+  digital fine-art, signatura i certificat, emmarcat opcional, preu i enviament. Cal
+  decidir el canal (encàrrec per correu com el llibre, botiga de 112 Books o un apartat
+  nou al web) i si la fitxa de cada músic porta un enllaç «còpia en paper».
+  **Blocatge legal previ:** les cessions actuals són per al llibre i el web; vendre
+  còpies necessita un permís específic de cada músic (o dels hereus). Revisar els drets
+  d'imatge de les fitxes abans de publicar preus.
+- [ ] **Marxandatge.** Samarretes, bosses, postals o làmines amb els retrats i el
+  logotip del projecte: catàleg mínim de dues o tres peces, proveïdor i tècnica,
+  tirada curta de prova, preu i marge, cobrament a les presentacions o venda en línia.
+  Depèn del mateix permís d'imatge que les còpies.
+- Nota de treball amb el detall: `comunicacio/2026-11-18-idees-copies-marxandatge.md`
+  (fora del repo web).
+
